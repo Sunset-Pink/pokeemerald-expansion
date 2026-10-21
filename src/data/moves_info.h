@@ -651,6 +651,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_LEER},
         .battleAnimScript = gBattleAnimMove_Stomp,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_STOMP,
+#endif //CA_STRIKER
     },
 
     [MOVE_DOUBLE_KICK] =
@@ -675,6 +678,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_DoubleKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_DOUBLE_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_MEGA_KICK] =
@@ -698,6 +704,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_FOCUS_ENERGY, COMBO_STARTER_MIND_READER},
         .battleAnimScript = gBattleAnimMove_MegaKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_MEGA_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_JUMP_KICK] =
@@ -728,6 +737,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_MIND_READER},
         .battleAnimScript = gBattleAnimMove_JumpKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_JUMP_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_ROLLING_KICK] =
@@ -756,6 +768,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_RollingKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_ROLLING_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_SAND_ATTACK] =
@@ -1828,6 +1843,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_LowKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_LOW_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_COUNTER] =
@@ -3724,6 +3742,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_MIND_READER},
         .battleAnimScript = gBattleAnimMove_HighJumpKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_HIGH_JUMP_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_GLARE] =
@@ -4614,6 +4635,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_FOCUS_ENERGY},
         .battleAnimScript = gBattleAnimMove_TripleKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_TRIPLE_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_THIEF] =
@@ -8239,6 +8263,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY, COMBO_STARTER_FOCUS_ENERGY},
         .battleAnimScript = gBattleAnimMove_BlazeKick,
         .validApprenticeMove = TRUE,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_BLAZE_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_MUD_SPORT] =
@@ -16850,6 +16877,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_HighHorsepower,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_HIGH_HORSEPOWER,
+#endif //CA_STRIKER
     },
 
     [MOVE_STRENGTH_SAP] =
@@ -17382,6 +17412,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_TropKick,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_TROP_KICK,
+#endif //CA_STRIKER
     },
 
     [MOVE_INSTRUCT] =
@@ -18829,6 +18862,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_PyroBall,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_PYRO_BALL,
+#endif //CA_STRIKER
     },
 
     [MOVE_BEHEMOTH_BLADE] =
@@ -19666,6 +19702,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_TripleAxel,
+#if CA_STRIKER
+        .kickingMove = CA_STRIKER_TRIPLE_AXEL,
+#endif //CA_STRIKER
     },
 
     [MOVE_DUAL_WINGBEAT] =

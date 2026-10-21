@@ -135,6 +135,9 @@ struct MoveInfo
     bool32 windMove:1;
     bool32 slicingMove:1;
     bool32 healingMove:1;
+#if CA_STRIKER
+    bool32 kickingMove:1;
+#endif // CA_STRIKER
     bool32 minimizeDoubleDamage:1;
     // end of word
     bool32 ignoresTargetAbility:1;
@@ -380,6 +383,13 @@ static inline bool32 IsPunchingMove(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].punchingMove;
 }
+
+#if CA_STRIKER
+static inline bool32 IsKickingMove(enum Move moveId) 
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].kickingMove;
+}
+#endif //CA_STRIKER
 
 static inline bool32 IsBitingMove(enum Move moveId)
 {

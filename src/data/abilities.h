@@ -849,6 +849,15 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 6,
     },
 
+#if CA_STRIKER
+    [ABILITY_STRIKER] =
+    {
+        .name = _("Striker"),
+        .description = COMPOUND_STRING("Powers up kicking moves."),
+        .aiRating = 6,
+    },
+#endif //CA_STRIKER
+
     [ABILITY_POISON_HEAL] =
     {
         .name = _("Poison Heal"),

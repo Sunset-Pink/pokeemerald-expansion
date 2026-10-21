@@ -5508,6 +5508,77 @@ enum Type TrySetAteType(enum Move move, enum BattlerId battlerAtk, enum Ability 
     case ABILITY_DRAGONIZE:
         ateType = TYPE_DRAGON;
         break;
+#if CA_CONFLAGRATE
+    case ABILITY_CONFLAGRATE:
+        ateType = TYPE_FIRE;
+        break;
+#endif // CA_CONFLAGRATE
+
+#if CA_MOISTURIZE
+    case ABILITY_MOISTURIZE:
+        ateType = TYPE_WATER;
+        break;
+#endif // CA_MOISTURIZE
+
+#if CA_POLLINATE
+    case ABILITY_POLLINATE:
+        ateType = TYPE_GRASS;
+        break;
+#endif // CA_POLLINATE
+
+#if CA_EXERCIZE
+    case ABILITY_EXERCIZE:
+        ateType = TYPE_FIGHTING;
+        break;
+#endif // CA_EXERCIZE
+
+#if CA_CONTAMINATE
+    case ABILITY_CONTAMINATE:
+        ateType = TYPE_POISON;
+        break;
+#endif // CA_CONTAMINATE
+
+#if CA_ESCAVATE
+    case ABILITY_ESCAVATE:
+        ateType = TYPE_GROUND;
+        break;
+#endif // CA_ESCAVATE
+
+#if CA_PROPHESIZE
+    case ABILITY_PROPHESIZE:
+        ateType = TYPE_PSYCHIC;
+        break;
+#endif // CA_PROPHESIZE
+
+#if CA_PUPATE
+    case ABILITY_PUPATE:
+        ateType = TYPE_BUG;
+        break;
+#endif // CA_PUPATE
+
+#if CA_MINERALIZE
+    case ABILITY_MINERALIZE:
+        ateType = TYPE_ROCK;
+        break;
+#endif // CA_MINERALIZE
+
+#if CA_ENERVATE
+    case ABILITY_ENERVATE:
+        ateType = TYPE_GHOST;
+        break;
+#endif // CA_ENERVATE
+
+#if CA_TERRORIZE
+    case ABILITY_TERRORIZE:
+        ateType = TYPE_DARK;
+        break;
+#endif // CA_TERRORIZE
+
+#if CA_METALLICIZE
+    case ABILITY_METALLICIZE:
+        ateType = TYPE_STEEL;
+        break;
+#endif // CA_METALLICIZE
     default:
         ateType = TYPE_NONE;
         break;

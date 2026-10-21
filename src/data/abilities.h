@@ -1434,6 +1434,114 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 8,
     },
 
+#if CA_CONFLAGRATE
+    [ABILITY_CONFLAGRATE] =
+    {
+        .name = _("Conflagrate"),
+        .description = COMPOUND_STRING("Normal moves become Fire."),
+        .aiRating = 8,
+    },
+#endif // CA_CONFLAGRATE
+
+#if CA_MOISTURIZE
+    [ABILITY_MOISTURIZE] =
+    {
+        .name = _("Moisturize"),
+        .description = COMPOUND_STRING("Normal moves become Water."),
+        .aiRating = 8,
+    },
+#endif // CA_MOISTURIZE
+
+#if CA_POLLINATE
+    [ABILITY_POLLINATE] =
+    {
+        .name = _("Pollinate"),
+        .description = COMPOUND_STRING("Normal moves become Grass."),
+        .aiRating = 8,
+    },
+#endif // CA_POLLINATE
+
+#if CA_EXERCIZE
+    [ABILITY_EXERCIZE] =
+    {
+        .name = _("Exercize"),
+        .description = COMPOUND_STRING("Normal moves become Fighting."),
+        .aiRating = 8,
+    },
+#endif // CA_EXERCIZE
+
+#if CA_CONTAMINATE
+    [ABILITY_CONTAMINATE] =
+    {
+        .name = _("Contaminate"),
+        .description = COMPOUND_STRING("Normal moves become Poison."),
+        .aiRating = 8,
+    },
+#endif // CA_CONTAMINATE
+
+#if CA_ESCAVATE
+    [ABILITY_ESCAVATE] =
+    {
+        .name = _("Escavate"),
+        .description = COMPOUND_STRING("Normal moves become Ground."),
+        .aiRating = 8,
+    },
+#endif // CA_ESCAVATE
+
+#if CA_PROPHESIZE
+    [ABILITY_PROPHESIZE] =
+    {
+        .name = _("Prophesize"),
+        .description = COMPOUND_STRING("Normal moves become Psychic."),
+        .aiRating = 8,
+    },
+#endif // CA_PROPHESIZE
+
+#if CA_PUPATE
+    [ABILITY_PUPATE] =
+    {
+        .name = _("Pupate"),
+        .description = COMPOUND_STRING("Normal moves become Bug."),
+        .aiRating = 8,
+    },
+#endif // CA_PUPATE
+
+#if CA_MINERALIZE
+    [ABILITY_MINERALIZE] =
+    {
+        .name = _("Mineralize"),
+        .description = COMPOUND_STRING("Normal moves become Rock."),
+        .aiRating = 8,
+    },
+#endif // CA_MINERALIZE
+
+#if CA_ENERVATE
+    [ABILITY_ENERVATE] =
+    {
+        .name = _("Enervate"),
+        .description = COMPOUND_STRING("Normal moves become Ghost."),
+        .aiRating = 8,
+    },
+#endif // CA_ENERVATE
+
+#if CA_TERRORIZE
+    [ABILITY_TERRORIZE] =
+    {
+        .name = _("Terrorize"),
+        .description = COMPOUND_STRING("Normal moves become Dark."),
+        .aiRating = 8,
+    },
+#endif // CA_TERRORIZE
+
+#if CA_METALLICIZE
+    [ABILITY_METALLICIZE] =
+    {
+        .name = _("Metallicize"),
+        .description = COMPOUND_STRING("Normal moves become Steel."),
+        .aiRating = 8,
+    },
+#endif // CA_METALLICIZE
+
     [ABILITY_GOOEY] =
     {
         .name = _("Gooey"),

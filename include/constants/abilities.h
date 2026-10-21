@@ -1,6 +1,8 @@
 #ifndef GUARD_CONSTANTS_ABILITIES_H
 #define GUARD_CONSTANTS_ABILITIES_H
 
+#include "config/custom_abilities.h"
+
 enum __attribute__((packed)) Ability
 {
     ABILITY_NONE = 0,

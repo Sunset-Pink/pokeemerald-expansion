@@ -4395,11 +4395,11 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
     else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
         speed *= 2;
 #if CA_GRASSY_GALLOP
-    else if (ability == ABILITY_GRASSY_GALLOP && gFieldTimers.terrain = B_TERRAIN_GRASSY)
+    else if (ability == ABILITY_GRASSY_GALLOP && gFieldTimers.terrain == B_TERRAIN_GRASSY)
         speed *= 2;
 #endif //CA_GRASSY_GALLOP
 #if CA_MIST_WALKER
-    else if (ability == ABILITY_MIST_WALKER && gFieldTimers.terrain = B_TERRAIN_MISTY)
+    else if (ability == ABILITY_MIST_WALKER && gFieldTimers.terrain == B_TERRAIN_MISTY)
         speed *= 2;
 #endif //CA_MIST_WALKER
 #if CA_SYNAPSE_SURFER

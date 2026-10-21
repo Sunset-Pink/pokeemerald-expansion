@@ -1533,6 +1533,24 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 6,
     },
 
+#if CA_BLAZING_SOUL
+    [ABILITY_BLAZING_SOUL] =
+    {
+        .name = _("Blazing Soul"),
+        .description = COMPOUND_STRING("Fire moves have priority."),
+        .aiRating = 6,
+    },
+#endif //CA_BLAZING_SOUL
+
+#if CA_DRAKE_MOMENTUM
+    [ABILITY_DRAKE_MOMENTUM] =
+    {
+        .name = _("Drake Momentum"),
+        .description = COMPOUND_STRING("Dragon moves have priority."),
+        .aiRating = 6,
+    },
+#endif //CA_DRAKE_MOMENTUM
+
     [ABILITY_MEGA_LAUNCHER] =
     {
         .name = _("Mega Launcher"),

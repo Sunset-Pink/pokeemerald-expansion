@@ -4476,6 +4476,24 @@ s32 GetBattleMovePriority(enum BattlerId battler, enum Ability ability, enum Mov
     {
         priority++;
     }
+#if CA_BLAZING_SOUL
+    else if (ability == ABILITY_BLAZING_SOUL
+          && ((GetConfig(B_GALE_WINGS) < GEN_7) || IsBattlerAtMaxHp(battler))
+          && GetMoveType(move) == TYPE_FIRE)
+    {
+        priority++;
+    }
+#endif // CA_BLAZING
+
+#if CA_DRAKE_MOMENTUM
+    else if (ability == ABILITY_DRAKE_MOMENTUM
+          && ((GetConfig(B_GALE_WINGS) < GEN_7) || IsBattlerAtMaxHp(battler))
+          && GetMoveType(move) == TYPE_DRAGON)
+    {
+        priority++;
+    }
+#endif //CA_DRAKE_MOMENTUM
+
     else if (IsBattleMoveStatus(move) && IsAbilityAndRecord(battler, ability, ABILITY_PRANKSTER))
     {
         gProtectStructs[battler].pranksterElevated = 1;

@@ -50,4 +50,16 @@
 #define CA_TERRORIZE                     (CA_ENABLED && TRUE) //Dark Type
 #define CA_METALLICIZE                   (CA_ENABLED && TRUE) //Steel Type
 
+// Start Prioirty type abilities
+// Variant(s): Gale Wings
+
+// Fire Type Gale Wings
+// Inspiration/Source: Radical Red
+// Suggested users: Rapidash, Typhlosion
+#define CA_BLAZING_SOUL                  (CA_ENABLED && TRUE)
+
+// Dragon Type Gale Wings
+// Note wanted name "Draconic Momentum" but too long for ability name.
+#define CA_DRAKE_MOMENTUM             (CA_ENABLED && FALSE)
+
 #endif // GUARD_CUSTOM_ABILITIES_H

@@ -443,6 +443,12 @@ static enum FieldEffectOutcome BenefitsFromPsychicTerrain(enum BattlerId battler
     {
         // harass priority
         if (AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_GALE_WINGS)
+#if CA_BLAZING_SOUL
+         || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_BLAZING_SOUL)
+#endif //CA_BLAING_SOUL
+#if CA_DRAKE_MOMENTUM
+         || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_DRAKE_MOMENTUM)
+#endif //CA_DRAKE_MOMENTUM
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_TRIAGE)
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_PRANKSTER))
             return FIELD_EFFECT_POSITIVE;
@@ -456,6 +462,12 @@ static enum FieldEffectOutcome BenefitsFromPsychicTerrain(enum BattlerId battler
         return FIELD_EFFECT_NEGATIVE;
 
     if (AI_IsAbilityOnSide(battler, ABILITY_GALE_WINGS)
+#if CA_BLAZING_SOUL
+     || (CA_BLAZING_SOUL && AI_IsAbilityOnSide(battler, ABILITY_BLAZING_SOUL))
+#endif //CA_BLAZING_SOUL
+#if CA_DRAKE_MOMENTUM
+     || (CA_DRAKE_MOMENTUM && AI_IsAbilityOnSide(battler, ABILITY_DRAKE_MOMENTUM))
+#endif //CA_DRAKE_MOMENTUM
      || AI_IsAbilityOnSide(battler, ABILITY_TRIAGE)
      || AI_IsAbilityOnSide(battler, ABILITY_PRANKSTER))
         return FIELD_EFFECT_NEGATIVE;

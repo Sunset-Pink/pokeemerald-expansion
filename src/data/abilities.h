@@ -1626,6 +1626,31 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 4,
     },
 
+#if CA_GRASSY_GALLOP
+    [ABILITY_GRASSY_GALLOP] =
+    {
+        .name = _("Grassy Gallop"),
+        .description = COMPOUND_STRING("Grassy Terrain ups Speed."),
+        .aiRating = 4,
+    },
+#endif //CA_GRASSY_GALLOP
+#if CA_MIST_WALKER
+    [ABILITY_MIST_WALKER] =
+    {
+        .name = _("Mist Walker"),
+        .description = COMPOUND_STRING("Misty Terrain ups Speed."),
+        .aiRating = 4,
+    },
+#endif //CA_MIST_WALKER
+#if CA_SYNAPSE_SURFER
+    [ABILITY_SYNAPSE_SURFER] =
+    {
+        .name = _("Synapse Surfer"),
+        .description = COMPOUND_STRING("Psychic Terrain ups Speed."),
+        .aiRating = 4,
+    },
+#endif //CA_SYNAPSE_SURFER
+
     [ABILITY_SCHOOLING] =
     {
         .name = _("Schooling"),

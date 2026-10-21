@@ -201,8 +201,19 @@ static bool32 DoesAbilityBenefitFromTerrain(enum Ability ability, enum BattleTer
     case ABILITY_QUARK_DRIVE:
     case ABILITY_SURGE_SURFER:
         return terrain == B_TERRAIN_ELECTRIC;
+#if CA_GRASSY_GALLOP
+    case ABILITY_GRASSY_GALLOP:
+#endif //CA_GRASSY_GALLOP
     case ABILITY_GRASS_PELT:
         return terrain == B_TERRAIN_GRASSY;
+#if CA_MIST_WALKER
+    case ABILITY_MIST_WALKER:
+        return terrain == B_TERRAIN_MISTY
+#endif //CA_MIST_WALKER
+#if CA_SYNAPSE_SURFER
+    case ABILITY_SYNAPSE_SURFER:
+        return terrain == B_TERRAIN_PSYCHIC
+#endif //CA_SYNAPSE_SURFER
     // no abilities inherently benefit from Misty or Psychic Terrains
     // return terrain == B_TERRAIN_MISTY;
     // return terrain == B_TERRAIN_PSYCHIC;

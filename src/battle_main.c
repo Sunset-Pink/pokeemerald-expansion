@@ -4394,6 +4394,18 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
         speed *= 2;
+#if CA_GRASSY_GALLOP
+    else if (ability == ABILITY_GRASSY_GALLOP && gFieldTimers.terrain = B_TERRAIN_GRASSY)
+        speed *= 2;
+#endif //CA_GRASSY_GALLOP
+#if CA_MIST_WALKER
+    else if (ability == ABILITY_MIST_WALKER && gFieldTimers.terrain = B_TERRAIN_MISTY)
+        speed *= 2;
+#endif //CA_MIST_WALKER
+#if CA_SYNAPSE_SURFER
+    else if (ability == ABILITY_SYNAPSE_SURFER && gFieldTimers.terrain == B_TERRAIN_PSYCHIC)
+        speed *= 2;
+#endif //CA_SYNAPSE_SURFER
     else if (ability == ABILITY_SLOW_START && gBattleMons[battler].volatiles.slowStartTimer != 0)
         speed /= 2;
     else if ((ability == ABILITY_PROTOSYNTHESIS && !gBattleMons[battler].volatiles.transformed && weather & B_WEATHER_SUN) || gBattleMons[battler].volatiles.boosterEnergyActivated)

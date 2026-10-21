@@ -91,7 +91,7 @@
 // Psychic Terrain
 #define CA_SYNAPSE_SURFER  (CA_ENABLED && TRUE)
 // Grassy Terrain
-// Recommended Users: Deerling, Swasbuck
+// Recommended Users: Deerling, Sawsbuck
 #define CA_GRASSY_GALLOP   (CA_ENABLED && TRUE)
 
 #endif // GUARD_CUSTOM_ABILITIES_H

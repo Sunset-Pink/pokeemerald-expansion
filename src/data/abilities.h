@@ -306,6 +306,15 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 10,
     },
 
+#if CA_FELINE_PROWESS
+    [ABILITY_FELINE_PROWESS] = 
+    {
+        .name = _("Feline Prowess"),
+        .description = COMPOUND_STRING("Doubles Special Attack."),
+        .aiRating = 10,
+    },
+#endif // CA_FELINE_PROWESS
+
     [ABILITY_POISON_POINT] =
     {
         .name = _("Poison Point"),

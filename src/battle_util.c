@@ -6919,6 +6919,12 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
     // attacker's abilities
     switch (ctx->abilities[battlerAtk])
     {
+#if CA_FELINE_PROWESS
+    case ABILITY_FELINE_PROWESS:
+        if(IsBattleMoveSpecial(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        break;
+#endif
     case ABILITY_HUGE_POWER:
     case ABILITY_PURE_POWER:
         if (IsBattleMovePhysical(move))

@@ -6956,6 +6956,103 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (moveType == TYPE_GRASS && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
+#if CA_ADRENALINE
+    case ABILITY_ADRENALINE:
+        if (moveType == TYPE_NORMAL && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_ADRENALINE
+
+#if CA_VOLT
+    case ABILITY_VOLT:
+        if (moveType == TYPE_ELECTRIC && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_VOLT
+
+#if CA_SUBZERO
+    case ABILITY_SUBZERO:
+        if (moveType == TYPE_ICE && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_SUBZERO
+
+#if CA_UNDERDOG
+    case ABILITY_UNDERDOG:
+        if (moveType == TYPE_FIGHTING && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_UNDERDOG
+
+#if CA_INFECTION
+    case ABILITY_INFECTION:
+        if (moveType == TYPE_POISON && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_INFECTION
+
+#if CA_FAULT_LINE
+    case ABILITY_FAULT_LINE:
+        if (moveType == TYPE_GROUND && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_FAULT_LINE
+
+#if CA_FLOCK
+    case ABILITY_FLOCK:
+        if (moveType == TYPE_FLYING && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_CLOCK
+
+#if CA_REVELATION
+    case ABILITY_REVELATION:
+        if (moveType == TYPE_PSYCHIC && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_REVELATION
+
+#if CA_SEDIMENTARY
+    case ABILITY_SEDIMENTARY:
+        if (moveType == TYPE_ROCK && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_SEDIMENTARY
+
+#if CA_HAUNT
+    case ABILITY_HAUNT:
+        if (moveType == TYPE_GHOST && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_HAUNT
+
+#if CA_MYTHOLOGICAL
+    case ABILITY_MYTHOLOGICAL:
+        if (moveType == TYPE_DRAGON && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_MYTHOLOGICAL
+
+#if CA_ECLIPSE
+    case ABILITY_ECLIPSE:
+        if (moveType == TYPE_DARK && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_ECLIPSE
+
+#if CA_TEMPER
+    case ABILITY_TEMPER:
+        if (moveType == TYPE_STEEL && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_TEMPER
+
+#if CA_ENCHANT
+    case ABILITY_ENCHANT:
+        if (moveType == TYPE_FAIRY && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+#endif // CA_ENCHANT
     case ABILITY_PLUS:
         if (IsBattleMoveSpecial(move))
         {

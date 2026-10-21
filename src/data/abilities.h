@@ -551,6 +551,132 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 5,
     },
 
+#if CA_ADRENALINE
+    [ABILITY_ADRENALINE] =
+    {
+        .name = _("Adrenaline"),
+        .description = COMPOUND_STRING("Ups Normal moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_ADRENALINE
+
+#if CA_VOLT
+    [ABILITY_VOLT] =
+    {
+        .name = _("Volt"),
+        .description = COMPOUND_STRING("Ups Electric moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_VOLT
+
+#if CA_SUBZERO
+    [ABILITY_SUBZERO] =
+    {
+        .name = _("Subzero"),
+        .description = COMPOUND_STRING("Ups Ice moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_SUBZERO
+
+#if CA_UNDERDOG
+    [ABILITY_UNDERDOG] =
+    {
+        .name = _("Underdog"),
+        .description = COMPOUND_STRING("Ups Fighting moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_UNDERDOG
+
+#if CA_INFECTION
+    [ABILITY_INFECTION] =
+    {
+        .name = _("Infection"),
+        .description = COMPOUND_STRING("Ups Poison moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_INFECTION
+
+#if CA_FAULT_LINE
+    [ABILITY_FAULT_LINE] =
+    {
+        .name = _("Fault Line"),
+        .description = COMPOUND_STRING("Ups Ground moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_FAULT_LINE
+
+#if CA_FLOCK
+    [ABILITY_FLOCK] =
+    {
+        .name = _("Flock"),
+        .description = COMPOUND_STRING("Ups Flying moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_FAULT_LINE
+
+#if CA_REVELATION
+    [ABILITY_REVELATION] =
+    {
+        .name = _("Revelation"),
+        .description = COMPOUND_STRING("Ups Psychic moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_REVELATION
+
+#if CA_SEDIMENTARY
+    [ABILITY_SEDIMENTARY] =
+    {
+        .name = _("Sedimentary"),
+        .description = COMPOUND_STRING("Ups Rock moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_SEDIMENTARY
+
+#if CA_HAUNT
+    [ABILITY_HAUNT] =
+    {
+        .name = _("Haunt"),
+        .description = COMPOUND_STRING("Ups Ghost moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_HAUNT
+
+#if CA_MYTHOLOGICAL
+    [ABILITY_MYTHOLOGICAL] =
+    {
+        .name = _("Mythological"),
+        .description = COMPOUND_STRING("Ups Dragon moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_MYTHOLOGICAL
+
+#if CA_ECLIPSE
+    [ABILITY_ECLIPSE] =
+    {
+        .name = _("ECLIPSE"),
+        .description = COMPOUND_STRING("Ups Dark moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_ECLIPSE
+
+#if CA_TEMPER
+    [ABILITY_TEMPER] =
+    {
+        .name = _("Temper"),
+        .description = COMPOUND_STRING("Ups Steel moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_TEMPER
+
+#if CA_ENCHANT
+    [ABILITY_ENCHANT] =
+    {
+        .name = _("Encant"),
+        .description = COMPOUND_STRING("Ups Fairy moves at low HP."),
+        .aiRating = 5,
+    },
+#endif // CA_ENCHANT
+
     [ABILITY_ROCK_HEAD] =
     {
         .name = _("Rock Head"),

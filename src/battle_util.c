@@ -6650,6 +6650,90 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         if (moveType == TYPE_NORMAL && gBattleStruct->battlerState[battlerAtk].ateBoost && GetConfig(B_ATE_MULTIPLIER) >= GEN_7)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
+#if CA_CONFLAGRATE
+    case ABILITY_CONFLAGRATE:
+        if (moveType == TYPE_FIRE && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_CONFLAGRATE
+
+#if CA_MOISTURIZE
+    case ABILITY_MOISTURIZE:
+        if (moveType == TYPE_WATER && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_MOISTURIZE
+
+#if CA_POLLINATE
+    case ABILITY_POLLINATE:
+        if (moveType == TYPE_GRASS && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_POLLINATE
+
+#if CA_EXERCIZE
+    case ABILITY_EXERCIZE:
+        if (moveType == TYPE_FIGHTING && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_EXERCIZE
+
+#if CA_CONTAMINATE
+    case ABILITY_CONTAMINATE:
+        if (moveType == TYPE_POISON && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_CONTAMINATE
+
+#if CA_ESCAVATE
+    case ABILITY_ESCAVATE:
+        if (moveType == TYPE_GROUND && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_ESCAVATE
+
+#if CA_PROPHESIZE
+    case ABILITY_PROPHESIZE:
+        if (moveType == TYPE_PSYCHIC && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_PROPHESIZE
+
+#if CA_PUPATE
+    case ABILITY_PUPATE:
+        if (moveType == TYPE_BUG && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_PUPATE
+
+#if CA_MINERALIZE
+    case ABILITY_MINERALIZE:
+        if (moveType == TYPE_ROCK && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_MINERALIZE
+
+#if CA_ENERVATE
+    case ABILITY_ENERVATE:
+        if (moveType == TYPE_GHOST && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_ENERVATE
+
+#if CA_TERRORIZE
+    case ABILITY_TERRORIZE:
+        if (moveType == TYPE_DARK && gBattleStruct->battlerState[battlerAtk].ateBoost && GetConfig(B_ATE_MULTIPLIER) >= GEN_7)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_TERRORIZE
+
+#if CA_METALLICIZE
+    case ABILITY_METALLICIZE:
+        if (moveType == TYPE_STEEL && gBattleStruct->battlerState[battlerAtk].ateBoost && GetConfig(B_ATE_MULTIPLIER) >= GEN_7)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+#endif // CA_METALLICIZE
+        
     case ABILITY_PUNK_ROCK:
         if (IsSoundMove(move))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));

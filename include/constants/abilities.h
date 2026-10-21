@@ -1,6 +1,8 @@
 #ifndef GUARD_CONSTANTS_ABILITIES_H
 #define GUARD_CONSTANTS_ABILITIES_H
 
+#include "config/custom_abilities.h"
+
 enum __attribute__((packed)) Ability
 {
     ABILITY_NONE = 0,
@@ -342,7 +344,17 @@ enum __attribute__((packed)) Ability
     ABILITY_SPICY_SPRAY = 318,
     ABILITY_AURA_GUARD = 319,
     ABILITIES_COUNT_GEN9,
+#if CA_ENABLED
+
+#if CA_STRIKER
+    ABILITY_STRIKER,
+#endif // CA_STRIKER
+
+    ABILITIES_COUNT_CUSTOM_ABILITIES,
+    ABILITIES_COUNT = ABILITIES_COUNT_CUSTOM_ABILITIES,
+#else
     ABILITIES_COUNT = ABILITIES_COUNT_GEN9,
+#endif // CA_ENABLED
 };
 
 #endif  // GUARD_CONSTANTS_ABILITIES_H

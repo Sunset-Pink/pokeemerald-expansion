@@ -258,6 +258,7 @@
     F(AB_TRUANT_ALLOWS_HEALING_MOVES,    truantAllowsHealingMoves,      (u32, 1)) \
     F(AB_DEFEATIST_OVERRIDE,             defeatestOverride,             (u32, 1)) \
     F(AB_DEFEATIST_OVERRIDE_PERCENTAGE,  defeatistOverridePercentage,   (u32, 100)) \
+    F(AB_CORROSION_CAN_HIT_STEEL_TYPES,  corrosionCanHitSteelTypes,     (u32, 1)) \
 
 #define POKEMON_CONFIG_DEFINITIONS(F) \
     F(POKERUS_ENABLED,           pokerusEnabled,          (u32, TRUE))          \

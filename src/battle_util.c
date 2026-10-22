@@ -8310,6 +8310,17 @@ static inline void MulByTypeEffectiveness(struct DamageContext *ctx, uq4_12_t *m
     if (ctx->moveType == TYPE_STELLAR && GetActiveGimmick(ctx->battlerDef) == GIMMICK_TERA)
         mod = UQ_4_12(2.0);
 
+    if(GetConfig(AB_CORROSION_CAN_HIT_STEEL_TYPES) 
+      && ctx->moveType == TYPE_POISON 
+      && defType == TYPE_STEEL
+      && ctx->abilities[ctx->battlerAtk] == ABILITY_CORROSION
+      && mod == UQ_4_12(0.0))
+    {
+        mod = UQ_4_12(1.0);
+        if(ctx->updateFlags)
+            RecordAbilityBattle(ctx->battlerAtk, ctx->abilities[ctx->battlerAtk]);
+    }
+
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pokémon
     if (ctx->weather & B_WEATHER_STRONG_WINDS && !ctx->isAnticipation)
     {

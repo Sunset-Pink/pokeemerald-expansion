@@ -6995,7 +6995,8 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_DEFEATIST:
-        if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2))
+        if((GetConfig(AB_DEFEATIST_OVERRIDE) && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP * GetConfig(AB_DEFEATIST_OVERRIDE_PERCENTAGE)/ 100))
+          || (!GetConfig(AB_DEFEATIST_OVERRIDE) && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP /2)))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
         break;
     case ABILITY_FLASH_FIRE:

@@ -1442,7 +1442,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_DEFEATIST] =
     {
         .name = _("Defeatist"),
-        .description = COMPOUND_STRING("Halves offenses at half HP."),
+#if AB_DEFEATIST_OVERRIDE
+    .description = AB_DEFEATIST_DESCRIPTION_OVERRIDE,
+#else
+    .description = COMPOUND_STRING("Halves offenses at half HP."),
+#endif //
         .aiRating = -1,
     },
 

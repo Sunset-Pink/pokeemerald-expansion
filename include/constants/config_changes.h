@@ -256,6 +256,8 @@
     F(AB_ILLUMINATE_BUFFS_ACCURACY,      illuminateBuffsAccuracy,       (u32, 1)) \
     F(AB_INCUBATOR_ABILITY_BUFF,         incubatorBuff,                 (u32, 1)) \
     F(AB_TRUANT_ALLOWS_HEALING_MOVES,    truantAllowsHealingMoves,      (u32, 1)) \
+    F(AB_DEFEATIST_OVERRIDE,             defeatestOverride,             (u32, 1)) \
+    F(AB_DEFEATIST_OVERRIDE_PERCENTAGE,  defeatistOverridePercentage,   (u32, 100)) \
 
 #define POKEMON_CONFIG_DEFINITIONS(F) \
     F(POKERUS_ENABLED,           pokerusEnabled,          (u32, TRUE))          \

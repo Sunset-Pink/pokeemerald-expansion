@@ -307,9 +307,11 @@ static inline bool32 SetSwitchinAndSwitch(enum BattlerId battler, u32 switchinId
 static bool32 AI_DoesChoiceEffectBlockMove(enum BattlerId battler, enum Move move)
 {
     // Choice locked into something else
-    if (gAiLogicData->lastUsedMove[battler] != MOVE_NONE && gAiLogicData->lastUsedMove[battler] != move
-    && (IsHoldEffectChoice(GetBattlerHoldEffect(battler) && IsBattlerItemEnabled(battler))
-        || gAiLogicData->abilities[battler] == ABILITY_GORILLA_TACTICS))
+    if (gAiLogicData->lastUsedMove[battler] != MOVE_NONE 
+      && gAiLogicData->lastUsedMove[battler] != move
+      && (IsHoldEffectChoice(GetBattlerHoldEffect(battler) && IsBattlerItemEnabled(battler))
+        || gAiLogicData->abilities[battler] == ABILITY_GORILLA_TACTICS
+        || gAiLogicData->abilities[battler] == ABILITY_SAGE_POWER))
         return TRUE;
     return FALSE;
 }

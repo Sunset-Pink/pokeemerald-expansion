@@ -3847,6 +3847,9 @@ bool32 HasChoiceEffect(enum BattlerId battler)
     if (ability == ABILITY_GORILLA_TACTICS)
         return TRUE;
 
+    if (ability == ABILITY_SAGE_POWER)
+        return TRUE;
+
     if (ability == ABILITY_KLUTZ)
         return FALSE;
 

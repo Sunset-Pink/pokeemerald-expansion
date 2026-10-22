@@ -469,7 +469,26 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 4,
     },
 
-    // END STORTED
+    // 'Choice-like' abilities
+    // Variants:
+    //  - Atk    => Gorilla Tactics
+    //  - Sp Atk => Sage Power
+    [ABILITY_GORILLA_TACTICS] =
+    {
+        .name = _("Gorilla Tactics"),
+        .description = COMPOUND_STRING("Ups Attack and locks move."),
+        .aiRating = 4,
+    },
+
+    // Recommended Users: Panpour, Pansage, Pansear, Semipout, Semisage, Semisear
+    [ABILITY_SAGE_POWER] = 
+    {
+        .name = _("Sage Power"),
+        .description = COMPOUND_STRING("Ups Sp Atk and locks move."),
+        .aiRating = 4,
+    },
+
+    // END SORTED
 
 
     [ABILITY_STENCH] =
@@ -2365,13 +2384,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .name = _("Wandering Spirit"),
         .description = COMPOUND_STRING("Swaps Abilities on contact."),
         .aiRating = 2,
-    },
-
-    [ABILITY_GORILLA_TACTICS] =
-    {
-        .name = _("Gorilla Tactics"),
-        .description = COMPOUND_STRING("Ups Attack and locks move."),
-        .aiRating = 4,
     },
 
     [ABILITY_NEUTRALIZING_GAS] =

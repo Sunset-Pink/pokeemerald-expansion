@@ -6577,12 +6577,12 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         if (IsPunchingMove(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#if CA_STRIKER
     case ABILITY_STRIKER:
         if (IsKickingMove(move))
-            modifier = uq4_12_multiply(modifier, UQ_4_12(CA_STRIKER_BOOST));
+        {
+            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(AB_STRIKER_OVERRIDE) ? GetConfig(AB_STRIKER_OVERRIDE_BONUS) : 1.3));
+        }
         break;
-#endif //CA_STRIKER
     case ABILITY_SHEER_FORCE:
         if (MoveIsAffectedBySheerForce(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
@@ -6656,90 +6656,54 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         if (moveType == TYPE_NORMAL && gBattleStruct->battlerState[battlerAtk].ateBoost && GetConfig(B_ATE_MULTIPLIER) >= GEN_7)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#if CA_CONFLAGRATE
     case ABILITY_CONFLAGRATE:
         if (moveType == TYPE_FIRE && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_CONFLAGRATE
-
-#if CA_MOISTURIZE
     case ABILITY_MOISTURIZE:
         if (moveType == TYPE_WATER && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_MOISTURIZE
-
-#if CA_POLLINATE
     case ABILITY_POLLINATE:
         if (moveType == TYPE_GRASS && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_POLLINATE
-
-#if CA_EXERCIZE
     case ABILITY_EXERCIZE:
         if (moveType == TYPE_FIGHTING && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_EXERCIZE
-
-#if CA_CONTAMINATE
     case ABILITY_CONTAMINATE:
         if (moveType == TYPE_POISON && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_CONTAMINATE
-
-#if CA_ESCAVATE
     case ABILITY_ESCAVATE:
         if (moveType == TYPE_GROUND && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_ESCAVATE
-
-#if CA_PROPHESIZE
     case ABILITY_PROPHESIZE:
         if (moveType == TYPE_PSYCHIC && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_PROPHESIZE
-
-#if CA_PUPATE
     case ABILITY_PUPATE:
         if (moveType == TYPE_BUG && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_PUPATE
-
-#if CA_MINERALIZE
     case ABILITY_MINERALIZE:
         if (moveType == TYPE_ROCK && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_MINERALIZE
-
-#if CA_ENERVATE
     case ABILITY_ENERVATE:
         if (moveType == TYPE_GHOST && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_ENERVATE
-
-#if CA_TERRORIZE
     case ABILITY_TERRORIZE:
         if (moveType == TYPE_DARK && gBattleStruct->battlerState[battlerAtk].ateBoost && GetConfig(B_ATE_MULTIPLIER) >= GEN_7)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-#endif // CA_TERRORIZE
-
-#if CA_METALLICIZE
     case ABILITY_METALLICIZE:
         if (moveType == TYPE_STEEL && gBattleStruct->battlerState[battlerAtk].ateBoost && GetConfig(B_ATE_MULTIPLIER) >= GEN_7)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
-        break;
-#endif // CA_METALLICIZE
-        
+        break;        
     case ABILITY_PUNK_ROCK:
         if (IsSoundMove(move))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
@@ -7009,12 +6973,10 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
     // attacker's abilities
     switch (ctx->abilities[battlerAtk])
     {
-#if CA_FELINE_PROWESS
     case ABILITY_FELINE_PROWESS:
         if(IsBattleMoveSpecial(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
-#endif
     case ABILITY_HUGE_POWER:
     case ABILITY_PURE_POWER:
         if (IsBattleMovePhysical(move))
@@ -7052,103 +7014,62 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (moveType == TYPE_GRASS && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#if CA_ADRENALINE
     case ABILITY_ADRENALINE:
         if (moveType == TYPE_NORMAL && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_ADRENALINE
-
-#if CA_VOLT
     case ABILITY_VOLT:
         if (moveType == TYPE_ELECTRIC && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_VOLT
-
-#if CA_SUBZERO
     case ABILITY_SUBZERO:
         if (moveType == TYPE_ICE && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_SUBZERO
-
-#if CA_UNDERDOG
     case ABILITY_UNDERDOG:
         if (moveType == TYPE_FIGHTING && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_UNDERDOG
-
-#if CA_INFECTION
     case ABILITY_INFECTION:
         if (moveType == TYPE_POISON && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_INFECTION
-
-#if CA_FAULT_LINE
     case ABILITY_FAULT_LINE:
         if (moveType == TYPE_GROUND && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_FAULT_LINE
-
-#if CA_FLOCK
     case ABILITY_FLOCK:
         if (moveType == TYPE_FLYING && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_CLOCK
-
-#if CA_REVELATION
     case ABILITY_REVELATION:
         if (moveType == TYPE_PSYCHIC && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_REVELATION
-
-#if CA_SEDIMENTARY
     case ABILITY_SEDIMENTARY:
         if (moveType == TYPE_ROCK && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_SEDIMENTARY
-
-#if CA_HAUNT
     case ABILITY_HAUNT:
         if (moveType == TYPE_GHOST && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_HAUNT
-
-#if CA_MYTHOLOGICAL
     case ABILITY_MYTHOLOGICAL:
         if (moveType == TYPE_DRAGON && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_MYTHOLOGICAL
-
-#if CA_ECLIPSE
     case ABILITY_ECLIPSE:
         if (moveType == TYPE_DARK && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_ECLIPSE
-
-#if CA_TEMPER
     case ABILITY_TEMPER:
         if (moveType == TYPE_STEEL && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_TEMPER
-
-#if CA_ENCHANT
     case ABILITY_ENCHANT:
         if (moveType == TYPE_FAIRY && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-#endif // CA_ENCHANT
     case ABILITY_PLUS:
         if (IsBattleMoveSpecial(move))
         {

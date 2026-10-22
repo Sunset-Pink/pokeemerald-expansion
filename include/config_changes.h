@@ -5,7 +5,7 @@
 #include "config/battle.h"
 #include "config/pokerus.h"
 #include "config/ai.h"
-#include "config/custom_abilities.h"
+#include "config/abilities.h"
 
 #define UNPACK_CONFIG_STRUCT(_name, _field, _typeMaxValue, ...) INVOKE_WITH_(UNPACK_CONFIG_STRUCT_, _field, UNPACK_B(_typeMaxValue));
 #define UNPACK_CONFIG_STRUCT_(_field, _type, ...) _type FIRST(__VA_OPT__(_field:BIT_SIZE(FIRST(__VA_ARGS__)),) _field)
@@ -15,6 +15,7 @@ struct ConfigChanges
     BATTLE_CONFIG_DEFINITIONS(UNPACK_CONFIG_STRUCT)
     POKEMON_CONFIG_DEFINITIONS(UNPACK_CONFIG_STRUCT)
     AI_CONFIG_DEFINITIONS(UNPACK_CONFIG_STRUCT)
+    ABILITY_CONFIG_DEFINITIONS(UNPACK_CONFIG_STRUCT)
     // Expands to:
     // u32 critChance:4;
     // u32 critMultiplier:4;
@@ -28,13 +29,16 @@ extern struct ConfigChanges *gConfigChangesTestOverride;
 #define GET_CONFIG_VALUE(_field, _default) (_default)
 #endif
 
+#define UNPACK_ABILITY_CONFIG_GETTER(_name, _field, ...) static inline u32 GetConfig_##_name(void) { return GET_CONFIG_VALUE(_field, _name); }
 #define UNPACK_BATTLE_CONFIG_GETTER(_name, _field, ...) static inline u32 GetConfig_##_name(void) { return GET_CONFIG_VALUE(_field, _name); }
 #define UNPACK_POKEMON_CONFIG_GETTER(_name, _field, ...) static inline u32 GetConfig_##_name(void) { return GET_CONFIG_VALUE(_field, P_##_name); }
 
+ABILITY_CONFIG_DEFINITIONS(UNPACK_ABILITY_CONFIG_GETTER)
 BATTLE_CONFIG_DEFINITIONS(UNPACK_BATTLE_CONFIG_GETTER)
 POKEMON_CONFIG_DEFINITIONS(UNPACK_POKEMON_CONFIG_GETTER)
 AI_CONFIG_DEFINITIONS(UNPACK_BATTLE_CONFIG_GETTER)
 
+#undef UNPACK_ABILITY_CONFIG_GETTER
 #undef UNPACK_BATTLE_CONFIG_GETTER
 #undef UNPACK_POKEMON_CONFIG_GETTER
 #undef GET_CONFIG_VALUE

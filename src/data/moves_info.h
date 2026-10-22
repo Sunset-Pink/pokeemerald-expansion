@@ -128,7 +128,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .multiHit = TRUE,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_COMET_PUNCH,
         .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_QUALITY_DEPENDS_ON_TIMING : CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
@@ -151,7 +151,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_MEGA_PUNCH,
         .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_REPETITION_NOT_BORING : CONTEST_EFFECT_HIGHLY_APPEALING,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
@@ -199,7 +199,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_FIRE_PUNCH,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_BURN,
             .chance = 10,
@@ -231,7 +231,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_ICE_PUNCH,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
             .chance = 10,
@@ -259,7 +259,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_THUNDER_PUNCH,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_PARALYSIS,
             .chance = 10,
@@ -651,9 +651,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_LEER},
         .battleAnimScript = gBattleAnimMove_Stomp,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_STOMP,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_STOMP,
     },
 
     [MOVE_DOUBLE_KICK] =
@@ -678,9 +676,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_DoubleKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_DOUBLE_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_DOUBLE_KICK,
     },
 
     [MOVE_MEGA_KICK] =
@@ -704,9 +700,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_FOCUS_ENERGY, COMBO_STARTER_MIND_READER},
         .battleAnimScript = gBattleAnimMove_MegaKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_MEGA_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_MEGA_KICK,
     },
 
     [MOVE_JUMP_KICK] =
@@ -737,9 +731,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_MIND_READER},
         .battleAnimScript = gBattleAnimMove_JumpKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_JUMP_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_JUMP_KICK,
     },
 
     [MOVE_ROLLING_KICK] =
@@ -768,9 +760,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_RollingKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_ROLLING_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_ROLLING_KICK,
     },
 
     [MOVE_SAND_ATTACK] =
@@ -1843,9 +1833,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_LowKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_LOW_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_LOW_KICK,
     },
 
     [MOVE_COUNTER] =
@@ -3742,9 +3730,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_MIND_READER},
         .battleAnimScript = gBattleAnimMove_HighJumpKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_HIGH_JUMP_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_HIGH_JUMP_KICK,
     },
 
     [MOVE_GLARE] =
@@ -4034,7 +4020,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_DIZZY_PUNCH,
         .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_SHIFT_JUDGE_ATTENTION : CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
@@ -4635,9 +4621,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_FOCUS_ENERGY},
         .battleAnimScript = gBattleAnimMove_TripleKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_TRIPLE_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_TRIPLE_KICK,
     },
 
     [MOVE_THIEF] =
@@ -5068,7 +5052,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 1,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_MACH_PUNCH,
         .contestEffect = CONTEST_EFFECT_NEXT_APPEAL_EARLIER,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
@@ -6137,7 +6121,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_DYNAMIC_PUNCH,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_CONFUSION,
             .chance = 100,
@@ -7279,7 +7263,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .mirrorMoveBanned = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_FOCUS_PUNCH,
         .meFirstBanned = TRUE,
         .sleepTalkBanned = TRUE,
         .metronomeBanned = TRUE,
@@ -8263,9 +8247,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY, COMBO_STARTER_FOCUS_ENERGY},
         .battleAnimScript = gBattleAnimMove_BlazeKick,
         .validApprenticeMove = TRUE,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_BLAZE_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_BLAZE_KICK,
     },
 
     [MOVE_MUD_SPORT] =
@@ -8536,7 +8518,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_METEOR_MASH,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_STAT_PLUS,
             .attack = 1,
@@ -8977,7 +8959,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_SHADOW_PUNCH,
         .contestEffect = CONTEST_EFFECT_BETTER_IF_FIRST,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
@@ -9028,7 +9010,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_SKY_UPPERCUT,
         .damagesAirborne = TRUE,
         .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
         .contestCategory = CONTEST_CATEGORY_COOL,
@@ -9896,7 +9878,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_HAMMER_ARM,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_STAT_MINUS,
             .speed = 1,
@@ -10642,6 +10624,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_SuckerPunch,
+        .punchingMove = AB_IRON_FIST_SUCKER_PUNCH
     },
 
     [MOVE_TOXIC_SPIKES] =
@@ -11133,7 +11116,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_DRAIN_PUNCH,
         .healingMove = B_HEAL_BLOCKING >= GEN_6,
         .contestEffect = CONTEST_EFFECT_APPEAL_AS_GOOD_AS_PREV_ONE,
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_TOUGH : CONTEST_CATEGORY_BEAUTY,
@@ -11371,7 +11354,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 1,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_BULLET_PUNCH,
         .contestEffect = CONTEST_EFFECT_NEXT_APPEAL_EARLIER,
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_TOUGH : CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
@@ -16405,7 +16388,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_POWER_UP_PUNCH,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_STAT_PLUS,
             .attack = 1,
@@ -16818,7 +16801,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_ICE_HAMMER,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_STAT_MINUS,
             .speed = 1,
@@ -16877,9 +16860,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_HighHorsepower,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_HIGH_HORSEPOWER,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_HIGH_HORSEPOWER,
     },
 
     [MOVE_STRENGTH_SAP] =
@@ -17412,9 +17393,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_TropKick,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_TROP_KICK,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_TROP_KICK,
     },
 
     [MOVE_INSTRUCT] =
@@ -17996,7 +17975,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_PLASMA_FIST,
         .metronomeBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_WORSEN_CONDITION_OF_PREV_MONS,
         .contestCategory = CONTEST_CATEGORY_COOL,
@@ -18355,7 +18334,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_DOUBLE_IRON_BASH,
         .strikeCount = 2,
         .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
@@ -18862,9 +18841,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_PyroBall,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_PYRO_BALL,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_PYRO_BALL,
     },
 
     [MOVE_BEHEMOTH_BLADE] =
@@ -19702,9 +19679,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_TripleAxel,
-#if CA_STRIKER
-        .kickingMove = CA_STRIKER_TRIPLE_AXEL,
-#endif //CA_STRIKER
+        .kickingMove = AB_STRIKER_TRIPLE_AXEL,
     },
 
     [MOVE_DUAL_WINGBEAT] =
@@ -19798,7 +19773,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .alwaysCriticalHit = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_WICKED_BLOW,
         .metronomeBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
         .contestCategory = CONTEST_CATEGORY_COOL,
@@ -19823,7 +19798,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .alwaysCriticalHit = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_SURGING_STRIKES,
         .strikeCount = 3,
         .metronomeBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
@@ -20304,7 +20279,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_HEADLONG_RUSH,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_STAT_MINUS,
             .defense = 1,
@@ -20738,7 +20713,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 1,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_JET_PUNCH,
         .metronomeBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_NEXT_APPEAL_EARLIER,
         .contestComboStarterId = 0,
@@ -21424,7 +21399,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = AB_IRON_FIST_RAGE_FIST,
         .metronomeBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_RageFist,
     },
@@ -21495,7 +21470,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = B_UPDATED_MOVE_FLAGS >= GEN_CHAMPIONS,
+        .punchingMove = B_UPDATED_MOVE_FLAGS >= GEN_CHAMPIONS || AB_IRON_FIST_DOUBLE_SHOCK,
         .metronomeBanned = TRUE,
         .argument = { .type = TYPE_ELECTRIC },
         .additionalEffects = ADDITIONAL_EFFECTS({

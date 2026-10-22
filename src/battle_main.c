@@ -4394,18 +4394,12 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
         speed *= 2;
-#if CA_GRASSY_GALLOP
     else if (ability == ABILITY_GRASSY_GALLOP && gFieldTimers.terrain == B_TERRAIN_GRASSY)
         speed *= 2;
-#endif //CA_GRASSY_GALLOP
-#if CA_MIST_WALKER
     else if (ability == ABILITY_MIST_WALKER && gFieldTimers.terrain == B_TERRAIN_MISTY)
         speed *= 2;
-#endif //CA_MIST_WALKER
-#if CA_SYNAPSE_SURFER
     else if (ability == ABILITY_SYNAPSE_SURFER && gFieldTimers.terrain == B_TERRAIN_PSYCHIC)
         speed *= 2;
-#endif //CA_SYNAPSE_SURFER
     else if (ability == ABILITY_SLOW_START && gBattleMons[battler].volatiles.slowStartTimer != 0)
         speed /= 2;
     else if ((ability == ABILITY_PROTOSYNTHESIS && !gBattleMons[battler].volatiles.transformed && weather & B_WEATHER_SUN) || gBattleMons[battler].volatiles.boosterEnergyActivated)
@@ -4488,23 +4482,18 @@ s32 GetBattleMovePriority(enum BattlerId battler, enum Ability ability, enum Mov
     {
         priority++;
     }
-#if CA_BLAZING_SOUL
     else if (ability == ABILITY_BLAZING_SOUL
           && ((GetConfig(B_GALE_WINGS) < GEN_7) || IsBattlerAtMaxHp(battler))
           && GetMoveType(move) == TYPE_FIRE)
     {
         priority++;
     }
-#endif // CA_BLAZING
-
-#if CA_DRAKE_MOMENTUM
     else if (ability == ABILITY_DRAKE_MOMENTUM
           && ((GetConfig(B_GALE_WINGS) < GEN_7) || IsBattlerAtMaxHp(battler))
           && GetMoveType(move) == TYPE_DRAGON)
     {
         priority++;
     }
-#endif //CA_DRAKE_MOMENTUM
 
     else if (IsBattleMoveStatus(move) && IsAbilityAndRecord(battler, ability, ABILITY_PRANKSTER))
     {
@@ -5538,77 +5527,42 @@ enum Type TrySetAteType(enum Move move, enum BattlerId battlerAtk, enum Ability 
     case ABILITY_DRAGONIZE:
         ateType = TYPE_DRAGON;
         break;
-#if CA_CONFLAGRATE
     case ABILITY_CONFLAGRATE:
         ateType = TYPE_FIRE;
         break;
-#endif // CA_CONFLAGRATE
-
-#if CA_MOISTURIZE
     case ABILITY_MOISTURIZE:
         ateType = TYPE_WATER;
         break;
-#endif // CA_MOISTURIZE
-
-#if CA_POLLINATE
     case ABILITY_POLLINATE:
         ateType = TYPE_GRASS;
         break;
-#endif // CA_POLLINATE
-
-#if CA_EXERCIZE
     case ABILITY_EXERCIZE:
         ateType = TYPE_FIGHTING;
         break;
-#endif // CA_EXERCIZE
-
-#if CA_CONTAMINATE
     case ABILITY_CONTAMINATE:
         ateType = TYPE_POISON;
         break;
-#endif // CA_CONTAMINATE
-
-#if CA_ESCAVATE
     case ABILITY_ESCAVATE:
         ateType = TYPE_GROUND;
         break;
-#endif // CA_ESCAVATE
-
-#if CA_PROPHESIZE
     case ABILITY_PROPHESIZE:
         ateType = TYPE_PSYCHIC;
         break;
-#endif // CA_PROPHESIZE
-
-#if CA_PUPATE
     case ABILITY_PUPATE:
         ateType = TYPE_BUG;
         break;
-#endif // CA_PUPATE
-
-#if CA_MINERALIZE
     case ABILITY_MINERALIZE:
         ateType = TYPE_ROCK;
         break;
-#endif // CA_MINERALIZE
-
-#if CA_ENERVATE
     case ABILITY_ENERVATE:
         ateType = TYPE_GHOST;
         break;
-#endif // CA_ENERVATE
-
-#if CA_TERRORIZE
     case ABILITY_TERRORIZE:
         ateType = TYPE_DARK;
         break;
-#endif // CA_TERRORIZE
-
-#if CA_METALLICIZE
     case ABILITY_METALLICIZE:
         ateType = TYPE_STEEL;
         break;
-#endif // CA_METALLICIZE
     default:
         ateType = TYPE_NONE;
         break;

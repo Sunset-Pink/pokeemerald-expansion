@@ -201,22 +201,13 @@ static bool32 DoesAbilityBenefitFromTerrain(enum Ability ability, enum BattleTer
     case ABILITY_QUARK_DRIVE:
     case ABILITY_SURGE_SURFER:
         return terrain == B_TERRAIN_ELECTRIC;
-#if CA_GRASSY_GALLOP
     case ABILITY_GRASSY_GALLOP:
-#endif //CA_GRASSY_GALLOP
     case ABILITY_GRASS_PELT:
         return terrain == B_TERRAIN_GRASSY;
-#if CA_MIST_WALKER
     case ABILITY_MIST_WALKER:
         return terrain == B_TERRAIN_MISTY;
-#endif //CA_MIST_WALKER
-#if CA_SYNAPSE_SURFER
     case ABILITY_SYNAPSE_SURFER:
         return terrain == B_TERRAIN_PSYCHIC;
-#endif //CA_SYNAPSE_SURFER
-    // no abilities inherently benefit from Misty or Psychic Terrains
-    // return terrain == B_TERRAIN_MISTY;
-    // return terrain == B_TERRAIN_PSYCHIC;
     default:
         break;
     }
@@ -454,12 +445,8 @@ static enum FieldEffectOutcome BenefitsFromPsychicTerrain(enum BattlerId battler
     {
         // harass priority
         if (AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_GALE_WINGS)
-#if CA_BLAZING_SOUL
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_BLAZING_SOUL)
-#endif //CA_BLAING_SOUL
-#if CA_DRAKE_MOMENTUM
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_DRAKE_MOMENTUM)
-#endif //CA_DRAKE_MOMENTUM
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_TRIAGE)
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_PRANKSTER))
             return FIELD_EFFECT_POSITIVE;
@@ -473,12 +460,8 @@ static enum FieldEffectOutcome BenefitsFromPsychicTerrain(enum BattlerId battler
         return FIELD_EFFECT_NEGATIVE;
 
     if (AI_IsAbilityOnSide(battler, ABILITY_GALE_WINGS)
-#if CA_BLAZING_SOUL
-     || (CA_BLAZING_SOUL && AI_IsAbilityOnSide(battler, ABILITY_BLAZING_SOUL))
-#endif //CA_BLAZING_SOUL
-#if CA_DRAKE_MOMENTUM
-     || (CA_DRAKE_MOMENTUM && AI_IsAbilityOnSide(battler, ABILITY_DRAKE_MOMENTUM))
-#endif //CA_DRAKE_MOMENTUM
+     || AI_IsAbilityOnSide(battler, ABILITY_BLAZING_SOUL)
+     || AI_IsAbilityOnSide(battler, ABILITY_DRAKE_MOMENTUM)
      || AI_IsAbilityOnSide(battler, ABILITY_TRIAGE)
      || AI_IsAbilityOnSide(battler, ABILITY_PRANKSTER))
         return FIELD_EFFECT_NEGATIVE;

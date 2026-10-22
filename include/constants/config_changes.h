@@ -252,9 +252,10 @@
     F(B_MULTI_BATTLE_WHITEOUT,     multiBattleWhiteout,     (u32, GEN_COUNT - 1)) \
 
 #define ABILITY_CONFIG_DEFINITIONS(F) \
-    F(AB_STRIKER_OVERRIDE,          strikerOverride,         (u32, TRUE)) \
-    F(AB_ILLUMINATE_BUFFS_ACCURACY, illuminateBuffsAccuracy, (u32, TRUE)) \
-    F(AB_INCUBATOR_ABILITY_BUFF,    incubatorBuff,           (u32, TRUE))
+    F(AB_STRIKER_OVERRIDE,               strikerOverride,               (u32, 1)) \
+    F(AB_ILLUMINATE_BUFFS_ACCURACY,      illuminateBuffsAccuracy,       (u32, 1)) \
+    F(AB_INCUBATOR_ABILITY_BUFF,         incubatorBuff,                 (u32, 1)) \
+    F(AB_TRUANT_ALLOWS_HEALING_MOVES,    truantAllowsHealingMoves,      (u32, 1)) \
 
 #define POKEMON_CONFIG_DEFINITIONS(F) \
     F(POKERUS_ENABLED,           pokerusEnabled,          (u32, TRUE))          \

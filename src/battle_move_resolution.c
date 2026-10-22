@@ -267,7 +267,9 @@ static enum CancelerResult CancelerPowerPoints(struct BattleCalcValues *cv)
 
 static enum CancelerResult CancelerTruant(struct BattleCalcValues *cv)
 {
-    if (GetBattlerAbility(cv->battlerAtk) == ABILITY_TRUANT && gBattleMons[cv->battlerAtk].volatiles.truantCounter)
+    if (GetBattlerAbility(cv->battlerAtk) == ABILITY_TRUANT 
+      && gBattleMons[cv->battlerAtk].volatiles.truantCounter 
+      && !(GetConfig(AB_TRUANT_ALLOWS_HEALING_MOVES) && IsHealingMove(cv->move)))
     {
         CancelMultiTurnMoves(cv->battlerAtk);
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;

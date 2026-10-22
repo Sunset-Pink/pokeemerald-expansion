@@ -537,7 +537,7 @@ static bool32 HandleEndTurnPoison(enum BattlerId battler)
 
     if (IsBattlerPresent(battler) && (gBattleMons[battler].status1 & STATUS1_POISON || isToxicPoison))
     {
-        if (IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD) || IsAbilityAndRecord(battler, ability, ABILITY_TOXIC_BOOST))
+        if (IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD) || (GetConfig(AB_FLARE_BOOST_PREVENT_DAMAGE) && IsAbilityAndRecord(battler, ability, ABILITY_TOXIC_BOOST)))
         {
             if (isToxicPoison && (gBattleMons[battler].status1 & STATUS1_TOXIC_COUNTER) != STATUS1_TOXIC_TURN(15)) // not 16 turns
                 gBattleMons[battler].status1 += STATUS1_TOXIC_TURN(1);
@@ -585,7 +585,7 @@ static bool32 HandleEndTurnBurn(enum BattlerId battler)
     if (gBattleMons[battler].status1 & STATUS1_BURN
      && IsBattlerPresent(battler)
      && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
-     && !IsAbilityAndRecord(battler, ability, ABILITY_FLARE_BOOST))
+     && !(GetConfig(AB_FLARE_BOOST_PREVENT_DAMAGE) && IsAbilityAndRecord(battler, ability, ABILITY_FLARE_BOOST)))
     {
         s32 burnDamage = GetNonDynamaxMaxHP(battler) / ((GetConfig(B_BURN_DAMAGE) >= GEN_7 || GetConfig(B_BURN_DAMAGE) == GEN_1) ? 16 : 8);
         if (ability == ABILITY_HEATPROOF)

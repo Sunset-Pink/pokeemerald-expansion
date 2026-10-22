@@ -10,20 +10,26 @@
 #define AB_ILLUMINATE_BUFFS_ACCURACY       FALSE // If True, will make Illuminate buff accuracy by the boosted amount. Similiar to Radical Red.
 #define AB_ILLUMINATE_ACCURACY_BOOST         120
 
-// Incubator Ability Configuration
+// Incubator Configuration
 #define AB_INCUBATOR_ABILITY_BUFF           FALSE // If True, will make incubator abilities more effect.
 #define AB_INCUBATOR_ABILITY_BOOST              3 // This number gets 1 added to it, so it is (X+1)x effective.
 
-// Trauant Ability Configuration
+// Trauant Configuration
 #define AB_TRUANT_ALLOWS_HEALING_MOVES      FALSE // If true, healing moves can be used on truant turns.
 
-// Defeatest Ability Configuration
+// Defeatest Configuration
 #define AB_DEFEATIST_OVERRIDE               FALSE // If true, defatest will activate when bellow over percentage
 #define AB_DEFEATIST_OVERRIDE_PERCENTAGE      33 // X/100, Default to 33% like Radical Red.
 #define AB_DEFEATIST_DESCRIPTION_OVERRIDE   COMPOUND_STRING("Halves offenses at 1/3 HP.")
 
-// Corrosion Ability Configuration
+// Corrosion Configuration
 #define AB_CORROSION_CAN_HIT_STEEL_TYPES    FALSE // If true, Pokemon with corrosion can hit steel types with poison type moves. Not just poison status.
+
+// Toxic Boost Configuration
+#define AB_TOXIC_BOOST_PREVENT_DAMAGE       FALSE // If true, Pokemon with Toxic Boost do not take poison damage.
+
+// Flare Boost Configuration
+#define AB_FLARE_BOST_PREVENT_DAMAGE        FALSE // If true, Pokemon with Flare Boost do not take burn damage.
 
 // Iron Fist Configuration
 #define AB_IRON_FIST_OVERRIDE               FALSE // If True, will make Striker use the override bonus instead of default (1.2x)

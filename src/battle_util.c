@@ -10626,6 +10626,10 @@ u32 GetTotalAccuracy(struct BattleCalcValues *cv, u32 weather)
     // Attacker's ability
     switch (cv->abilities[battlerAtk])
     {
+    case ABILITY_ILLUMINATE:
+        if(GetConfig(AB_ILLUMINATE_BUFFS_ACCURACY))
+            calc = (calc * AB_ILLUMINATE_ACCURACY_BOOST) / 100;
+        break;
     case ABILITY_COMPOUND_EYES:
         calc = (calc * 130) / 100; // 1.3 compound eyes boost
         break;

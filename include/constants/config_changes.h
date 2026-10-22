@@ -252,9 +252,9 @@
     F(B_MULTI_BATTLE_WHITEOUT,     multiBattleWhiteout,     (u32, GEN_COUNT - 1)) \
 
 #define ABILITY_CONFIG_DEFINITIONS(F) \
-    F(AB_STRIKER_OVERRIDE,         strikerOverride,         (u32, TRUE)) \
-    F(AB_STRIKER_OVERRIDE_BONUS,   strikerOverrideBonus,    (u32, TRUE)) \
-
+    F(AB_STRIKER_OVERRIDE,          strikerOverride,         (u32, TRUE)) \
+    F(AB_STRIKER_OVERRIDE_BONUS,    strikerOverrideBonus,    (u32, TRUE)) \
+    F(AB_ILLUMINATE_BUFFS_ACCURACY, illuminateBuffsAccuracy, (u32, TRUE)) \
 
 #define POKEMON_CONFIG_DEFINITIONS(F) \
     F(POKERUS_ENABLED,           pokerusEnabled,          (u32, TRUE))          \

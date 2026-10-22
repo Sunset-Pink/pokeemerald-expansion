@@ -763,7 +763,9 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Illuminate"),
         .description = 
-        #if B_ILLUMINATE_EFFECT >= GEN_9
+        #if AB_ILLUMINATE_BUFFS_ACCURACY
+            COMPOUND_STRING("Raises accuracy by 20%.")
+        #elif B_ILLUMINATE_EFFECT >= GEN_9
             COMPOUND_STRING("Accuracy can't be lowered."),
         #else
             COMPOUND_STRING("Encounter rate increases."),

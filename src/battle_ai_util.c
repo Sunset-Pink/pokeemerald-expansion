@@ -6013,6 +6013,12 @@ enum AIScore BattlerBenefitsFromAbilityScore(enum BattlerId battler, enum Abilit
     case ABILITY_WHITE_SMOKE:
         return GOOD_EFFECT;
     // Conditional ability logic goes here.
+
+    case ABILITY_ILLUMINATE:
+        if(GetConfig(AB_ILLUMINATE_BUFFS_ACCURACY) 
+            && (HasMoveWithLowAccuracy(battler, GetBattlerLeftFoe(battler), 90, FALSE) || HasMoveWithLowAccuracy(battler, GetBattlerRightFoe(battler), 90, FALSE)))
+            return GOOD_EFFECT;
+        break;
     case ABILITY_COMPOUND_EYES:
         if (HasMoveWithLowAccuracy(battler, GetBattlerLeftFoe(battler), 90, FALSE)
          || HasMoveWithLowAccuracy(battler, GetBattlerRightFoe(battler), 90, FALSE))

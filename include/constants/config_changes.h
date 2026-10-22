@@ -261,6 +261,7 @@
     F(AB_CORROSION_CAN_HIT_STEEL_TYPES,         corrosionCanHitSteelTypes,     (u32, 1)) \
     F(AB_FLARE_BOOST_PREVENT_DAMAGE,            flareBoostPreventsDamage,      (u32, 1)) \
     F(AB_TOXIC_BOOST_PREVENT_DAMAGE,            toxicBoostPreventsDamage,      (u32, 1)) \
+    F(AB_ILLUSION_BUFFS_ATTACKS,                illusionBuffsAttacks,          (u32, 1)) \
 
 #define POKEMON_CONFIG_DEFINITIONS(F) \
     F(POKERUS_ENABLED,           pokerusEnabled,          (u32, TRUE))          \

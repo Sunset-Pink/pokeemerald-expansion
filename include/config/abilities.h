@@ -29,7 +29,11 @@
 #define AB_TOXIC_BOOST_PREVENT_DAMAGE       FALSE // If true, Pokemon with Toxic Boost do not take poison damage.
 
 // Flare Boost Configuration
-#define AB_FLARE_BOOST_PREVENT_DAMAGE        FALSE // If true, Pokemon with Flare Boost do not take burn damage.
+#define AB_FLARE_BOOST_PREVENT_DAMAGE       FALSE // If true, Pokemon with Flare Boost do not take burn damage.
+
+// Illusion Configuration
+#define AB_ILLUSION_BUFFS_ATTACKS           FALSE // If true, attacks deal more damage while under the effects of illusion.
+#define AB_ILLUSION_POWER_BOOST             1.3
 
 // Iron Fist Configuration
 #define AB_IRON_FIST_OVERRIDE               FALSE // If True, will make Striker use the override bonus instead of default (1.2x)

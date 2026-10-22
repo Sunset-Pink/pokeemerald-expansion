@@ -7156,6 +7156,11 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (ctx->terrain == B_TERRAIN_ELECTRIC && IsBattleMoveSpecial(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3333));
         break;
+    case ABILITY_ILLUSION:
+        if (GetConfig(AB_ILLUSION_BUFFS_ATTACKS) && GetIllusionMonPtr(battlerAtk) != NULL) {
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        }
+        break;
     case ABILITY_FIRE_MANE:
         if (moveType == TYPE_FIRE)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));

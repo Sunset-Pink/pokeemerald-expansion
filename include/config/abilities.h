@@ -10,6 +10,10 @@
 #define AB_ILLUMINATE_BUFFS_ACCURACY       FALSE // If True, will make Illuminate buff accuracy by the boosted amount. Similiar to Radical Red.
 #define AB_ILLUMINATE_ACCURACY_BOOST         120
 
+// Incubator Ability Configuration
+#define AB_INCUBATOR_ABILITY_BUFF           FALSE // If True, will make incubator abilities more effect.
+#define AB_INCUBATOR_ABILITY_BOOST              3 // This number gets 1 added to it, so it is (X+1)x effective.
+
 // Iron Fist Configuration
 #define AB_IRON_FIST_OVERRIDE               FALSE // If True, will make Striker use the override bonus instead of default (1.2x)
 #define AB_IRON_FIST_OVERRIDE_BONUS          1.2  // The damage boost to overide with.

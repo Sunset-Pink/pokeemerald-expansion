@@ -1123,7 +1123,7 @@ static u32 GetEggCyclesToSubtract(void)
 {
     u32 result = 1;
     if (DoesPartyHaveIncubatorMon())
-        result += 1;
+        result += GetConfig(AB_INCUBATOR_ABILITY_BUFF) ? AB_INCUBATOR_ABILITY_BOOST : 1;
     return result;
 }
 

@@ -6584,7 +6584,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
     case ABILITY_STRIKER:
         if (IsKickingMove(move))
         {
-            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(AB_STRIKER_OVERRIDE) ? GetConfig(AB_STRIKER_OVERRIDE_BONUS) : 1.3));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(AB_STRIKER_OVERRIDE) ? AB_STRIKER_OVERRIDE_BONUS : 1.3));
         }
         break;
     case ABILITY_SHEER_FORCE:

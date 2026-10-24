@@ -2035,7 +2035,7 @@ bool32 HasNoMonsToSwitch(enum BattlerId battler, u8 partyIdBattlerOn1, u8 partyI
     }
 }
 
-static bool32 TryChangeWeatherWithAbility(enum BattlerId battler, u32 battleWeather, enum Ability ability)
+bool32 TryChangeWeatherWithAbility(enum BattlerId battler, u32 battleWeather, enum Ability ability)
 {
     switch (TryChangeBattleWeather(battler, battleWeather, ability))
     {
@@ -2065,8 +2065,9 @@ static bool32 TryChangeWeatherWithAbility(enum BattlerId battler, u32 battleWeat
 enum WeatherFailure TryChangeBattleWeather(enum BattlerId battler, u32 battleWeatherId, enum Ability ability)
 {
     if (gBattleWeather & gBattleWeatherInfo[battleWeatherId].flag)
+    {
         return WEATHER_FAILURE_SAME_WEATHER;
-
+    }
     if (gBattleStruct->overworldWeatherPresent)
         return WEATHER_FAILURE_OVERWORLD;
 

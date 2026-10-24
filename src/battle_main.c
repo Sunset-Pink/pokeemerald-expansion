@@ -14,6 +14,7 @@
 #include "battle_scripts.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
+#include "battle_util.h"
 #include "battle_z_move.h"
 #include "battle_gimmick.h"
 #include "berry.h"
@@ -5609,6 +5610,51 @@ enum Type GetDynamicMoveType(struct Pokemon *mon, enum Move move, enum BattlerId
         if (state == MON_IN_BATTLE)
         {
             u32 weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
+
+            if (GetConfig(AB_FORECAST_WEATHER_BALL_BUFF) && ability == ABILITY_FORECAST)
+            {
+                switch(holdEffect)
+                {
+                    case HOLD_EFFECT_ICY_ROCK:
+                    {
+                        if(weather & B_WEATHER_ICY_ANY)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, GetConfig(B_PREFERRED_ICE_WEATHER), ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_SMOOTH_ROCK:
+                    {
+                        if(weather & B_WEATHER_SANDSTORM)
+                           gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_SANDSTORM, ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_DAMP_ROCK:
+                    {
+                        if(weather & B_WEATHER_RAIN)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_RAIN_NORMAL, ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_HEAT_ROCK:
+                    {
+                        if(weather & B_WEATHER_SUN)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_RAIN_NORMAL, ability);
+                        break;
+                    }
+                    default:
+                        break;
+                }   
+            }
+
+            // Re-get weather incase forecast changed it.
+            weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
+
             if (weather & B_WEATHER_SUN)
                 return TYPE_FIRE;
             else if (weather & B_WEATHER_RAIN)

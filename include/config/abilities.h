@@ -35,6 +35,10 @@
 #define AB_ILLUSION_BUFFS_ATTACKS           FALSE // If true, attacks deal more damage while under the effects of illusion.
 #define AB_ILLUSION_POWER_BOOST             1.3
 
+// Forecast Configuration
+#define AB_FORECAST_HOLD_ROCK_BUFF          FALSE // If true, the weather is set to whatever type of weather rock the user is hold on switch in.
+#define AB_FORECAST_WEATHER_BALL_BUFF       FALSE // If true, the weather timer is reset when using weather ball.
+
 // Iron Fist Configuration
 #define AB_IRON_FIST_OVERRIDE               FALSE // If True, will make Striker use the override bonus instead of default (1.2x)
 #define AB_IRON_FIST_OVERRIDE_BONUS          1.2  // The damage boost to overide with.

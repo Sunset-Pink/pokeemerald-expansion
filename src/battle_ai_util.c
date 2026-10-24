@@ -1888,6 +1888,18 @@ u32 AI_GetSwitchinWeather(enum BattlerId battler)
     // Switchin will introduce new weather
     switch (ability)
     {
+    case ABILITY_FORECAST:
+        if(!GetConfig(AB_FORECAST_HOLD_ROCK_BUFF))
+            return gBattleWeather;
+        enum HoldEffect effect = gAiLogicData->holdEffects[battler];
+        if(effect == HOLD_EFFECT_SMOOTH_ROCK)
+            return B_WEATHER_SANDSTORM;
+        else if (effect == HOLD_EFFECT_DAMP_ROCK)
+            return B_WEATHER_RAIN_NORMAL;
+        else if (effect == HOLD_EFFECT_HEAT_ROCK)
+            return B_WEATHER_SUN_NORMAL;
+        else if (effect == HOLD_EFFECT_ICY_ROCK)
+            return GetConfig(B_SNOW_WARNING) >= GEN_9 ? B_WEATHER_SNOW : B_WEATHER_HAIL;
     case ABILITY_DRIZZLE:
         return B_WEATHER_RAIN_NORMAL;
     case ABILITY_DROUGHT:

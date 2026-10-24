@@ -18,6 +18,7 @@ SINGLE_BATTLE_TEST("Rivalry increases power by x1.25 towards Pokémon of the sam
     PARAMETRIZE { species = SPECIES_NIDOQUEEN; ability = ABILITY_RIVALRY; }
 
     GIVEN {
+        WITH_CONFIG(AB_RIVALRY_OVERRIDE_SAME_GENDER, FALSE);
         PLAYER(species) { Ability(ability); }
         OPPONENT(species);
     } WHEN {
@@ -31,6 +32,31 @@ SINGLE_BATTLE_TEST("Rivalry increases power by x1.25 towards Pokémon of the sam
     }
 }
 
+SINGLE_BATTLE_TEST("Rivalry increases power by configured amount towards Pokémon of the same gender", s16 damage)
+{
+    enum Species species;
+    enum Ability ability;
+    PARAMETRIZE { species = SPECIES_NIDOKING; ability = ABILITY_POISON_POINT;}
+    PARAMETRIZE { species = SPECIES_NIDOKING; ability = ABILITY_RIVALRY; }
+    PARAMETRIZE { species = SPECIES_NIDOQUEEN; ability = ABILITY_POISON_POINT; }
+    PARAMETRIZE { species = SPECIES_NIDOQUEEN; ability = ABILITY_RIVALRY; }
+
+    GIVEN {
+        WITH_CONFIG(AB_RIVALRY_OVERRIDE_SAME_GENDER, TRUE);
+        WITH_CONFIG(AB_RIVALRY_SAME_GENDER_MOD,  2.0);
+        PLAYER(species) { Ability(ability); }
+        OPPONENT(species);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SCRATCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
+        HP_BAR(opponent, captureDamage: &results[i].damage);
+    } FINALLY {
+        EXPECT_MUL_EQ(results[0].damage, Q_4_12(2.0), results[1].damage);
+        EXPECT_MUL_EQ(results[2].damage, Q_4_12(2.0), results[3].damage);
+    }
+}
+
 SINGLE_BATTLE_TEST("Rivalry decreases power by x0.75 towards Pokémon of different gender", s16 damage)
 {
     enum Species species1, species2;
@@ -41,6 +67,7 @@ SINGLE_BATTLE_TEST("Rivalry decreases power by x0.75 towards Pokémon of differe
     PARAMETRIZE { species1 = SPECIES_NIDOQUEEN; species2 = SPECIES_NIDOKING; ability = ABILITY_RIVALRY; }
 
     GIVEN {
+        WITH_CONFIG(AB_RIVALRY_OVERRIDE_OPPOSITE_GENDER, FALSE);
         PLAYER(species1) { Ability(ability); }
         OPPONENT(species2);
     } WHEN {
@@ -51,6 +78,31 @@ SINGLE_BATTLE_TEST("Rivalry decreases power by x0.75 towards Pokémon of differe
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, Q_4_12(0.75), results[1].damage);
         EXPECT_MUL_EQ(results[2].damage, Q_4_12(0.75), results[3].damage);
+    }
+}
+
+SINGLE_BATTLE_TEST("Rivalry decreases configured amount towards Pokémon of different gender", s16 damage)
+{
+    enum Species species1, species2;
+    enum Ability ability;
+    PARAMETRIZE { species1 = SPECIES_NIDOKING; species2 = SPECIES_NIDOQUEEN; ability = ABILITY_POISON_POINT; }
+    PARAMETRIZE { species1 = SPECIES_NIDOKING; species2 = SPECIES_NIDOQUEEN; ability = ABILITY_RIVALRY; }
+    PARAMETRIZE { species1 = SPECIES_NIDOQUEEN; species2 = SPECIES_NIDOKING; ability = ABILITY_POISON_POINT; }
+    PARAMETRIZE { species1 = SPECIES_NIDOQUEEN; species2 = SPECIES_NIDOKING; ability = ABILITY_RIVALRY; }
+
+    GIVEN {
+        WITH_CONFIG(AB_RIVALRY_OVERRIDE_OPPOSITE_GENDER, TRUE);
+        WITH_CONFIG(AB_RIVALRY_OPPOSITE_GENDER_MOD, 2.0);
+        PLAYER(species1) { Ability(ability); }
+        OPPONENT(species2);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SCRATCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
+        HP_BAR(opponent, captureDamage: &results[i].damage);
+    } FINALLY {
+        EXPECT_MUL_EQ(results[0].damage, Q_4_12(2.0), results[1].damage);
+        EXPECT_MUL_EQ(results[2].damage, Q_4_12(2.0), results[3].damage);
     }
 }
 

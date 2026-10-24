@@ -6599,9 +6599,15 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         break;
     case ABILITY_RIVALRY:
         if (AreBattlersOfSameGender(battlerAtk, battlerDef))
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
+            modifier = uq4_12_multiply(
+                modifier, 
+                UQ_4_12(GetConfig(AB_RIVALRY_OVERRIDE_SAME_GENDER) ? GetConfig(AB_RIVALRY_SAME_GENDER_MOD) : 1.25)
+            );
         else if (AreBattlersOfOppositeGender(battlerAtk, battlerDef))
-            modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
+            modifier = uq4_12_multiply(
+                modifier, 
+                UQ_4_12(GetConfig(AB_RIVALRY_OVERRIDE_OPPOSITE_GENDER) ? GetConfig(AB_RIVALRY_OPPOSITE_GENDER_MOD) : 0.75)
+            );
         break;
     case ABILITY_ANALYTIC:
         if (moveEffect == EFFECT_FUTURE_SIGHT)

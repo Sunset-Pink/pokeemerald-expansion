@@ -39,6 +39,12 @@
 #define AB_FORECAST_HOLD_ROCK_BUFF          FALSE // If true, the weather is set to whatever type of weather rock the user is hold on switch in.
 #define AB_FORECAST_WEATHER_BALL_BUFF       FALSE // If true, the weather timer is reset when using weather ball.
 
+// Rivalry Configuration
+#define AB_RIVALRY_OVERRIDE_SAME_GENDER     FALSE // If True, overrides Rivalry same gender modifier
+#define AB_RIVALRY_SAME_GENDER_MOD          1.25
+#define AB_RIVALRY_OVERRIDE_OPPOSITE_GENDER FALSE // If True, overrides Rivalry opposite gender modifier
+#define AB_RIVALRY_OPPOSITE_GENDER_MOD       1.0  // Default: 0.75, RR: 1.0
+
 // Iron Fist Configuration
 #define AB_IRON_FIST_OVERRIDE               FALSE // If True, will make Striker use the override bonus instead of default (1.2x)
 #define AB_IRON_FIST_OVERRIDE_BONUS          1.2  // The damage boost to overide with.

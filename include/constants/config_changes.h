@@ -264,6 +264,10 @@
     F(AB_ILLUSION_BUFFS_ATTACKS,                illusionBuffsAttacks,          (u32, 1)) \
     F(AB_FORECAST_HOLD_ROCK_BUFF,               forecastHoldRockBuff,          (u32, 1)) \
     F(AB_FORECAST_WEATHER_BALL_BUFF,            weatherBallBuff,               (u32, 1)) \
+    F(AB_RIVALRY_OVERRIDE_SAME_GENDER,          rivalryEffectsOppositeGender,  (u32, 1)) \
+    F(AB_RIVALRY_OVERRIDE_OPPOSITE_GENDER,      rivalryEffectsSamGender,       (u32, 1)) \
+    F(AB_RIVALRY_SAME_GENDER_MOD,               rivalrySamGenderMod,           (u32, 100)) \
+    F(AB_RIVALRY_OPPOSITE_GENDER_MOD,           rivalryOppositeGenderMod,      (u32, 100)) \
 
 
 #define POKEMON_CONFIG_DEFINITIONS(F) \

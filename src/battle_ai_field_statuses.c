@@ -172,6 +172,7 @@ static bool32 DoesAbilityBenefitFromWeather(enum Ability ability, u32 weather)
     case ABILITY_SNOW_CLOAK:
     case ABILITY_SLUSH_RUSH:
         return (weather & B_WEATHER_ICY_ANY);
+    case ABILITY_WATER_ABSORB:
     case ABILITY_DRY_SKIN:
     case ABILITY_HYDRATION:
     case ABILITY_RAIN_DISH:
@@ -203,9 +204,10 @@ static bool32 DoesAbilityBenefitFromTerrain(enum Ability ability, enum BattleTer
         return terrain == B_TERRAIN_ELECTRIC;
     case ABILITY_GRASS_PELT:
         return terrain == B_TERRAIN_GRASSY;
-    // no abilities inherently benefit from Misty or Psychic Terrains
-    // return terrain == B_TERRAIN_MISTY;
-    // return terrain == B_TERRAIN_PSYCHIC;
+    case ABILITY_SYNAPSE_FIRE:
+        return terrain == B_TERRAIN_PSYCHIC;
+    case ABILITY_MIST_WALKER:
+        return terrain == B_TERRAIN_MISTY;
     default:
         break;
     }
@@ -261,7 +263,7 @@ static enum FieldEffectOutcome BenefitsFromSun(enum BattlerId battler)
      || HasMoveWithEffect(battler, EFFECT_HYDRO_STEAM))
         return FIELD_EFFECT_POSITIVE;
 
-    if (HasMoveWithFlag(battler, MoveHas50AccuracyInSun) || HasDamagingMoveOfType(battler, TYPE_WATER) || gAiLogicData->abilities[battler] == ABILITY_DRY_SKIN)
+    if (HasMoveWithFlag(battler, MoveHas50AccuracyInSun) || HasDamagingMoveOfType(battler, TYPE_WATER))
         return FIELD_EFFECT_NEGATIVE;
 
     return FIELD_EFFECT_NEUTRAL;
@@ -443,6 +445,8 @@ static enum FieldEffectOutcome BenefitsFromPsychicTerrain(enum BattlerId battler
     {
         // harass priority
         if (AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_GALE_WINGS)
+         || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_BLAZING_SOUL)
+         || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_DRAKE_MOMENTUM)
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_TRIAGE)
          || AI_IsAbilityOnSide(GetBattlerLeftFoe(battler), ABILITY_PRANKSTER))
             return FIELD_EFFECT_POSITIVE;
@@ -456,6 +460,8 @@ static enum FieldEffectOutcome BenefitsFromPsychicTerrain(enum BattlerId battler
         return FIELD_EFFECT_NEGATIVE;
 
     if (AI_IsAbilityOnSide(battler, ABILITY_GALE_WINGS)
+     || AI_IsAbilityOnSide(battler, ABILITY_BLAZING_SOUL)
+     || AI_IsAbilityOnSide(battler, ABILITY_DRAKE_MOMENTUM)
      || AI_IsAbilityOnSide(battler, ABILITY_TRIAGE)
      || AI_IsAbilityOnSide(battler, ABILITY_PRANKSTER))
         return FIELD_EFFECT_NEGATIVE;

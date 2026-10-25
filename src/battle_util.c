@@ -1574,7 +1574,7 @@ u32 TrySetCantSelectMoveBattleScript(enum BattlerId battler)
         if (SetCantSelectScript(battler, gCurrentMove, BattleScript_SelectingNotAllowedMoveAssaultVestInPalace, BattleScript_SelectingNotAllowedMoveAssaultVest))
             limitations++;
     }
-    if (dynamaxBypassCheck && (GetBattlerAbility(battler) == ABILITY_GORILLA_TACTICS) && *choicedMove != MOVE_NONE
+    if (dynamaxBypassCheck && (GetBattlerAbility(battler) == ABILITY_GORILLA_TACTICS || GetBattlerAbility(battler) == ABILITY_SAGE_POWER) && *choicedMove != MOVE_NONE
               && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != move)
     {
         gCurrentMove = *choicedMove;
@@ -1677,6 +1677,9 @@ u32 CheckMoveLimitations(enum BattlerId battler, u8 unusableMoves, u32 check)
             unusableMoves |= 1u << i;
         // Gorilla Tactics
         else if (check & MOVE_LIMITATION_CHOICE_ITEM && GetBattlerAbility(battler) == ABILITY_GORILLA_TACTICS && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != move)
+            unusableMoves |= 1u << i;
+        // Sage Power
+        else if (check & MOVE_LIMITATION_CHOICE_ITEM && GetBattlerAbility(battler) == ABILITY_SAGE_POWER && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != move)
             unusableMoves |= 1u << i;
         // Can't Use Twice flag
         else if (check & MOVE_LIMITATION_CANT_USE_TWICE && MoveCantBeUsedTwice(move) && move == gLastResultingMoves[battler])
@@ -2031,7 +2034,7 @@ bool32 HasNoMonsToSwitch(enum BattlerId battler, u8 partyIdBattlerOn1, u8 partyI
     }
 }
 
-static bool32 TryChangeWeatherWithAbility(enum BattlerId battler, u32 battleWeather, enum Ability ability)
+bool32 TryChangeWeatherWithAbility(enum BattlerId battler, u32 battleWeather, enum Ability ability)
 {
     switch (TryChangeBattleWeather(battler, battleWeather, ability))
     {
@@ -2336,7 +2339,9 @@ bool32 CanAbilityAbsorbMove(struct DamageContext *ctx)
             battleScript = AbsorbedByDrainHpAbility(ctx->battlerDef);
         break;
     case ABILITY_EARTH_EATER:
-        if (ctx->moveType == TYPE_GROUND)
+        if (ctx->moveType == TYPE_GROUND
+        && !(ctx->abilities[ctx->battlerAtk] == ABILITY_BONE_ZONE && IsBoneMove(ctx->move))
+        )
             battleScript = AbsorbedByDrainHpAbility(ctx->battlerDef);
         break;
     case ABILITY_MOTOR_DRIVE:
@@ -2364,9 +2369,12 @@ bool32 CanAbilityAbsorbMove(struct DamageContext *ctx)
             battleScript = AbsorbedByStatIncreaseAbility(ctx, STAT_ATK, 1);
         break;
     case ABILITY_FLASH_FIRE:
-        if (ctx->moveType == TYPE_FIRE && (B_FLASH_FIRE_FROZEN >= GEN_5 || !(gBattleMons[ctx->battlerDef].status1 & STATUS1_FREEZE)))
+        if (ctx->moveType == TYPE_FIRE)
             battleScript = AbsorbedByFlashFire(ctx);
         break;
+    case ABILITY_MOUNTAINEER:
+        if (ctx->moveType == TYPE_ROCK)
+            battleScript = BattleScript_AbilityProtectedTarget;
     case ABILITY_SOUNDPROOF:
         if (IsSoundMove(ctx->move))
             battleScript = BattleScript_AbilityProtectedTarget;
@@ -3635,21 +3643,27 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                  && !gBattleMons[battler].volatiles.healBlockTimer)
                 {
                     BattleScriptCall(BattleScript_IceBodyHeal);
-                    SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 16);
+                    SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 8);
                     effect++;
                 }
                 break;
+            case ABILITY_WATER_ABSORB:
             case ABILITY_DRY_SKIN:
-                if (IsBattlerWeatherAffected(GetBattlerHoldEffect(battler), GetWeather(), B_WEATHER_SUN))
-                    goto SOLAR_POWER_HP_DROP;
-            // Dry Skin works similarly to Rain Dish in Rain
+                if (IsBattlerWeatherAffected(GetBattlerHoldEffect(battler), GetWeather(), B_WEATHER_RAIN)
+                 && !IsBattlerAtMaxHp(battler)
+                 && !gBattleMons[battler].volatiles.healBlockTimer)
+                {
+                    SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 16);
+                    BattleScriptCall(BattleScript_AbilityHpHeal);
+                    effect++;
+                }
+                break;
             case ABILITY_RAIN_DISH:
                 if (IsBattlerWeatherAffected(GetBattlerHoldEffect(battler), GetWeather(), B_WEATHER_RAIN)
                  && !IsBattlerAtMaxHp(battler)
                  && !gBattleMons[battler].volatiles.healBlockTimer)
                 {
-                    s32 healAmount = gLastUsedAbility == ABILITY_RAIN_DISH ? 16 : 8;
-                    SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / healAmount);
+                    SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 8);
                     BattleScriptCall(BattleScript_AbilityHpHeal);
                     effect++;
                 }
@@ -3700,6 +3714,14 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                     effect++;
                 }
                 break;
+            case ABILITY_SELF_SUFFICIENT:
+                if (!IsBattlerAtMaxHp(battler) && !gBattleMons[battler].volatiles.healBlockTimer)
+                {
+                    SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 16);
+                    BattleScriptCall(BattleScript_AbilityHpHeal);
+                    effect++;
+                }
+                break;
             case ABILITY_MOODY:
                 {
                     enum Stat stat = STAT_ATK;
@@ -3745,15 +3767,6 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             case ABILITY_BAD_DREAMS:
                 BattleScriptCall(BattleScript_BadDreamsActivates);
                 effect++;
-                break;
-            case ABILITY_SOLAR_POWER:
-                if (IsBattlerWeatherAffected(GetBattlerHoldEffect(battler), GetWeather(), B_WEATHER_SUN))
-                {
-                SOLAR_POWER_HP_DROP:
-                    SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 8);
-                    BattleScriptCall(BattleScript_SolarPowerActivates);
-                    effect++;
-                }
                 break;
             case ABILITY_HEALER:
                 gBattleScripting.battler = GetPartnerBattler(battler);
@@ -4219,6 +4232,22 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 effect++;
             }
             break;
+        case ABILITY_ICE_BODY:
+            if (IsBattlerAlive(gBattlerAttacker)
+             && !gSpecialStatuses[gBattlerAttacker].attackerInParty
+             && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
+             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move)
+             && CanBeFrozen(gBattlerTarget, gBattlerAttacker, GetBattlerAbility(gBattlerAttacker))
+             && RandomPercentage(RNG_ICE_BODY, 30))
+            {
+                gEffectBattler = gBattlerAttacker;
+                gBattleScripting.battler = gBattlerTarget;
+                gBattleScripting.moveEffect = MOVE_EFFECT_FROSTBITE;
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                BattleScriptCall(BattleScript_AbilityStatusEffect);
+                effect++;
+            }
+            break;
         case ABILITY_CUTE_CHARM:
             if (IsBattlerAlive(gBattlerAttacker)
              && !gSpecialStatuses[gBattlerAttacker].attackerInParty
@@ -4419,6 +4448,22 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 }
             }
             break;
+        case ABILITY_THE_GRIPPER:
+            if( !IsBattlerUnaffectedByMove(gBattlerTarget)
+                && IsBattlerAlive(gBattlerTarget)
+                && GetBattlerHoldEffect(gBattlerAttacker) != HOLD_EFFECT_PROTECTIVE_PADS
+                && IsMoveMakingContact(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move)
+                && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES) // Need to actually hit the target
+                && !(gBattleMons[gBattlerTarget].volatiles.escapePrevention & VOLATILE_ESCAPE_PREVENTION) // dont show the popup if its already been shown
+                && !IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GHOST)) // cant trap ghost types
+             {
+                gBattleMons[gBattlerTarget].volatiles.escapePrevention |= VOLATILE_ESCAPE_PREVENTION;
+                gBattleMons[battler].volatiles.battlerPreventingEscape = gBattlerAttacker;
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_GripperMsgWithPopup;
+                effect++;
+            }
         default:
             break;
         }
@@ -6570,12 +6615,20 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_RECKLESS:
-        if (moveEffect == EFFECT_RECOIL || moveEffect == EFFECT_RECOIL_IF_MISS)
+        if (moveEffect == EFFECT_RECOIL || moveEffect == EFFECT_RECOIL_IF_MISS || IsExplosionMove(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_IRON_FIST:
         if (IsPunchingMove(move))
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    case ABILITY_STRIKER:
+        if (IsKickingMove(move))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    case ABILITY_LIQUID_VOICE:
+        if (IsSoundMove(move))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_SHEER_FORCE:
         if (MoveIsAffectedBySheerForce(move))
@@ -6589,8 +6642,6 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
     case ABILITY_RIVALRY:
         if (AreBattlersOfSameGender(battlerAtk, battlerDef))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
-        else if (AreBattlersOfOppositeGender(battlerAtk, battlerDef))
-            modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
         break;
     case ABILITY_ANALYTIC:
         if (moveEffect == EFFECT_FUTURE_SIGHT)
@@ -6628,26 +6679,74 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         break;
     case ABILITY_PIXILATE:
         if (moveType == TYPE_FAIRY && gBattleStruct->battlerState[battlerAtk].ateBoost)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_GALVANIZE:
         if (moveType == TYPE_ELECTRIC && gBattleStruct->battlerState[battlerAtk].ateBoost)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_REFRIGERATE:
         if (moveType == TYPE_ICE && gBattleStruct->battlerState[battlerAtk].ateBoost)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_AERILATE:
         if (moveType == TYPE_FLYING && gBattleStruct->battlerState[battlerAtk].ateBoost)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_DRAGONIZE:
         if (moveType == TYPE_DRAGON && gBattleStruct->battlerState[battlerAtk].ateBoost)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(GetConfig(B_ATE_MULTIPLIER) >= GEN_7 ? 1.2 : 1.3));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_NORMALIZE:
-        if (moveType == TYPE_NORMAL && gBattleStruct->battlerState[battlerAtk].ateBoost && GetConfig(B_ATE_MULTIPLIER) >= GEN_7)
+        if (moveType == TYPE_NORMAL && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_POLLINATE:
+        if (moveType == TYPE_GRASS && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_CONFLAGRATE:
+        if (moveType == TYPE_FIRE && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_MOISTURIZE:
+        if (moveType == TYPE_WATER && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_PUPATE:
+        if (moveType == TYPE_BUG && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_EXERCIZE:
+        if (moveType == TYPE_FIGHTING && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_CONTAMINATE:
+        if (moveType == TYPE_POISON && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_ESCAVATE:
+        if (moveType == TYPE_GROUND && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_PROPHESIZE:
+        if (moveType == TYPE_PSYCHIC && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_MINERALIZE:
+        if (moveType == TYPE_ROCK && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_ENERVATE:
+        if (moveType == TYPE_GHOST && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_TERRORIZE:
+        if (moveType == TYPE_DARK && gBattleStruct->battlerState[battlerAtk].ateBoost)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_METALLICIZE:
+        if (moveType == TYPE_STEEL && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
     case ABILITY_PUNK_ROCK:
@@ -6657,6 +6756,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
     case ABILITY_STEELY_SPIRIT:
         if (moveType == TYPE_STEEL)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_EMPERORS_PRESENCE:
+        if(moveType == TYPE_STEEL || moveType == TYPE_WATER)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_SHARPNESS:
         if (IsSlicingMove(move))
@@ -6704,6 +6807,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         if (moveType == TYPE_STEEL)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
+    case ABILITY_EMPERORS_PRESENCE:
+        if(moveType == TYPE_STEEL || moveType == TYPE_WATER)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
     default:
         break;
     }
@@ -6719,10 +6826,6 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
             if (ctx->updateFlags)
                 RecordAbilityBattle(battlerDef, ctx->abilities[ctx->battlerDef]);
         }
-        break;
-    case ABILITY_DRY_SKIN:
-        if (moveType == TYPE_FIRE)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
         break;
     default:
         break;
@@ -6924,6 +7027,14 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (IsBattleMovePhysical(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
+    case ABILITY_FELINE_PROWESS:
+        if (IsBattleMoveSpecial(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+    case ABILITY_BULL_RUSH:
+    case ABILITY_QUILL_RUSH:
+        if(IsBattlersFirstTurn(battlerAtk))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
+        break;
     case ABILITY_SLOW_START:
         if (gBattleMons[battlerAtk].volatiles.slowStartTimer > 0 && IsBattleMovePhysical(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
@@ -6933,7 +7044,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_DEFEATIST:
-        if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2))
+        if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
         break;
     case ABILITY_FLASH_FIRE:
@@ -6954,6 +7065,62 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         break;
     case ABILITY_OVERGROW:
         if (moveType == TYPE_GRASS && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_ADRENALINE:
+        if (moveType == TYPE_NORMAL && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_VOLT:
+        if (moveType == TYPE_ELECTRIC && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_SUBZERO:
+        if (moveType == TYPE_ICE && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_UNDERDOG:
+        if (moveType == TYPE_FIGHTING && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_INFECTION:
+        if (moveType == TYPE_POISON && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_FAULT_LINE:
+        if (moveType == TYPE_GROUND && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_FLOCK:
+        if (moveType == TYPE_FLYING && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_REVELATION:
+        if (moveType == TYPE_PSYCHIC && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_SEDIMENTARY:
+        if (moveType == TYPE_ROCK && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_HAUNT:
+        if (moveType == TYPE_GHOST && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_MYTHOLOGICAL:
+        if (moveType == TYPE_DRAGON && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_ECLIPSE:
+        if (moveType == TYPE_DARK && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_TEMPER:
+        if (moveType == TYPE_STEEL && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_ENCHANT:
+        if (moveType == TYPE_FAIRY && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_PLUS:
@@ -7010,6 +7177,12 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
          && GetActiveGimmick(battlerAtk) != GIMMICK_DYNAMAX)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
+    case ABILITY_SAGE_POWER:
+        if (IsBattleMoveSpecial(move)
+          && !IsGimmickSelected(battlerAtk, GIMMICK_DYNAMAX)
+          && GetActiveGimmick(battlerAtk) != GIMMICK_DYNAMAX)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
     case ABILITY_ROCKY_PAYLOAD:
         if (moveType == TYPE_ROCK)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
@@ -7034,6 +7207,10 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
     case ABILITY_FIRE_MANE:
         if (moveType == TYPE_FIRE)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_ILLUSION:
+        if(GetIllusionMonPtr(battlerAtk) != NULL)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     default:
         break;
@@ -7329,9 +7506,23 @@ static inline uq4_12_t GetTargetDamageModifier(struct DamageContext *ctx)
 
 static inline uq4_12_t GetParentalBondModifier(enum BattlerId battlerAtk)
 {
-    if (gSpecialStatuses[battlerAtk].parentalBondState != PARENTAL_BOND_2ND_HIT)
+    if (gSpecialStatuses[battlerAtk].echoHitState != ECHO_HIT_2ND_HIT)
         return UQ_4_12(1.0);
-    return B_PARENTAL_BOND_DMG >= GEN_7 ? UQ_4_12(0.25) : UQ_4_12(0.5);
+    return UQ_4_12(0.25);
+}
+
+static inline uq4_12_t GetRagingBoxerModifier(enum BattlerId battlerAtk)
+{
+    if (gSpecialStatuses[battlerAtk].echoHitState != ECHO_HIT_2ND_HIT)
+        return UQ_4_12(1.0);
+    return UQ_4_12(0.5);
+}
+
+static inline uq4_12_t GetWistfulEchoModifier(enum BattlerId battlerAtk)
+{
+    if (gSpecialStatuses[battlerAtk].echoHitState != ECHO_HIT_2ND_HIT)
+        return UQ_4_12(1.0);
+    return UQ_4_12(0.5);
 }
 
 static inline uq4_12_t GetSameTypeAttackBonusModifier(struct DamageContext *ctx)
@@ -7486,7 +7677,7 @@ static inline uq4_12_t GetCollisionCourseElectroDriftModifier(enum Move move, uq
     return UQ_4_12(1.0);
 }
 
-static inline uq4_12_t GetAttackerAbilitiesModifier(enum BattlerId battlerAtk, uq4_12_t typeEffectivenessModifier, bool32 isCrit, enum Ability abilityAtk)
+static inline uq4_12_t GetAttackerAbilitiesModifier(enum Move moveId, enum BattlerId battlerAtk, uq4_12_t typeEffectivenessModifier, bool32 isCrit, enum Ability abilityAtk)
 {
     switch (abilityAtk)
     {
@@ -7500,6 +7691,10 @@ static inline uq4_12_t GetAttackerAbilitiesModifier(enum BattlerId battlerAtk, u
         break;
     case ABILITY_TINTED_LENS:
         if (typeEffectivenessModifier <= UQ_4_12(0.5))
+            return UQ_4_12(2.0);
+        break;
+    case ABILITY_BONE_ZONE:
+        if (IsBoneMove(moveId) && typeEffectivenessModifier <= UQ_4_12(0.5))
             return UQ_4_12(2.0);
         break;
     default:
@@ -7662,7 +7857,7 @@ static inline uq4_12_t GetOtherModifiers(struct DamageContext *ctx)
 
     if (unmodifiedAttackerSpeed >= unmodifiedDefenderSpeed)
     {
-        DAMAGE_MULTIPLY_MODIFIER(GetAttackerAbilitiesModifier(ctx->battlerAtk, ctx->typeEffectivenessModifier, ctx->isCrit, ctx->abilities[ctx->battlerAtk]));
+        DAMAGE_MULTIPLY_MODIFIER(GetAttackerAbilitiesModifier(ctx->move, ctx->battlerAtk, ctx->typeEffectivenessModifier, ctx->isCrit, ctx->abilities[ctx->battlerAtk]));
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderAbilitiesModifier(ctx));
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderPartnerAbilitiesModifier(ctx));
         DAMAGE_MULTIPLY_MODIFIER(GetAttackerItemsModifier(ctx->battlerAtk, ctx->typeEffectivenessModifier, ctx->holdEffects[ctx->battlerAtk]));
@@ -7672,7 +7867,7 @@ static inline uq4_12_t GetOtherModifiers(struct DamageContext *ctx)
     {
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderAbilitiesModifier(ctx));
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderPartnerAbilitiesModifier(ctx));
-        DAMAGE_MULTIPLY_MODIFIER(GetAttackerAbilitiesModifier(ctx->battlerAtk, ctx->typeEffectivenessModifier, ctx->isCrit, ctx->abilities[ctx->battlerAtk]));
+        DAMAGE_MULTIPLY_MODIFIER(GetAttackerAbilitiesModifier(ctx->move, ctx->battlerAtk, ctx->typeEffectivenessModifier, ctx->isCrit, ctx->abilities[ctx->battlerAtk]));
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderItemsModifier(ctx));
         DAMAGE_MULTIPLY_MODIFIER(GetAttackerItemsModifier(ctx->battlerAtk, ctx->typeEffectivenessModifier, ctx->holdEffects[ctx->battlerAtk]));
     }
@@ -7704,7 +7899,12 @@ static inline s32 DoMoveDamageCalcVars(struct DamageContext *ctx)
 
     dmg = CalculateBaseDamage(gBattleMovePower, userFinalAttack, gBattleMons[ctx->battlerAtk].level, targetFinalDefense);
     DAMAGE_APPLY_MODIFIER(GetTargetDamageModifier(ctx));
-    DAMAGE_APPLY_MODIFIER(GetParentalBondModifier(ctx->battlerAtk));
+    if(ctx->abilities[ctx->battlerAtk] == ABILITY_PARENTAL_BOND)
+        DAMAGE_APPLY_MODIFIER(GetParentalBondModifier(ctx->battlerAtk));
+    else if (ctx->abilities[ctx->battlerAtk] == ABILITY_WISTFUL_ECHO)
+        DAMAGE_APPLY_MODIFIER(GetWistfulEchoModifier(ctx->battlerAtk));
+    else if (ctx->abilities[ctx->battlerAtk] == ABILITY_RAGING_BOXER)
+        DAMAGE_APPLY_MODIFIER(GetRagingBoxerModifier(ctx->battlerAtk));
     DAMAGE_APPLY_MODIFIER(GetWeatherDamageModifier(ctx));
     DAMAGE_APPLY_MODIFIER(GetCriticalModifier(ctx->isCrit));
     DAMAGE_APPLY_MODIFIER(GetGlaiveRushModifier(ctx->battlerDef));
@@ -8184,7 +8384,18 @@ static inline void MulByTypeEffectiveness(struct DamageContext *ctx, uq4_12_t *m
         mod = UQ_4_12(1.0);
     if (ctx->moveType == TYPE_STELLAR && GetActiveGimmick(ctx->battlerDef) == GIMMICK_TERA)
         mod = UQ_4_12(2.0);
-
+    if (ctx->moveType == TYPE_POISON && defType == TYPE_STEEL && ctx->abilities[ctx->battlerAtk] == ABILITY_CORROSION && mod == UQ_4_12(0.0))
+    {
+        mod = UQ_4_12(1.0);
+        if (ctx->updateFlags)
+            RecordAbilityBattle(ctx->battlerAtk, ctx->abilities[ctx->battlerAtk]);
+    }
+    if (ctx->abilities[ctx->battlerAtk] == ABILITY_BONE_ZONE && IsBoneMove(ctx->move) && mod == UQ_4_12(0.0))
+    {
+        mod = UQ_4_12(1.0);
+        if (ctx->updateFlags)
+            RecordAbilityBattle(ctx->battlerAtk, ctx->abilities[ctx->battlerAtk]);
+    }    
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pokémon
     if (ctx->weather & B_WEATHER_STRONG_WINDS && !ctx->isAnticipation)
     {
@@ -10502,6 +10713,8 @@ u32 GetTotalAccuracy(struct BattleCalcValues *cv, u32 weather)
     // Attacker's ability
     switch (cv->abilities[battlerAtk])
     {
+    case ABILITY_ILLUMINATE:
+        calc = (calc * 120) /100;  // 1.2 Illuminate boost.
     case ABILITY_COMPOUND_EYES:
         calc = (calc * 130) / 100; // 1.3 compound eyes boost
         break;

@@ -307,9 +307,14 @@ static inline bool32 SetSwitchinAndSwitch(enum BattlerId battler, u32 switchinId
 static bool32 AI_DoesChoiceEffectBlockMove(enum BattlerId battler, enum Move move)
 {
     // Choice locked into something else
-    if (gAiLogicData->lastUsedMove[battler] != MOVE_NONE && gAiLogicData->lastUsedMove[battler] != move
-    && (IsHoldEffectChoice(GetBattlerHoldEffect(battler) && IsBattlerItemEnabled(battler))
-        || gAiLogicData->abilities[battler] == ABILITY_GORILLA_TACTICS))
+    if (gAiLogicData->lastUsedMove[battler] != MOVE_NONE 
+        && gAiLogicData->lastUsedMove[battler] != move
+        && (
+            IsHoldEffectChoice(GetBattlerHoldEffect(battler) && IsBattlerItemEnabled(battler))
+            || gAiLogicData->abilities[battler] == ABILITY_GORILLA_TACTICS
+            || gAiLogicData->abilities[battler] == ABILITY_SAGE_POWER
+        )
+    )
         return TRUE;
     return FALSE;
 }
@@ -607,25 +612,36 @@ static bool32 FindMonThatAbsorbsOpponentsMove(struct SwitchAiContext *switchCont
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_WATER_ABSORB;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_DRY_SKIN;
-        if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) >= GEN_5)
-            absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_STORM_DRAIN;
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_STORM_DRAIN;
     }
     if (incomingType == TYPE_ELECTRIC)
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_VOLT_ABSORB;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_MOTOR_DRIVE;
-        if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) >= GEN_5)
-            absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_LIGHTNING_ROD;
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_LIGHTNING_ROD;
     }
     if (incomingType == TYPE_GRASS)
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_SAP_SIPPER;
     }
-    if (incomingType == TYPE_GROUND)
+    if (incomingType == TYPE_GROUND
+        && ( 
+          gAiLogicData->abilities[switchContext->battler] != ABILITY_BONE_ZONE
+          || (gAiLogicData->abilities[switchContext->battler] == ABILITY_BONE_ZONE && !IsBoneMove(switchContext->incomingMove))
+        )
+    )
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_EARTH_EATER;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_LEVITATE;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_EELEVATE;
+    }
+    if (incomingType == TYPE_ICE)
+    {
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_ICE_EATER;
+    }
+    if (incomingType == TYPE_ROCK)
+    {
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_MOUNTAINEER;
     }
     if (IsSoundMove(switchContext->incomingMove))
     {
@@ -857,7 +873,7 @@ static bool32 CanPalafinZeroSafelyUseHitEscape(enum BattlerId battlerAtk, enum M
     ctx.move = ctx.chosenMove = ctx.baseMove = move;
     ctx.moveType = moveType;
     ctx.weather = GetWeather();
-    ctx.terrain = gFieldTimers.terrain; // Curr terrain check
+    ctx.terrain = gFieldTimers.terrainTimer;
     ctx.holdEffects[ctx.battlerAtk] = gAiLogicData->holdEffects[battlerAtk];
     ctx.abilities[ctx.battlerAtk] = gAiLogicData->abilities[battlerAtk];
 
@@ -1713,38 +1729,71 @@ static s32 GetSwitchinWeatherImpact(enum BattlerId battler)
                 weatherImpact = 1;
         }
     }
-    if ((weather  & B_WEATHER_SUN) && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA
-     && (ability == ABILITY_SOLAR_POWER || ability == ABILITY_DRY_SKIN))
-    {
-        weatherImpact = maxHP / 8;
-        if (weatherImpact == 0)
-            weatherImpact = 1;
-    }
 
     // Healing
     if (weather  & B_WEATHER_RAIN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
     {
-        if (ability == ABILITY_DRY_SKIN)
-        {
-            weatherImpact = -(maxHP / 8);
-            if (weatherImpact == 0)
-                weatherImpact = -1;
-        }
-        else if (ability == ABILITY_RAIN_DISH)
+        if (ability == ABILITY_DRY_SKIN || ability == ABILITY_WATER_ABSORB)
         {
             weatherImpact = -(maxHP / 16);
             if (weatherImpact == 0)
                 weatherImpact = -1;
         }
+        else if (ability == ABILITY_RAIN_DISH)
+        {
+            weatherImpact = -(maxHP / 8);
+            if (weatherImpact == 0)
+                weatherImpact = -1;
+        }
     }
-    if ((weather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && ability == ABILITY_ICE_BODY)
+    if(weather & B_WEATHER_SANDSTORM && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
     {
-        weatherImpact = -(maxHP / 16);
-        if (weatherImpact == 0)
-            weatherImpact = -1;
+        if(ability == ABILITY_EARTH_EATER) {
+            weatherImpact = (-maxHP / 16);
+            if(weatherImpact == 0)
+                weatherImpact = -1;
+        }
+    }
+    if ((weather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA) 
+    {
+        if (ability == ABILITY_ICE_BODY)
+        {
+            weatherImpact = -(maxHP / 8);
+            if (weatherImpact == 0)
+                weatherImpact = -1;
+        } 
+        else if (ability == ABILITY_ICE_EATER)
+        {
+            weatherImpact = -(maxHP / 16);
+            if (weatherImpact == 0)
+                weatherImpact = -1;
+        }
+        
     }
 
     return weatherImpact;
+}
+
+// Gets damage / healing from terrain
+static s32 GetSwitchinTerrainImpact(enum BattlerId battler)
+{
+    s32 terrainImpact = 0, maxHP = gBattleMons[battler].maxHP;
+    enum Ability ability = gAiLogicData->abilities[battler];
+    u32 terrain = AI_GetSwitchinTerrain(battler);
+
+
+    // Healing
+    if (terrain & B_TERRAIN_ELECTRIC)
+    {
+        if (ability == ABILITY_VOLT_ABSORB) 
+        {
+            terrainImpact = -(maxHP/16);
+            if(terrainImpact == 0)
+                terrainImpact = -1;
+        }
+    }
+
+    return terrainImpact;
 }
 
 // Gets one turn of recurring healing
@@ -1902,6 +1951,7 @@ static u32 GetSwitchinHitsToKO(s32 damageTaken, enum BattlerId battler, const st
     }
 
     s32 weatherImpact = GetSwitchinWeatherImpact(battler); // Signed to handle both damage and healing in the same value
+    s32 terrainImpact = GetSwitchinTerrainImpact(battler);
     u32 recurringDamage = GetSwitchinRecurringDamage(battler);
     u32 recurringHealing = GetSwitchinRecurringHealing(battler);
     u32 statusDamage = GetSwitchinStatusDamage(battler);
@@ -1910,6 +1960,7 @@ static u32 GetSwitchinHitsToKO(s32 damageTaken, enum BattlerId battler, const st
     enum Item item = gAiLogicData->items[battler];
     enum HoldEffect heldItemEffect = GetItemHoldEffect(item);
     u8 weatherDuration = gBattleStruct->weatherDuration;
+    u8 terrainDuration = gFieldTimers.terrain;
     enum BattlerId opposingBattler = GetOppositeBattler(battler);
     enum Ability opposingAbility = gAiLogicData->abilities[opposingBattler], ability = gAiLogicData->abilities[battler];
     bool32 usedSingleUseHealingItem = FALSE, opponentCanBreakMold = IsMoldBreakerTypeAbility(opposingBattler, opposingAbility, MOVE_NONE);
@@ -1928,8 +1979,11 @@ static u32 GetSwitchinHitsToKO(s32 damageTaken, enum BattlerId battler, const st
     while (currentHP > 0)
     {
         // Remove weather damage when it would run out
-        if (weatherImpact != 0 && weatherDuration == 0)
+        if (weatherImpact != 0 && terrainDuration == 0)
             weatherImpact = 0;
+        
+        if (terrainImpact != 0 && terrainDuration == 0)
+            terrainImpact = 0;
 
         // Take attack damage for the turn
         currentHP = currentHP - damageTaken;
@@ -1938,9 +1992,9 @@ static u32 GetSwitchinHitsToKO(s32 damageTaken, enum BattlerId battler, const st
         if (damageTaken >= maxHP && startingHP == maxHP && (heldItemEffect == HOLD_EFFECT_FOCUS_SASH || (!opponentCanBreakMold && GetConfig(B_STURDY) >= GEN_5 && ability == ABILITY_STURDY)) && hitsToKO < 1)
             currentHP = 1;
 
-        // If mon is still alive, apply weather impact first, as it might KO the mon before it can heal with its item (order is weather -> item -> status)
+        // If mon is still alive, apply weather/terrain impact first, as it might KO the mon before it can heal with its item (order is weather/terrain -> item -> status)
         if (currentHP > 0)
-            currentHP = currentHP - weatherImpact;
+            currentHP = currentHP - weatherImpact - terrainImpact;
 
         // Check if we're at a single use healing item threshold
         if (usedSingleUseHealingItem == FALSE)

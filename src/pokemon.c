@@ -5392,7 +5392,7 @@ static inline bool32 CanFirstMonBoostHeldItemRarity(void)
     ability = GetMonAbility(&gParties[B_TRAINER_PLAYER][0]);
     if (ability == ABILITY_COMPOUND_EYES)
         return TRUE;
-    else if ((OW_SUPER_LUCK >= GEN_8) && ability == ABILITY_SUPER_LUCK)
+    else if (ability == ABILITY_SUPER_LUCK || ability == ABILITY_FRISK)
         return TRUE;
     return FALSE;
 }

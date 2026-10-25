@@ -318,7 +318,7 @@ enum VolatileFlags
     F(VOLATILE_UNABLE_TO_USE_MOVE,          unableToUseMove,               (u32, 1)) \
     F(VOLATILE_ACTIVATE_DANCER,             activateDancer,                (u32, 1)) \
     F(VOLATILE_TRACE_ACTIVATED,             traceActivated,                (u32, 1)) \
-    F(VOLATILE_SPEED_SWAP,                  speedSwapped,                  (u32, 1))
+    F(VOLATILE_SPEED_SWAP,                  speedSwapped,                  (u32, 1)) 
 
 
 /* Use within a macro to get the maximum allowed value for a volatile. Requires _typeMaxValue as input. */
@@ -633,10 +633,10 @@ enum MoveTarget
     TARGET_ALL_BATTLERS,
 };
 
-// Constants for Parental Bond
-#define PARENTAL_BOND_1ST_HIT 2
-#define PARENTAL_BOND_2ND_HIT 1
-#define PARENTAL_BOND_OFF     0
+// Constants for echo hit abilities. eg. Parental Bond
+#define ECHO_HIT_1ST_HIT 2
+#define ECHO_HIT_2ND_HIT 1
+#define ECHO_HIT_OFF     0
 
 // Constants for Torment
 #define PERMANENT_TORMENT   0xF

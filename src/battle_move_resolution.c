@@ -267,7 +267,7 @@ static enum CancelerResult CancelerPowerPoints(struct BattleCalcValues *cv)
 
 static enum CancelerResult CancelerTruant(struct BattleCalcValues *cv)
 {
-    if (GetBattlerAbility(cv->battlerAtk) == ABILITY_TRUANT && gBattleMons[cv->battlerAtk].volatiles.truantCounter)
+    if (GetBattlerAbility(cv->battlerAtk) == ABILITY_TRUANT && gBattleMons[cv->battlerAtk].volatiles.truantCounter && !IsHealingMove(cv->move))
     {
         CancelMultiTurnMoves(cv->battlerAtk);
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
@@ -517,7 +517,10 @@ static enum CancelerResult CancelerChoiceLock(struct BattleCalcValues *cv)
 
     if (gChosenMove != MOVE_STRUGGLE
      && (*choicedMoveAtk == MOVE_NONE || *choicedMoveAtk == MOVE_UNAVAILABLE)
-     && (IsHoldEffectChoice(holdEffect) || cv->abilities[cv->battlerAtk] == ABILITY_GORILLA_TACTICS))
+     && (IsHoldEffectChoice(holdEffect) 
+        || cv->abilities[cv->battlerAtk] == ABILITY_GORILLA_TACTICS
+        || cv->abilities[cv->battlerAtk] == ABILITY_SAGE_POWER
+    ))
         *choicedMoveAtk = gChosenMove;
 
     u32 moveIndex;
@@ -2295,6 +2298,37 @@ static bool32 IsMoveParentalBondAffected(struct BattleCalcValues *cv)
     return TRUE;
 }
 
+static bool32 IsMoveRagingBoxerAffected(struct BattleCalcValues *cv)
+{
+    if (
+        cv->abilities[cv->battlerAtk] != ABILITY_RAGING_BOXER
+        || !IsPunchingMove(cv->move)
+        || gBattleStruct->numSpreadTargets > 1
+        || IsMoveRagingBoxerBanned(cv->move)
+        || IsBattleMoveStatus(cv->move)
+        || gBattleMoveEffects[cv->moveEffect].twoTurnEffect
+        || cv->moveEffect == EFFECT_OHKO
+        || GetActiveGimmick(cv->battlerAtk) == GIMMICK_Z_MOVE
+    )
+        return FALSE;
+    return TRUE;
+}
+
+static bool32 IsMoveWistfulEchoAffected(struct BattleCalcValues *cv)
+{
+    if (
+        cv->abilities[cv->battlerAtk] != ABILITY_WISTFUL_ECHO
+        || !IsSoundMove(cv->move)
+        || gBattleStruct->numSpreadTargets > 1
+        || IsMoveWistfulEchoBanned(cv->move)
+        || gBattleMoveEffects[cv->moveEffect].twoTurnEffect
+        || cv->moveEffect == EFFECT_OHKO
+        || GetActiveGimmick(cv->battlerAtk) == GIMMICK_Z_MOVE
+    )
+        return FALSE;
+    return TRUE;
+}
+
 static void SetPossibleNewSmartTarget(u32 move)
 {
     if (!IsBattlerUnaffectedByMove(gBattlerTarget)
@@ -2385,9 +2419,9 @@ static enum CancelerResult CancelerMultihitMoves(struct BattleCalcValues *cv)
 
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
     }
-    else if (IsMoveParentalBondAffected(cv))
+    else if (IsMoveParentalBondAffected(cv) || IsMoveWistfulEchoAffected(cv) || IsMoveRagingBoxerAffected(cv))
     {
-        gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_1ST_HIT;
+        gSpecialStatuses[gBattlerAttacker].echoHitState = ECHO_HIT_1ST_HIT;
         gMultiHitCounter = 2;
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
     }
@@ -2427,7 +2461,7 @@ static enum CancelerResult CancelerSubstitute(struct BattleCalcValues *cv)
 
 static bool32 ShouldSkipAccuracyCalcPastFirstHit(enum BattlerId battlerAtk, enum Ability abilityAtk, enum HoldEffect holdEffectAtk, u32 moveEffect)
 {
-    if (gSpecialStatuses[battlerAtk].parentalBondState == PARENTAL_BOND_2ND_HIT)
+    if (gSpecialStatuses[battlerAtk].echoHitState == ECHO_HIT_2ND_HIT)
         return TRUE;
 
     if (!gSpecialStatuses[battlerAtk].multiHitOn)
@@ -2759,7 +2793,7 @@ static enum CancelerResult CancelerPreAnimActivations(struct BattleCalcValues *c
 
 static enum CancelerResult CancelerMoveAnimation(struct BattleCalcValues *cv)
 {
-    if (gSpecialStatuses[cv->battlerAtk].parentalBondState == PARENTAL_BOND_2ND_HIT)
+    if (gSpecialStatuses[cv->battlerAtk].echoHitState == ECHO_HIT_2ND_HIT)
         return CANCELER_RESULT_SUCCESS;
 
     bool32 isAnimDisabled = (gHitMarker & (HITMARKER_NO_ANIMATIONS | HITMARKER_DISABLE_ANIMATION)
@@ -4031,8 +4065,8 @@ static enum MoveEndResult MoveEndMultihitMove(struct BattleCalcValues *cv)
              && (IsUsableWhileAsleepEffect(chosenEffect) || !(gBattleMons[cv->battlerAtk].status1 & STATUS1_SLEEP))
              && !(gBattleMons[cv->battlerAtk].status1 & STATUS1_FREEZE))
             {
-                if (gSpecialStatuses[cv->battlerAtk].parentalBondState)
-                    gSpecialStatuses[cv->battlerAtk].parentalBondState--;
+                if (gSpecialStatuses[cv->battlerAtk].echoHitState)
+                    gSpecialStatuses[cv->battlerAtk].echoHitState--;
 
                 gBattleStruct->eventState.atkCanceler = CANCELER_ACCURACY_CHECK;
                 gBattleStruct->eventState.atkCancelerBattler = 0;
@@ -4053,7 +4087,7 @@ static enum MoveEndResult MoveEndMultihitMove(struct BattleCalcValues *cv)
     }
 
     gMultiHitCounter = 0;
-    gSpecialStatuses[cv->battlerAtk].parentalBondState = PARENTAL_BOND_OFF;
+    gSpecialStatuses[cv->battlerAtk].echoHitState = ECHO_HIT_OFF;
     gSpecialStatuses[cv->battlerAtk].multiHitOn = 0;
     gBattleScripting.moveendState++;
     return result;
@@ -4111,32 +4145,10 @@ static enum MoveEndResult MoveEndMoveBlockRecoil(struct BattleCalcValues *cv)
     case EFFECT_RECOIL_IF_MISS:
         if (IsBattlerAlive(cv->battlerAtk)
          && IsBattlerUnaffectedByMove(cv->battlerDef)
-         && !gBattleStruct->unableToUseMove)
+         && !gBattleStruct->unableToUseMove
+         && !IsAbilityAndRecord(cv->battlerAtk, cv->abilities[cv->battlerAtk], ABILITY_BAD_COMPANY))
         {
-            s32 recoil = 0;
-            if (B_CRASH_IF_TARGET_IMMUNE == GEN_4 && gBattleStruct->moveResultFlags[cv->battlerDef] & MOVE_RESULT_DOESNT_AFFECT_FOE)
-            {
-                recoil = GetNonDynamaxMaxHP(cv->battlerDef) / 2;
-            }
-            if (B_RECOIL_IF_MISS_DMG >= GEN_5)
-            {
-                recoil = GetNonDynamaxMaxHP(cv->battlerAtk) / 2;
-            }
-            else if (B_RECOIL_IF_MISS_DMG >= GEN_3)
-            {
-                if ((GetNonDynamaxMaxHP(cv->battlerDef) / 2) < gBattleStruct->moveDamage[cv->battlerDef])
-                    recoil = gBattleStruct->moveDamage[cv->battlerDef];
-                else
-                    recoil = GetNonDynamaxMaxHP(cv->battlerDef) / 2;
-            }
-            else if (B_RECOIL_IF_MISS_DMG == GEN_2)
-            {
-                recoil = gBattleStruct->moveDamage[cv->battlerDef] / 8;
-            }
-            else
-            {
-                recoil = 1;
-            }
+            s32 recoil = GetNonDynamaxMaxHP(cv->battlerAtk) / 2;
             SetPassiveDamageAmount(cv->battlerAtk, recoil);
             BattleScriptCall(BattleScript_RecoilIfMiss);
             result = MOVEEND_RESULT_RUN_SCRIPT;
@@ -4150,7 +4162,8 @@ static enum MoveEndResult MoveEndMoveBlockRecoil(struct BattleCalcValues *cv)
         if (IsBattlerTurnDamaged(cv->battlerDef, INCLUDING_SUBSTITUTES) && IsBattlerAlive(cv->battlerAtk))
         {
             if (IsAbilityAndRecord(cv->battlerAtk, cv->abilities[cv->battlerAtk], ABILITY_ROCK_HEAD)
-             || IsAbilityAndRecord(cv->battlerAtk, cv->abilities[cv->battlerAtk], ABILITY_MAGIC_GUARD))
+             || IsAbilityAndRecord(cv->battlerAtk, cv->abilities[cv->battlerAtk], ABILITY_MAGIC_GUARD)
+             || IsAbilityAndRecord(cv->battlerAtk, cv->abilities[cv->battlerAtk], ABILITY_BAD_COMPANY))
                 break;
 
             if (cv->moveEffect == EFFECT_CHLOROBLAST)
@@ -4253,7 +4266,7 @@ static enum MoveEndResult MoveEndMoveBlock(struct BattleCalcValues *cv)
 
                 gLastUsedItem = gBattleMons[battlerDef].item;
                 gBattleMons[battlerDef].item = ITEM_NONE;
-                if (gBattleMons[battlerDef].ability != ABILITY_GORILLA_TACTICS)
+                if (gBattleMons[battlerDef].ability != ABILITY_GORILLA_TACTICS && gBattleMons[battlerDef].ability != ABILITY_SAGE_POWER)
                     gBattleStruct->choicedMove[battlerDef] = MOVE_NONE;
                 CheckSetUnburden(battlerDef);
 

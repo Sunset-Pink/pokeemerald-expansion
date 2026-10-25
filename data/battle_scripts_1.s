@@ -5077,6 +5077,13 @@ BattleScript_FriskActivates::
 	tryfriskmessage
 	return
 
+BattleScript_GripperMsgWithPopup::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_GRIPPERACTIVATES
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
 BattleScript_ImposterActivates::
 	call BattleScript_AbilityPopUp
 	transformdataexecution

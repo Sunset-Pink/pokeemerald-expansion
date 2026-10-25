@@ -1123,7 +1123,7 @@ static u32 GetEggCyclesToSubtract(void)
 {
     u32 result = 1;
     if (DoesPartyHaveIncubatorMon())
-        result += 1;
+        result += 3; //Total of 4x faster.
     return result;
 }
 

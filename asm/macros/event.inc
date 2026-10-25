@@ -2999,3 +2999,9 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+.macro bufferstarterinfo stringVarId:req, startertype:req
+.byte SCR_OP_BUFFERSTARTERINFO
+stringvar \stringVarId
+.2byte \startertype
+.endm

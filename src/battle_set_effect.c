@@ -1425,7 +1425,7 @@ void SetMoveEffect(struct BattleCalcValues *cv, struct SetEffect *se)
 {
     bool32 affectsUser = (cv->battlerAtk == se->effectBattler);
 
-    if (gSpecialStatuses[cv->battlerAtk].parentalBondState == PARENTAL_BOND_1ST_HIT
+    if (gSpecialStatuses[cv->battlerAtk].echoHitState == ECHO_HIT_1ST_HIT
      && IsBattlerAlive(se->effectBattler)
      && IsFinalStrikeEffect(se->moveEffect))
     {

@@ -4391,8 +4391,12 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
 
     // other abilities
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battler].status1 & STATUS1_ANY)
-        speed = (speed * 150) / 100;
+        speed *= 2;
     else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
+        speed *= 2;
+    else if (ability == ABILITY_SYNAPSE_FIRE && gFieldTimers.terrain == B_TERRAIN_PSYCHIC)
+        speed *= 2;
+    else if (ability == ABILITY_GRASSY_GALLOP && gFieldTimers.terrain == B_TERRAIN_GRASSY)
         speed *= 2;
     else if (ability == ABILITY_SLOW_START && gBattleMons[battler].volatiles.slowStartTimer != 0)
         speed /= 2;
@@ -4402,6 +4406,8 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
         speed = (GetParadoxBoostedStatId(battler) == STAT_SPEED) ? (speed * 150) / 100 : speed;
     else if (ability == ABILITY_UNBURDEN && gBattleMons[battler].volatiles.unburdenActive)
         speed *= 2;
+    else if ( (ability == ABILITY_BULL_RUSH || ability == ABILITY_QUILL_RUSH) && IsBattlersFirstTurn(battler))
+        speed = (speed * 150) / 100;
 
     // player's badge boost
     if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK | BATTLE_TYPE_FRONTIER))
@@ -4470,9 +4476,13 @@ s32 GetBattleMovePriority(enum BattlerId battler, enum Ability ability, enum Mov
     {
         priority = -8;
     }
-    else if (ability == ABILITY_GALE_WINGS
-          && (GetConfig(B_GALE_WINGS) < GEN_7 || IsBattlerAtMaxHp(battler))
-          && GetMoveType(move) == TYPE_FLYING)
+    else if ( IsBattlerAtMaxHp(battler)
+        && (
+            (GetMoveType(move) == TYPE_FLYING && ability == ABILITY_GALE_WINGS)
+            || (GetMoveType(move) == TYPE_DRAGON && ability == ABILITY_DRAKE_MOMENTUM)
+            || (GetMoveType(move) == TYPE_FIRE && ability == ABILITY_BLAZING_SOUL)
+        )
+    )
     {
         priority++;
     }
@@ -4771,7 +4781,7 @@ static void TurnValuesCleanUp(bool32 endTurn)
         if (gBattleMons[i].volatiles.semiInvulnerable != STATE_COMMANDER)
             gBattleStruct->battlerState[i].commandingDondozo = FALSE;
 
-        gSpecialStatuses[i].parentalBondState = PARENTAL_BOND_OFF;
+        gSpecialStatuses[i].echoHitState = ECHO_HIT_OFF;
         gBattleStruct->battlerState[i].usedEjectItem = FALSE;
         gProtectStructs[i].lashOutAffected = FALSE;
         gBattleMons[i].volatiles.endured = FALSE;
@@ -5508,6 +5518,39 @@ enum Type TrySetAteType(enum Move move, enum BattlerId battlerAtk, enum Ability 
     case ABILITY_DRAGONIZE:
         ateType = TYPE_DRAGON;
         break;
+    case ABILITY_POLLINATE:
+        ateType = TYPE_GRASS;
+        break;
+    case ABILITY_CONFLAGRATE:
+        ateType = TYPE_FIRE;
+        break;
+    case ABILITY_MOISTURIZE:
+        ateType = TYPE_WATER;
+        break;
+    case ABILITY_PUPATE:
+        ateType = TYPE_BUG;
+        break;
+    case ABILITY_EXERCIZE:
+        ateType = TYPE_FIGHTING;
+        break;
+    case ABILITY_CONTAMINATE:
+        ateType = TYPE_POISON;
+        break;
+    case ABILITY_ESCAVATE:
+        ateType = TYPE_GROUND;
+        break;
+    case ABILITY_PROPHESIZE:
+        ateType = TYPE_PSYCHIC;
+        break;
+    case ABILITY_MINERALIZE:
+        ateType = TYPE_ROCK;
+        break;
+    case ABILITY_ENERVATE:
+        ateType = TYPE_GHOST;
+        break;
+    case ABILITY_METALLICIZE:
+        ateType = TYPE_STEEL;
+        break;
     default:
         ateType = TYPE_NONE;
         break;
@@ -5554,6 +5597,50 @@ enum Type GetDynamicMoveType(struct Pokemon *mon, enum Move move, enum BattlerId
         if (state == MON_IN_BATTLE)
         {
             u32 weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
+
+            if (ability == ABILITY_FORECAST)
+            {
+                switch(holdEffect)
+                {
+                    case HOLD_EFFECT_ICY_ROCK:
+                    {
+                        if(weather & B_WEATHER_ICY_ANY)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_SMOOTH_ROCK:
+                    {
+                        if(weather & B_WEATHER_SANDSTORM)
+                           gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_SANDSTORM, ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_DAMP_ROCK:
+                    {
+                        if(weather & B_WEATHER_RAIN)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_RAIN_NORMAL, ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_HEAT_ROCK:
+                    {
+                        if(weather & B_WEATHER_SUN)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_RAIN_NORMAL, ability);
+                        break;
+                    }
+                    default:
+                        break;
+                }   
+            }
+
+            // Re-get weather incase forecast changed it.
+            weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
             if (weather & B_WEATHER_SUN)
                 return TYPE_FIRE;
             else if (weather & B_WEATHER_RAIN)

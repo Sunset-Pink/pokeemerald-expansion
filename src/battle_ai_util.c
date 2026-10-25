@@ -781,14 +781,19 @@ static inline void CalcDynamicMoveDamage(struct DamageContext *ctx, struct Simul
             random *= RandomUniform(RNG_AI_DMG_ROLL_RANDOM, 2, 5);
         }
     }
-    else if (ctx->abilities[ctx->battlerAtk] == ABILITY_PARENTAL_BOND
+    else if (
+          (
+            ctx->abilities[ctx->battlerAtk] == ABILITY_PARENTAL_BOND
+            || ctx->abilities[ctx->battlerAtk] == ABILITY_RAGING_BOXER
+            || ctx->abilities[ctx->battlerAtk] == ABILITY_WISTFUL_ECHO
+          )
           && strikeCount == 0
           && !AI_IsDoubleSpreadMove(ctx->battlerAtk, ctx->move))
     {
-        median  += median  / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
-        minimum += minimum / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
-        maximum += maximum / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
-        random  += random  / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
+        median  += median  / 2;
+        minimum += minimum / 2;
+        maximum += maximum / 2;
+        random  += random  / 2;
     }
 
     if (median == 0)
@@ -1018,7 +1023,7 @@ struct SimulatedDamage AI_CalcDamage(struct AiCalcValues *aiCalc, enum BattlerId
 bool32 AI_IsDamagedByRecoil(enum BattlerId battler)
 {
     enum Ability ability = gAiLogicData->abilities[battler];
-    if (ability == ABILITY_MAGIC_GUARD || ability == ABILITY_ROCK_HEAD)
+    if (ability == ABILITY_MAGIC_GUARD || ability == ABILITY_ROCK_HEAD || ability == ABILITY_BAD_COMPANY)
         return FALSE;
     return TRUE;
 }
@@ -1452,7 +1457,12 @@ bool32 CanEndureHit(enum BattlerId battler, enum BattlerId battlerTarget, enum M
     if (!AI_BattlerAtMaxHp(battlerTarget) || IsMultiHitMove(move))
         return FALSE;
 
-    if (gAiLogicData->abilities[battler] == ABILITY_PARENTAL_BOND && AI_IsDoubleSpreadMove(battler, move))
+    if (
+        (
+            gAiLogicData->abilities[battler] == ABILITY_PARENTAL_BOND 
+            || gAiLogicData->abilities[battler] == ABILITY_WISTFUL_ECHO
+            || gAiLogicData->abilities[battler] == ABILITY_RAGING_BOXER
+        ) && AI_IsDoubleSpreadMove(battler, move))
         return FALSE;
 
     if (GetMoveStrikeCount(move) > 1 && !DragonDartsHitsBothTargets(battler, battlerTarget, move))
@@ -1888,6 +1898,16 @@ u32 AI_GetSwitchinWeather(enum BattlerId battler)
     // Switchin will introduce new weather
     switch (ability)
     {
+    case ABILITY_FORECAST:
+        enum HoldEffect effect = gAiLogicData->holdEffects[battler];
+        if(effect == HOLD_EFFECT_SMOOTH_ROCK)
+            return B_WEATHER_SANDSTORM;
+        else if (effect == HOLD_EFFECT_DAMP_ROCK)
+            return B_WEATHER_RAIN_NORMAL;
+        else if (effect == HOLD_EFFECT_HEAT_ROCK)
+            return B_WEATHER_SUN_NORMAL;
+        else if (effect == HOLD_EFFECT_ICY_ROCK)
+            return GetConfig(B_SNOW_WARNING) >= GEN_9 ? B_WEATHER_SNOW : B_WEATHER_HAIL;
     case ABILITY_DRIZZLE:
         return B_WEATHER_RAIN_NORMAL;
     case ABILITY_DROUGHT:
@@ -3558,7 +3578,7 @@ bool32 IsBattlerIncapacitated(enum BattlerId battler, enum Ability ability)
     if (gBattleMons[battler].status1 & STATUS1_SLEEP && !HasMoveUsableWhileAsleep(battler))
         return TRUE;
 
-    if (gBattleMons[battler].volatiles.rechargeTimer > 0 || (ability == ABILITY_TRUANT && gBattleMons[battler].volatiles.truantCounter != 0))
+    if (gBattleMons[battler].volatiles.rechargeTimer > 0 || (ability == ABILITY_TRUANT && gBattleMons[battler].volatiles.truantCounter != 0 && !HasHealingEffect(battler)))
         return TRUE;
 
     return FALSE;
@@ -3844,7 +3864,7 @@ bool32 IsFlinchGuaranteed(enum BattlerId battlerAtk, enum BattlerId battlerDef, 
 bool32 HasChoiceEffect(enum BattlerId battler)
 {
     enum Ability ability = gAiLogicData->abilities[battler];
-    if (ability == ABILITY_GORILLA_TACTICS)
+    if (ability == ABILITY_GORILLA_TACTICS || ability == ABILITY_SAGE_POWER)
         return TRUE;
 
     if (ability == ABILITY_KLUTZ)
@@ -5740,10 +5760,7 @@ bool32 ShouldTriggerAbility(enum BattlerId battlerAtk, enum BattlerId battlerDef
         {
         case ABILITY_LIGHTNING_ROD:
         case ABILITY_STORM_DRAIN:
-            if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) < GEN_5)
-                return FALSE;
-            else
-                return (BattlerStatCanRise(battlerDef, ability, STAT_SPATK) && HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL));
+            return (BattlerStatCanRise(battlerDef, ability, STAT_SPATK) && HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL));
 
         case ABILITY_DEFIANT:
         case ABILITY_JUSTIFIED:
@@ -5762,6 +5779,7 @@ bool32 ShouldTriggerAbility(enum BattlerId battlerAtk, enum BattlerId battlerDef
         case ABILITY_DRY_SKIN:
         case ABILITY_VOLT_ABSORB:
         case ABILITY_WATER_ABSORB:
+        case ABILITY_MOUNTAINEER:
             return (gAiThinkingStruct->aiFlags[battlerDef] & AI_FLAG_HP_AWARE);
 
         case ABILITY_RATTLED:
@@ -6034,6 +6052,10 @@ enum AIScore BattlerBenefitsFromAbilityScore(enum BattlerId battler, enum Abilit
     case ABILITY_HUGE_POWER:
     case ABILITY_PURE_POWER:
         if (HasMoveWithCategory(battler, DAMAGE_CATEGORY_PHYSICAL))
+            return BEST_EFFECT;
+        break;
+    case ABILITY_FELINE_PROWESS:
+        if (HasMoveWithCategory(battler, DAMAGE_CATEGORY_SPECIAL))
             return BEST_EFFECT;
         break;
     // Also used to Worry Seed WORRY_SEED

@@ -126,7 +126,9 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
     case BATTLE_WEATHER_RAIN:
     case BATTLE_WEATHER_RAIN_PRIMAL:
     case BATTLE_WEATHER_RAIN_DOWNPOUR:
-        if (ability == ABILITY_DRY_SKIN || ability == ABILITY_RAIN_DISH)
+        if (ability == ABILITY_DRY_SKIN 
+            || ability == ABILITY_RAIN_DISH 
+            || ability == ABILITY_WATER_ABSORB)
         {
             if (AbilityBattleEffects(ABILITYEFFECT_ENDTURN, battler, ability, MOVE_NONE, TRUE))
                 effect = TRUE;
@@ -134,11 +136,6 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
         break;
     case BATTLE_WEATHER_SUN:
     case BATTLE_WEATHER_SUN_PRIMAL:
-        if (ability == ABILITY_DRY_SKIN || ability == ABILITY_SOLAR_POWER)
-        {
-            if (AbilityBattleEffects(ABILITYEFFECT_ENDTURN, battler, ability, MOVE_NONE, TRUE))
-                effect = TRUE;
-        }
         break;
     case BATTLE_WEATHER_SANDSTORM:
         if (ability != ABILITY_SAND_VEIL
@@ -537,7 +534,7 @@ static bool32 HandleEndTurnPoison(enum BattlerId battler)
 
     if (IsBattlerPresent(battler) && (gBattleMons[battler].status1 & STATUS1_POISON || isToxicPoison))
     {
-        if (IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD))
+        if (IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD) || IsAbilityAndRecord(battler, ability, ABILITY_TOXIC_BOOST))
         {
             if (isToxicPoison && (gBattleMons[battler].status1 & STATUS1_TOXIC_COUNTER) != STATUS1_TOXIC_TURN(15)) // not 16 turns
                 gBattleMons[battler].status1 += STATUS1_TOXIC_TURN(1);
@@ -584,7 +581,8 @@ static bool32 HandleEndTurnBurn(enum BattlerId battler)
 
     if (gBattleMons[battler].status1 & STATUS1_BURN
      && IsBattlerPresent(battler)
-     && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD))
+     && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
+     && !IsAbilityAndRecord(battler, ability, ABILITY_FLARE_BOOST))
     {
         s32 burnDamage = GetNonDynamaxMaxHP(battler) / ((GetConfig(B_BURN_DAMAGE) >= GEN_7 || GetConfig(B_BURN_DAMAGE) == GEN_1) ? 16 : 8);
         if (ability == ABILITY_HEATPROOF)
@@ -1339,6 +1337,7 @@ static bool32 HandleEndTurnThirdEventBlock(enum BattlerId battler)
         case ABILITY_HARVEST:
         case ABILITY_MOODY:
         case ABILITY_PICKUP:
+        case ABILITY_SELF_SUFFICIENT:
         case ABILITY_SPEED_BOOST:
             if (AbilityBattleEffects(ABILITYEFFECT_ENDTURN, battler, ability, MOVE_NONE, TRUE))
                 effect = TRUE;

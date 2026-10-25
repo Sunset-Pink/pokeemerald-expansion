@@ -1604,7 +1604,7 @@ void StealTargetItem(enum BattlerId battlerStealer, enum BattlerId itemBattler, 
     BtlController_EmitSetMonData(itemBattler, B_COMM_TO_CONTROLLER, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[itemBattler].item), &gBattleMons[itemBattler].item);  // remove target item
     MarkBattlerForControllerExec(itemBattler);
 
-    if (GetBattlerAbility(itemBattler) != ABILITY_GORILLA_TACTICS)
+    if (GetBattlerAbility(itemBattler) != ABILITY_GORILLA_TACTICS && GetBattlerAbility(itemBattler) != ABILITY_SAGE_POWER)
         gBattleStruct->choicedMove[itemBattler] = MOVE_NONE;
 
     TrySaveExchangedItem(itemBattler, gLastUsedItem);
@@ -7093,10 +7093,11 @@ static void Cmd_tryswapitems(void)
             BtlController_EmitSetMonData(gBattlerTarget, B_COMM_TO_CONTROLLER, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].item), &gBattleMons[gBattlerTarget].item);
             MarkBattlerForControllerExec(gBattlerTarget);
 
-            if (GetBattlerAbility(gBattlerTarget) != ABILITY_GORILLA_TACTICS)
+            if (GetBattlerAbility(gBattlerTarget) != ABILITY_GORILLA_TACTICS && GetBattlerAbility(gBattlerTarget) != ABILITY_SAGE_POWER)
                 gBattleStruct->choicedMove[gBattlerTarget] = MOVE_NONE;
 
             if (GetBattlerAbility(gBattlerAttacker) != ABILITY_GORILLA_TACTICS
+             && GetBattlerAbility(gBattlerAbility) != ABILITY_SAGE_POWER
              && (!IsHoldEffectChoice(GetItemHoldEffect(oldItemDef))
              || (GetConfig(B_MODERN_TRICK_CHOICE_LOCK) >= GEN_5)))
             {
@@ -9168,12 +9169,12 @@ bool32 CanFireMoveThawTarget(enum Move move, enum Type moveType)
     return GetConfig(B_HIT_THAW) >= GEN_3 && moveType == TYPE_FIRE && GetMovePower(move) != 0;
 }
 
-void BS_CheckParentalBondCounter(void)
+void BS_CheckEchoHitCounter(void)
 {
     NATIVE_ARGS(u8 counter, const u8 *jumpInstr);
-    // Some effects should only happen on the first or second strike of Parental Bond,
+    // Some effects should only happen on the first or second strike of an echo hit ability like Parental Bond,
     // so a way to check this in battle scripts is useful
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState == cmd->counter && IsBattlerAlive(gBattlerTarget))
+    if (gSpecialStatuses[gBattlerAttacker].echoHitState == cmd->counter && IsBattlerAlive(gBattlerTarget))
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

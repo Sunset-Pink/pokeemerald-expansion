@@ -134,6 +134,9 @@ struct MoveInfo
     bool32 danceMove:1;
     bool32 windMove:1;
     bool32 slicingMove:1;
+    bool32 kickingMove:1;
+    bool32 boneMove:1;
+    bool32 eggMove:1;
     bool32 healingMove:1;
     bool32 minimizeDoubleDamage:1;
     // end of word
@@ -169,6 +172,8 @@ struct MoveInfo
     bool32 instructBanned:1;
     bool32 encoreBanned:1;
     bool32 parentalBondBanned:1;
+    bool32 wistfulEchoBanned:1;
+    bool32 ragingBoxerBanned:1;
     bool32 skyBattleBanned:1;
     bool32 sketchBanned:1;
     bool32 dampBanned:1;
@@ -421,6 +426,21 @@ static inline bool32 IsSlicingMove(enum Move moveId)
     return gMovesInfo[SanitizeMoveId(moveId)].slicingMove;
 }
 
+static inline bool32 IsKickingMove(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].kickingMove;
+}
+
+static inline bool32 IsBoneMove(enum Move moveId) 
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].boneMove;
+}
+
+static inline bool32 IsEggMove(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].eggMove;
+}
+
 static inline bool32 IsHealingMove(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].healingMove;
@@ -577,6 +597,16 @@ static inline bool32 IsMoveEncoreBanned(enum Move moveId)
 static inline bool32 IsMoveParentalBondBanned(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].parentalBondBanned;
+}
+
+static inline bool32 IsMoveRagingBoxerBanned(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].ragingBoxerBanned;
+}
+
+static inline bool32 IsMoveWistfulEchoBanned(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].wistfulEchoBanned;
 }
 
 static inline bool32 IsMoveSkyBattleBanned(enum Move moveId)

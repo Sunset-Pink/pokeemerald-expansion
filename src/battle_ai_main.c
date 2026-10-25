@@ -3113,6 +3113,7 @@ static bool32 ShouldTriggerPartnerAbility(enum BattlerId battlerAtk, enum Move m
 
     switch (ability)
     {
+    case ABILITY_ICE_EATER:
     case ABILITY_DRY_SKIN:
     case ABILITY_EARTH_EATER:
     case ABILITY_VOLT_ABSORB:
@@ -3463,11 +3464,6 @@ static s32 AI_DoubleBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             case ABILITY_VOLT_ABSORB:
                 if (moveType == TYPE_ELECTRIC)
                 {
-                    if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) < GEN_5 && atkPartnerAbility == ABILITY_LIGHTNING_ROD)
-                    {
-                        RETURN_SCORE_MINUS(10);
-                    }
-
                     if (moveTarget == TARGET_FOES_AND_ALLY)
                     {
                         if (ShouldTriggerPartnerAbility(battlerAtk, move, atkPartnerAbility))
@@ -3505,6 +3501,22 @@ static s32 AI_DoubleBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef,
                     isMoveAffectedByPartnerAbility = FALSE;
                 }
                 break;  // handled in AI_HPAware
+            case ABILITY_ICE_EATER:
+                if (moveType == TYPE_ICE)
+                {
+                    if (moveTarget == TARGET_FOES_AND_ALLY)
+                    {
+                        if(ShouldTriggerPartnerAbility(battlerAtk, move, atkPartnerAbility))
+                            ADJUST_SCORE(DECENT_EFFECT);
+                    } else if (!(gAiThinkingStruct->aiFlags[battlerAtk] & AI_FLAG_HP_AWARE)) {
+                        RETURN_SCORE_MINUS(10);
+                    }
+                }
+                else
+                {
+                    isMoveAffectedByPartnerAbility = FALSE;
+                }
+                break;
             case ABILITY_LEVITATE:
             case ABILITY_EELEVATE:
                 if (moveType != TYPE_GROUND)
@@ -3515,11 +3527,6 @@ static s32 AI_DoubleBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             case ABILITY_STORM_DRAIN:
                 if (moveType == TYPE_WATER)
                 {
-                    if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) < GEN_5 && atkPartnerAbility == ABILITY_STORM_DRAIN)
-                    {
-                        RETURN_SCORE_MINUS(10);
-                    }
-
                     if (moveTarget == TARGET_FOES_AND_ALLY)
                     {
                         if (ShouldTriggerPartnerAbility(battlerAtk, move, atkPartnerAbility))
@@ -3912,6 +3919,7 @@ static bool32 DoesAbilityBenefitFromSunOrRain(enum BattlerId battler, enum Abili
 {
     switch (ability)
     {
+    case ABILITY_WATER_ABSORB:
     case ABILITY_DRY_SKIN:
     case ABILITY_HYDRATION:
     case ABILITY_RAIN_DISH:
@@ -5076,13 +5084,6 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
         case HOLD_EFFECT_STICKY_BARB:
             ADJUST_SCORE(DECENT_EFFECT);
             break;
-        case HOLD_EFFECT_UTILITY_UMBRELLA:
-            if (!(AI_GetWeather() & B_WEATHER_SUN && aiData->abilities[battlerAtk] == ABILITY_DRY_SKIN)
-             && DoesAbilityBenefitFromSunOrRain(battlerDef, aiData->abilities[battlerDef], AI_GetWeather()))
-            {
-                ADJUST_SCORE(DECENT_EFFECT); // Remove their weather benefit
-            }
-            break;
         case HOLD_EFFECT_EJECT_BUTTON:
             //if (!IsRaidBattle() && GetActiveGimmick(battlerDef) == GIMMICK_DYNAMAX && gNewBS->dynamaxData.timer[battlerDef] > 1 &&
             if (HasDamagingMove(battlerAtk)
@@ -5118,9 +5119,7 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
                 case HOLD_EFFECT_STICKY_BARB:
                     break;
                 case HOLD_EFFECT_UTILITY_UMBRELLA:
-                    if ((AI_GetWeather() & B_WEATHER_SUN) && (aiData->abilities[battlerAtk] == ABILITY_DRY_SKIN || aiData->abilities[battlerDef] == ABILITY_DRY_SKIN))
-                        ADJUST_SCORE(DECENT_EFFECT);
-                    else if (!DoesAbilityBenefitFromSunOrRain(battlerAtk, aiData->abilities[battlerAtk], AI_GetWeather()))
+                    if (!DoesAbilityBenefitFromSunOrRain(battlerAtk, aiData->abilities[battlerAtk], AI_GetWeather()))
                         ADJUST_SCORE(WEAK_EFFECT);
                     break;
                 default:
@@ -6269,7 +6268,8 @@ static s32 AI_HPAware(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum
         if ((effect == EFFECT_HEAL_PULSE || effect == EFFECT_HIT_ENEMY_HEAL_ALLY)
          || (moveType == TYPE_ELECTRIC && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_VOLT_ABSORB)
          || (moveType == TYPE_GROUND && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_EARTH_EATER)
-         || (moveType == TYPE_WATER && (gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_DRY_SKIN || gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_WATER_ABSORB)))
+         || (moveType == TYPE_WATER && (gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_DRY_SKIN || gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_WATER_ABSORB))
+         || (moveType == TYPE_ICE && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_ICE_EATER))
         {
             if (gBattleMons[battlerDef].volatiles.healBlockTimer)
                 return 0;

@@ -2568,3 +2568,46 @@ static const u16 sTerapagosFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_TERAPAGOS
+
+static const u16 sLuxrayFormSpeciesIdTable[] = {
+    SPECIES_LUXRAY,
+    SPECIES_LUXRAY_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sTorterraFormSpeciesIdTable[] = {
+    SPECIES_TORTERRA,
+    SPECIES_TORTERRA_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sEmpoleonFormSpeciesIdTable[] = {
+    SPECIES_EMPOLEON,
+    SPECIES_EMPOLEON_MEGA_O,
+    SPECIES_EMPOLEON_MEGA_D,
+    FORM_SPECIES_END,
+};
+
+static const u16 sInfernapeFormSpeciesIdTable[] = {
+    SPECIES_INFERNAPE,
+    SPECIES_INFERNAPE_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sSlakingFormSpeciesIdTable[] = {
+    SPECIES_SLAKING,
+    SPECIES_SLAKING_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sRoseradeFormSpeciesIdTable[] = {
+    SPECIES_ROSERADE,
+    SPECIES_ROSERADE_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sDusknoirFormSpeciesIdTable[] = {
+    SPECIES_DUSKNOIR,
+    SPECIES_DUSKNOIR_MEGA,
+    FORM_SPECIES_END,
+};

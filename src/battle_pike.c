@@ -802,7 +802,7 @@ static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
     enum Ability ability = GetMonAbility(mon);
     bool8 ret = FALSE;
 
-    if (ability == ABILITY_COMATOSE)
+    if (ability == ABILITY_COMATOSE || ability == ABILITY_SWEET_DREAMS)
         return TRUE;
 
     switch (status)

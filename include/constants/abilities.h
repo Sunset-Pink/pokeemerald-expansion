@@ -353,10 +353,13 @@ enum __attribute__((packed)) Ability
 
     // Earth Eater/Water Absorb Variants
     ABILITY_ICE_EATER,
+    ABILITY_FLY_TRAP,
 
     // Theme Boosting Abilities
     ABILITY_STRIKER,
     ABILITY_BONE_ZONE,
+    ABILITY_YOKED,
+    ABILITY_LINGUIST,
 
     // Unconditional Double Stat
     ABILITY_FELINE_PROWESS,
@@ -416,6 +419,16 @@ enum __attribute__((packed)) Ability
     ABILITY_BAD_COMPANY,
     ABILITY_THE_GRIPPER,
     ABILITY_SELF_SUFFICIENT,
+    ABILITY_TIME_STOP,
+    ABILITY_SPACE_TIME,
+    ABILITY_LORD_OF_TIME,
+    ABILITY_LORD_OF_SPACE,
+    ABILITY_RAMPAGE,
+    ABILITY_COLD_SNAP,
+    ABILITY_FATAL_PRECISION,
+    ABILITY_PRIMAL_ARMOR,
+    ABILITY_CAT_NAP,
+    ABILITY_SWEET_DREAMS,
 
 
 

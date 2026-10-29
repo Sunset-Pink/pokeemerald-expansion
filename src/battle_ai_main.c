@@ -1470,6 +1470,7 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             if (IsStatLoweringMove(move))
                 RETURN_SCORE_MINUS(20);
             break;
+        case ABILITY_SWEET_DREAMS:
         case ABILITY_COMATOSE:
             if (IsNonVolatileStatusMove(move))
                 RETURN_SCORE_MINUS(10);
@@ -1498,6 +1499,10 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
                     RETURN_SCORE_MINUS(20);
                 break;
             case ABILITY_STORM_DRAIN:
+                if (moveType == TYPE_WATER && !IsMoveRedirectionPrevented(battlerAtk, move, aiData->abilities[battlerAtk]))
+                    RETURN_SCORE_MINUS(20);
+                break;
+            case ABILITY_FLY_TRAP:
                 if (moveType == TYPE_WATER && !IsMoveRedirectionPrevented(battlerAtk, move, aiData->abilities[battlerAtk]))
                     RETURN_SCORE_MINUS(20);
                 break;
@@ -2299,6 +2304,7 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             ADJUST_SCORE(-10);
         }
         break;
+    case EFFECT_FORBIDDEN_SPELL:
     case EFFECT_METRONOME:
         break;
 
@@ -3113,6 +3119,7 @@ static bool32 ShouldTriggerPartnerAbility(enum BattlerId battlerAtk, enum Move m
 
     switch (ability)
     {
+    case ABILITY_FLY_TRAP:
     case ABILITY_ICE_EATER:
     case ABILITY_DRY_SKIN:
     case ABILITY_EARTH_EATER:
@@ -3521,6 +3528,28 @@ static s32 AI_DoubleBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             case ABILITY_EELEVATE:
                 if (moveType != TYPE_GROUND)
                     isMoveAffectedByPartnerAbility = FALSE;
+                break;
+            case ABILITY_FLY_TRAP:
+                if(moveType == TYPE_BUG)
+                {
+                    if (moveTarget == TARGET_FOES_AND_ALLY)
+                    {
+                        if (ShouldTriggerPartnerAbility(battlerAtk, move, atkPartnerAbility))
+                            ADJUST_SCORE(DECENT_EFFECT);
+                    }
+                    else if (ShouldTriggerAbility(battlerAtk, battlerAtkPartner, atkPartnerAbility))
+                    {
+                        RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    }
+                    else
+                    {
+                        RETURN_SCORE_MINUS(10);
+                    }
+                } 
+                else
+                {
+                    isMoveAffectedByPartnerAbility = FALSE;
+                }
                 break;
             case ABILITY_DRY_SKIN:
             case ABILITY_WATER_ABSORB:
@@ -6269,7 +6298,8 @@ static s32 AI_HPAware(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum
          || (moveType == TYPE_ELECTRIC && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_VOLT_ABSORB)
          || (moveType == TYPE_GROUND && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_EARTH_EATER)
          || (moveType == TYPE_WATER && (gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_DRY_SKIN || gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_WATER_ABSORB))
-         || (moveType == TYPE_ICE && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_ICE_EATER))
+         || (moveType == TYPE_ICE && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_ICE_EATER)
+         || (moveType == TYPE_BUG && gAiLogicData->abilities[GetPartnerBattler(battlerAtk)] == ABILITY_FLY_TRAP))
         {
             if (gBattleMons[battlerDef].volatiles.healBlockTimer)
                 return 0;

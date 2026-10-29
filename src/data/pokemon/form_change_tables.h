@@ -2181,5 +2181,41 @@ static const struct FormChange sTerapagosFormChangeTable[] =
 };
 #endif //P_FAMILY_TERAPAGOS
 
+static const struct FormChange sLuxrayFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_LUXRAY_MEGA, ITEM_LUXRITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sTorterraFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_TORTERRA_MEGA, ITEM_TORTERRITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sEmpoleonFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_EMPOLEON_MEGA_O, ITEM_EMPOLEONITE_O},
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_EMPOLEON_MEGA_D, ITEM_EMPOLEONITE_D},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sInfernapeFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_INFERNAPE_MEGA, ITEM_INFERNAPITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sSlakingFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_SLAKING_MEGA, ITEM_SLAKITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sRoseradeFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ROSERADE_MEGA, ITEM_ROSERADITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sDusknoirFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_DUSKNOIR_MEGA, ITEM_DUSKNOIRITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
 #undef WHEN_LEARNED
 #undef WHEN_FORGOTTEN

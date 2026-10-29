@@ -21,7 +21,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_GRASS),
-        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_GRASSY_SURGE },
+        .abilities = { ABILITY_OVERGROW, ABILITY_PUNK_ROCK, ABILITY_GRASSY_SURGE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Grookey"),
         .cryId = CRY_GROOKEY,
@@ -89,7 +89,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_GRASS),
-        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_GRASSY_SURGE },
+        .abilities = { ABILITY_OVERGROW, ABILITY_PUNK_ROCK, ABILITY_GRASSY_SURGE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Thwackey"),
         .cryId = CRY_THWACKEY,
@@ -135,7 +135,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sThwackeyLevelUpLearnset,
         .teachableLearnset = sThwackeyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_RILLABOOM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_RILLABOOM}),
     },
 
     [SPECIES_RILLABOOM] =
@@ -155,7 +155,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_GRASS),
-        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_GRASSY_SURGE },
+        .abilities = { ABILITY_OVERGROW, ABILITY_PUNK_ROCK, ABILITY_GRASSY_SURGE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Rillaboom"),
         .cryId = CRY_RILLABOOM,
@@ -210,63 +210,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sRillaboomFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_RILLABOOM_GMAX] =
-    {
-        .baseHP        = 100,
-        .baseAttack    = 125,
-        .baseDefense   = 90,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_GRASS),
-        .catchRate = 45,
-        .expYield = 265,
-        .evYield_Attack = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_GRASS),
-        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_GRASSY_SURGE },
-        .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("Rillaboom"),
-        .cryId = CRY_RILLABOOM,
-        .natDexNum = NATIONAL_DEX_RILLABOOM,
-        .categoryName = _("Drummer"),
-        .height = 280,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "Rillaboom has become one with its\n"
-            "forest of drums and continues to lay\n"
-            "down beats that shake all of Galar."),
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 365,
-        .trainerOffset = 7,
-        .frontPic = gMonFrontPic_RillaboomGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_RillaboomGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 4,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_RillaboomGmax,
-        .shinyPalette = gMonShinyPalette_RillaboomGmax,
-        .iconSprite = gMonIcon_RillaboomGmax,
-        .iconPalIndex = 1,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(0, 8, SHADOW_SIZE_XL_BATTLE_ONLY)
-        FOOTPRINT(Rillaboom)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sRillaboomLevelUpLearnset,
-        .teachableLearnset = sRillaboomTeachableLearnset,
-        .formSpeciesIdTable = sRillaboomFormSpeciesIdTable,
-        .formChangeTable = sRillaboomFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_GROOKEY
 
 #if P_FAMILY_SCORBUNNY
@@ -287,7 +230,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_LIBERO },
+        .abilities = { ABILITY_BLAZE, ABILITY_STRIKER, ABILITY_LIBERO },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Scorbunny"),
         .cryId = CRY_SCORBUNNY,
@@ -356,7 +299,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_LIBERO },
+        .abilities = { ABILITY_BLAZE, ABILITY_STRIKER, ABILITY_LIBERO },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Raboot"),
         .cryId = CRY_RABOOT,
@@ -403,7 +346,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sRabootLevelUpLearnset,
         .teachableLearnset = sRabootTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_CINDERACE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CINDERACE}),
     },
 
     [SPECIES_CINDERACE] =
@@ -423,7 +366,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_LIBERO },
+        .abilities = { ABILITY_BLAZE, ABILITY_STRIKER, ABILITY_LIBERO },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Cinderace"),
         .cryId = CRY_CINDERACE,
@@ -474,64 +417,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sCinderaceFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_CINDERACE_GMAX] =
-    {
-        .baseHP        = 80,
-        .baseAttack    = 116,
-        .baseDefense   = 75,
-        .baseSpeed     = 119,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 75,
-        .types = MON_TYPES(TYPE_FIRE),
-        .catchRate = 45,
-        .expYield = 265,
-        .evYield_Speed = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_LIBERO },
-        .bodyColor = BODY_COLOR_WHITE,
-        .speciesName = _("Cinderace"),
-        .cryId = CRY_CINDERACE,
-        .natDexNum = NATIONAL_DEX_CINDERACE,
-        .categoryName = _("Striker"),
-        .height = 270,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "Infused with Cinderace's fighting\n"
-            "spirit, the gigantic Pyro Ball never\n"
-            "misses its targets and completely\n"
-            "roasts opponents."),
-        .pokemonScale = 265,
-        .pokemonOffset = 2,
-        .trainerScale = 262,
-        .trainerOffset = 0,
-        .frontPic = gMonFrontPic_CinderaceGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_CinderaceGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 4,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_CinderaceGmax,
-        .shinyPalette = gMonShinyPalette_CinderaceGmax,
-        .iconSprite = gMonIcon_CinderaceGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(-3, 13, SHADOW_SIZE_XL_BATTLE_ONLY)
-        FOOTPRINT(Cinderace)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sCinderaceLevelUpLearnset,
-        .teachableLearnset = sCinderaceTeachableLearnset,
-        .formSpeciesIdTable = sCinderaceFormSpeciesIdTable,
-        .formChangeTable = sCinderaceFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_SCORBUNNY
 
 #if P_FAMILY_SOBBLE
@@ -667,7 +552,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sDrizzileLevelUpLearnset,
         .teachableLearnset = sDrizzileTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_INTELEON}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_INTELEON}),
     },
 
     [SPECIES_INTELEON] =
@@ -738,65 +623,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sInteleonFormSpeciesIdTable,
         .formChangeTable = sInteleonFormChangeTable,
     },
-
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_INTELEON_GMAX] =
-    {
-        .baseHP        = 70,
-        .baseAttack    = 85,
-        .baseDefense   = 65,
-        .baseSpeed     = 120,
-        .baseSpAttack  = 125,
-        .baseSpDefense = 65,
-        .types = MON_TYPES(TYPE_WATER),
-        .catchRate = 45,
-        .expYield = 265,
-        .evYield_Speed = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_SNIPER },
-        .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Inteleon"),
-        .cryId = CRY_INTELEON,
-        .natDexNum = NATIONAL_DEX_INTELEON,
-        .categoryName = _("Secret Agent"),
-        .height = 400,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "Gigantamax Inteleon's Water Gun\n"
-            "move fires at Mach 7. As the Pokémon\n"
-            "takes aim, it uses the crest on its\n"
-            "head to gauge wind and temperature."),
-        .pokemonScale = 256,
-        .pokemonOffset = 1,
-        .trainerScale = 326,
-        .trainerOffset = 4,
-        .frontPic = gMonFrontPic_InteleonGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_InteleonGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 4,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_InteleonGmax,
-        .shinyPalette = gMonShinyPalette_InteleonGmax,
-        .iconSprite = gMonIcon_InteleonGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(-5, 12, SHADOW_SIZE_L)
-        FOOTPRINT(Inteleon)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sInteleonLevelUpLearnset,
-        .teachableLearnset = sInteleonTeachableLearnset,
-        .formSpeciesIdTable = sInteleonFormSpeciesIdTable,
-        .formChangeTable = sInteleonFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_SOBBLE
 
 #if P_FAMILY_SKWOVET
@@ -865,7 +691,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSkwovetLevelUpLearnset,
         .teachableLearnset = sSkwovetTeachableLearnset,
         .eggMoveLearnset = sSkwovetEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_GREEDENT}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 23, SPECIES_GREEDENT}),
     },
 
     [SPECIES_GREEDENT] =
@@ -954,7 +780,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_UNNERVE, ABILITY_BIG_PECKS },
+        .abilities = { ABILITY_FRISK, ABILITY_UNNERVE, ABILITY_UNNERVE },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Rookidee"),
         .cryId = CRY_ROOKIDEE,
@@ -1007,7 +833,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sRookideeLevelUpLearnset,
         .teachableLearnset = sRookideeTeachableLearnset,
         .eggMoveLearnset = sRookideeEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_CORVISQUIRE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CORVISQUIRE}),
     },
 
     [SPECIES_CORVISQUIRE] =
@@ -1027,7 +853,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_UNNERVE, ABILITY_BIG_PECKS },
+        .abilities = { ABILITY_FRISK, ABILITY_NONE , ABILITY_UNNERVE },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Corvisquire"),
         .cryId = CRY_CORVISQUIRE,
@@ -1100,7 +926,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_PRESSURE, ABILITY_UNNERVE, ABILITY_MIRROR_ARMOR },
+        .abilities = { ABILITY_PRESSURE, ABILITY_UNNERVE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Corviknight"),
         .cryId = CRY_CORVIKNIGHT,
@@ -1152,64 +978,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sCorviknightFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_CORVIKNIGHT_GMAX] =
-    {
-        .baseHP        = 98,
-        .baseAttack    = 87,
-        .baseDefense   = 105,
-        .baseSpeed     = 67,
-        .baseSpAttack  = 53,
-        .baseSpDefense = 85,
-        .types = MON_TYPES(TYPE_FLYING, TYPE_STEEL),
-        .catchRate = 45,
-        .expYield = 248,
-        .evYield_Defense = 3,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 15,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_PRESSURE, ABILITY_UNNERVE, ABILITY_MIRROR_ARMOR },
-        .bodyColor = BODY_COLOR_PURPLE,
-        .speciesName = _("Corviknight"),
-        .cryId = CRY_CORVIKNIGHT,
-        .natDexNum = NATIONAL_DEX_CORVIKNIGHT,
-        .categoryName = _("Raven"),
-        .height = 140,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "Imbued with Gigantamax energy, its\n"
-            "wings can whip up winds more\n"
-            "forceful than any a hurricane could\n"
-            "muster. The gusts blow everything away."),
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 348,
-        .trainerOffset = 6,
-        .frontPic = gMonFrontPic_CorviknightGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 2,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_CorviknightGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 3,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_CorviknightGmax,
-        .shinyPalette = gMonShinyPalette_CorviknightGmax,
-        .iconSprite = gMonIcon_CorviknightGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(2, 8, SHADOW_SIZE_L)
-        FOOTPRINT(Corviknight)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sCorviknightLevelUpLearnset,
-        .teachableLearnset = sCorviknightTeachableLearnset,
-        .formSpeciesIdTable = sCorviknightFormSpeciesIdTable,
-        .formChangeTable = sCorviknightFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_ROOKIDEE
 
 #if P_FAMILY_BLIPBUG
@@ -1348,7 +1116,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sDottlerLevelUpLearnset,
         .teachableLearnset = sDottlerTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_ORBEETLE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 27, SPECIES_ORBEETLE}),
     },
 
     [SPECIES_ORBEETLE] =
@@ -1422,15 +1190,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sOrbeetleFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_ORBEETLE_GMAX] =
+    [SPECIES_ORBEETLE_MEGA] =
     {
         .baseHP        = 60,
         .baseAttack    = 45,
-        .baseDefense   = 110,
-        .baseSpeed     = 90,
-        .baseSpAttack  = 80,
-        .baseSpDefense = 120,
+        .baseDefense   = 110 + 15,
+        .baseSpeed     = 90 +10,
+        .baseSpAttack  = 80 + 55,
+        .baseSpDefense = 120 + 10,
         .types = MON_TYPES(TYPE_BUG, TYPE_PSYCHIC),
         .catchRate = 45,
         .expYield = 253,
@@ -1441,7 +1208,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_SWARM, ABILITY_FRISK, ABILITY_TELEPATHY },
+        .abilities = { ABILITY_MAGIC_GUARD, ABILITY_MAGIC_GUARD, ABILITY_MAGIC_GUARD },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Orbeetle"),
         .cryId = CRY_ORBEETLE,
@@ -1474,13 +1241,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 12, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Orbeetle)
-        .isGigantamax = TRUE,
+        .isMegaEvolution = TRUE,
         .levelUpLearnset = sOrbeetleLevelUpLearnset,
         .teachableLearnset = sOrbeetleTeachableLearnset,
         .formSpeciesIdTable = sOrbeetleFormSpeciesIdTable,
         .formChangeTable = sOrbeetleFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_BLIPBUG
 
 #if P_FAMILY_NICKIT
@@ -1554,8 +1320,8 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseHP        = 70,
         .baseAttack    = 58,
         .baseDefense   = 58,
-        .baseSpeed     = 90,
-        .baseSpAttack  = 87,
+        .baseSpeed     = 90 + 20,
+        .baseSpAttack  = 87 + 10,
         .baseSpDefense = 92,
         .types = MON_TYPES(TYPE_DARK),
         .catchRate = 127,
@@ -1681,11 +1447,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     [SPECIES_ELDEGOSS] =
     {
-        .baseHP        = 60,
+        .baseHP        = 60 + 15,
         .baseAttack    = 50,
         .baseDefense   = 90,
         .baseSpeed     = 60,
-        .baseSpAttack  = 80,
+        .baseSpAttack  = 80 + 10,
         .baseSpDefense = 120,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 75,
@@ -1811,7 +1577,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     [SPECIES_DUBWOOL] =
     {
-        .baseHP        = 72,
+        .baseHP        = 72 + 10,
         .baseAttack    = 80,
         .baseDefense   = 100,
         .baseSpeed     = 88,
@@ -2010,15 +1776,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sDrednawFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_DREDNAW_GMAX] =
+    [SPECIES_DREDNAW_MEGA] =
     {
         .baseHP        = 90,
-        .baseAttack    = 115,
-        .baseDefense   = 90,
-        .baseSpeed     = 74,
+        .baseAttack    = 115 + 40,
+        .baseDefense   = 90 + 35,
+        .baseSpeed     = 74 + 11,
         .baseSpAttack  = 48,
-        .baseSpDefense = 68,
+        .baseSpDefense = 68 + 30,
         .types = MON_TYPES(TYPE_WATER, TYPE_ROCK),
         .catchRate = 75,
         .expYield = 170,
@@ -2028,7 +1793,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
-        .abilities = { ABILITY_STRONG_JAW, ABILITY_SHELL_ARMOR, ABILITY_SWIFT_SWIM },
+        .abilities = { ABILITY_STRONG_JAW, ABILITY_STRONG_JAW, ABILITY_STRONG_JAW },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Drednaw"),
         .cryId = CRY_DREDNAW,
@@ -2061,13 +1826,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(2, 12, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Drednaw)
-        .isGigantamax = TRUE,
+        .isMegaEvolution = TRUE,
         .levelUpLearnset = sDrednawLevelUpLearnset,
         .teachableLearnset = sDrednawTeachableLearnset,
         .formSpeciesIdTable = sDrednawFormSpeciesIdTable,
         .formChangeTable = sDrednawFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_CHEWTLE
 
 #if P_FAMILY_YAMPER
@@ -2088,7 +1852,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_BALL_FETCH, ABILITY_NONE, ABILITY_RATTLED },
+        .abilities = { ABILITY_PICKUP, ABILITY_NONE, ABILITY_COMPETITIVE },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Yamper"),
         .cryId = CRY_YAMPER,
@@ -2139,10 +1903,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_BOLTUND] =
     {
         .baseHP        = 69,
-        .baseAttack    = 90,
+        .baseAttack    = 90 + 10,
         .baseDefense   = 60,
         .baseSpeed     = 121,
-        .baseSpAttack  = 90,
+        .baseSpAttack  = 90 - 10,
         .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 45,
@@ -2267,7 +2031,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sRolycolyLevelUpLearnset,
         .teachableLearnset = sRolycolyTeachableLearnset,
         .eggMoveLearnset = sRolycolyEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_CARKOL}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CARKOL}),
     },
 
     [SPECIES_CARKOL] =
@@ -2405,15 +2169,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sCoalossalFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_COALOSSAL_GMAX] =
+    [SPECIES_COALOSSAL_MEGA] =
     {
         .baseHP        = 110,
         .baseAttack    = 80,
-        .baseDefense   = 120,
-        .baseSpeed     = 30,
-        .baseSpAttack  = 80,
-        .baseSpDefense = 90,
+        .baseDefense   = 120 + 5,
+        .baseSpeed     = 30 + 15,
+        .baseSpAttack  = 80 + 45,
+        .baseSpDefense = 90 + 15,
         .types = MON_TYPES(TYPE_ROCK, TYPE_FIRE),
         .catchRate = 45,
         .expYield = 255,
@@ -2423,7 +2186,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_STEAM_ENGINE, ABILITY_FLAME_BODY, ABILITY_FLASH_FIRE },
+        .abilities = { ABILITY_MOUNTAINEER, ABILITY_MOUNTAINEER, ABILITY_MOUNTAINEER },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Coalossal"),
         .cryId = CRY_COALOSSAL,
@@ -2462,7 +2225,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sCoalossalFormSpeciesIdTable,
         .formChangeTable = sCoalossalFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_ROLYCOLY
 
 #if P_FAMILY_APPLIN
@@ -2533,12 +2295,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sApplinLevelUpLearnset,
         .teachableLearnset = sApplinTeachableLearnset,
         .eggMoveLearnset = sApplinEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_TART_APPLE, SPECIES_FLAPPLE},
-                                {EVO_ITEM, ITEM_SWEET_APPLE, SPECIES_APPLETUN}
-                            #if P_GEN_9_CROSS_EVOS
-                                ,{EVO_ITEM, ITEM_SYRUPY_APPLE, SPECIES_DIPPLIN}
-                            #endif
-                            ),
+        .evolutions = EVOLUTION(
+            {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_FLAPPLE},
+            {EVO_ITEM, ITEM_TART_APPLE, SPECIES_FLAPPLE},
+            {EVO_ITEM, ITEM_SUN_STONE, SPECIES_APPLETUN},
+            {EVO_ITEM, ITEM_SWEET_APPLE, SPECIES_APPLETUN},
+            {EVO_LEVEL, 30, SPECIES_DIPPLIN},
+            {EVO_ITEM, ITEM_SYRUPY_APPLE, SPECIES_DIPPLIN}
+        ),
     },
 
     [SPECIES_FLAPPLE] =
@@ -2611,15 +2375,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sFlappleFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_FLAPPLE_GMAX] =
+    [SPECIES_FLAPPLE_MEGA] =
     {
         .baseHP        = 70,
-        .baseAttack    = 110,
-        .baseDefense   = 80,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 95,
-        .baseSpDefense = 60,
+        .baseAttack    = 110 + 35,
+        .baseDefense   = 80 + 10,
+        .baseSpeed     = 70 + 35,
+        .baseSpAttack  = 95 + 40,
+        .baseSpDefense = 60 + 10,
         .types = MON_TYPES(TYPE_GRASS, TYPE_DRAGON),
         .catchRate = 45,
         .expYield = 170,
@@ -2629,7 +2392,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_RIPEN, ABILITY_GLUTTONY, ABILITY_HUSTLE },
+        .abilities = { ABILITY_DRAGONS_MAW, ABILITY_DRAGONS_MAW, ABILITY_DRAGONS_MAW },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Flapple"),
         .cryId = CRY_FLAPPLE,
@@ -2662,13 +2425,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 10, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Flapple)
-        .isGigantamax = TRUE,
+        .isMegaEvolution = TRUE,
         .levelUpLearnset = sFlappleLevelUpLearnset,
         .teachableLearnset = sFlappleTeachableLearnset,
         .formSpeciesIdTable = sFlappleFormSpeciesIdTable,
         .formChangeTable = sFlappleFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 
     [SPECIES_APPLETUN] =
     {
@@ -2738,8 +2500,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sAppletunFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_APPLETUN_GMAX] =
+    [SPECIES_APPLETUN_MEGA] =
     {
         .baseHP        = 110,
         .baseAttack    = 85,
@@ -2756,7 +2517,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_RIPEN, ABILITY_GLUTTONY, ABILITY_THICK_FAT },
+        .abilities = { ABILITY_CONTRARY, ABILITY_CONTRARY, ABILITY_CONTRARY },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Appletun"),
         .cryId = CRY_APPLETUN,
@@ -2795,7 +2556,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sAppletunFormSpeciesIdTable,
         .formChangeTable = sAppletunFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 
 #if P_GEN_9_CROSS_EVOS
     [SPECIES_DIPPLIN] =
@@ -2815,7 +2575,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SUPERSWEET_SYRUP, ABILITY_GLUTTONY, ABILITY_STICKY_HOLD },
+        .abilities = { ABILITY_STICKY_HOLD, ABILITY_GLUTTONY, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Dipplin"),
         .cryId = CRY_DIPPLIN,
@@ -2858,7 +2618,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sDipplinLevelUpLearnset,
         .teachableLearnset = sDipplinTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_HYDRAPPLE, CONDITIONS({IF_KNOWS_MOVE, MOVE_DRAGON_CHEER})}),
+        .evolutions = EVOLUTION(
+            {
+                EVO_LEVEL, 44, 
+                SPECIES_HYDRAPPLE, 
+            }
+        ),
     },
 
     [SPECIES_HYDRAPPLE] =
@@ -2878,7 +2643,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SUPERSWEET_SYRUP, ABILITY_REGENERATOR, ABILITY_STICKY_HOLD },
+        .abilities = { ABILITY_STICKY_HOLD, ABILITY_REGENERATOR, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Hydrapple"),
         .cryId = CRY_HYDRAPPLE,
@@ -2944,7 +2709,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_FAULT_LINE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Silicobra"),
         .cryId = CRY_SILICOBRA,
@@ -3011,7 +2776,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_FAULT_LINE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Sandaconda"),
         .cryId = CRY_SANDACONDA,
@@ -3062,16 +2827,15 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sSandacondaFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_SANDACONDA_GMAX] =
+    [SPECIES_SANDACONDA_MEGA] =
     {
         .baseHP        = 72,
-        .baseAttack    = 107,
-        .baseDefense   = 125,
-        .baseSpeed     = 71,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_GROUND),
+        .baseAttack    = 107 + 33,
+        .baseDefense   = 125 + 35,
+        .baseSpeed     = 71 + 10,
+        .baseSpAttack  = 65 + 20,
+        .baseSpDefense = 70 + 20,
+        .types = MON_TYPES(TYPE_GROUND, TYPE_FLYING),
         .catchRate = 120,
         .expYield = 179,
         .evYield_Defense = 2,
@@ -3080,7 +2844,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_AERILATE, ABILITY_AERILATE, ABILITY_AERILATE },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Sandaconda"),
         .cryId = CRY_SANDACONDA,
@@ -3119,17 +2883,16 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sSandacondaFormSpeciesIdTable,
         .formChangeTable = sSandacondaFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_SILICOBRA
 
 #if P_FAMILY_CRAMORANT
     [SPECIES_CRAMORANT] =
     {
-        .baseHP        = 70,
+        .baseHP        = 70 + 15,
         .baseAttack    = 85,
-        .baseDefense   = 55,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 85,
+        .baseDefense   = 55 + 10,
+        .baseSpeed     = 85 + 10,
+        .baseSpAttack  = 85 + 15,
         .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_FLYING, TYPE_WATER),
         .catchRate = 45,
@@ -3190,11 +2953,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     [SPECIES_CRAMORANT_GULPING] =
     {
-        .baseHP        = 70,
+        .baseHP        = 70 + 15,
         .baseAttack    = 85,
-        .baseDefense   = 55,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 85,
+        .baseDefense   = 55 + 10,
+        .baseSpeed     = 85 + 10,
+        .baseSpAttack  = 85 + 15,
         .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_FLYING, TYPE_WATER),
         .catchRate = 45,
@@ -3247,11 +3010,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     [SPECIES_CRAMORANT_GORGING] =
     {
-        .baseHP        = 70,
+        .baseHP        = 70 + 15,
         .baseAttack    = 85,
-        .baseDefense   = 55,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 85,
+        .baseDefense   = 55 + 10,
+        .baseSpeed     = 85 + 10,
+        .baseSpAttack  = 85 + 15,
         .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_FLYING, TYPE_WATER),
         .catchRate = 45,
@@ -3321,7 +3084,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2),
-        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_PROPELLER_TAIL },
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Arrokuda"),
         .cryId = CRY_ARROKUDA,
@@ -3386,7 +3149,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2),
-        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_PROPELLER_TAIL },
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Barraskewda"),
         .cryId = CRY_BARRASKEWDA,
@@ -3451,7 +3214,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_RATTLED, ABILITY_STATIC, ABILITY_KLUTZ },
+        .abilities = { ABILITY_RATTLED, ABILITY_STATIC, ABILITY_NONE },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Toxel"),
         .cryId = CRY_TOXEL,
@@ -3496,8 +3259,18 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sToxelLevelUpLearnset,
         .teachableLearnset = sToxelTeachableLearnset,
         .eggMoveLearnset = sToxelEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_TOXTRICITY_AMPED, CONDITIONS({IF_AMPED_NATURE})},
-                                {EVO_LEVEL, 30, SPECIES_TOXTRICITY_LOW_KEY, CONDITIONS({IF_LOW_KEY_NATURE})}),
+        .evolutions = EVOLUTION(
+            {
+                EVO_LEVEL, 30, 
+                SPECIES_TOXTRICITY_AMPED, 
+                CONDITIONS({IF_AMPED_NATURE})
+            },
+            {
+                EVO_LEVEL, 30, 
+                SPECIES_TOXTRICITY_LOW_KEY, 
+                CONDITIONS({IF_LOW_KEY_NATURE})
+            }
+        ),
     },
 
     [SPECIES_TOXTRICITY_AMPED] =
@@ -3565,15 +3338,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sToxtricityAmpedFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_TOXTRICITY_AMPED_GMAX] =
+    [SPECIES_TOXTRICITY_MEGA] =
     {
         .baseHP        = 75,
-        .baseAttack    = 98,
-        .baseDefense   = 70,
-        .baseSpeed     = 75,
-        .baseSpAttack  = 114,
-        .baseSpDefense = 70,
+        .baseAttack    = 98 + 22,
+        .baseDefense   = 70 + 10,
+        .baseSpeed     = 75 + 36,
+        .baseSpAttack  = 114 + 41,
+        .baseSpDefense = 70 + 10,
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_POISON),
         .catchRate = 45,
         .expYield = 176,
@@ -3583,7 +3355,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_PUNK_ROCK, ABILITY_PLUS, ABILITY_TECHNICIAN },
+        .abilities = { ABILITY_PUNK_ROCK, ABILITY_PUNK_ROCK, ABILITY_PUNK_ROCK },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Toxtricity"),
         .cryId = CRY_TOXTRICITY_AMPED,
@@ -3618,7 +3390,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sToxtricityFormSpeciesIdTable,
         .formChangeTable = sToxtricityAmpedFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 
     [SPECIES_TOXTRICITY_LOW_KEY] =
     {
@@ -3683,61 +3454,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sToxtricityFormSpeciesIdTable,
         .formChangeTable = sToxtricityAmpedFormChangeTable,
     },
-
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_TOXTRICITY_LOW_KEY_GMAX] =
-    {
-        .baseHP        = 75,
-        .baseAttack    = 98,
-        .baseDefense   = 70,
-        .baseSpeed     = 75,
-        .baseSpAttack  = 114,
-        .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_POISON),
-        .catchRate = 45,
-        .expYield = 176,
-        .evYield_SpAttack = 2,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 25,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_PUNK_ROCK, ABILITY_MINUS, ABILITY_TECHNICIAN },
-        .bodyColor = BODY_COLOR_PURPLE,
-        .speciesName = _("Toxtricity"),
-        .cryId = CRY_TOXTRICITY_LOW_KEY,
-        .natDexNum = NATIONAL_DEX_TOXTRICITY,
-        .categoryName = _("Punk"),
-        .height = 240,
-        .weight = 0,
-        .description = gToxtricityGigantamaxPokedexText,
-        .pokemonScale = 259,
-        .pokemonOffset = 1,
-        .trainerScale = 296,
-        .trainerOffset = 1,
-        .frontPic = gMonFrontPic_ToxtricityGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_ToxtricityGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 0,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_ToxtricityGmax,
-        .shinyPalette = gMonShinyPalette_ToxtricityGmax,
-        .iconSprite = gMonIcon_ToxtricityGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(1, 10, SHADOW_SIZE_XL_BATTLE_ONLY)
-        FOOTPRINT(Toxtricity)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sToxtricityLowKeyLevelUpLearnset,
-        .teachableLearnset = sToxtricityLowKeyTeachableLearnset,
-        .formSpeciesIdTable = sToxtricityFormSpeciesIdTable,
-        .formChangeTable = sToxtricityAmpedFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_TOXEL
 
 #if P_FAMILY_SIZZLIPEDE
@@ -3876,15 +3592,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sCentiskorchFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_CENTISKORCH_GMAX] =
+    [SPECIES_CENTISKORCH_MEGA] =
     {
         .baseHP        = 100,
-        .baseAttack    = 115,
-        .baseDefense   = 65,
-        .baseSpeed     = 65,
+        .baseAttack    = 150,
+        .baseDefense   = 80,
+        .baseSpeed     = 85,
         .baseSpAttack  = 90,
-        .baseSpDefense = 90,
+        .baseSpDefense = 110,
         .types = MON_TYPES(TYPE_FIRE, TYPE_BUG),
         .catchRate = 75,
         .expYield = 184,
@@ -3894,7 +3609,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_FLASH_FIRE, ABILITY_WHITE_SMOKE, ABILITY_FLAME_BODY },
+        .abilities = { ABILITY_MOUNTAINEER, ABILITY_MOUNTAINEER, ABILITY_MOUNTAINEER },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Centiskorch"),
         .cryId = CRY_CENTISKORCH,
@@ -3933,7 +3648,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sCentiskorchFormSpeciesIdTable,
         .formChangeTable = sCentiskorchFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_SIZZLIPEDE
 
 #if P_FAMILY_CLOBBOPUS
@@ -3945,7 +3659,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpeed     = 32,
         .baseSpAttack  = 50,
         .baseSpDefense = 50,
-        .types = MON_TYPES(TYPE_FIGHTING),
+        .types = MON_TYPES(TYPE_FIGHTING, TYPE_WATER),
         .catchRate = 180,
         .expYield = 62,
         .evYield_Attack = 1,
@@ -3999,7 +3713,17 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sClobbopusLevelUpLearnset,
         .teachableLearnset = sClobbopusTeachableLearnset,
         .eggMoveLearnset = sClobbopusEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_GRAPPLOCT, CONDITIONS({IF_KNOWS_MOVE, MOVE_TAUNT})}),
+        .evolutions = EVOLUTION(
+            {
+                EVO_LEVEL, 0, 
+                SPECIES_GRAPPLOCT, 
+                CONDITIONS({IF_KNOWS_MOVE, MOVE_TAUNT})
+            },
+            {
+                EVO_LEVEL, 36,
+                SPECIES_GRAPPLOCT
+            }
+        ),
     },
 
     [SPECIES_GRAPPLOCT] =
@@ -4083,7 +3807,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_NONE, ABILITY_CURSED_BODY },
+        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_HAUNT, ABILITY_HEATPROOF },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Sinistea"),
         .cryId = CRY_SINISTEA,
@@ -4128,7 +3852,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSinisteaLevelUpLearnset,
         .teachableLearnset = sSinisteaTeachableLearnset,
         .formSpeciesIdTable = sSinisteaFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_CRACKED_POT, SPECIES_POLTEAGEIST_PHONY}),
+        .evolutions = EVOLUTION(
+            {EVO_ITEM, ITEM_MOON_STONE, SPECIES_POLTEAGEIST_PHONY},
+            {EVO_ITEM, ITEM_CRACKED_POT, SPECIES_POLTEAGEIST_PHONY}),
     },
 
     [SPECIES_SINISTEA_ANTIQUE] =
@@ -4148,7 +3874,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_NONE, ABILITY_CURSED_BODY },
+        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_HAUNT, ABILITY_HEATPROOF },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Sinistea"),
         .cryId = CRY_SINISTEA,
@@ -4194,7 +3920,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSinisteaLevelUpLearnset,
         .teachableLearnset = sSinisteaTeachableLearnset,
         .formSpeciesIdTable = sSinisteaFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_CHIPPED_POT, SPECIES_POLTEAGEIST_ANTIQUE}),
+        .evolutions = EVOLUTION(
+            {EVO_ITEM, ITEM_MOON_STONE, SPECIES_POLTEAGEIST_ANTIQUE},
+            {EVO_ITEM, ITEM_CHIPPED_POT, SPECIES_POLTEAGEIST_ANTIQUE}),
     },
 
     [SPECIES_POLTEAGEIST_PHONY] =
@@ -4214,7 +3942,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_NONE, ABILITY_CURSED_BODY },
+        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_HAUNT, ABILITY_HEATPROOF },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Polteageist"),
         .cryId = CRY_POLTEAGEIST,
@@ -4278,7 +4006,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_NONE, ABILITY_CURSED_BODY },
+        .abilities = { ABILITY_WEAK_ARMOR, ABILITY_HAUNT, ABILITY_HEATPROOF },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Polteageist"),
         .cryId = CRY_POLTEAGEIST,
@@ -4345,7 +4073,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
-        .abilities = { ABILITY_HEALER, ABILITY_ANTICIPATION, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_ENCHANT, ABILITY_MAGIC_GUARD },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Hatenna"),
         .cryId = CRY_HATENNA,
@@ -4390,7 +4118,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sHatennaLevelUpLearnset,
         .teachableLearnset = sHatennaTeachableLearnset,
         .eggMoveLearnset = sHatennaEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_HATTREM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_HATTREM}),
     },
 
     [SPECIES_HATTREM] =
@@ -4410,7 +4138,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
-        .abilities = { ABILITY_HEALER, ABILITY_ANTICIPATION, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_ENCHANT, ABILITY_MAGIC_GUARD },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Hattrem"),
         .cryId = CRY_HATTREM,
@@ -4473,7 +4201,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
-        .abilities = { ABILITY_HEALER, ABILITY_ANTICIPATION, ABILITY_MAGIC_BOUNCE },
+        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_ENCHANT, ABILITY_MAGIC_GUARD },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Hatterene"),
         .cryId = CRY_HATTERENE,
@@ -4519,65 +4247,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sHattereneFormSpeciesIdTable,
         .formChangeTable = sHattereneFormChangeTable,
     },
-
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_HATTERENE_GMAX] =
-    {
-        .baseHP        = 57,
-        .baseAttack    = 90,
-        .baseDefense   = 95,
-        .baseSpeed     = 29,
-        .baseSpAttack  = 136,
-        .baseSpDefense = 103,
-        .types = MON_TYPES(TYPE_PSYCHIC, TYPE_FAIRY),
-        .catchRate = 45,
-        .expYield = 255,
-        .evYield_SpAttack = 3,
-        .genderRatio = MON_FEMALE,
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
-        .abilities = { ABILITY_HEALER, ABILITY_ANTICIPATION, ABILITY_MAGIC_BOUNCE },
-        .bodyColor = BODY_COLOR_PINK,
-        .speciesName = _("Hatterene"),
-        .cryId = CRY_HATTERENE,
-        .natDexNum = NATIONAL_DEX_HATTERENE,
-        .categoryName = _("Silent"),
-        .height = 260,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "This Pokémon can read the\n"
-            "emotions of creatures over 30 miles away.\n"
-            "The minute it senses hostility, it\n"
-            "goes on the attack."),
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 365,
-        .trainerOffset = 7,
-        .frontPic = gMonFrontPic_HattereneGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_HattereneGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 3,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_HattereneGmax,
-        .shinyPalette = gMonShinyPalette_HattereneGmax,
-        .iconSprite = gMonIcon_HattereneGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(-3, 13, SHADOW_SIZE_S)
-        FOOTPRINT(Hatterene)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sHattereneLevelUpLearnset,
-        .teachableLearnset = sHattereneTeachableLearnset,
-        .formSpeciesIdTable = sHattereneFormSpeciesIdTable,
-        .formChangeTable = sHattereneFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_HATENNA
 
 #if P_FAMILY_IMPIDIMP
@@ -4598,7 +4267,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_PICKPOCKET },
+        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_INFILTRATOR },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Impidimp"),
         .cryId = CRY_IMPIDIMP,
@@ -4642,7 +4311,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sImpidimpLevelUpLearnset,
         .teachableLearnset = sImpidimpTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_MORGREM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 27, SPECIES_MORGREM}),
     },
 
     [SPECIES_MORGREM] =
@@ -4662,7 +4331,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_PICKPOCKET },
+        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_INFILTRATOR },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Morgrem"),
         .cryId = CRY_MORGREM,
@@ -4706,7 +4375,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sMorgremLevelUpLearnset,
         .teachableLearnset = sMorgremTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_GRIMMSNARL}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_GRIMMSNARL}),
     },
 
 
@@ -4727,7 +4396,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_PICKPOCKET },
+        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_INFILTRATOR },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Grimmsnarl"),
         .cryId = CRY_GRIMMSNARL,
@@ -4774,15 +4443,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sGrimmsnarlFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_GRIMMSNARL_GMAX] =
+    [SPECIES_GRIMMSNARL_MEGA] =
     {
-        .baseHP        = 95,
-        .baseAttack    = 120,
-        .baseDefense   = 65,
+        .baseHP        = 115,
+        .baseAttack    = 100,
+        .baseDefense   = 95,
         .baseSpeed     = 60,
-        .baseSpAttack  = 95,
-        .baseSpDefense = 75,
+        .baseSpAttack  = 145,
+        .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_DARK, TYPE_FAIRY),
         .catchRate = 45,
         .expYield = 255,
@@ -4792,7 +4460,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_PICKPOCKET },
+        .abilities = { ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Grimmsnarl"),
         .cryId = CRY_GRIMMSNARL,
@@ -4831,7 +4499,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sGrimmsnarlFormSpeciesIdTable,
         .formChangeTable = sGrimmsnarlFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_IMPIDIMP
 
 #if P_FAMILY_MILCERY
@@ -4897,197 +4564,531 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sMilceryLevelUpLearnset,
         .teachableLearnset = sMilceryTeachableLearnset,
         .eggMoveLearnset = sMilceryEggMoveLearnset,
+        // Time Day  => Swirl
+        // Time Night => Cream
+
+        // Strawbery Sweet  => Strawbery
+        // Love Sweet       => Love
+        // Berry Sweet      => Berry
+        // Clover Sweet     => Clover
+        // Flower Sweet     => Flower
+        // Star Sweet       => Star
+        // Ribbon Sweet     => Ribbon
+
+        // Ice Stone        => Vanilla
+        // Fire Stone       => Ruby
+        // Water Stone      => Matcha
+        // Leaf Stone       => Mint
+        // Thunder Stone    => Lemon
+        // Moon Stone       => Salted
+        // Sun Stone        => Caramel
+        // Shiny Stone      => Rainbow
         .evolutions = EVOLUTION(
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_STRAWBERRY_RUBY_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_STRAWBERRY_MATCHA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_STRAWBERRY_MINT_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_STRAWBERRY_LEMON_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_STRAWBERRY_SALTED_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_STRAWBERRY_RUBY_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_STRAWBERRY_CARAMEL_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_EITHER, SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
-                                           {IF_TIME, TIME_EVENING})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_BERRY_VANILLA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_BERRY_RUBY_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_BERRY_MATCHA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_BERRY_MINT_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_BERRY_LEMON_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_BERRY_SALTED_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_BERRY_RUBY_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_BERRY_CARAMEL_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_EITHER, SPECIES_ALCREMIE_BERRY_RAINBOW_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_BERRY_SWEET},
-                                           {IF_TIME, TIME_EVENING})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_LOVE_VANILLA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_LOVE_RUBY_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_LOVE_MATCHA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_LOVE_MINT_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_LOVE_LEMON_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_LOVE_SALTED_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_LOVE_RUBY_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_LOVE_CARAMEL_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_EITHER, SPECIES_ALCREMIE_LOVE_RAINBOW_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_LOVE_SWEET},
-                                           {IF_TIME, TIME_EVENING})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_STAR_VANILLA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_STAR_RUBY_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_STAR_MATCHA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_STAR_MINT_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_STAR_LEMON_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_STAR_SALTED_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_STAR_RUBY_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_STAR_CARAMEL_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_EITHER, SPECIES_ALCREMIE_STAR_RAINBOW_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_STAR_SWEET},
-                                           {IF_TIME, TIME_EVENING})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_CLOVER_VANILLA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_CLOVER_RUBY_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_CLOVER_MATCHA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_CLOVER_MINT_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_CLOVER_LEMON_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_CLOVER_SALTED_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_CLOVER_RUBY_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_CLOVER_CARAMEL_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_EITHER, SPECIES_ALCREMIE_CLOVER_RAINBOW_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
-                                           {IF_TIME, TIME_EVENING})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_FLOWER_VANILLA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_FLOWER_RUBY_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_FLOWER_MATCHA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_FLOWER_MINT_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_FLOWER_LEMON_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_FLOWER_SALTED_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_FLOWER_RUBY_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_FLOWER_CARAMEL_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_EITHER, SPECIES_ALCREMIE_FLOWER_RAINBOW_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
-                                           {IF_TIME, TIME_EVENING})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_RIBBON_VANILLA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_RIBBON_RUBY_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_SHORT, SPECIES_ALCREMIE_RIBBON_MATCHA_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_RIBBON_MINT_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_RIBBON_LEMON_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_SHORT, SPECIES_ALCREMIE_RIBBON_SALTED_CREAM,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_NIGHT})},
-                                {EVO_SPIN, SPIN_CCW_LONG, SPECIES_ALCREMIE_RIBBON_RUBY_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_CW_LONG, SPECIES_ALCREMIE_RIBBON_CARAMEL_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_DAY})},
-                                {EVO_SPIN, SPIN_EITHER, SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL,
-                                CONDITIONS({IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
-                                           {IF_TIME, TIME_EVENING})}
-                        )
+            {
+                EVO_ITEM, ITEM_ICE_STONE,
+                SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_RUBY_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_WATER_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_MATCHA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_LEAF_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_MINT_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_THUNDER_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_LEMON_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_MOON_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_SALTED_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_RUBY_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SUN_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_CARAMEL_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SHINY_STONE, 
+                SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STRAWBERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_ICE_STONE, 
+                SPECIES_ALCREMIE_BERRY_VANILLA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_BERRY_RUBY_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_WATER_STONE, 
+                SPECIES_ALCREMIE_BERRY_MATCHA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_LEAF_STONE, 
+                SPECIES_ALCREMIE_BERRY_MINT_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_THUNDER_STONE, 
+                SPECIES_ALCREMIE_BERRY_LEMON_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_MOON_STONE, 
+                SPECIES_ALCREMIE_BERRY_SALTED_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_BERRY_RUBY_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SUN_STONE, 
+                SPECIES_ALCREMIE_BERRY_CARAMEL_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SHINY_STONE, 
+                SPECIES_ALCREMIE_BERRY_RAINBOW_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_BERRY_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_ICE_STONE, 
+                SPECIES_ALCREMIE_LOVE_VANILLA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_LOVE_RUBY_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_WATER_STONE, 
+                SPECIES_ALCREMIE_LOVE_MATCHA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_LEAF_STONE, 
+                SPECIES_ALCREMIE_LOVE_MINT_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_THUNDER_STONE, 
+                SPECIES_ALCREMIE_LOVE_LEMON_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_MOON_STONE, 
+                SPECIES_ALCREMIE_LOVE_SALTED_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_LOVE_RUBY_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SUN_STONE, 
+                SPECIES_ALCREMIE_LOVE_CARAMEL_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SHINY_STONE, 
+                SPECIES_ALCREMIE_LOVE_RAINBOW_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_LOVE_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_ICE_STONE, 
+                SPECIES_ALCREMIE_STAR_VANILLA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_STAR_RUBY_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_WATER_STONE,
+                SPECIES_ALCREMIE_STAR_MATCHA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_LEAF_STONE, 
+                SPECIES_ALCREMIE_STAR_MINT_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_THUNDER_STONE,
+                SPECIES_ALCREMIE_STAR_LEMON_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_MOON_STONE, 
+                SPECIES_ALCREMIE_STAR_SALTED_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_STAR_RUBY_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SUN_STONE, 
+                SPECIES_ALCREMIE_STAR_CARAMEL_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SHINY_STONE, 
+                SPECIES_ALCREMIE_STAR_RAINBOW_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_STAR_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_ICE_STONE, 
+                SPECIES_ALCREMIE_CLOVER_VANILLA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_CLOVER_RUBY_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_WATER_STONE, 
+                SPECIES_ALCREMIE_CLOVER_MATCHA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_LEAF_STONE, 
+                SPECIES_ALCREMIE_CLOVER_MINT_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_THUNDER_STONE, 
+                SPECIES_ALCREMIE_CLOVER_LEMON_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_MOON_STONE, 
+                SPECIES_ALCREMIE_CLOVER_SALTED_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_CLOVER_RUBY_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SUN_STONE, 
+                SPECIES_ALCREMIE_CLOVER_CARAMEL_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SHINY_STONE, 
+                SPECIES_ALCREMIE_CLOVER_RAINBOW_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_CLOVER_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_ICE_STONE, 
+                SPECIES_ALCREMIE_FLOWER_VANILLA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_FLOWER_RUBY_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_WATER_STONE, 
+                SPECIES_ALCREMIE_FLOWER_MATCHA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_LEAF_STONE, 
+                SPECIES_ALCREMIE_FLOWER_MINT_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_THUNDER_STONE, 
+                SPECIES_ALCREMIE_FLOWER_LEMON_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_MOON_STONE, 
+                SPECIES_ALCREMIE_FLOWER_SALTED_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_FLOWER_RUBY_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SUN_STONE, 
+                SPECIES_ALCREMIE_FLOWER_CARAMEL_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SHINY_STONE, 
+                SPECIES_ALCREMIE_FLOWER_RAINBOW_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_FLOWER_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_ICE_STONE, 
+                SPECIES_ALCREMIE_RIBBON_VANILLA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_RIBBON_RUBY_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_WATER_STONE, 
+                SPECIES_ALCREMIE_RIBBON_MATCHA_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_LEAF_STONE, 
+                SPECIES_ALCREMIE_RIBBON_MINT_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_THUNDER_STONE, 
+                SPECIES_ALCREMIE_RIBBON_LEMON_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_MOON_STONE, 
+                SPECIES_ALCREMIE_RIBBON_SALTED_CREAM,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_FIRE_STONE, 
+                SPECIES_ALCREMIE_RIBBON_RUBY_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SUN_STONE, 
+                SPECIES_ALCREMIE_RIBBON_CARAMEL_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            },
+            {
+                EVO_ITEM, ITEM_SHINY_STONE, 
+                SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL,
+                CONDITIONS(
+                    {IF_HOLD_ITEM, ITEM_RIBBON_SWEET},
+                    {IF_TIME, TIME_DAY}
+                )
+            }
+        )
     },
 
 #define ALCREMIE_MISC_INFO(color)                                               \
@@ -5217,8 +5218,8 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_ALCREMIE_RIBBON_RUBY_SWIRL]        = ALCREMIE_REGULAR_SPECIES_INFO(Ribbon,     RubySwirl,    BODY_COLOR_YELLOW),
     [SPECIES_ALCREMIE_RIBBON_CARAMEL_SWIRL]     = ALCREMIE_REGULAR_SPECIES_INFO(Ribbon,     CaramelSwirl, BODY_COLOR_BROWN),
     [SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL]     = ALCREMIE_REGULAR_SPECIES_INFO(Ribbon,     RainbowSwirl, BODY_COLOR_YELLOW),
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_ALCREMIE_GMAX] =
+
+    [SPECIES_ALCREMIE_MEGA] =
     {
         ALCREMIE_MISC_INFO(BODY_COLOR_YELLOW),
         .speciesName = _("Alcremie"),
@@ -5252,23 +5253,22 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-1, 12, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Alcremie)
-        .isGigantamax = TRUE,
+        .isMegaEvolution = TRUE,
         .levelUpLearnset = sAlcremieLevelUpLearnset,
         .teachableLearnset = sAlcremieTeachableLearnset,
         .formSpeciesIdTable = sAlcremieFormSpeciesIdTable,
         .formChangeTable = sAlcremieFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_MILCERY
 
 #if P_FAMILY_FALINKS
     [SPECIES_FALINKS] =
     {
-        .baseHP        = 65,
+        .baseHP        = 65 + 10,
         .baseAttack    = 100,
         .baseDefense   = 100,
         .baseSpeed     = 75,
-        .baseSpAttack  = 70,
+        .baseSpAttack  = 70 - 10,
         .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_FIGHTING),
         .catchRate = 45,
@@ -5348,11 +5348,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .abilities = { ABILITY_BATTLE_ARMOR, ABILITY_NONE, ABILITY_DEFIANT },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Falinks"),
-    #if P_MODIFIED_MEGA_CRIES
         .cryId = CRY_FALINKS_MEGA,
-    #else
-        .cryId = CRY_FALINKS,
-    #endif // P_MODIFIED_MEGA_CRIES
         .natDexNum = NATIONAL_DEX_FALINKS,
         .categoryName = _("Formation"),
         .height = 16,
@@ -5390,8 +5386,8 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_PINCURCHIN
     [SPECIES_PINCURCHIN] =
     {
-        .baseHP        = 48,
-        .baseAttack    = 101,
+        .baseHP        = 48 + 20,
+        .baseAttack    = 101 - 20,
         .baseDefense   = 95,
         .baseSpeed     = 15,
         .baseSpAttack  = 91,
@@ -5528,14 +5524,23 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSnomLevelUpLearnset,
         .teachableLearnset = sSnomTeachableLearnset,
         .eggMoveLearnset = sSnomEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_FROSMOTH, CONDITIONS({IF_MIN_FRIENDSHIP, FRIENDSHIP_EVO_THRESHOLD},{IF_TIME, TIME_NIGHT})}),
+        .evolutions = EVOLUTION(
+            {
+                EVO_LEVEL, 0, 
+                SPECIES_FROSMOTH, 
+                CONDITIONS(
+                    {IF_MIN_FRIENDSHIP, FRIENDSHIP_EVO_THRESHOLD},
+                    {IF_TIME, TIME_NIGHT}
+                )
+            }
+        ),
     },
 
     [SPECIES_FROSMOTH] =
     {
         .baseHP        = 70,
         .baseAttack    = 65,
-        .baseDefense   = 60,
+        .baseDefense   = 60 + 5,
         .baseSpeed     = 65,
         .baseSpAttack  = 125,
         .baseSpDefense = 90,
@@ -5602,9 +5607,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseHP        = 100,
         .baseAttack    = 125,
         .baseDefense   = 135,
-        .baseSpeed     = 70,
+        .baseSpeed     = 70 + 10,
         .baseSpAttack  = 20,
-        .baseSpDefense = 20,
+        .baseSpDefense = 20 + 30,
         .types = MON_TYPES(TYPE_ROCK),
         .catchRate = 60,
         .expYield = 165,
@@ -5614,7 +5619,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_POWER_SPOT, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_ROCKY_PAYLOAD, ABILITY_POWER_SPOT, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Stonjourner"),
         .cryId = CRY_STONJOURNER,
@@ -5666,10 +5671,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_EISCUE_ICE] =
     {
         .baseHP        = 75,
-        .baseAttack    = 80,
+        .baseAttack    = 80 + 20,
         .baseDefense   = 110,
         .baseSpeed     = 50,
-        .baseSpAttack  = 65,
+        .baseSpAttack  = 65 - 20,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 60,
@@ -5732,10 +5737,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_EISCUE_NOICE] =
     {
         .baseHP        = 75,
-        .baseAttack    = 80,
+        .baseAttack    = 80 + 20,
         .baseDefense   = 70,
         .baseSpeed     = 130,
-        .baseSpAttack  = 65,
+        .baseSpAttack  = 65 - 20,
         .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 60,
@@ -5933,7 +5938,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_MORPEKO_FULL_BELLY] =
     {
         .baseHP        = 58,
-        .baseAttack    = 95,
+        .baseAttack    = 95 + 15,
         .baseDefense   = 58,
         .baseSpeed     = 97,
         .baseSpAttack  = 70,
@@ -5999,7 +6004,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_MORPEKO_HANGRY] =
     {
         .baseHP        = 58,
-        .baseAttack    = 95,
+        .baseAttack    = 95 + 15,
         .baseDefense   = 58,
         .baseSpeed     = 97,
         .baseSpAttack  = 70,
@@ -6136,10 +6141,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     {
         .baseHP        = 122,
         .baseAttack    = 130,
-        .baseDefense   = 69,
+        .baseDefense   = 69 + 10,
         .baseSpeed     = 30,
         .baseSpAttack  = 80,
-        .baseSpDefense = 69,
+        .baseSpDefense = 69 + 10,
         .types = MON_TYPES(TYPE_STEEL),
         .catchRate = 90,
         .expYield = 175,
@@ -6197,16 +6202,15 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sCopperajahFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_COPPERAJAH_GMAX] =
+    [SPECIES_COPPERAJAH_MEGA] =
     {
         .baseHP        = 122,
-        .baseAttack    = 130,
-        .baseDefense   = 69,
-        .baseSpeed     = 30,
-        .baseSpAttack  = 80,
-        .baseSpDefense = 69,
-        .types = MON_TYPES(TYPE_STEEL),
+        .baseAttack    = 155,
+        .baseDefense   = 94,
+        .baseSpeed     = 20,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 94,
+        .types = MON_TYPES(TYPE_STEEL, TYPE_FIGHTING),
         .catchRate = 90,
         .expYield = 175,
         .evYield_Attack = 2,
@@ -6255,7 +6259,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sCopperajahFormSpeciesIdTable,
         .formChangeTable = sCopperajahFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_CUFANT
 
 #if P_FAMILY_DRACOZOLT
@@ -6405,7 +6408,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_WATER_ABSORB, ABILITY_STRONG_JAW, ABILITY_SAND_RUSH },
+        .abilities = { ABILITY_WATER_ABSORB, ABILITY_STRONG_JAW, ABILITY_SWIFT_SWIM },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Dracovish"),
         .cryId = CRY_DRACOVISH,
@@ -6520,7 +6523,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_DURALUDON
     [SPECIES_DURALUDON] =
     {
-        .baseHP        = 70,
+        .baseHP        = 70 + 15,
         .baseAttack    = 95,
         .baseDefense   = 115,
         .baseSpeed     = 85,
@@ -6535,7 +6538,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_LIGHT_METAL, ABILITY_HEAVY_METAL, ABILITY_STALWART },
+        .abilities = { ABILITY_HEAVY_METAL, ABILITY_STALWART, ABILITY_METALLICIZE },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Duraludon"),
         .cryId = CRY_DURALUDON,
@@ -6585,70 +6588,18 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .eggMoveLearnset = sDuraludonEggMoveLearnset,
         .formSpeciesIdTable = sDuraludonFormSpeciesIdTable,
         .formChangeTable = sDuraludonFormChangeTable,
-    #if P_GEN_9_CROSS_EVOS
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_METAL_ALLOY, SPECIES_ARCHALUDON}),
-    #endif
-    },
+        .evolutions = EVOLUTION(
+            {
+                EVO_ITEM, ITEM_METAL_ALLOY, 
+                SPECIES_ARCHALUDON
+            },
+            {
+                EVO_LEVEL, 50,
+                SPECIES_ARCHALUDON
+            }
+        ),
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_DURALUDON_GMAX] =
-    {
-        .baseHP        = 70,
-        .baseAttack    = 95,
-        .baseDefense   = 115,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 120,
-        .baseSpDefense = 50,
-        .types = MON_TYPES(TYPE_STEEL, TYPE_DRAGON),
-        .catchRate = 45,
-        .expYield = 187,
-        .evYield_SpAttack = 2,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 30,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_LIGHT_METAL, ABILITY_HEAVY_METAL, ABILITY_STALWART },
-        .bodyColor = BODY_COLOR_WHITE,
-        .speciesName = _("Duraludon"),
-        .cryId = CRY_DURALUDON,
-        .natDexNum = NATIONAL_DEX_DURALUDON,
-        .categoryName = _("Alloy"),
-        .height = 430,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "The hardness of its cells is\n"
-            "exceptional, even among Steel types. It\n"
-            "also has a body structure that's\n"
-            "resistant to earthquakes."),
-        .pokemonScale = 267,
-        .pokemonOffset = 2,
-        .trainerScale = 286,
-        .trainerOffset = 1,
-        .frontPic = gMonFrontPic_DuraludonGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_DuraludonGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 0,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_DuraludonGmax,
-        .shinyPalette = gMonShinyPalette_DuraludonGmax,
-        .iconSprite = gMonIcon_DuraludonGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(3, 12, SHADOW_SIZE_L)
-        FOOTPRINT(Duraludon)
-        .isGigantamax = TRUE,
-        .levelUpLearnset = sDuraludonLevelUpLearnset,
-        .teachableLearnset = sDuraludonTeachableLearnset,
-        .eggMoveLearnset = sDuraludonEggMoveLearnset,
-        .formSpeciesIdTable = sDuraludonFormSpeciesIdTable,
-        .formChangeTable = sDuraludonFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
 
 #if P_GEN_9_CROSS_EVOS
     [SPECIES_ARCHALUDON] =
@@ -6668,7 +6619,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_STAMINA, ABILITY_STURDY, ABILITY_STALWART },
+        .abilities = { ABILITY_STAMINA, ABILITY_STALWART, ABILITY_METALLICIZE },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Archaludon"),
         .cryId = CRY_ARCHALUDON,
@@ -6734,7 +6685,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR, ABILITY_CURSED_BODY },
+        .abilities = { ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR, ABILITY_MYTHOLOGICAL },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Dreepy"),
         .cryId = CRY_DREEPY,
@@ -6800,7 +6751,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR, ABILITY_CURSED_BODY },
+        .abilities = { ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR, ABILITY_STALWART },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Drakloak"),
         .cryId = CRY_DRAKLOAK,
@@ -6864,7 +6815,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR, ABILITY_CURSED_BODY },
+        .abilities = { ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR, ABILITY_STALWART },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Dragapult"),
         .cryId = CRY_DRAGAPULT,
@@ -6916,14 +6867,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_ZACIAN_HERO] =
     {
         .baseHP        = 92,
-        .baseAttack    = P_UPDATED_STATS >= GEN_9 ? 120 : 130,
+        .baseAttack    = 120,
         .baseDefense   = 115,
         .baseSpeed     = 138,
         .baseSpAttack  = 80,
         .baseSpDefense = 115,
         .types = MON_TYPES(TYPE_FAIRY),
         .catchRate = 10,
-        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_9) ? 330 : 335,
+        .expYield = 330,
         .evYield_Speed = 3,
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 120,
@@ -6983,14 +6934,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_ZACIAN_CROWNED] =
     {
         .baseHP        = 92,
-        .baseAttack    = P_UPDATED_STATS >= GEN_9 ? 150 : 170,
+        .baseAttack    = 150,
         .baseDefense   = 115,
         .baseSpeed     = 148,
         .baseSpAttack  = 80,
         .baseSpDefense = 115,
         .types = MON_TYPES(TYPE_FAIRY, TYPE_STEEL),
         .catchRate = 10,
-        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_9) ? 350 : 360,
+        .expYield = 360,
         .evYield_Speed = 3,
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 120,
@@ -7053,14 +7004,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_ZAMAZENTA_HERO] =
     {
         .baseHP        = 92,
-        .baseAttack    = P_UPDATED_STATS >= GEN_9 ? 120 : 130,
+        .baseAttack    = 120,
         .baseDefense   = 115,
         .baseSpeed     = 138,
         .baseSpAttack  = 80,
         .baseSpDefense = 115,
         .types = MON_TYPES(TYPE_FIGHTING),
         .catchRate = 10,
-        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_9) ? 330 : 335,
+        .expYield = 330,
         .evYield_Speed = 3,
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 120,
@@ -7121,14 +7072,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_ZAMAZENTA_CROWNED] =
     {
         .baseHP        = 92,
-        .baseAttack    = P_UPDATED_STATS >= GEN_9 ? 120 : 130,
-        .baseDefense   = P_UPDATED_STATS >= GEN_9 ? 140 : 145,
+        .baseAttack    = 120,
+        .baseDefense   = 140,
         .baseSpeed     = 128,
         .baseSpAttack  = 80,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_9 ? 140 : 145,
+        .baseSpDefense = 140,
         .types = MON_TYPES(TYPE_FIGHTING, TYPE_STEEL),
         .catchRate = 10,
-        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_9) ? 350 : 360,
+        .expYield = 350,
         .evYield_Speed = 3,
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 120,
@@ -7258,12 +7209,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     [SPECIES_ETERNATUS_ETERNAMAX] =
     {
-        .baseHP        = 255,
-        .baseAttack    = 115,
-        .baseDefense   = 250,
-        .baseSpeed     = 130,
-        .baseSpAttack  = 125,
-        .baseSpDefense = 250,
+        .baseHP        = 140,
+        .baseAttack    = 105,
+        .baseDefense   = 110,
+        .baseSpeed     = 140,
+        .baseSpAttack  = 185,
+        .baseSpDefense = 110,
         .types = MON_TYPES(TYPE_POISON, TYPE_DRAGON),
         .catchRate = 255,
         .expYield = 563,
@@ -7334,7 +7285,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_UNDERDOG, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Kubfu"),
         .cryId = CRY_KUBFU,
@@ -7379,10 +7330,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sKubfuLevelUpLearnset,
         .teachableLearnset = sKubfuTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_SCRIPT_TRIGGER, EVO_TRIGGER_DARK_SCROLL, SPECIES_URSHIFU_SINGLE_STRIKE},
-                                {EVO_SCRIPT_TRIGGER, EVO_TRIGGER_WATER_SCROLL, SPECIES_URSHIFU_RAPID_STRIKE},
-                                {EVO_ITEM, ITEM_SCROLL_OF_DARKNESS, SPECIES_URSHIFU_SINGLE_STRIKE},
-                                {EVO_ITEM, ITEM_SCROLL_OF_WATERS,   SPECIES_URSHIFU_RAPID_STRIKE}),
+        .evolutions = EVOLUTION(
+            { EVO_ITEM, ITEM_DUSK_STONE, SPECIES_URSHIFU_SINGLE_STRIKE},
+            { EVO_ITEM, ITEM_WATER_STONE, SPECIES_URSHIFU_RAPID_STRIKE},
+            {EVO_ITEM, ITEM_SCROLL_OF_DARKNESS, SPECIES_URSHIFU_SINGLE_STRIKE},
+            {EVO_ITEM, ITEM_SCROLL_OF_WATERS,   SPECIES_URSHIFU_RAPID_STRIKE}),
     },
 
     [SPECIES_URSHIFU_SINGLE_STRIKE] =
@@ -7452,67 +7404,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sUrshifuSingleStrikeFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_URSHIFU_SINGLE_STRIKE_GMAX] =
-    {
-        .baseHP        = 100,
-        .baseAttack    = 130,
-        .baseDefense   = 100,
-        .baseSpeed     = 97,
-        .baseSpAttack  = 63,
-        .baseSpDefense = 60,
-        .types = MON_TYPES(TYPE_FIGHTING, TYPE_DARK),
-        .catchRate = 3,
-        .expYield = 275,
-        .evYield_Attack = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 120,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_UNSEEN_FIST, ABILITY_NONE, ABILITY_NONE },
-        .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("Urshifu"),
-        .cryId = CRY_URSHIFU_SINGLE_STRIKE,
-        .natDexNum = NATIONAL_DEX_URSHIFU,
-        .categoryName = _("Wushu"),
-        .height = 290,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "People call it the embodiment of\n"
-            "rage. It's said that this Pokémon's\n"
-            "terrifying expression and shout will\n"
-            "rid the world of malevolence."),
-        .pokemonScale = 256,
-        .pokemonOffset = 1,
-        .trainerScale = 326,
-        .trainerOffset = 4,
-        .frontPic = gMonFrontPic_UrshifuSingleStrikeGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_UrshifuSingleStrikeGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 4,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_UrshifuSingleStrikeGmax,
-        .shinyPalette = gMonShinyPalette_UrshifuSingleStrikeGmax,
-        .iconSprite = gMonIcon_UrshifuSingleStrikeGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(1, 13, SHADOW_SIZE_L)
-        FOOTPRINT(Urshifu)
-        .isSubLegendary = TRUE,
-        .isGigantamax = TRUE,
-        .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
-        .levelUpLearnset = sUrshifuSingleStrikeLevelUpLearnset,
-        .teachableLearnset = sUrshifuSingleStrikeTeachableLearnset,
-        .formSpeciesIdTable = sUrshifuFormSpeciesIdTable,
-        .formChangeTable = sUrshifuSingleStrikeFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
-
     [SPECIES_URSHIFU_RAPID_STRIKE] =
     {
         .baseHP        = 100,
@@ -7579,67 +7470,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formSpeciesIdTable = sUrshifuFormSpeciesIdTable,
         .formChangeTable = sUrshifuRapidStrikeFormChangeTable,
     },
-
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_URSHIFU_RAPID_STRIKE_GMAX] =
-    {
-        .baseHP        = 100,
-        .baseAttack    = 130,
-        .baseDefense   = 100,
-        .baseSpeed     = 97,
-        .baseSpAttack  = 63,
-        .baseSpDefense = 60,
-        .types = MON_TYPES(TYPE_FIGHTING, TYPE_WATER),
-        .catchRate = 3,
-        .expYield = 275,
-        .evYield_Attack = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 120,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_UNSEEN_FIST, ABILITY_NONE, ABILITY_NONE },
-        .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("Urshifu"),
-        .cryId = CRY_URSHIFU_RAPID_STRIKE,
-        .natDexNum = NATIONAL_DEX_URSHIFU,
-        .categoryName = _("Wushu"),
-        .height = 260,
-        .weight = 0,
-        .description = COMPOUND_STRING(
-            "As it waits for the right moment to\n"
-            "unleash its Gigantamax power, this\n"
-            "Pokémon maintains a perfect one-\n"
-            "legged stance. It won't even twitch."),
-        .pokemonScale = 256,
-        .pokemonOffset = 1,
-        .trainerScale = 326,
-        .trainerOffset = 4,
-        .frontPic = gMonFrontPic_UrshifuRapidStrikeGmax,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        .backPic = gMonBackPic_UrshifuRapidStrikeGmax,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 4,
-        //.backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_UrshifuRapidStrikeGmax,
-        .shinyPalette = gMonShinyPalette_UrshifuRapidStrikeGmax,
-        .iconSprite = gMonIcon_UrshifuRapidStrikeGmax,
-        .iconPalIndex = 0,
-        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(2, 13, SHADOW_SIZE_M)
-        FOOTPRINT(Urshifu)
-        .isSubLegendary = TRUE,
-        .isGigantamax = TRUE,
-        .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
-        .levelUpLearnset = sUrshifuRapidStrikeLevelUpLearnset,
-        .teachableLearnset = sUrshifuRapidStrikeTeachableLearnset,
-        .formSpeciesIdTable = sUrshifuFormSpeciesIdTable,
-        .formChangeTable = sUrshifuRapidStrikeFormChangeTable,
-    },
-#endif //P_GIGANTAMAX_FORMS
 #endif //P_FAMILY_KUBFU
 
 
@@ -7661,7 +7491,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_LEAF_GUARD, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_LEAF_GUARD, ABILITY_NONE, ABILITY_DEFIANT },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Zarude"),
         .cryId = CRY_ZARUDE,
@@ -7728,7 +7558,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_LEAF_GUARD, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_LEAF_GUARD, ABILITY_NONE, ABILITY_DEFIANT },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Zarude"),
         .cryId = CRY_ZARUDE,
@@ -7797,7 +7627,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = 35,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_TRANSISTOR, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_VOLT , ABILITY_NONE, ABILITY_TRANSISTOR },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Regieleki"),
         .cryId = CRY_REGIELEKI,
@@ -7865,7 +7695,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = 35,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_DRAGONS_MAW, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_MYTHOLOGICAL, ABILITY_NONE, ABILITY_DRAGONS_MAW },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Regidrago"),
         .cryId = CRY_REGIDRAGO,

@@ -2338,6 +2338,10 @@ bool32 CanAbilityAbsorbMove(struct DamageContext *ctx)
         if (ctx->moveType == TYPE_WATER)
             battleScript = AbsorbedByDrainHpAbility(ctx->battlerDef);
         break;
+    case ABILITY_FLY_TRAP:
+        if (ctx->moveType == TYPE_BUG)
+            battleScript = AbsorbedByDrainHpAbility(ctx->battlerDef);
+        break;
     case ABILITY_EARTH_EATER:
         if (ctx->moveType == TYPE_GROUND
         && !(ctx->abilities[ctx->battlerAtk] == ABILITY_BONE_ZONE && IsBoneMove(ctx->move))
@@ -3340,6 +3344,14 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             if (shouldAbilityTrigger)
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_COMATOSE;
+                BattleScriptCall(BattleScript_SwitchInAbilityMsg);
+                effect++;
+            }
+            break;
+        case ABILITY_SWEET_DREAMS:
+            if (shouldAbilityTrigger)
+            {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SWEET_DREAMS;
                 BattleScriptCall(BattleScript_SwitchInAbilityMsg);
                 effect++;
             }
@@ -4983,7 +4995,7 @@ enum Ability GetBattlerAbilityInternal(enum BattlerId battler, bool32 ignoreMold
         // Edge case: Pokémon under the effect of gastro acid transforms into a Pokémon with Comatose (Todo: verify how other unsuppressable abilities behave)
         if (gBattleMons[battler].volatiles.transformed
             && gBattleMons[battler].volatiles.gastroAcid
-            && gBattleMons[battler].ability == ABILITY_COMATOSE)
+            && (gBattleMons[battler].ability == ABILITY_COMATOSE || gBattleMons[battler].ability == ABILITY_SWEET_DREAMS))
                 return ABILITY_NONE;
 
         if (CanBreakThroughAbility(gBattlerAttacker, battler, hasAbilityShield, ignoreMoldBreaker))
@@ -5463,7 +5475,8 @@ bool32 CanSetNonVolatileStatus(enum BattlerId battlerAtk, enum BattlerId battler
 
     // Checks that apply to all non volatile statuses
     if (abilityDef == ABILITY_COMATOSE
-     || abilityDef == ABILITY_PURIFYING_SALT)
+     || abilityDef == ABILITY_PURIFYING_SALT
+     || abilityDef == ABILITY_SWEET_DREAMS)
     {
         abilityAffected = TRUE;
         battleScript = BattleScript_AbilityProtectsDoesntAffect;
@@ -6315,7 +6328,7 @@ static inline u32 CalcMoveBasePower(struct DamageContext *ctx)
         break;
     case EFFECT_DOUBLE_POWER_ON_ARG_STATUS:
         // Comatose targets treated as if asleep
-        if ((gBattleMons[battlerDef].status1 | (STATUS1_SLEEP * (ctx->abilities[ctx->battlerDef] == ABILITY_COMATOSE))) & GetMoveEffectArg_Status(move)
+        if ((gBattleMons[battlerDef].status1 | (STATUS1_SLEEP * (ctx->abilities[ctx->battlerDef] == ABILITY_COMATOSE || ctx->abilities[ctx->battlerDef] == ABILITY_SWEET_DREAMS))) & GetMoveEffectArg_Status(move)
          && !((GetMoveAdditionalEffectById(move, 0)->moveEffect == MOVE_EFFECT_REMOVE_STATUS) && DoesSubstituteBlockMove(battlerAtk, battlerDef, move)))
             basePower *= 2;
         break;
@@ -6621,6 +6634,14 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
     case ABILITY_IRON_FIST:
         if (IsPunchingMove(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    case ABILITY_LINGUIST:
+        if (IsTongueMove(move))
+           modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+        break;
+    case ABILITY_YOKED:
+        if (IsEggMove(move))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_STRIKER:
         if (IsKickingMove(move))
@@ -7158,13 +7179,11 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IsBattleMovePhysical(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
+    case ABILITY_TERAVOLT:
     case ABILITY_TRANSISTOR:
         if (moveType == TYPE_ELECTRIC)
         {
-            if (GetConfig(B_TRANSISTOR_BOOST) >= GEN_9)
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
-            else
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         }
         break;
     case ABILITY_DRAGONS_MAW:
@@ -7187,6 +7206,10 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (moveType == TYPE_ROCK)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
+    case ABILITY_COLD_SNAP:
+        if (moveType == TYPE_ICE)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
     case ABILITY_PROTOSYNTHESIS:
         if (ctx->weather & B_WEATHER_SUN || gBattleMons[battlerAtk].volatiles.boosterEnergyActivated)
             modifier = uq4_12_multiply(modifier, GetParadoxAbilityModifier(battlerAtk, move, STAT_ATK, STAT_SPATK));
@@ -7204,6 +7227,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (ctx->terrain == B_TERRAIN_ELECTRIC && IsBattleMoveSpecial(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3333));
         break;
+    case ABILITY_TURBOBLAZE:
     case ABILITY_FIRE_MANE:
         if (moveType == TYPE_FIRE)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
@@ -11470,5 +11494,5 @@ bool32 IsBattlerInvolvedInSkyDrop(enum BattlerId battler)
 
 bool32 IsAsleepOrComatose(enum BattlerId battler, enum Ability ability)
 {
-    return (gBattleMons[battler].status1 & STATUS1_SLEEP) || ability == ABILITY_COMATOSE;
+    return (gBattleMons[battler].status1 & STATUS1_SLEEP) || ability == ABILITY_COMATOSE || ability == ABILITY_SWEET_DREAMS;
 }

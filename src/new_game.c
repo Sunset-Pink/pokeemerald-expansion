@@ -234,6 +234,7 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    FlagSet(FLAG_IS_MIN_GRINDING_MODE);
 }
 
 static void ResetMiniGamesRecords(void)

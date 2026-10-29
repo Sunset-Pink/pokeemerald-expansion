@@ -318,7 +318,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 10,
     },
 
-    // Misc abilities
+    // Misc Weather abilities
     [ABILITY_FORECAST] =
     {
         .name = _("Forecast"),
@@ -750,7 +750,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 4,
     },
 
-    // Misc
+    // Misc Resististance/immunity
 
     [ABILITY_THICK_FAT] =
     {
@@ -849,6 +849,21 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Boosts moves with recoil\nby 20%."),
         .aiRating = 6,
     },
+
+    [ABILITY_YOKED] =
+    {
+        .name = _("Triage"),
+        .description = COMPOUND_STRING("Gives +3 priority & \n30% boost to egg moves."),
+        .aiRating = 7,
+    },
+
+    [ABILITY_LINGUIST] =
+    {
+        .name = _("Linguist"),
+        .description = COMPOUND_STRING("Doubles damage of Tongue moves."),
+        .aiRating = 6,
+    },
+
 
     // Boost Stat when status.
     // Variant:
@@ -1041,7 +1056,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     //  - Bug      => ???
     //  - Normal   => ???
     //  - Electric => Transistor
-    //  - Ice      => ???
+    //  - Ice      => Cold Snap
     //  - Fighting => ???
     //  - Poison   => ???
     //  - Ground   => ???
@@ -1086,6 +1101,13 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Steelworker"),
         .description = COMPOUND_STRING("Powers of Steel-type\nmoves by 50%."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_COLD_SNAP] =
+    {
+        .name = _("Cold Snap"),
+        .description = COMPOUND_STRING("Powers of Ice-type\nmoves by 50%."),
         .aiRating = 6,
     },
 
@@ -1712,6 +1734,65 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 7,
     },
 
+    // Block Priority Moves
+
+    [ABILITY_QUEENLY_MAJESTY] =
+    {
+        .name = _("Queenly Majesty"),
+        .description = COMPOUND_STRING("Allies block priority moves."),
+        .aiRating = 6,
+        .breakable = TRUE,
+    },
+
+    [ABILITY_ARMOR_TAIL] =
+    {
+        .name = _("Armor Tail"),
+        .description = COMPOUND_STRING("Protects from priority moves."),
+        .aiRating = 5,
+        .breakable = TRUE,
+    },
+
+    [ABILITY_DAZZLING] =
+    {
+        .name = _("Dazzling"),
+        .description = COMPOUND_STRING("Allies block priority moves."),
+        .aiRating = 5,
+        .breakable = TRUE,
+    },
+
+    [ABILITY_TIME_STOP] =
+    {
+        .name = _("Time Stop"),
+        .description = COMPOUND_STRING("Protects from priority moves."),
+        .aiRating = 5,
+        .breakable = TRUE,
+    },
+
+    // Increase Priority
+
+    [ABILITY_TRIAGE] =
+    {
+        .name = _("Triage"),
+        .description = COMPOUND_STRING("Gives +3 priority to \nhealing moves."),
+        .aiRating = 7,
+    },
+
+
+    // Heal on Status
+    [ABILITY_POISON_HEAL] =
+    {
+        .name = _("Poison Heal"),
+        .description = COMPOUND_STRING("Restores 1/8 max HP\nif poisoned."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_CAT_NAP] =
+    {
+        .name = _("Cat Nap"),
+        .description = COMPOUND_STRING("Restores 1/8 max HP\nif asleep."),
+        .aiRating = 8,
+    },
+
     // Misc
 
     [ABILITY_WATER_BUBBLE] =
@@ -1721,6 +1802,13 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 8,
         .breakable = TRUE,
     },
+
+    [ABILITY_RAMPAGE] = 
+    {
+        .name = _("Rampage"),
+        .description = COMPOUND_STRING("If the attack KOs, there is no recharge turn."),
+    },
+
 
     // Combo Abilities
 
@@ -1760,6 +1848,50 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Keen Eye and Scrappy."),
         .aiRating = 8,
         .breakable = TRUE,
+    },
+
+    [ABILITY_PRIMAL_ARMOR] = 
+    {
+        .name = _("Primal Armor"),
+        .description = COMPOUND_STRING("Weakens super effective moves\nby 50%."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_SPACE_TIME] = 
+    {
+        .name = _("Space-Time"),
+        .description = COMPOUND_STRING("Pressure & Telepathy")
+    },
+
+    [ABILITY_LORD_OF_TIME] = 
+    {
+        .name = _("Lord of Time"),
+        .description = COMPOUND_STRING("Time Stop & Primal Armor."),
+    },
+
+    [ABILITY_LORD_OF_SPACE] = 
+    {
+        .name = _("Lord of Space"),
+        .description = COMPOUND_STRING("X and Primal Armor.")
+    },
+
+    [ABILITY_SWEET_DREAMS] = {
+        .name = _("Sweet Dreams"),
+        .description = COMPOUND_STRING("Comotose and Cat Nap.")
+    },
+
+    [ABILITY_TURBOBLAZE] =
+    {
+        .name = _("Turboblaze"),
+        .description = COMPOUND_STRING("Mold Breaker + Fire Mane"),
+        .aiRating = 7,
+    },
+
+    [ABILITY_TERAVOLT] =
+    {
+        .name = _("Teravolt"),
+        .description = COMPOUND_STRING("Mold Breaker + Transistor"),
+        .aiRating = 7,
     },
 
     // END SORTED
@@ -2182,13 +2314,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 7,
     },
 
-    [ABILITY_POISON_HEAL] =
-    {
-        .name = _("Poison Heal"),
-        .description = COMPOUND_STRING("Restores 1/8 max HP\nif poisoned."),
-        .aiRating = 8,
-    },
-
     [ABILITY_ADAPTABILITY] =
     {
         .name = _("Adaptability"),
@@ -2564,20 +2689,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 6,
     },
 
-    [ABILITY_TURBOBLAZE] =
-    {
-        .name = _("Turboblaze"),
-        .description = COMPOUND_STRING("Moves ignore Abilities."),
-        .aiRating = 7,
-    },
-
-    [ABILITY_TERAVOLT] =
-    {
-        .name = _("Teravolt"),
-        .description = COMPOUND_STRING("Moves ignore Abilities."),
-        .aiRating = 7,
-    },
-
     [ABILITY_AROMA_VEIL] =
     {
         .name = _("Aroma Veil"),
@@ -2740,13 +2851,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 3,
     },
 
-    [ABILITY_TRIAGE] =
-    {
-        .name = _("Triage"),
-        .description = COMPOUND_STRING("Gives +3 priority to \nhealing moves."),
-        .aiRating = 7,
-    },
-
     [ABILITY_CORROSION] =
     {
         .name = _("Corrosion"),
@@ -2764,14 +2868,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeTraced = TRUE,
         .cantBeSuppressed = TRUE,
         .cantBeOverwritten = TRUE,
-    },
-
-    [ABILITY_QUEENLY_MAJESTY] =
-    {
-        .name = _("Queenly Majesty"),
-        .description = COMPOUND_STRING("Allies block priority moves."),
-        .aiRating = 6,
-        .breakable = TRUE,
     },
 
     [ABILITY_DANCER] =
@@ -2796,13 +2892,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-    [ABILITY_DAZZLING] =
-    {
-        .name = _("Dazzling"),
-        .description = COMPOUND_STRING("Allies block priority moves."),
-        .aiRating = 5,
-        .breakable = TRUE,
-    },
+    
 
     [ABILITY_TANGLING_HAIR] =
     {
@@ -3157,13 +3247,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 4,
     },
 
-    [ABILITY_ARMOR_TAIL] =
-    {
-        .name = _("Armor Tail"),
-        .description = COMPOUND_STRING("Protects from priority moves."),
-        .aiRating = 5,
-        .breakable = TRUE,
-    },
+    
 
     [ABILITY_MYCELIUM_MIGHT] =
     {

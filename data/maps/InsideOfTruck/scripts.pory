@@ -1,0 +1,406 @@
+mapscripts InsideOfTruck_MapScripts {
+    MAP_SCRIPT_ON_LOAD: MapScript_InsideOfTruck_OnLoad
+    MAP_SCRIPT_ON_RESUME: MapScript_InsideOfTruck_OnResume
+}
+
+script(local) MapScript_InsideOfTruck_OnLoad {
+    setmetatile(4, 1, METATILE_InsideOfTruck_ExitLight_Top, FALSE)
+    setmetatile(4, 2, METATILE_InsideOfTruck_ExitLight_Mid, FALSE)
+    setmetatile(4, 3, METATILE_InsideOfTruck_ExitLight_Bottom, FALSE)
+    end
+}
+
+script(local) MapScript_InsideOfTruck_OnResume {
+    setstepcallback(STEP_CB_TRUCK)
+    end
+}
+
+script Script_InsideOfTruck_GameInit {
+    lockall
+    setflag(FLAG_HIDE_MAP_NAME_POPUP)
+    if(checkplayergender == MALE) {
+        call(Script_InsideOfTruck_GameInit_MaleStart)
+    } else {
+        call(Script_InsideOfTruck_GameInit_FemaleStart)
+    }
+    call(Script_InsideOfTruck_GameInit_ConfigSettings)
+}
+
+script Script_InsideOfTruck_GameInit_MaleStart {
+    setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL)
+    setvar(VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1)
+    setdynamicwarp(MAP_LITTLEROOT_TOWN, 3, 10)
+    return
+}
+
+script Script_InsideOfTruck_GameInit_FemaleStart {
+    setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL)
+    setvar(VAR_LITTLEROOT_HOUSES_STATE_MAY, 1)
+    setdynamicwarp(MAP_LITTLEROOT_TOWN, 12, 10)
+    return
+}
+
+script Script_InsideOfTruck_GameInit_ConfigSettings {
+    message(Text_InsideOfTruck_GameInit_ConfigSettings_ReadCarefully)
+    waitmessage
+    delay(60)
+    delay(60)
+    msgbox(Text_insideOfTruck_GameInit_ConfigSettings_ChangeDefaultSettings, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(Script_InsideOfTruck_GameInit_ConfigSettings_SettingsMenu)
+    } else {
+        call(Script_InsideOfTruck_GameInit_ConfigSettings_SetDefault)
+    }
+    setvar(VAR_QUEST_INTRO_STATE, 1)
+    end
+}
+
+text(local) Text_InsideOfTruck_GameInit_ConfigSettings_ReadCarefully {
+    "{COLOR RED}{SHADOW LIGHT_RED}Please take a moment to read the\n"
+    "following carefully."
+}
+
+text(local) Text_insideOfTruck_GameInit_ConfigSettings_ChangeDefaultSettings {
+    "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Would you like to change the default\n"
+    "settings?\p"
+    "The default settings are as follows:\p"
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Difficulty{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} - more challenging\n"
+    "trainer battles with hard level caps.\p"
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} - this\n"
+    "guarantees all Pok\emon will have \l"
+    "perfect IVs and EVs are removed\l"
+    "from the game.\p"
+    "With this information in mind:\n"
+    "Would you like to change the settings?"
+}
+
+script Script_InsideOfTruck_GameInit_ConfigSettings_SettingsMenu {
+    msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_WhichOption)
+    dynmultipush("Difficulty Options", 0)
+    if(flag(FLAG_IS_MIN_GRINDING_MODE)) {
+        dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode", 1)
+    } else {
+        dynmultipush("{COLOR RED}{SHADOW LIGHT_RED}Minimal Griding Mode", 1)
+    }
+    dynmultipush("Done", 2)
+
+    dynmultistack(0, 0, TRUE, 6, FALSE, 0, NULL)
+
+    if(var(VAR_RESULT) == 0) {
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu)
+    } elif (var(VAR_RESULT) == 1) {
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_MinGrindingMenu)
+    } elif (var(VAR_RESULT) == 2) {
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_SaveSettings)
+    }
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_WhichOption {
+    "Which option would you like to customize?\n"
+}
+
+script Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu {
+    msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_WhichDifficulty)
+    if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+        dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla", DIFFICULTY_VANILLA)
+    } else {
+        dynmultipush("Vanilla", DIFFICULTY_VANILLA)
+    }
+
+    if(var(VAR_DIFFICULTY) == DIFFICULTY_EASY) {
+        dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy", DIFFICULTY_EASY)
+    } else {
+        dynmultipush("Easy", DIFFICULTY_EASY)
+    }
+
+    if(var(VAR_DIFFICULTY) == DIFFICULTY_NORMAL) {
+        dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal", DIFFICULTY_NORMAL)
+    } else {
+        dynmultipush("Normal", DIFFICULTY_NORMAL)
+    }
+
+    if(var(VAR_DIFFICULTY) == DIFFICULTY_HARD) {
+        dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Hard", DIFFICULTY_HARD)
+    } else {
+        dynmultipush("Hard", DIFFICULTY_HARD)
+    }
+
+    dynmultipush("Done", MULTI_B_PRESSED)
+    dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
+
+    if(var(VAR_RESULT) == MULTI_B_PRESSED) {
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_SettingsMenu)
+    }
+
+    if(var(VAR_RESULT) == DIFFICULTY_VANILLA) {
+        msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_Description)
+        if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_AlreadySelected)
+        } else {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_TurnOn, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                setdifficulty(DIFFICULTY_VANILLA)
+                msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_Enabled)
+            }
+        }
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu)
+    }
+
+    if(var(VAR_RESULT) == DIFFICULTY_EASY) {
+        msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_Description)
+        if(var(VAR_DIFFICULTY) == DIFFICULTY_EASY) {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_AlreadySelected)
+        } else {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_TurnOn, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                setdifficulty(DIFFICULTY_EASY)
+                msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_Enabled)
+            }
+        }
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu)
+    }
+
+    if(var(VAR_RESULT) == DIFFICULTY_NORMAL) {
+        msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_Description)
+        if(var(VAR_DIFFICULTY) == DIFFICULTY_NORMAL) {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_AlreadySelected)
+        } else {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_TurnOn, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                setdifficulty(DIFFICULTY_NORMAL)
+                msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_Enabled)
+            }
+        }
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu)
+    }
+
+    if(var(VAR_RESULT) == DIFFICULTY_HARD) {
+        msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_Description)
+        if(var(VAR_DIFFICULTY) == DIFFICULTY_HARD) {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_AlreadySelected)
+        } else {
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_TurnOn, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                setdifficulty(DIFFICULTY_HARD)
+                msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_Enabled)
+            }
+        }
+        goto(Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu)
+    }
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_WhichDifficulty {
+    "Which difficulty mode would you like\n"
+    "to play on?"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_Description {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} has vanilla trainer\n"
+    "teams, with minor changes to movests.\l"
+    "There have been updates to Pok\emon,\l"
+    "Abilities, Item, and Moves.\p"
+    "There is a no level cap, and Boss teams\n"
+    "will not scale with the Player's team.\p"
+    "The player is allowed to access the\n"
+    "the Bag during any battle.\p"
+    "Additionally, the player can change the\n"
+    "battle style from Set to Shift.\p"
+    "This mode is meant to feel closer to a\n"
+    "regular Pok\emon game, and is considered\l"
+    "to be the easiest.\p"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_AlreadySelected {
+    "You currently have {COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled.\n"
+    "Please selected a different difficulty\l"
+    "mode if you wish to change it."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_TurnOn {
+    "Do you want to turn on {COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla Mode?"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_Enabled {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_Description {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} has more challenging\n"
+    "trainer battles with updated teams.\p"
+    "There have been updates to Pok\emon,\n"
+    "Abilities, Items, and Moves.\p"
+    "There is a hard level cap, and Boss teams\n"
+    "will scale with the Player's team.\p"
+    "However, they will be 2 levels lower\n"
+    "than normal.\p"
+    "The player is allowed to access the\n"
+    "the Bag during any battle.\p"
+    "Additionally, the player can change the\n"
+    "battle style from Set to Shift.\p"
+    "This mode is more challenging than\n"
+    "a regular Pok\emon game.\p"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_AlreadySelected {
+    "You currently have {COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled.\n"
+    "Please selected a different difficulty\l"
+    "mode if you wish to change it."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_TurnOn {
+    "Do you want to turn on {COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode?"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_Enabled {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_Description {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} has more challenging\n"
+    "trainer battles with updated teams.\p"
+    "There have been updates to Pok\emon,\n"
+    "Abilities, Items, and Moves.\p"
+    "There is a hard level cap, and Boss teams\n"
+    "will scale with the Player's team.\p"
+    "The player is not allowed to access the\n"
+    "the Bag during trainer battles.\p"
+    "Additionally, battle style is set to Set.\p"
+    "This mode is primarily what the game\n"
+    "has been balanced around.\p"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_AlreadySelected {
+    "You currently have {COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled.\n"
+    "Please selected a different difficulty\l"
+    "mode if you wish to change it."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_TurnOn {
+    "Do you want to turn on {COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode?\n"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_Enabled {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_Description {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Hard Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} has more challenging\n"
+    "trainer battles with updated teams.\p"
+    "There have been updates to Pok\emon, \n"
+    "Abilities, Items, and Moves.\p"
+    "Certain Pok\emon, Moves and Abilities\n"
+    "are not available for the Player.\p"
+    "There is a hard level cap, and Boss teams\n"
+    "will scale with the Player's team.\p"
+    "The player is not allowed to access the\n"
+    "the Bag during trainer battles.\p"
+    "Additionally, battle style is set to Set.\p"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_AlreadySelected {
+    "You currently have {COLOR GREEN}{SHADOW LIGHT_GREEN}Hard Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled.\n"
+    "Please selected a different difficulty\l"
+    "mode if you wish to change it."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_TurnOn {
+    "Do you want to turn on {COLOR GREEN}{SHADOW LIGHT_GREEN}Hard Mode?\n"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_Enabled {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Hard Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled."
+}
+
+script Script_InsideOfTruck_GameInit_ConfigSettings_MinGrindingMenu {
+    msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Description)
+    if(var(FLAG_IS_MIN_GRINDING_MODE)) {
+        msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_TurnOff, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            clearflag(FLAG_IS_MIN_GRINDING_MODE)
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Disabled)
+        }
+    } else {
+        msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_TurnOn, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            clearflag(FLAG_IS_MIN_GRINDING_MODE)
+            msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Enabled)
+        }
+    }
+    goto(Script_InsideOfTruck_GameInit_ConfigSettings_SettingsMenu)
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Description {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Griding Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} guarantees all\n"
+    "Pok\emon to have perfect IVs,\l"
+    "and EVs cannot be obtained.\l"
+    "Boss Pok\emon will not have EVs either.\p"
+    "If this mode is disabled, obtainable\n"
+    "Pok\emon will have random IVs and can be\l"
+    "EV trained.\l"
+    "Boss Pok\emon will be EV trained.\p"
+    "If you don't know what that all means\n"
+    "you want this enabled.\p"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_TurnOff {
+    "Do you want to turn\n"
+    "{COLOR RED}{SHADOW LIGHT_RED}Minimal Grinding Mode off?"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_TurnOn {
+    "Do you want to turn\n"
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode on?"
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Enabled {
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode enabled."
+}
+
+text Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Disabled {
+    "{COLOR RED}{SHADOW LIGHT_RED}Minimal Griding Mode disabled."
+}
+
+script Script_InsideOfTruck_GameInit_ConfigSettings_SetDefault {
+    msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_DefaultSettingsSaved)
+    setdifficulty(DIFFICULTY_NORMAL)
+    setflag(FLAG_IS_MIN_GRINDING_MODE)
+    special(ForceBattleStyleSet)
+    releaseall
+}
+
+text(local) Text_InsideOfTruck_GameInit_ConfigSettings_DefaultSettingsSaved {
+    "Default settings saved.\n"
+    "Good luck!"
+}
+
+script Script_InsideOfTruck_GameInit_ConfigSettings_SaveSettings {
+    msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_CustomSettingsSaved)
+    special(ForceBattleStyleSet)
+    releaseall
+}
+
+text(local) Text_InsideOfTruck_GameInit_ConfigSettings_CustomSettingsSaved {
+    "Custom settings saved.\n"
+    "Good luck!"
+}
+
+script Script_InsideOfTruck_Interact_MovingBox {
+    msgbox(Text_InsideOfTruck_BoxPrintedWithMonLogo, MSGBOX_SIGN)
+    end
+}
+
+text(local) Text_InsideOfTruck_BoxPrintedWithMonLogo {
+    "The box is printed with a Pok\emon logo.\p"
+    "It's a Pok\emon brand moving and\n"
+    "delivery service."
+}

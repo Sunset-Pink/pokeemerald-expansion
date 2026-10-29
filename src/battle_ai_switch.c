@@ -643,6 +643,10 @@ static bool32 FindMonThatAbsorbsOpponentsMove(struct SwitchAiContext *switchCont
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_MOUNTAINEER;
     }
+    if (incomingType == TYPE_BUG)
+    {
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_FLY_TRAP;
+    }
     if (IsSoundMove(switchContext->incomingMove))
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_SOUNDPROOF;
@@ -898,7 +902,8 @@ static bool32 CanPalafinZeroSafelyUseHitEscape(enum BattlerId battlerAtk, enum M
         if (AI_CanMoveBeBlockedByTarget(&ctx))
         {
             if ((moveType == TYPE_WATER && abilityDef == ABILITY_STORM_DRAIN)
-             || (moveType == TYPE_ELECTRIC && abilityDef == ABILITY_LIGHTNING_ROD))
+             || (moveType == TYPE_ELECTRIC && abilityDef == ABILITY_LIGHTNING_ROD)
+             || (moveType == TYPE_BUG && abilityDef == ABILITY_FLY_TRAP))
                 absorberOnField = TRUE;
             gAiLogicData->effectiveness[battlerAtk][battlerDef][moveIndex] = UQ_4_12(0.0);
             continue;
@@ -1823,6 +1828,15 @@ static u32 GetSwitchinRecurringHealing(enum BattlerId battler)
     // Abilities
     if (ability == ABILITY_POISON_HEAL && (gBattleMons[battler].status1 & STATUS1_POISON))
     {
+        u32 healing = maxHP / 8;
+        if (healing == 0)
+            healing = 1;
+        recurringHealing += healing;
+    }
+    if (
+        (ability == ABILITY_CAT_NAP && (gBattleMons[battler].status1 & STATUS1_SLEEP))
+        || ability == ABILITY_SWEET_DREAMS
+    ) {
         u32 healing = maxHP / 8;
         if (healing == 0)
             healing = 1;

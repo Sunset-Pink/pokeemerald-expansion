@@ -34,6 +34,7 @@ static void SetDamageContextValues(struct DamageContext *ctx, struct BattleCalcV
 
 // Submoves
 static enum Move GetMirrorMoveMove(void);
+static enum Move GetForbiddenSpellMove(void);
 static enum Move GetMetronomeMove(void);
 static enum Move GetAssistMove(void);
 static enum Move GetSleepTalkMove(void);
@@ -548,6 +549,10 @@ static enum CancelerResult CancelerCallSubmove(struct BattleCalcValues *cv)
     case EFFECT_MIRROR_MOVE:
         calledMove = GetMirrorMoveMove();
         break;
+    case EFFECT_FORBIDDEN_SPELL:
+        calledMove = GetForbiddenSpellMove();
+        battleScript = BattleScript_ForbiddenSpellAttackstring;
+        break;
     case EFFECT_METRONOME:
         calledMove = GetMetronomeMove();
         battleScript = BattleScript_MetronomeAttackstring;
@@ -862,7 +867,8 @@ static bool32 HandleMoveTargetRedirection(struct BattleCalcValues *cv, enum Move
     enum Type moveType = GetBattleMoveType(cv->move);
     enum Ability ability = cv->abilities[cv->battlerDef];
     bool32 currTargetCantAbsorb = ((ability != ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
-                                || (ability != ABILITY_STORM_DRAIN && moveType == TYPE_WATER));
+                                || (ability != ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
+                                || (ability != ABILITY_FLY_TRAP && moveType == TYPE_BUG));
 
     if (currTargetCantAbsorb
      && IsDoubleBattle()
@@ -884,7 +890,8 @@ static bool32 HandleMoveTargetRedirection(struct BattleCalcValues *cv, enum Move
                 && battler != cv->battlerAtk
                 && battler != cv->battlerDef
                 && ((ability == ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
-                 || (ability == ABILITY_STORM_DRAIN && moveType == TYPE_WATER))
+                 || (ability == ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
+                 || (ability == ABILITY_FLY_TRAP && moveType == TYPE_BUG))
                 && GetBattlerTurnOrderNum(battler) < redirectorOrderNum
                 && !IsAbilityAndRecord(cv->battlerAtk, abilityAtk, ABILITY_PROPELLER_TAIL)
                 && !IsAbilityAndRecord(cv->battlerAtk, abilityAtk, ABILITY_STALWART))
@@ -1304,7 +1311,8 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
         break;
     case EFFECT_SNORE:
         if (!(gBattleMons[cv->battlerAtk].status1 & STATUS1_SLEEP)
-         && cv->abilities[cv->battlerAtk] != ABILITY_COMATOSE)
+         && cv->abilities[cv->battlerAtk] != ABILITY_COMATOSE
+         && cv->abilities[cv->battlerAtk] != ABILITY_SWEET_DREAMS)
             battleScript = BattleScript_ButItFailed;
         break;
     case EFFECT_STEEL_ROLLER:
@@ -1540,6 +1548,7 @@ bool32 IsDazzlingAbility(enum Ability ability)
 {
     switch (ability)
     {
+    case ABILITY_TIME_STOP:       return TRUE;
     case ABILITY_DAZZLING:        return TRUE;
     case ABILITY_QUEENLY_MAJESTY: return TRUE;
     case ABILITY_ARMOR_TAIL:      return TRUE;
@@ -6000,6 +6009,21 @@ static enum Move GetMetronomeMove(void)
     return move;
 }
 
+static enum Move GetForbiddenSpellMove(void) {
+    u32 rand =  RandomUniform(RNG_FORBIDDEN_SPELL, 1, 8);
+    switch(rand) {
+        case 1: return MOVE_SHELL_SMASH;
+        case 2: return MOVE_HEALING_WISH;
+        case 3: return MOVE_DARK_HOLE;
+        case 4: return MOVE_TAIL_GLOW;
+        case 5: return MOVE_ROAR_OF_TIME;
+        case 6: return MOVE_QUIVER_DANCE;
+        case 7: return MOVE_NO_RETREAT;
+        case 8: return MOVE_SOUL_ROBBERY;
+    }
+    return MOVE_NONE;
+}
+
 static enum Move GetAssistMove(void)
 {
     enum Move move = MOVE_NONE;
@@ -6071,6 +6095,7 @@ static enum Move GetSleepTalkMove(void)
     u32 i, unusableMovesBits = 0, movePosition;
 
     if (GetBattlerAbility(gBattlerAttacker) != ABILITY_COMATOSE
+     && GetBattlerAbility(gBattlerAttacker) != ABILITY_SWEET_DREAMS
      && !(gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP))
         return move;
 

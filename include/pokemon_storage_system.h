@@ -77,4 +77,6 @@ void ChooseMonFromStorage();
 u32 CountPartyNonEggMons(void);
 void RemoveSelectedPcMon(struct Pokemon *mon);
 
+bool8 PokemonPC_HasReturnToPartyCallback(void);
+
 #endif // GUARD_POKEMON_STORAGE_SYSTEM_H

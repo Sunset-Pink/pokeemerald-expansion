@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "InsideOfTruck_EventScript_MovingBox",
+      "script": "Script_InsideOfTruck_Interact_MovingBox",
       "flag": "0"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "InsideOfTruck_EventScript_MovingBox",
+      "script": "Script_InsideOfTruck_Interact_MovingBox",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "InsideOfTruck_EventScript_MovingBox",
+      "script": "Script_InsideOfTruck_Interact_MovingBox",
       "flag": "0"
     }
   ],
@@ -87,27 +87,27 @@
       "x": 3,
       "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var": "VAR_QUEST_INTRO_STATE",
       "var_value": "0",
-      "script": "InsideOfTruck_EventScript_SetIntroFlags"
+      "script": "Script_InsideOfTruck_GameInit"
     },
     {
       "type": "trigger",
       "x": 3,
       "y": 2,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var": "VAR_QUEST_INTRO_STATE",
       "var_value": "0",
-      "script": "InsideOfTruck_EventScript_SetIntroFlags"
+      "script": "Script_InsideOfTruck_GameInit"
     },
     {
       "type": "trigger",
       "x": 3,
       "y": 3,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var": "VAR_QUEST_INTRO_STATE",
       "var_value": "0",
-      "script": "InsideOfTruck_EventScript_SetIntroFlags"
+      "script": "Script_InsideOfTruck_GameInit"
     }
   ],
   "bg_events": [
@@ -117,7 +117,7 @@
       "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "InsideOfTruck_EventScript_MovingBox"
+      "script": "Script_InsideOfTruck_Interact_MovingBox"
     },
     {
       "type": "sign",
@@ -125,7 +125,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "InsideOfTruck_EventScript_MovingBox"
+      "script": "Script_InsideOfTruck_Interact_MovingBox"
     },
     {
       "type": "sign",
@@ -133,7 +133,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "InsideOfTruck_EventScript_MovingBox"
+      "script": "Script_InsideOfTruck_Interact_MovingBox"
     },
     {
       "type": "sign",
@@ -141,7 +141,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "InsideOfTruck_EventScript_MovingBox"
+      "script": "Script_InsideOfTruck_Interact_MovingBox"
     },
     {
       "type": "sign",
@@ -149,7 +149,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "InsideOfTruck_EventScript_MovingBox"
+      "script": "Script_InsideOfTruck_Interact_MovingBox"
     }
   ]
 }

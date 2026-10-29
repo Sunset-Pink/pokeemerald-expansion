@@ -71,7 +71,14 @@
 #define VAR_FRONTIER_GAMBLER_AMOUNT_BET                  0x4032
 #define VAR_FRONTIER_GAMBLER_STATE                       0x4033
 
-#define VAR_DEOXYS_ROCK_STEP_COUNT                       0x4034
+#define VAR_QUEST_INTRO_STATE                            0x4034
+// 0: Starts: Inside of Truck, Ends: Selected Settings
+// 1: Starts: After Selecting Settings, Ends: Go in house 
+// 2: Starts: Went in House, Ends: Examine Room
+// 3: Starts: Examined Room, Ends: Meet Prof. Birch
+// 4: Starts: Choosing Starter, Ends: Selected Starter
+// 5: Starts: Selected Starter, Ends: Defeat Rival
+// 6: Starts: Defeated Rival
 #define VAR_DEOXYS_ROCK_LEVEL                            0x4035
 #define VAR_PC_BOX_TO_SEND_MON                           0x4036
 #define VAR_ABNORMAL_WEATHER_LOCATION                    0x4037
@@ -165,7 +172,7 @@
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
 #define VAR_UNUSED_0x4091                                0x4091 // Unused Var
-#define VAR_LITTLEROOT_INTRO_STATE                       0x4092
+#define VAR_DEOXYS_ROCK_STEP_COUNT                       0x4092
 #define VAR_MAUVILLE_GYM_STATE                           0x4093
 #define VAR_LILYCOVE_MUSEUM_2F_STATE                     0x4094
 #define VAR_LILYCOVE_FAN_CLUB_STATE                      0x4095
@@ -206,7 +213,7 @@
 #define VAR_UNUSED_0x40B8                                0x40B8 // Unused Var
 #define VAR_MT_PYRE_STATE                                0x40B9
 #define VAR_NEW_MAUVILLE_STATE                           0x40BA
-#define VAR_UNUSED_0x40BB                                0x40BB // Unused Var
+#define VAR_LITTLEROOT_INTRO_STATE                       0x40BB
 #define VAR_BRAVO_TRAINER_BATTLE_TOWER_ON                0x40BC
 #define VAR_JAGGED_PASS_ASH_WEATHER                      0x40BD
 #define VAR_GLASS_WORKSHOP_STATE                         0x40BE
@@ -230,7 +237,7 @@
 #define VAR_HAS_ENTERED_BATTLE_FRONTIER                  0x40D0 // Var is used like a flag.
 #define VAR_SCOTT_STATE                                  0x40D1
 #define VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE               0x40D2
-#define VAR_DEX_UPGRADE_JOHTO_STARTER_STATE              0x40D3
+#define VAR_0x40D3                                       0x40D3 //Unused
 #define VAR_SS_TIDAL_SCOTT_STATE                         0x40D4 // Always equal to FLAG_MET_SCOTT_ON_SS_TIDAL
 #define VAR_ROAMER_POKEMON                               0x40D5 // 0 = Latias, 1 = Latios
 #define VAR_TRAINER_HILL_IS_ACTIVE                       0x40D6
@@ -238,8 +245,8 @@
 #define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
-#define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
-#define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
+#define VAR_ROXANNE_CALL_STEP_COUNTER                    0x40DB 
+#define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40DC
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
 #define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
@@ -248,7 +255,7 @@
 #define VAR_GIFT_UNUSED_5                                0x40E2 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_6                                0x40E3 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_7                                0x40E4 // var is written to, but never read
-#define VAR_UNUSED_0x40E5                                0x40E5 // Unused Var
+#define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40E5
 #define VAR_DAILY_SLOTS                                  0x40E6
 #define VAR_DAILY_WILDS                                  0x40E7
 #define VAR_DAILY_BLENDER                                0x40E8
@@ -263,18 +270,18 @@
 #define VAR_DAILY_BP                                     0x40F1
 #define VAR_WALLY_CALL_STEP_COUNTER                      0x40F2
 #define VAR_SCOTT_FORTREE_CALL_STEP_COUNTER              0x40F3
-#define VAR_ROXANNE_CALL_STEP_COUNTER                    0x40F4
-#define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40F5
-#define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
-#define VAR_UNUSED_0x40F7                                0x40F7 // Unused Var
-#define VAR_UNUSED_0x40F8                                0x40F8 // Unused Var
-#define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var
-#define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
-#define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
-#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
+#define VAR_STONE_BADGE_LEVEL                            0x40F4 // Level of Stone Badge (Roxanne)
+#define VAR_KNUCKLE_BADGE_LEVEL                          0x40F5 // Level of Knuckle Badge (Brawly)
+#define VAR_DYNAMO_BADGE_LEVEL                           0x40F6 // Level of Dynamo Badge (Wattson)
+#define VAR_HEAT_BADGE_LEVEL                             0x40F7 // Level of Heat Badge (Flannery)
+#define VAR_BALANCE_BADGE_LEVEL                          0x40F8 // Level of Balance Badge (Norman)
+#define VAR_FEATHER_BADGE_LEVEL                          0x40F9 // Level of Feather Badge (Winona)
+#define VAR_MIND_BADGE_LEVEL                             0x40FA // Level of Mind Badge (Tate + Liza)
+#define VAR_RAIN_BADGE_LEVEL                             0x40FB // Level of Rain Badge (Juan)
+#define VAR_CHAMPION_REMATCH                             0x40FC // Counter for the Champion Remach
+#define VAR_DIFFICULTY                                   0x40FD // Difficulty
+#define VAR_MONOTYPE_STARTER                             0x40FE // Type of which starter is chosen from.
+#define VAR_STARTER_GEN                                  0x40FF // Generation which starter is chosen from.
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)

@@ -617,26 +617,38 @@ static bool32 HandleEndTurnFrostbite(enum BattlerId battler)
     return effect;
 }
 
-static bool32 HandleEndTurnNightmare(enum BattlerId battler)
+static bool32 HandleEndTurnSleep(enum BattlerId battler)
 {
     bool32 effect = FALSE;
-
     gBattleStruct->eventState.endTurnBattler++;
 
-    if (gBattleMons[battler].volatiles.nightmare
-     && IsBattlerPresent(battler)
-     && !IsAbilityAndRecord(battler, GetBattlerAbility(battler), ABILITY_MAGIC_GUARD))
-    {
-        if (IsAsleepOrComatose(battler, GetBattlerAbility(battler)))
-        {
-            SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 4);
+    if(
+        gBattleMons[battler].volatiles.nightmare
+        && IsBattlerPresent(battler)
+        && !IsAbilityAndRecord(battler, GetBattlerAbility(battler), ABILITY_MAGIC_GUARD)
+    ) {
+        if (
+            IsAsleepOrComatose(battler, GetBattlerAbility(battler)) //Only effects sleeping
+            && GetBattlerAbility(battler) != ABILITY_SWEET_DREAMS // Sweet Dreams and Nightmare cancel each other.
+        ) {
+            SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler)/4);
             BattleScriptCall(BattleScript_NightmareTurnDmg);
             effect = TRUE;
-        }
-        else
-        {
+        } else {
             gBattleMons[battler].volatiles.nightmare = FALSE;
         }
+    }
+
+    if(
+        IsAsleepOrComatose(battler, GetBattlerAbility(battler))
+        && ( 
+            GetBattlerAbility(battler) == ABILITY_CAT_NAP   
+            || (GetBattlerAbility(battler) == ABILITY_SWEET_DREAMS && !gBattleMons[battler].volatiles.nightmare)
+        ) 
+    ) {
+        SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 8);
+        BattleScriptCall(BattleScript_SleepHealActivates);
+        effect = TRUE;
     }
 
     return effect;
@@ -1571,7 +1583,7 @@ static bool32 (*const sEndTurnEffectHandlers[])(enum BattlerId battler) =
     [ENDTURN_POISON] = HandleEndTurnPoison,
     [ENDTURN_BURN] = HandleEndTurnBurn,
     [ENDTURN_FROSTBITE] = HandleEndTurnFrostbite,
-    [ENDTURN_NIGHTMARE] = HandleEndTurnNightmare,
+    [ENDTURN_SLEEP] = HandleEndTurnSleep,
     [ENDTURN_CURSE] = HandleEndTurnCurse,
     [ENDTURN_WRAP] = HandleEndTurnWrap,
     [ENDTURN_SALT_CURE] = HandleEndTurnSaltCure,

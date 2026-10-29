@@ -3484,14 +3484,14 @@ bool8 ScrCmd_bufferstarterinfo(struct ScriptContext *ctx)
 
     if(FlagGet(FLAG_USE_MONOTYPE_STARTERS))
     {
-        gSpecialVar_0x8006 = monoStarters[VarGet(VAR_MONOTYPE_STARTER)][startertype];
+        gSpecialVar_0x8006 = monoStarters[VarGet(VAR_MONOTYPE_STARTER)][starterType];
              
     }
     else
     {
-        gSpecialVar_0x8006 = normalStarters[VarGet(VAR_STARTER_GEN)][startertype]; 
+        gSpecialVar_0x8006 = normalStarters[VarGet(VAR_STARTER_GEN)][starterType]; 
     }
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetSpeciesName(gSpecialVar_0x8006));
+    StringCopy(GetStringVar(stringVarIndex), GetSpeciesName(gSpecialVar_0x8006));
     return FALSE;
 }

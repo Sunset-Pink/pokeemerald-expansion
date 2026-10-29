@@ -3943,6 +3943,7 @@ static bool32 IsDomeLuckyMove(enum Move move)
             return FALSE;
         // fallthrough
     case EFFECT_OHKO:
+    case EFFECT_FORBIDDEN_SPELL:
     case EFFECT_METRONOME:
     case EFFECT_MIRROR_MOVE:
     case EFFECT_SKETCH:

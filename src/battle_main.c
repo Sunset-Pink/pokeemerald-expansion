@@ -4501,6 +4501,10 @@ s32 GetBattleMovePriority(enum BattlerId battler, enum Ability ability, enum Mov
     {
         priority += 3;
     }
+    else if (ability == ABILITY_YOKED && IsEggMove(move))
+    {
+        priority += 3;
+    }
 
     return priority;
 }

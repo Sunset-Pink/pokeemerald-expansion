@@ -1,0 +1,65 @@
+text gText_Birch_Welcome {
+	"Hi! Sorry to keep you waiting!\p"
+	"Welcome to the world of Pok\emon!\p"
+	"My name is Birch.\p"
+	"But everyone calls me the Pok\emon\n"
+	"Professor.\p"
+}
+
+text gText_Birch_Pokemon {
+	"This is what we call a Pok\emon.”\p"
+	"\n"
+}
+
+text gText_Birch_MainSpeech {
+	"This world is widely inhabited by\n"
+	"creatures known as Pok\emon.\p"
+	"We humans live alongside Pok\emon,\n"
+	"at times as friendly playmates, and\l"
+	"at times as cooperative workmates.\p"
+	"And sometimes, we band together\n"
+	"and battle others like us.\p"
+	"But despite our closeness, we don't\n"
+	"know everything about Pok\emon.\p"
+	"In fact, there are many, many\n"
+	"secrets surrounding Pok\emon.\p"
+	"To unravel Pok\emon mysteries,\n"
+	"I've been undertaking research.\l"
+	"That's what I do.\p"
+}
+
+text gText_Birch_AndYouAre {
+	"And you are?"
+}
+
+text gText_Birch_BoyOrGirl {
+	"Are you a boy?\n"
+	"Or are you a girl?"
+}
+
+text gText_Birch_WhatsYourName {
+	"All right.\n"
+	"What's your name?"
+}
+
+text gText_Birch_SoItsPlayer {
+	"So it's {PLAYER}{KUN}?"
+}
+
+text gText_Birch_YourePlayer {
+	"Ah, okay!\p"
+	"You're {PLAYER}{KUN} who's moving to my\n"
+	"hometown of Littleroot.\l"
+	"I get it now!\p"
+}
+
+text gText_Birch_AreYouReady {
+	"All right, are you ready?\p"
+	"Your very own adventure is about\n"
+	"to unfold.\p"
+	"Take courage, and leap into the\n"
+	"world of Pok\emon where dreams,\l"
+	"adventure, and friendships await!\p"
+	"Well, I'll be expecting you later.\n"
+	"Come see me in my Pok\emon Lab.\p"
+}

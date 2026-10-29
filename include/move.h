@@ -137,6 +137,7 @@ struct MoveInfo
     bool32 kickingMove:1;
     bool32 boneMove:1;
     bool32 eggMove:1;
+    bool32 tongueMove:1;
     bool32 healingMove:1;
     bool32 minimizeDoubleDamage:1;
     // end of word
@@ -384,6 +385,11 @@ static inline bool32 MoveIgnoresKingsRock(enum Move moveId)
 static inline bool32 IsPunchingMove(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].punchingMove;
+}
+
+static inline bool32 IsTongueMove(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].tongueMove;
 }
 
 static inline bool32 IsBitingMove(enum Move moveId)

@@ -4137,6 +4137,7 @@ BattleScript_DoTurnDmg:
 BattleScript_DoTurnDmgEnd:
 	return
 
+BattleScript_SleepHealActivates::
 BattleScript_PoisonHealActivates::
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
@@ -6391,6 +6392,16 @@ BattleScript_MetronomeAttackstring::
 	waitanimation
 	setcalledmove
 	printstring STRINGID_WAGGLINGAFINGER
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_ForbiddenSpellAttackstring::
+	printattackstring
+	pause B_WAIT_TIME_LONG
+	attackanimation
+	waitanimation
+	setcalledmove
+	printstring STRINGID_CHANTEDFORBIDDENMAGIC
 	waitmessage B_WAIT_TIME_LONG
 	return
 

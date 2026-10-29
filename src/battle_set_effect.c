@@ -269,7 +269,14 @@ static void HandleSetEffectRemoveArgType(struct BattleCalcValues *cv, struct Set
 
 static void HandleSetEffectRecharge(struct BattleCalcValues *cv, struct SetEffect *se)
 {
-    if (B_SKIP_RECHARGE == GEN_1 && !IsBattlerAlive(cv->battlerDef))  // Skip recharge if gen 1 and foe is KO'd
+    if (
+        (cv->move == MOVE_METEOR_ASSAULT
+        || cv->move == MOVE_BLAST_BURN
+        || cv->move == MOVE_HYDRO_CANNON
+        || cv->move == MOVE_FRENZY_PLANT
+        || cv->abilities[cv->battlerAtk] == ABILITY_RAMPAGE
+        ) && !IsBattlerAlive(cv->battlerDef)
+    )
         return;
 
     gBattleMons[se->effectBattler].volatiles.rechargeTimer = 2;

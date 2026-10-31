@@ -1104,6 +1104,16 @@ static bool32 HandleEndTurnSecondEventBlock(enum BattlerId battler)
         }
         gBattleStruct->eventState.endTurnBlock++;
         break;
+    case SECOND_EVENT_BLOCK_SMOKESCREEN:
+        if(gSideTimers[side].smokescreenTimer > 0 && --gSideTimers[side].smokescreenTimer == 0)
+        {
+            gBattlerAttacker = GetBattlerSideForMessage(side);
+            gSideStatuses[side] &= ~SIDE_STATUS_SMOKESCREEN;
+            BattleScriptCall(BattleScript_SmokescreenEnds);
+            effect = TRUE;
+        }
+        gBattleStruct->eventState.endTurnBlock++;
+        break;
     case SECOND_EVENT_BLOCK_LUCKY_CHANT:
         if (gSideTimers[side].luckyChantTimer > 0 && --gSideTimers[side].luckyChantTimer == 0)
         {

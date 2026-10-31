@@ -818,9 +818,6 @@ static bool32 AbilityPreventsSpecificStatDrop(enum Ability ability, enum Stat st
 {
     switch (ability)
     {
-    case ABILITY_ILLUMINATE:
-        if (B_ILLUMINATE_EFFECT < GEN_9)
-            return FALSE;
     case ABILITY_KEEN_EYE:
     case ABILITY_MINDS_EYE:
         return stat == STAT_ACC;

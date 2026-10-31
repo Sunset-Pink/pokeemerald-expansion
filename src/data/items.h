@@ -9976,7 +9976,7 @@ const struct ItemInfo gItemsInfo[] =
     #else
         .price = 200,
     #endif
-        .holdEffect = HOLD_EFFECT_CAN_ALWAYS_RUN,
+        .holdEffect = HOLD_EFFECT_SMOKE_BALL,
         .description = COMPOUND_STRING(
             "A held item that\n"
             "assures fleeing\n"

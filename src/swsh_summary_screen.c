@@ -827,7 +827,7 @@ static const struct WindowTemplate sPageInfoTemplate[] =
 #define WIN_SKILLS_STATS_BASE           PSS_PAGE_WIN_BASE
 
 #define WIN_SKILLS_ABILITY_W            18
-#define WIN_SKILLS_ABILITY_H            5
+#define WIN_SKILLS_ABILITY_H            10
 #define WIN_SKILLS_ABILITY_TILES        (WIN_SKILLS_ABILITY_W * WIN_SKILLS_ABILITY_H)
 #define WIN_SKILLS_ABILITY_BASE         (WIN_SKILLS_STATS_BASE + WIN_SKILLS_STATS_TILES)
 

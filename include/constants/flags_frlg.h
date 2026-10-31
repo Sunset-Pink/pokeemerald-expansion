@@ -2009,7 +2009,7 @@
 
 
 // Event Flags
-#define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0
+#define FLAG_UNUSED_EVEN_0                                          0
 #define FLAG_HIDE_APPRENTICE                                        0
 #define FLAG_HIDE_POKEMON_CENTER_2F_MYSTERY_GIFT_MAN                0
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_1               0

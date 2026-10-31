@@ -474,6 +474,7 @@ static void Cmd_forcerandomswitch(void);
 static void Cmd_tryconversiontypechange(void);
 static void Cmd_givepaydaymoney(void);
 static void Cmd_setlightscreen(void);
+static void Cmd_setsmokescreen(void);
 static void Cmd_tryKO(void);
 static void Cmd_checknonvolatiletrigger(void);
 static void Cmd_animatewildpokemonafterfailedpokeball(void);
@@ -687,6 +688,7 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     [B_SCR_OP_TRYCONVERSIONTYPECHANGE]               = Cmd_tryconversiontypechange,
     [B_SCR_OP_GIVEPAYDAYMONEY]                       = Cmd_givepaydaymoney,
     [B_SCR_OP_SETLIGHTSCREEN]                        = Cmd_setlightscreen,
+    [B_SCR_OP_SETSMOKESCREEN]                        = Cmd_setsmokescreen,
     [B_SCR_OP_TRYKO]                                 = Cmd_tryKO,
     [B_SCR_OP_CHECKNONVOLATILETRIGGER]               = Cmd_checknonvolatiletrigger,
     [B_SCR_OP_ANIMATEWILDPOKEMONAFTERFAILEDPOKEBALL] = Cmd_animatewildpokemonafterfailedpokeball,
@@ -1646,6 +1648,27 @@ bool32 TrySetLightScreen(enum BattlerId battler)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LIGHTSCREEN_DOUBLE;
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LIGHTSCREEN_SINGLE;
+
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool32 TrySetSmokeScreen(enum BattlerId battler) {
+    enum BattleSide side = GetBattlerSide(battler);
+    if(!(gSideStatuses[side] & SIDE_STATUS_SMOKESCREEN))
+    {
+        gSideStatuses[side] |= SIDE_STATUS_SMOKESCREEN;
+        if(GetBattlerHoldEffect(battler) == HOLD_EFFECT_SMOKE_BALL) {
+            gSideTimers[side].smokescreenTimer = 8;
+        } else {
+            gSideTimers[side].smokescreenTimer = 5;
+        }
+
+        if (IsDoubleBattle() && CountAliveMonsInBattle(BATTLE_ALIVE_SIDE, battler) == 2)
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SMOKESCREEN_DOUBLE;
+        else
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SMOKESCREEN_SINGLE;
 
         return TRUE;
     }
@@ -5754,6 +5777,19 @@ static void Cmd_setlightscreen(void)
     CMD_ARGS();
 
     if (!TrySetLightScreen(gBattlerAttacker))
+    {
+        gBattleStruct->moveResultFlags[gBattlerTarget] |= MOVE_RESULT_MISSED;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SIDE_STATUS_FAILED;
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_setsmokescreen(void) 
+{
+    CMD_ARGS();
+
+    if(!TrySetSmokeScreen(gBattlerAttacker))
     {
         gBattleStruct->moveResultFlags[gBattlerTarget] |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SIDE_STATUS_FAILED;

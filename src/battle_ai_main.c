@@ -2913,6 +2913,11 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
          || (gFieldStatuses & STATUS_FIELD_TRICK_ROOM && gFieldTimers.trickRoomTimer == 1))
             ADJUST_SCORE(-10);
         break;
+    case EFFECT_SMOKESCREEN:
+        if (gSideStatuses[GetBattlerSide(battlerAtk)] & (SIDE_STATUS_SMOKESCREEN)
+         || (HasPartner(battlerAtk) && AreMovesEquivalent(battlerAtk, GetPartnerBattler(battlerAtk), move, aiData->partnerMove)))
+            ADJUST_SCORE(-10);
+        break;
     case EFFECT_LUCKY_CHANT:
         if (gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_LUCKY_CHANT
           || PartnerMoveIsSameNoTarget(GetPartnerBattler(battlerAtk), move, aiData->partnerMove))
@@ -4628,6 +4633,7 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
         if (ShouldRecover(GetPartnerBattler(battlerAtk), battlerDef, move, 25))
             ADJUST_SCORE(GOOD_EFFECT);
         break;
+    case EFFECT_SMOKESCREEN:
     case EFFECT_LIGHT_SCREEN:
     case EFFECT_REFLECT:
     case EFFECT_AURORA_VEIL:
@@ -6079,6 +6085,7 @@ static s32 AI_ForceSetupFirstTurn(enum BattlerId battlerAtk, enum BattlerId batt
     case EFFECT_FOCUS_ENERGY:
     case EFFECT_CONFUSE:
     case EFFECT_REFLECT:
+    case EFFECT_SMOKESCREEN:
     case EFFECT_NON_VOLATILE_STATUS:
     case EFFECT_SUBSTITUTE:
     case EFFECT_LEECH_SEED:
@@ -6486,6 +6493,7 @@ static s32 AI_PowerfulStatus(enum BattlerId battlerAtk, enum BattlerId battlerDe
         if (!(gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_MIST))
             ADJUST_SCORE(POWERFUL_STATUS_MOVE);
         break;
+    case EFFECT_SMOKESCREEN:
     case EFFECT_LIGHT_SCREEN:
     case EFFECT_REFLECT:
     case EFFECT_AURORA_VEIL:

@@ -201,6 +201,7 @@ bool32 ShouldTriggerSpicySprayForBurn(enum BattlerId battlerAtk, enum Move move,
 bool32 HasPhysicalBestMove(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum DamageCalcContext calcContext);
 bool32 HasOnlyMovesWithCategory(enum BattlerId battlerId, enum DamageCategory category, bool32 onlyOffensive);
 bool32 HasMoveWithCategory(enum BattlerId battler, enum DamageCategory category);
+bool32 HasLightMove(enum BattlerId battler);
 bool32 HasMoveWithType(enum BattlerId battler, enum Type type);
 bool32 HasMoveWithEffect(enum BattlerId battler, enum BattleMoveEffects moveEffect);
 bool32 HasMoveWithAIEffect(enum BattlerId battler, u32 aiEffect);
@@ -364,6 +365,7 @@ bool32 AiExpectsToFaintPlayer(enum BattlerId battler);
 #define AI_EFFECT_REFLECT              (1 <<  8)
 #define AI_EFFECT_GRAVITY              (1 <<  9)
 #define AI_EFFECT_CHANGE_ABILITY       (1 << 10)
+#define AI_EFFECT_SMOKESCREEN          (1 << 11)
 
 // As Aurora Veil should almost never be used alongside the other screens, we save the bit.
 #define AI_EFFECT_AURORA_VEIL          (AI_EFFECT_LIGHT_SCREEN | AI_EFFECT_REFLECT)

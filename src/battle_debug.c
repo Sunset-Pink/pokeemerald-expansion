@@ -150,6 +150,7 @@ enum
 enum
 {
     LIST_SIDE_REFLECT,
+    LIST_SIDE_SMOKESCREEN,
     LIST_SIDE_LIGHTSCREEN,
     LIST_SIDE_SAFEGUARD,
     LIST_SIDE_MIST,
@@ -1772,6 +1773,15 @@ static u16 *GetSideStatusValue(struct BattleDebugMenu *data, bool32 changeStatus
                 *(u32 *)(data->modifyArrows.modifiedValPtr) &= ~SIDE_STATUS_REFLECT;
         }
         return &sideTimer->reflectTimer;
+    case LIST_SIDE_SMOKESCREEN:
+        if (changeStatus) 
+        {
+            if(statusTrue)
+                *(u32 *)(data->modifyArrows.modifiedValPtr) |= SIDE_STATUS_SMOKESCREEN;
+            else
+                *(u32 *)(data->modifyArrows.modifiedValPtr) &= ~SIDE_STATUS_SMOKESCREEN;
+        }
+        return &sideTimer->smokescreenTimer;
     case LIST_SIDE_LIGHTSCREEN:
         if (changeStatus)
         {

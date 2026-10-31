@@ -250,6 +250,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNREGAINEDHEALTH]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s HP was restored."),
     [STRINGID_PKMNHPFULL]                           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s HP is full!"),
     [STRINGID_PKMNRAISEDSPDEF]                      = COMPOUND_STRING("Light Screen made {B_ATK_TEAM2} side stronger against special moves!"),
+    [STRINGID_PKMNHIDEINSMOKE]                      = COMPOUND_STRING("Smoke Screen made {B_ATK_TEAM2} side stronger against light-based moves!"),
     [STRINGID_PKMNRAISEDDEF]                        = COMPOUND_STRING("Reflect made {B_ATK_TEAM2} side stronger against physical moves!"),
     [STRINGID_PKMNAURORAVEIL]                       = COMPOUND_STRING("Aurora Veil made {B_ATK_TEAM2} side stronger against physical and special moves!"),
     [STRINGID_PKMNCOVEREDBYVEIL]                    = COMPOUND_STRING("{B_ATK_TEAM1} side became cloaked in a mystical veil!"),
@@ -565,6 +566,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_BUFFERENDS]                           = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX}'s {B_BUFF1} wore off!"),
     [STRINGID_TELEKINESISENDS]                      = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} was freed from the telekinesis!"),
     [STRINGID_TAILWINDENDS]                         = COMPOUND_STRING("{B_ATK_TEAM1} side's tailwind petered out!"),
+    [STRINGID_SMOKESCREENENDS]                      = COMPOUND_STRING("{B_ATK_TEAM1} side's smokescreen faded!"),
     [STRINGID_LUCKYCHANTENDS]                       = COMPOUND_STRING("{B_ATK_TEAM1} side's Lucky Chant wore off!"),
     [STRINGID_TRICKROOMENDS]                        = COMPOUND_STRING("The twisted dimensions returned to normal!"),
     [STRINGID_WONDERROOMENDS]                       = COMPOUND_STRING("Wonder Room wore off, and Defense and Sp. Def stats returned to normal!"),
@@ -1098,6 +1100,8 @@ const u16 gReflectLightScreenSafeguardStringIds[] =
     [B_MSG_SET_LIGHTSCREEN_DOUBLE] = STRINGID_PKMNRAISEDSPDEF,
     [B_MSG_SET_SAFEGUARD]          = STRINGID_PKMNCOVEREDBYVEIL,
     [B_MSG_SET_AURORA_VEIL]        = STRINGID_PKMNAURORAVEIL,
+    [B_MSG_SET_SMOKESCREEN_SINGLE] = STRINGID_PKMNHIDEINSMOKE,
+    [B_MSG_SET_SMOKESCREEN_DOUBLE] = STRINGID_PKMNHIDEINSMOKE,
 };
 
 const u16 gLeechSeedStringIds[] =

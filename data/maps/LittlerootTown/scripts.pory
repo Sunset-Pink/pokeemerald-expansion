@@ -1,38 +1,4 @@
 raw`
-	@ State descriptions for VAR_LITTLEROOT_TOWN_STATE
-	@ 1: Met Rival
-	@ 2: Saving Birch
-	@ 3: Received Pokedex
-	@ 4: Received Running Shoes
-
-	@ State descriptions for VAR_LITTLEROOT_INTRO_STATE
-	@ 1: In truck male
-	@ 2: In truck female
-	@ 3: Entered house
-	@ 4: Told to go set clock
-	@ 5: Entered 2F to set clock
-	@ 6: Set clock
-	@ 7: Told to go meet rival
-
-	@ State descriptions for VAR_LITTLEROOT_HOUSES_STATE_MAY
-	@                    and VAR_LITTLEROOT_HOUSES_STATE_BRENDAN
-	@ 1: On Truck (and is corresponding gender)
-	@ 2: Met Rival's Mom (and is corresponding gender)
-	@ 3: Entered Hall of Fame
-	@ 4: Completed Lati TV / SS Ticket event
-	@ 5: Exited house after above event
-
-	@ State descriptions for VAR_LITTLEROOT_RIVAL_STATE
-	@ 1: Never occurs
-	@ 2: Entered Rival's bedroom
-	@ 3: Met Rival
-	@ 4: Received Pokedex
-
-
-LittlerootTown_EventScript_HideMapNamePopup::
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-	return
-
 LittlerootTown_EventScript_SetRivalLeftForRoute103::
 	setflag FLAG_RIVAL_LEFT_FOR_ROUTE103
 	return
@@ -45,10 +11,6 @@ LittlerootTown_EventScript_MoveRivalFromOldale::
 LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::
 	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 5
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 5
-	return
-
-LittlerootTown_EventScript_MoveMomToMaysDoor::
-	setobjectxyperm LOCALID_LITTLEROOT_MOM, 14, 8
 	return
 
 LittlerootTown_EventScript_SetTwinPos::
@@ -77,24 +39,6 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorMale::
 LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
 	setobjectxyperm LOCALID_LITTLEROOT_MOM, 14, 9
 	return
-
-LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
-	end
-
-LittlerootTown_EventScript_Boy::
-	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
-	end
-
-LittlerootTown_EventScript_Twin::
-	lock
-	faceplayer
-	goto_if_set FLAG_ADVENTURE_STARTED, LittlerootTown_EventScript_GoodLuck
-	goto_if_set FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_YouSavedBirch
-	goto_if_ne VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_GoSaveBirch
-	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
-	release
-	end
 
 LittlerootTown_EventScript_GoSaveBirch::
 	special GetPlayerBigGuyGirlString
@@ -128,7 +72,7 @@ LittlerootTown_EventScript_NeedPokemonTriggerLeft::
 	end
 
 LittlerootTown_EventScript_DangerousWithoutPokemon::
-	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
+	msgbox Text_LittlerootTown_Twin_PokemonWillJumpOut, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_LITTLEROOT_TWIN, LittlerootTown_Movement_TwinPushPlayerFromRoute
 	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PushPlayerBackFromRoute
@@ -223,46 +167,6 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 	setvar VAR_LITTLEROOT_TOWN_STATE, 2
 	releaseall
 	end
-
-LittlerootTown_EventScript_TownSign::
-	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
-	end
-
-LittlerootTown_EventScript_BirchsLabSign::
-	msgbox LittlerootTown_Text_ProfBirchsLab, MSGBOX_SIGN
-	end
-
-LittlerootTown_EventScript_BrendansHouseSign::
-	lockall
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_PlayersHouseSignMale
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_BirchsHouseSignFemale
-	releaseall
-	end
-
-LittlerootTown_EventScript_PlayersHouseSignMale::
-	msgbox LittlerootTown_Text_PlayersHouse, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_EventScript_BirchsHouseSignFemale::
-	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_EventScript_MaysHouseSign::
-	lockall
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_BirchsHouseSignMale
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_PlayersHouseSignFemale
-	releaseall
-	end
-
-LittlerootTown_EventScript_BirchsHouseSignMale::
-	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_EventScript_PlayersHouseSignFemale::
-	msgbox LittlerootTown_Text_PlayersHouse, MSGBOX_DEFAULT
-	return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger0::
 	lockall
@@ -776,24 +680,6 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "…But please be careful.\n"
 	.string "If anything happens, you can come home.\p"
 	.string "Go on, go get them, honey!$"
-
-LittlerootTown_Text_CanUsePCToStoreItems:
-	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
-	.string "The power of science is staggering!$"
-
-LittlerootTown_Text_BirchSpendsDaysInLab:
-	.string "PROF. BIRCH spends days in his LAB\n"
-	.string "studying, then he'll suddenly go out in\l"
-	.string "the wild to do more research…\p"
-	.string "When does PROF. BIRCH spend time\n"
-	.string "at home?$"
-
-LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut:
-	.string "Um, um, um!\p"
-	.string "If you go outside and go in the grass,\n"
-	.string "wild POKéMON will jump out!$"
-
 LittlerootTown_Text_DangerousIfYouDontHavePokemon:
 	.string "It's dangerous if you don't have\n"
 	.string "your own POKéMON.$"
@@ -814,19 +700,6 @@ LittlerootTown_Text_YouSavedBirch:
 LittlerootTown_Text_GoodLuckCatchingPokemon:
 	.string "Are you going to catch POKéMON?\n"
 	.string "Good luck!$"
-
-LittlerootTown_Text_TownSign:
-	.string "LITTLEROOT TOWN\n"
-	.string "“A town that can't be shaded any hue.”$"
-
-LittlerootTown_Text_ProfBirchsLab:
-	.string "PROF. BIRCH'S POKéMON LAB$"
-
-LittlerootTown_Text_PlayersHouse:
-	.string "{PLAYER}'s HOUSE$"
-
-LittlerootTown_Text_ProfBirchsHouse:
-	.string "PROF. BIRCH'S HOUSE$"
 `
 
 mapscripts LittlerootTown_MapScripts {
@@ -838,9 +711,6 @@ mapscripts LittlerootTown_MapScripts {
 }
 
 //LittlerootTown_OnTransition:
-//	setflag FLAG_VISITED_LITTLEROOT_TOWN
-//	call Common_EventScript_SetupRivalGfxId
-//	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 //	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
 //	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
 //	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
@@ -853,6 +723,9 @@ mapscripts LittlerootTown_MapScripts {
 script(local) Script_LittlerootTown_OnTransition {
 	setflag(FLAG_VISITED_LITTLEROOT_TOWN)
 	call(Common_EventScript_SetupRivalGfxId)
+	if(checkplayergender == FEMALE) {
+		setobjectxyperm(LOCALID_LITTLEROOT_MOM, 14, 8)
+	}
 	end
 }
 
@@ -943,6 +816,30 @@ script Script_LittlerootTown_Intro_GoInsideWithMom {
 	return
 }
 
+script Script_LittlerootTown_Interact_FatMan {
+	msgbox(Text_LittlerootTown_FatMan_UsePCToStoreItems, MSGBOX_NPC)
+	end
+}
+
+text(local) Text_LittlerootTown_FatMan_UsePCToStoreItems {
+	"If you use a PC, you can store items\n"
+	"and Pokemon.\p"
+	"The power of science is staggering!"
+}
+
+script Script_LittlerootTown_Interact_Boy {
+	msgbox(Text_LittlerootTown_Boy_ProfBitch, MSGBOX_NPC)
+	end
+}
+
+text(local) Text_LittlerootTown_Boy_ProfBitch {
+	"Prof. Birch tries to spend time\n"
+	"in the wild. But he is absolutely\l"
+	"useless in the field.\p"
+	"One time he got absolutely swarmed\n"
+	"by some Zigzagoons. Talk about useless,\l"
+	"might as well call him, Prof. Bitch."
+}
 text(local) Text_LittlerootTown_Mom_OurNewHome {
 	"Mom: {PLAYER}, we're here, honey!\p"
 	"It must be tiring riding with our things\n"
@@ -954,4 +851,68 @@ text(local) Text_LittlerootTown_Mom_OurNewHome {
 	"an easy place to live, don't you think?\p"
 	"And, you get your own room, {PLAYER}!\n"
 	"Let's go inside.$"
+}
+
+script Script_LittlerootTown_Interact_TownSign {
+	msgbox(Text_LittlerootTown_TownSign, MSGBOX_SIGN)
+	end
+}
+
+text Text_LittlerootTown_TownSign {
+	"Littleroot Town\n"
+	"\qoA town that can't be shaded any hue.\qc"
+}
+
+script Script_LittlerootTown_Interact_LabSign {
+	msgbox(Text_LittlerootTown_LabSign, MSGBOX_SIGN)
+	end
+}
+
+text Text_LittlerootTown_LabSign {
+	"Prof. Birch's Pok\emon Lab."
+}
+
+script Script_LittlerootTown_Interact_BrendansHouseSign {
+	if(checkplayergender == MALE) {
+		msgbox(Text_LittlerootTown_PlayersSign, MSGBOX_SIGN)
+	} else {
+		msgbox(Text_LittlerootTown_BirchsSign, MSGBOX_SIGN)
+	}
+}
+
+script Script_LittlerootTown_Interact_MaysHouseSign {
+	if(checkplayergender == FEMALE) {
+		msgbox(Text_LittlerootTown_PlayersSign, MSGBOX_SIGN)
+	} else {
+		msgbox(Text_LittlerootTown_BirchsSign, MSGBOX_SIGN)
+	}
+}
+
+text Text_LittlerootTown_PlayersSign {
+	"{PLAYER}'s House."
+}
+
+text Text_LittlerootTown_BirchsSign {
+	"Prof. Birch's House."
+}
+
+script Script_LittlerootTown_Interact_Twin {
+	lock
+	faceplayer
+	if(flag(FLAG_ADVENTURE_STARTED)) {
+		goto(LittlerootTown_EventScript_GoodLuck)
+	} elif(flag(FLAG_RESCUED_BIRCH) == FALSE) {
+		goto(LittlerootTown_EventScript_GoSaveBirch)
+	} elif(var(VAR_LITTLEROOT_TOWN_STATE) != 0) {
+		goto(LittlerootTown_EventScript_GoSaveBirch)
+	} else {
+		msgbox(Text_LittlerootTown_Twin_PokemonWillJumpOut)
+	}
+	releaseall
+	end
+}
+text(local) Text_LittlerootTown_Twin_PokemonWillJumpOut {
+	"Um, um, um!\p"
+	"If you go outside and go in the grass,\n"
+	"wild Pok\emon will jump out!"
 }

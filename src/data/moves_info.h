@@ -280,6 +280,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .self = TRUE,
         }),
         .battleAnimScript = gBattleAnimMove_GlitzyGlow,
+        .lightMove = TRUE,
     },
 
     [MOVE_BADDY_BAD] =
@@ -2623,13 +2624,14 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_STAT_MINUS,
             .attack = 1,
-            .chance = B_UPDATED_MOVE_DATA >= GEN_2 ? 10 : 33,
+            .chance = 10,
         }),
-        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_STARTLE_PREV_MON : CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_HAIL},
         .battleAnimScript = gBattleAnimMove_AuroraBeam,
+        .lightMove = TRUE,
     },
 
     [MOVE_HYPER_BEAM] =
@@ -2957,12 +2959,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
         .argument.twoTurnAttack = { .stringId = STRINGID_PKMNTOOKSUNLIGHT, .weather = BATTLE_WEATHER_SUN },
-        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_AFFECTED_BY_PREV_APPEAL : CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestEffect = CONTEST_EFFECT_AFFECTED_BY_PREV_APPEAL,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_GROWTH, COMBO_STARTER_SUNNY_DAY},
         .battleAnimScript = gBattleAnimMove_SolarBeam,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE
     },
 
     [MOVE_POISON_POWDER] =
@@ -3748,9 +3751,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Smokescreen"),
         .description = COMPOUND_STRING(
-            "Lowers the foe's accuracy\n"
-            "using smoke, ink, etc."),
-        .effect = EFFECT_STAT_CHANGE,
+            "For 5 turns, a screen of smoke\n"
+            "weakens light-based moves."),
+        .effect = EFFECT_SMOKESCREEN,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -3758,16 +3761,12 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
-        .zMove = { .effect = Z_EFFECT_EVSN_UP_1 },
+        .zMove = { .effect = Z_EFFECT_DEF_UP_1 },
         .magicCoatAffected = TRUE,
-        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_STARTLE_PREV_MON : CONTEST_EFFECT_SHIFT_JUDGE_ATTENTION,
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_SMOG},
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = STAT_CHANGE_EFFECT_MINUS,
-            .accuracy = 1,
-        }),
         .battleAnimScript = gBattleAnimMove_Smokescreen,
         .validApprenticeMove = TRUE,
     },
@@ -3794,6 +3793,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_ConfuseRay,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_WITHDRAW] =
@@ -3910,6 +3910,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_CALM_MIND},
         .battleAnimScript = gBattleAnimMove_LightScreen,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_HAZE] =
@@ -3956,12 +3957,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .ignoresProtect = TRUE,
         .mirrorMoveBanned = TRUE,
         .snatchAffected = TRUE,
-        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_AVOID_STARTLE_ONCE : CONTEST_EFFECT_AVOID_STARTLE,
+        .contestEffect = CONTEST_EFFECT_AVOID_STARTLE_ONCE,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_CALM_MIND},
         .battleAnimScript = gBattleAnimMove_Reflect,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_FOCUS_ENERGY] =
@@ -4333,6 +4335,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_Swift,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_SKULL_BASH] =
@@ -4827,6 +4830,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         }),
         .battleAnimScript = gBattleAnimMove_Flash,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_PSYWAVE] =
@@ -7135,6 +7139,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
         .battleAnimScript = gBattleAnimMove_Moonlight,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_HIDDEN_POWER] =
@@ -8585,6 +8590,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .spAtk = 3,
         }),
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_LUSTER_PURGE] =
@@ -8612,6 +8618,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_CALM_MIND},
         .battleAnimScript = gBattleAnimMove_LusterPurge,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_MIST_BALL] =
@@ -9402,12 +9409,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .moveEffect = MOVE_EFFECT_CONFUSION,
             .chance = 10,
         }),
-        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_SHIFT_JUDGE_ATTENTION : CONTEST_EFFECT_SCRAMBLE_NEXT_TURN_ORDER,
+        .contestEffect = CONTEST_EFFECT_SHIFT_JUDGE_ATTENTION,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_SignalBeam,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_SHADOW_PUNCH] =
@@ -10069,21 +10077,22 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Summons strong light to\n"
             "attack 2 turns later."),
         .effect = EFFECT_FUTURE_SIGHT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_5 ? 140 : 120,
+        .power = 140,
         .type = TYPE_STEEL,
-        .accuracy = B_UPDATED_MOVE_DATA >= GEN_5 ? 100 : 85,
+        .accuracy = 100,
         .pp = 5,
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ignoresProtect = TRUE,
         .mirrorMoveBanned = TRUE,
-        .contestEffect = CONTEST_EFFECT_DONT_EXCITE_AUDIENCE, //C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_EXCITES_AUDIENCE_MORE_IF_LAST :
-        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_BEAUTY : CONTEST_CATEGORY_COOL,
+        .contestEffect = CONTEST_EFFECT_DONT_EXCITE_AUDIENCE,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_DoomDesire,
         .validApprenticeMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_PSYCHO_BOOST] =
@@ -11435,7 +11444,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Attacks with rays of light\n"
             "that sparkle like diamonds."),
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 80 : 70,
+        .power = 80,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 20,
@@ -11447,6 +11456,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_PowerGem,
+        .lightMove = TRUE,
     },
 
     [MOVE_DRAIN_PUNCH] =
@@ -11803,10 +11813,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .chance = 30,
         }),
         .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
-        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_BEAUTY : CONTEST_CATEGORY_CUTE,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_MirrorShot,
+        .lightMove = TRUE,
     },
 
     [MOVE_FLASH_CANNON] =
@@ -11835,6 +11846,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_FlashCannon,
         .pulseMove = TRUE,
         .ballisticMove = TRUE,
+        .lightMove = TRUE,
     },
 
     [MOVE_ROCK_CLIMB] =
@@ -16215,6 +16227,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_DazzlingGleam,
+        .lightMove = TRUE,
     },
 
     [MOVE_CELEBRATE] =
@@ -16527,6 +16540,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_LightOfRuin,
+        .lightMove = TRUE,
     },
 
     [MOVE_ORIGIN_PULSE] =
@@ -16550,6 +16564,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_OriginPulse,
+        .lightMove = TRUE,
     },
 
     [MOVE_PRECIPICE_BLADES] =
@@ -16915,6 +16930,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
         .battleAnimScript = gBattleAnimMove_SolarBlade,
+        .lightMove = TRUE,
     },
 
     [MOVE_LEAFAGE] =
@@ -17730,6 +17746,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_PrismaticLaser,
+        .lightMove = TRUE,
     },
 
     [MOVE_SPECTRAL_THIEF] =
@@ -17804,12 +17821,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .ignoresTargetAbility = TRUE,
-        .metronomeBanned = B_UPDATED_MOVE_FLAGS >= GEN_8,
+        .metronomeBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_SunsteelStrike,
+        .lightMove = TRUE,
     },
 
     [MOVE_MOONGEIST_BEAM] =
@@ -17833,6 +17851,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_MoongeistBeam,
+        .lightMove = TRUE,
     },
 
     [MOVE_TEARFUL_LOOK] =
@@ -18007,6 +18026,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_PhotonGeyser,
+        .lightMove = TRUE,
     },
 
     [MOVE_ZIPPY_ZAP] =
@@ -19001,6 +19021,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_Eternabeam,
+        .lightMove = TRUE,
     },
 
     [MOVE_STEEL_BEAM] =
@@ -20442,6 +20463,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .chance = 100,
         }),
         .battleAnimScript = gBattleAnimMove_LuminaCrash,
+        .lightMove = TRUE,
     },
 
     [MOVE_ORDER_UP] =
@@ -21639,6 +21661,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .battleAnimScript = gBattleAnimMove_FickleBeam,
+        .lightMove = TRUE,
     },
 
     [MOVE_BURNING_BULWARK] =
@@ -21702,6 +21725,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .ignoresProtect = TRUE,
         .slicingMove = TRUE,
         .battleAnimScript = gBattleAnimMove_MightyCleave,
+        .lightMove = TRUE,
     },
 
     [MOVE_TACHYON_CUTTER] =
@@ -22475,6 +22499,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ignoresTargetAbility = TRUE,
         .battleAnimScript = gBattleAnimMove_LightThatBurnsTheSky,
+        .lightMove = TRUE,
     },
     [MOVE_SOUL_STEALING_7_STAR_STRIKE] =
     {

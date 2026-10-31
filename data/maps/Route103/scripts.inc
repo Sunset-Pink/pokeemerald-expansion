@@ -5,7 +5,6 @@ Route103_MapScripts::
 
 Route103_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
-	call ProfBirch_EventScript_UpdateLocation
 	end
 
 Route103_OnLoad:

@@ -1697,6 +1697,11 @@ BattleScript_EffectLightScreen::
 	setlightscreen
 	goto BattleScript_PrintReflectLightScreenSafeguardString
 
+BattleScript_EffectSmokeScreen::
+	attackcanceler
+	setsmokescreen
+	goto BattleScript_PrintReflectLightScreenSafeguardString
+
 BattleScript_EffectRest::
 	attackcanceler
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_RestIsAlreadyAsleep
@@ -3251,6 +3256,11 @@ BattleScript_LuckyChantEnds::
 
 BattleScript_TailwindEnds::
 	printstring STRINGID_TAILWINDENDS
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_SmokescreenEnds:: 
+	printstring STRINGID_SMOKESCREENENDS
 	waitmessage B_WAIT_TIME_LONG
 	return
 

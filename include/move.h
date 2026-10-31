@@ -135,6 +135,7 @@ struct MoveInfo
     bool32 windMove:1;
     bool32 slicingMove:1;
     bool32 kickingMove:1;
+    bool32 lightMove:1;
     bool32 boneMove:1;
     bool32 eggMove:1;
     bool32 tongueMove:1;
@@ -435,6 +436,10 @@ static inline bool32 IsSlicingMove(enum Move moveId)
 static inline bool32 IsKickingMove(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].kickingMove;
+}
+
+static inline bool32 IsLightMove(enum Move moveId) {
+    return gMovesInfo[SanitizeMoveId(moveId)].lightMove;
 }
 
 static inline bool32 IsBoneMove(enum Move moveId) 

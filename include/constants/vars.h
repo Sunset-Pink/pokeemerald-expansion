@@ -72,13 +72,15 @@
 #define VAR_FRONTIER_GAMBLER_STATE                       0x4033
 
 #define VAR_QUEST_INTRO_STATE                            0x4034
-// 0: Starts: Inside of Truck, Ends: Selected Settings
-// 1: Starts: After Selecting Settings, Ends: Go in house 
-// 2: Starts: Went in House, Ends: Examine Room
-// 3: Starts: Examined Room, Ends: Meet Prof. Birch
-// 4: Starts: Choosing Starter, Ends: Selected Starter
-// 5: Starts: Selected Starter, Ends: Defeat Rival
-// 6: Starts: Defeated Rival
+// 0: Inside of Truck
+// 1: Selected settings.
+// 2: Entered House
+// 3: Been upstairs
+// 4: Accepted Mom's Gifts
+// 5: Watched broadcast.
+// 6: Met professor Birch.
+// 7: Selected starter.
+// 8: Defeated rival.
 #define VAR_DEOXYS_ROCK_LEVEL                            0x4035
 #define VAR_PC_BOX_TO_SEND_MON                           0x4036
 #define VAR_ABNORMAL_WEATHER_LOCATION                    0x4037
@@ -237,7 +239,7 @@
 #define VAR_HAS_ENTERED_BATTLE_FRONTIER                  0x40D0 // Var is used like a flag.
 #define VAR_SCOTT_STATE                                  0x40D1
 #define VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE               0x40D2
-#define VAR_0x40D3                                       0x40D3 //Unused
+#define VAR_SCOTT_FORTREE_CALL_STEP_COUNTER              0x40D3
 #define VAR_SS_TIDAL_SCOTT_STATE                         0x40D4 // Always equal to FLAG_MET_SCOTT_ON_SS_TIDAL
 #define VAR_ROAMER_POKEMON                               0x40D5 // 0 = Latias, 1 = Latios
 #define VAR_TRAINER_HILL_IS_ACTIVE                       0x40D6
@@ -269,7 +271,7 @@
 #define VAR_SECRET_BASE_IS_NOT_LOCAL                     0x40F0 // Set to TRUE while in another player's secret base.
 #define VAR_DAILY_BP                                     0x40F1
 #define VAR_WALLY_CALL_STEP_COUNTER                      0x40F2
-#define VAR_SCOTT_FORTREE_CALL_STEP_COUNTER              0x40F3
+#define VAR_0x40F3                                       0x40F3 // Unused
 #define VAR_STONE_BADGE_LEVEL                            0x40F4 // Level of Stone Badge (Roxanne)
 #define VAR_KNUCKLE_BADGE_LEVEL                          0x40F5 // Level of Knuckle Badge (Brawly)
 #define VAR_DYNAMO_BADGE_LEVEL                           0x40F6 // Level of Dynamo Badge (Wattson)
@@ -280,8 +282,8 @@
 #define VAR_RAIN_BADGE_LEVEL                             0x40FB // Level of Rain Badge (Juan)
 #define VAR_CHAMPION_REMATCH                             0x40FC // Counter for the Champion Remach
 #define VAR_DIFFICULTY                                   0x40FD // Difficulty
-#define VAR_MONOTYPE_STARTER                             0x40FE // Type of which starter is chosen from.
-#define VAR_STARTER_GEN                                  0x40FF // Generation which starter is chosen from.
+#define VAR_STARTER_NAME_CHOICE                          0x40FE // Type of which starter is chosen from.
+#define VAR_STARTER_SELECTION                            0x40FF // Gen/Mono starter selection.
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)

@@ -2402,10 +2402,6 @@ bool32 CanLowerStat(enum BattlerId battlerAtk, enum BattlerId battlerDef, struct
             if (stat == STAT_DEF)
                 return FALSE;
             break;
-        case ABILITY_ILLUMINATE:
-            if (GetConfig(B_ILLUMINATE_EFFECT) >= GEN_9 && stat == STAT_ACC)
-                return FALSE;
-            break;
         case ABILITY_KEEN_EYE:
         case ABILITY_MINDS_EYE:
             if (stat == STAT_ACC)
@@ -2746,6 +2742,17 @@ bool32 HasMoveWithCategory(enum BattlerId battler, enum DamageCategory category)
     {
         if (moves[moveIndex] != MOVE_NONE && moves[moveIndex] != MOVE_UNAVAILABLE && GetBattleMoveCategory(moves[moveIndex]) == category)
             return TRUE;
+    }
+    return FALSE;
+}
+
+bool32 HasLightMove(enum BattlerId battler) {
+    enum Move * moves = GetMovesArray(battler);
+    for(u32 moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
+    {
+        if(moves[moveIndex] != MOVE_NONE && moves[moveIndex] != MOVE_UNAVAILABLE && IsLightMove(moves[moveIndex])) {
+            return TRUE;
+        }
     }
     return FALSE;
 }
@@ -4044,6 +4051,10 @@ bool32 ShouldSetScreen(enum BattlerId battlerAtk, enum BattlerId battlerDef, enu
 
     switch (moveEffect)
     {
+    case EFFECT_SMOKESCREEN:
+        if (HasLightMove(battlerDef) && !(gSideStatuses[atkSide] & SIDE_STATUS_SMOKESCREEN))
+            return TRUE;
+        break;
     case EFFECT_AURORA_VEIL:
         // Use only in Hail and only if AI doesn't already have Reflect, Light Screen or Aurora Veil itself active.
         if ((AI_GetWeather() & (B_WEATHER_ICY_ANY))
@@ -4284,6 +4295,8 @@ static u32 GetAIEffectGroup(enum BattleMoveEffects effect)
     case EFFECT_REFLECT:
         aiEffect |= AI_EFFECT_REFLECT;
         break;
+    case EFFECT_SMOKESCREEN:
+        aiEffect |= AI_EFFECT_SMOKESCREEN;
     case EFFECT_GRAVITY:
         aiEffect |= AI_EFFECT_GRAVITY;
         break;
@@ -4341,6 +4354,9 @@ static u32 GetAIEffectGroupFromMove(enum BattlerId battler, enum Move move)
             break;
         case MOVE_EFFECT_AURORA_VEIL:
             aiEffect |= AI_EFFECT_AURORA_VEIL;
+            break;
+        case MOVE_EFFECT_SMOKE_SCREEN:
+            aiEffect |= AI_EFFECT_SMOKESCREEN;
             break;
         case MOVE_EFFECT_GRAVITY:
             aiEffect |= AI_EFFECT_GRAVITY;

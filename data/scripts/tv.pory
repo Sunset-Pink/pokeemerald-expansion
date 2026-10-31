@@ -1,0 +1,116 @@
+script Script_Common_TV_TurnOff {
+	special(TurnOffTVScreen)
+	setflag(FLAG_SYS_TV_WATCH)
+	releaseall
+	end
+}
+
+script Script_Common_TV_MomDadMightLikeThis {
+	special(GetMomOrDadStringForTVMessage)
+	msgbox(gText_MomOrDadMightLikeThisProgram)
+	goto(Script_Common_TV_TurnOff)
+	end
+}
+
+script Script_Interact_TV {
+	lockall
+	incrementgamestat(GAME_STAT_WATCHED_TV)
+	special(ResetTVShowState)
+	specialvar(VAR_RESULT, CheckForPlayersHouseNews)
+	if(var(VAR_RESULT) == PLAYERS_HOUSE_TV_MOVIE) {
+		goto(Script_PlayersHouse_1F_TV_Moive)
+	} elif(var(VAR_RESULT) == PLAYERS_HOUSE_TV_LATI) {
+		goto(Script_PlayersHouse_1F_TV_LatiNewsFlash)
+	} elif(flag(FLAG_SYS_TV_START) == FALSE || flag(FLAG_SYS_TV_WATCH)) {
+		goto(Script_Common_TV_MomDadMightLikeThis)
+	}
+
+	specialvar(VAR_RESULT, IsGabbyAndTyShowOnTheAir)
+	if(var(VAR_RESULT)) {
+		goto(Script_TV_DoInSearchOfTrainers)
+	} else {
+		goto(Script_TV_TryPokeNews)
+	}
+	end
+}
+
+
+script Script_TV_TryPokeNews {
+	special(DoPokeNews)
+	if(var(VAR_RESULT) == FALSE) {
+		goto(Script_TV_TryToDoShow)
+	} 
+	waitmessage
+	waitbuttonpress
+	goto(Script_Common_TV_TurnOff)
+	end
+}
+
+script Script_TV_TryToDoShow {
+	specialvar(VAR_0x8004, GetRandomActiveShowIdx)
+	if(var(VAR_0x8004) == 255) {
+		goto(Script_Common_TV_MomDadMightLikeThis)
+	}
+	specialvar(VAR_0x8004, GetSelectedTVShow)
+	if(var(VAR_0x8004) != 0) {
+		goto(Script_TV_DoShow)
+	}
+	end
+}
+
+script Script_TV_DoShow {
+	special(DoTVShow)
+	waitmessage
+	waitbuttonpress
+	if(var(VAR_RESULT) != TRUE) {
+		goto(Script_TV_DoShow)
+	} else {
+		goto(Script_Common_TV_TurnOff)
+	}
+	end
+}
+
+script Script_TV_DoInSearchOfTrainers {
+	special(DoTVShowInSearchOfTrainers)
+	waitmessage
+	waitbuttonpress
+	if(var(VAR_RESULT) == 0) {
+		call(Script_TV_DoInSearchOfTrainers)
+	} else {
+		call(Script_Common_TV_TurnOff)
+	}
+	end
+}
+
+
+script Script_PlayersHouse_1F_TV_Moive {
+	msgbox(Text_PlayersHouse_1F_TV_TheresAMovieOn)
+}
+
+text Text_PlayersHouse_1F_TV_TheresAMovieOn {
+	"There is a movie on TV.\p"
+	"Two men are dancing on a big piano\n"
+	"keyboard.\p"
+	"Better get going!"
+}
+
+script Script_PlayersHouse_1F_TV_LatiNewsFlash {
+	msgbox(Text_PlayersHouse_1F_TV_LatiNews)
+	clearflag(FLAG_SYS_TV_LATIAS_LATIOS)
+	setflag(FLAG_LATIOS_OR_LATIAS_ROAMING)
+	special(TurnOffTVScreen)
+	releaseall
+	end
+}
+
+text(local) Text_PlayersHouse_1F_TV_LatiNews {
+	"We bring you this emergency\n"
+	"news flash!\p"
+	"In various Hoenn locales, there have\n"
+	"been reports of a Bzzt…colored\l"
+	"Pok\emon in flight.\p"
+	"The identity of this Pok\emon is\n"
+	"currently unknown.\p"
+	"We now return you to the regular\n"
+	"movie program."
+}

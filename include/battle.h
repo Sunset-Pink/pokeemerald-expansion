@@ -153,6 +153,7 @@ struct SideTimer
 {
     u16 reflectTimer;
     u16 lightscreenTimer;
+    u16 smokescreenTimer;
     u16 mistTimer;
     u16 safeguardTimer;
     u8 spikesAmount:4;

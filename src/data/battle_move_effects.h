@@ -131,6 +131,14 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
+    [EFFECT_SMOKESCREEN] = 
+    {
+        .battleScript = BattleScript_EffectSmokeScreen,
+        .battleTvScore = 7,
+        .battleFactoryStyle = FACTORY_STYLE_ENDURANCE,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_REST] =
     {
         .battleScript = BattleScript_EffectRest,

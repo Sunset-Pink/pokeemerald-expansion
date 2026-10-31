@@ -755,6 +755,13 @@ static void HandleSetEffectLightScreen(struct BattleCalcValues *cv, struct SetEf
     }
 }
 
+static void HandleSetEffectSmokeScreen(struct BattleCalcValues *cv, struct SetEffect *se) {
+    if (TrySetSmokeScreen(se->effectBattler)) {
+        BattleScriptPush(se->script);
+        gBattlescriptCurrInstr = BattleScript_MoveEffectScreens;
+    }
+}
+
 static void HandleSetEffectSaltCure(struct BattleCalcValues *cv, struct SetEffect *se)
 {
     if (!gBattleMons[se->effectBattler].volatiles.saltCure)
@@ -1374,6 +1381,7 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_LEECH_SEED] = HandleSetEffectLeechSeed,
     [MOVE_EFFECT_REFLECT] = HandleSetEffectReflect,
     [MOVE_EFFECT_LIGHT_SCREEN] = HandleSetEffectLightScreen,
+    [MOVE_EFFECT_SMOKE_SCREEN] = HandleSetEffectSmokeScreen,
     [MOVE_EFFECT_SALT_CURE] = HandleSetEffectSaltCure,
     [MOVE_EFFECT_EERIE_SPELL] = HandleSetEffectEerieSpell,
     [MOVE_EFFECT_FLING] = HandleSetEffectFling,

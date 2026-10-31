@@ -31,6 +31,7 @@
 #include "match_call.h"
 #include "menu.h"
 #include "metatile_behavior.h"
+#include "money.h"
 #include "mystery_gift.h"
 #include "overworld.h"
 #include "party_menu.h"
@@ -4574,11 +4575,105 @@ void EnterCode(void)
 
 void GetCodeFeedback(void)
 {
-    static const u8 sText_SampleCode[] = _("SampleCode");
-    if (!StringCompare(gStringVar2, sText_SampleCode))
+        static const u8 sText_CheatCodeDexAll[]             = _("DexAll");
+    static const u8 sText_CheatCodeDexAllShort[]            = _("Dxa");
+
+    static const u8 sText_CheatCodeCaughtEmAll[]            = _("CaughtAll");
+    static const u8 sText_CheatCodeCaughtEmAllShort[]       = _("Cal");
+
+    static const u8 sText_CheatCodeBestBall[]               = _("EZCatch");
+    static const u8 sText_CheatCodeBestBallShort[]          = _("Ezc");
+
+    static const u8 sText_CheatCodeShinyStarters[]          = _("ShinyS");
+    static const u8 sText_CheatCodeShinyStartersShort[]     = _("Shs");
+
+    static const u8 sText_CheatCodeMaxMoney[]               = _("MaxMoney");
+    static const u8 sText_CheatCodeMaxMoneyShort[]          = _("Mmy");
+
+    static const u8 sText_CheatCodeShinyLegends[]           = _("ShinyL");
+    static const u8 sText_CheatCodeShinyLegendsShort[]      = _("Shl");
+
+    static const u8 sText_CheatCodeMono[]                   = _("Mono");
+
+        /* 1: DexAll / DXA – toggle full Pokédex seen */
+    if (!StringCompare(gStringVar2, sText_CheatCodeDexAll) ||
+        !StringCompare(gStringVar2, sText_CheatCodeDexAllShort))
+    {
+        if (FlagGet(FLAG_DEXALL))
+            FlagClear(FLAG_DEXALL);
+        else
+            FlagSet(FLAG_DEXALL);
         gSpecialVar_Result = 1;
+    }
+
+    /* 2: CaughtAll / CAL – mark all species seen & caught */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeCaughtEmAll) ||
+             !StringCompare(gStringVar2, sText_CheatCodeCaughtEmAllShort))
+    {
+        for (u32 i = 0; i < NATIONAL_DEX_COUNT; i++)
+        {
+            GetSetPokedexFlag(i + 1, FLAG_SET_SEEN);
+            GetSetPokedexFlag(i + 1, FLAG_SET_CAUGHT);
+        }
+        gSpecialVar_Result = 2;
+    }
+
+    /* 3: EZCatch / EZC – toggle 100 % catch rate */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeBestBall) ||
+             !StringCompare(gStringVar2, sText_CheatCodeBestBallShort))
+    {
+        if (FlagGet(FLAG_EZCATCH))
+            FlagClear(FLAG_EZCATCH);
+        else
+            FlagSet(FLAG_EZCATCH);
+        gSpecialVar_Result = 3;
+    }
+
+    /* 4: ShinyS / SHS – toggle shiny starters */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeShinyStarters) ||
+             !StringCompare(gStringVar2, sText_CheatCodeShinyStartersShort))
+    {
+        if (FlagGet(FLAG_SHINY_STARTERS))
+            FlagClear(FLAG_SHINY_STARTERS);
+        else
+            FlagSet(FLAG_SHINY_STARTERS);
+        gSpecialVar_Result = 4;
+    }
+
+    /* 5: MaxMoney / MMY – set money to max */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeMaxMoney) ||
+             !StringCompare(gStringVar2, sText_CheatCodeMaxMoneyShort))
+    {
+        SetMoney(&gSaveBlock1Ptr->money, MAX_MONEY);
+        gSpecialVar_Result = 5;
+    }
+
+    /* 6: ShinyL / Shl – toggle shiny legendaries. */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeShinyLegends) ||
+             !StringCompare(gStringVar2, sText_CheatCodeShinyLegendsShort))
+    {
+        if (FlagGet(FLAG_SHINY_LEGENDS))
+            FlagClear(FLAG_SHINY_LEGENDS);
+        else
+            FlagSet(FLAG_SHINY_LEGENDS);
+        gSpecialVar_Result = 6;
+    }
+
+    /* 7: Mono – enable monotype starter selection in Birch's lab */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeMono))
+    {
+        if (FlagGet(FLAG_MONOTYPE_STARTERS))
+            FlagClear(FLAG_MONOTYPE_STARTERS);
+        else
+            FlagSet(FLAG_MONOTYPE_STARTERS);
+        gSpecialVar_Result = 7;
+    }
+
+    /* 0: invalid code */
     else
+    {
         gSpecialVar_Result = 0;
+    }
 }
 
 void SetHiddenNature(void)

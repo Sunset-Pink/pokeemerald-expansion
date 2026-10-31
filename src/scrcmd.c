@@ -3482,14 +3482,14 @@ bool8 ScrCmd_bufferstarterinfo(struct ScriptContext *ctx)
         { SPECIES_COTTONEE, SPECIES_IGGLYBUFF, SPECIES_IMPIDIMP },
     };
 
-    if(FlagGet(FLAG_USE_MONOTYPE_STARTERS))
+    if(FlagGet(FLAG_MONOTYPE_STARTERS))
     {
-        gSpecialVar_0x8006 = monoStarters[VarGet(VAR_MONOTYPE_STARTER)][starterType];
+        gSpecialVar_0x8006 = monoStarters[VarGet(VAR_STARTER_SELECTION)][starterType];
              
     }
     else
     {
-        gSpecialVar_0x8006 = normalStarters[VarGet(VAR_STARTER_GEN)][starterType]; 
+        gSpecialVar_0x8006 = normalStarters[VarGet(VAR_STARTER_SELECTION)][starterType]; 
     }
 
     StringCopy(GetStringVar(stringVarIndex), GetSpeciesName(gSpecialVar_0x8006));

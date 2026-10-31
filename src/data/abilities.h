@@ -2056,7 +2056,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_ILLUMINATE] =
     {
         .name = _("Illuminate"),
-        .description = COMPOUND_STRING("Accuracy can't be lowered and boosted by 20%."),
+        .description = COMPOUND_STRING("Boosts power of Light moves by 30%."),
         .aiRating = 0,
         .breakable = TRUE,
     },

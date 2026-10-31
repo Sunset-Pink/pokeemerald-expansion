@@ -733,6 +733,10 @@
 	.byte B_SCR_OP_SETLIGHTSCREEN
 	.endm
 
+	.macro setsmokescreen
+	.byte B_SCR_OP_SETSMOKESCREEN
+	.endm
+
 	.macro tryKO failInstr:req
 	.byte B_SCR_OP_TRYKO
 	.4byte \failInstr

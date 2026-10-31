@@ -1,0 +1,148 @@
+
+text(local) Text_RivalsHouse_1F_RivalsMom_OhYoureTheNewNeighbor {
+    "Oh, hello. And you are?\p"
+    "\. \. \. \. \. \. \. \. \.\n"
+    "\. \. \. \. \. \. \. \. \.\p"
+    "Oh, you're {PLAYER}{KUN}, our new next-door\n"
+    "neighbor! Hi!\p"
+    "We have a {STR_VAR_1} about the same\n"
+    "age as you.\p"
+    "Our {STR_VAR_1} was excited about making\n"
+    "Our {STR_VAR_1} was excited about making\n"
+    "a new friend.\p"
+    "Our {STR_VAR_1} is upstairs, I think.$"
+}
+
+script Script_RivalsHouse_1F_Interact_RivalMom {
+    lock
+    faceplayer
+    if(flag(FLAG_DEFEATED_RIVAL_ROUTE103)) {
+        msgbox(Text_RivalsHouse_1F_RivalsMom_ShouldGoHome)
+    } elif(flag(FLAG_SYS_POKEMON_GET)) {
+        msgbox(Text_RivalsHouse_1F_RivalsMom_WentOutToRoute103)
+    } elif(var(VAR_LITTLEROOT_RIVAL_STATE) == 3) {
+        msgbox(Text_RivalsHouse_1F_RivalsMom_TooBusyToNoticeVisit)
+    } else {
+        special(GetRivalSonDaughterString)
+        msgbox(Text_RivalsHouse_1F_RivalsMom_LikeChildLikeFather)
+    }
+    release
+    end
+}
+
+text(local) Text_RivalsHouse_1F_RivalsMom_LikeChildLikeFather {
+    "Like child, like father.\p"
+    "My husband is as wild about Pok\emon\n"
+    "as our child.\p"
+    "If he's not at his Lab, he's likely\n"
+    "scrabbling about in grassy places.$"
+}
+
+text(local) Text_RivalsHouse_1F_RivalsMom_TooBusyToNoticeVisit {
+    "That {RIVAL}!\p"
+    "I guess our child is too busy with\n"
+    "Pok\emon to notice that you came\l"
+    "to visit, {PLAYER}{KUN}."
+}
+
+text(local) Text_RivalsHouse_1F_RivalsMom_WentOutToRoute103 {
+    "Oh, {RIVAL} went out to Route 103\n"
+    "just a little while ago.\p"
+    "Like farther, like child.\n"
+    "{RIVAL} can't stay quietly at home."
+}
+
+text(local) Text_RivalsHouse_1F_RivalsMom_ShouldGoHome {
+    "I think it's wonderful for people to \n"
+    "travel with Pok\emon.\p"
+    "But you should go home every so often\n"
+    "to let your mother know you're okay.\p"
+    "She might not say it, but I'm sure she\n"
+    "worries about you, {PLAYER}{KUN}."
+}
+
+text(local) Text_RivalsHouse_2F_May_WhoAreYou {
+    "Huh?\n"
+    "Who… Who are you?\p"
+    "\. \. \. \. \. \. \.\n"
+    "\. \. \. \. \. \. \. \.\p"
+    "Oh, you're {PLAYER}{KUN}.\n"
+    "So your move was today.\p"
+    "Um… I'm MAY.\n"
+    "Glad to meet you!\p"
+    "I\.\n"
+    "I have this dream of becoming friends\l"
+    "with Pok\emon all over the world.\p"
+    "I… I heard about you, {PLAYER}{KUN}, from\n"
+    "my dad, Prof. Birch.\p"
+    "I was hoping that you would be nice,\n"
+    "{PLAYER}{KUN}, and that we could be friends.\p"
+    "Oh, this is silly, isn't it?\n"
+    "I\. I've just met you, {PLAYER}{KUN}.\p"
+    "Eheheh\.\p"
+    "Oh, no! I forgot!\p"
+    "I was supposed to go help Dad catch\n"
+    "some wild Pok\emon!\p"
+    "{PLAYER}{KUN}, I'll catch you later!$"
+}
+
+text(local) Text_RivalsHouse_2F_Brendan_WhoAreYou {
+    "Hey!\n"
+    "You…\p"
+    "Who are you?\p"
+    "Oh, you're {PLAYER}, aren't you?\n"
+    "Moved in next door, right?\p"
+    "I didn't know that you're a girl.\p"
+    "Dad, Prof. Birch, said that our new\n"
+    "next-door neighbor is a Gym Leader's\l"
+    "kid, so I assumed you'd be a guy.\p"
+    "My name's Brendan.\n"
+    "So, hi, neighbor!\p"
+    "Huh? Hey, {PLAYER}, don't you have\n"
+    "a Pokémon?\p"
+    "Do you want me to go catch you one?\p"
+    "Aw, darn, I forgot…\p"
+    "I'm supposed to go help my dad catch\n"
+    "some wild Pokémon.\p"
+    "Some other time, okay?$"
+}
+
+script Script_RivalsHouse_1F_Interact_RivalSibling {
+    lockall
+    faceplayer
+    special(GetPlayerBigGuyGirlString)
+    msgbox(Text_RivalsHouse_1F_RivalSibling_DoYouHavePokemon)
+    release
+    end
+}
+
+text(local) Text_RivalsHouse_1F_RivalSibling_DoYouHavePokemon {
+    "Hi, neighbor!\p"
+    "Do you already have your\n"
+    "own Pok\emon?"
+}
+
+script Script_RivalsHouse_2F_Interact_GameCube {
+    msgbox(Text_RivalsHouse_2F_GameCube, MSGBOX_SIGN)
+    return
+}
+
+text(local) Text_RivalsHouse_2F_GameCube {
+	"It's a Nintendo GameCube.\p"
+	"A Game Boy Advance is connected to\n"
+	"serve as the Controller."
+}
+
+script Script_RivalsHouse_2F_Interact_Notebook {
+    msgbox(Text_RivalsHouse_2F_Notebook, MSGBOX_SIGN)
+    return
+}
+
+text(local) Text_RivalsHouse_2F_Notebook {
+    "{PLAYER} flipped open the notebook.\p"
+    "Adventure Rule No. 1\n"
+    "Open the Menu with Start.\p"
+    "Adventure Rule No. 2\n"
+    "Record your progress with Save.\p"
+    "The remaining pages are blank\."
+}

@@ -6651,6 +6651,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         if (IsSoundMove(move))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
+    case ABILITY_ILLUMINATE:
+        if (IsLightMove(move))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
     case ABILITY_SHEER_FORCE:
         if (MoveIsAffectedBySheerForce(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
@@ -7673,9 +7677,9 @@ static inline uq4_12_t GetAirborneModifier(enum Move move, enum BattlerId battle
 static inline uq4_12_t GetScreensModifier(struct DamageContext *ctx)
 {
     u32 sideStatus = gSideStatuses[GetBattlerSide(ctx->battlerDef)];
-    bool32 lightScreen = (sideStatus & SIDE_STATUS_LIGHTSCREEN) && IsBattleMoveSpecial(ctx->move);
-    bool32 reflect = (sideStatus & SIDE_STATUS_REFLECT) && IsBattleMovePhysical(ctx->move);
-    bool32 auroraVeil = sideStatus & SIDE_STATUS_AURORA_VEIL;
+    bool32 lightScreen = (sideStatus & SIDE_STATUS_LIGHTSCREEN) && IsBattleMoveSpecial(ctx->move) && !IsLightMove(ctx->move);
+    bool32 reflect = (sideStatus & SIDE_STATUS_REFLECT) && IsBattleMovePhysical(ctx->move) && !IsLightMove(ctx->move);
+    bool32 auroraVeil = (sideStatus & SIDE_STATUS_AURORA_VEIL) && !IsLightMove(ctx->move);
 
     if (ctx->isCrit || ctx->isSelfInflicted)
     {
@@ -10703,8 +10707,7 @@ u32 GetTotalAccuracy(struct BattleCalcValues *cv, u32 weather)
 
     if (cv->abilities[battlerAtk] == ABILITY_UNAWARE
      || cv->abilities[battlerAtk] == ABILITY_KEEN_EYE
-     || cv->abilities[battlerAtk] == ABILITY_MINDS_EYE
-     || (GetConfig(B_ILLUMINATE_EFFECT) >= GEN_9 && cv->abilities[battlerAtk] == ABILITY_ILLUMINATE))
+     || cv->abilities[battlerAtk] == ABILITY_MINDS_EYE)
         evasionStage = DEFAULT_STAT_STAGE;
     if (MoveIgnoresDefenseEvasionStages(cv->move))
         evasionStage = DEFAULT_STAT_STAGE;
@@ -10737,8 +10740,6 @@ u32 GetTotalAccuracy(struct BattleCalcValues *cv, u32 weather)
     // Attacker's ability
     switch (cv->abilities[battlerAtk])
     {
-    case ABILITY_ILLUMINATE:
-        calc = (calc * 120) /100;  // 1.2 Illuminate boost.
     case ABILITY_COMPOUND_EYES:
         calc = (calc * 130) / 100; // 1.3 compound eyes boost
         break;

@@ -2160,7 +2160,7 @@ static void Cmd_getexp(void)
     CMD_ARGS(u8 battler);
 
     enum HoldEffect holdEffect;
-    s32 i; // also used as stringId
+    s32 stringId;
     u8 *expMonId = &gBattleStruct->expGetterMonId;
     u32 currLvl;
 
@@ -2199,7 +2199,7 @@ static void Cmd_getexp(void)
             s32 viaSentIn = 0;
             s32 viaExpShare = 0;
 
-            for (i = 0; i < PARTY_SIZE; i++)
+            for (u32 i = 0; i < PARTY_SIZE; i++)
             {
                 if (!IsValidForBattle(&gParties[B_TRAINER_PLAYER][i]))
                     continue;
@@ -2214,12 +2214,12 @@ static void Cmd_getexp(void)
                 }
             }
             // Get order of mons getting exp: 1. all mons via sent in, 2. all mons via exp share
-            for (i = 0; i < PARTY_SIZE; i++)
+            for (u32 i = 0; i < PARTY_SIZE; i++)
             {
                 if ((1u << i) & sentInBits)
                     gBattleStruct->expGettersOrder[orderId++] = i;
             }
-            for (i = 0; i < PARTY_SIZE; i++)
+            for (u32 i = 0; i < PARTY_SIZE; i++)
             {
                 if (!((1u << i) & sentInBits) && (1u << i) & expShareBits)
                     gBattleStruct->expGettersOrder[orderId++] = i;
@@ -2332,16 +2332,16 @@ static void Cmd_getexp(void)
 
                     if (IsTradedMon(&gParties[B_TRAINER_PLAYER][*expMonId]))
                     {
-                        i = STRINGID_ABOOSTED;
+                        stringId = STRINGID_ABOOSTED;
                     }
                     else
                     {
-                        i = STRINGID_EMPTYSTRING4;
+                        stringId = STRINGID_EMPTYSTRING4;
                     }
 
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, 0, *expMonId);
                     // buffer 'gained' or 'gained a boosted'
-                    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
+                    PREPARE_STRING_BUFFER(gBattleTextBuff2, stringId);
                     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 6, gBattleStruct->battlerExpReward);
 
                     if (wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE)
@@ -4433,6 +4433,10 @@ static void Cmd_removeitem(void)
      && GetMoveEffect(gCurrentMove) != EFFECT_CORROSIVE_GAS)
         GetBattlerPartyState(battler)->usedHeldItem = itemId; // Remember if switched out
 
+    if (GetItemPocket(itemId) == POCKET_BERRIES && GetBattlerAbility(battler) == ABILITY_CUD_CHEW)
+    {
+        gBattleMons[battler].volatiles.cudChewTimer = 2;
+    }
     gBattleMons[battler].item = ITEM_NONE;
     gBattleStruct->battlerState[battler].canPickupItem = TRUE;
     gBattleStruct->adrenalineOrbActivated = FALSE;
@@ -4913,6 +4917,7 @@ static void RemoveAllTerrains(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_COUNT;  // failsafe
 
     gFieldTimers.terrain = B_TERRAIN_NONE;
+    gFieldTimers.terrainTimer = 0;
     TryToRevertMimicryAndFlags();
 }
 

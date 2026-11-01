@@ -845,7 +845,7 @@
 #define FLAG_0x359               0x359
 #define FLAG_0x35A               0x35A
 #define FLAG_0x35B               0x35B
-#define FLAG_SET_WALL_CLOCK      0x35C
+#define FLAG_0x35C               0x35C
 #define FLAG_0x35D               0x35D
 #define FLAG_0x35E               0x35E
 #define FLAG_0x35F               0x35F
@@ -1507,7 +1507,7 @@
 // emerald flags
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0
-#define FLAG_RESCUED_BIRCH                       0
+#define FLAG_UNUSED_EMERALD_1                    0
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0  // Always set after new game, object it hides is added directly
@@ -2021,7 +2021,7 @@
 #define FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS            0
 #define FLAG_HIDE_MEW                                               0
 #define FLAG_HIDE_ROUTE_104_RIVAL                                   0
-#define FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE                  0
+#define FLAG_UNUSED_EMERALD_2                                       0
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH                  0
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM          0
 #define FLAG_HIDE_ROUTE_103_RIVAL                                   0

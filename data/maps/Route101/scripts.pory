@@ -1,0 +1,41 @@
+mapscripts Route101_MapScripts {
+	//MAP_SCRIPT_ON_TRANSITION: Script_Route101_OnTransition
+}
+
+script(local) Script_Route101_OnTransition {
+	end
+}
+
+script Script_Route101_Interact_Youngster {
+	msgbox(Text_Route101_Youngster_TakeTiredPokemonToPokeCenter, MSGBOX_NPC)
+	end
+}
+
+text(local) Text_Route101_Youngster_TakeTiredPokemonToPokeCenter {
+	"If Pok\emon get tired, take them to\n"
+	"a Pok\emon Center.\p"
+	"There's a Pok\emon Center in Oldale\n"
+	"Town right close by."
+}
+
+script Script_Route101_Interact_Boy {
+	msgbox(Text_Route101_Boy_WildPokemonInTallGrass, MSGBOX_NPC)
+	end
+}
+
+text(local) Text_Route101_Boy_WildPokemonInTallGrass {
+	"Wild Pok\emon will jump out at you in\n"
+	"tall grass.\p"
+	"If you want to catch Pok\emon, you have\n"
+	"to go into the tall grass and search."
+}
+
+script Script_Route101_Interact_RouteSign {
+	msgbox(Text_Route101_RouteSign, MSGBOX_SIGN)
+	end
+}
+
+text(local) Text_Route101_RouteSign {
+	"Route 101\n"
+	"{UP_ARROW} Oldale Town."
+}

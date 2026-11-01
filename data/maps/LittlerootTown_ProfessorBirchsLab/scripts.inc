@@ -897,233 +897,235 @@ Script_LittlerootTown_ProfessorBirchsLab_Starter_PostChose::
 # 494 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	setvar VAR_STARTER_MON, 0
 # 495 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	call Common_EventScript_NameReceivedPartyMon
+	setvar VAR_QUEST_INTRO_STATE, 7
 # 496 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
+	call Common_EventScript_NameReceivedPartyMon
 # 497 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	setflag FLAG_SYS_POKEMON_GET
+# 498 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	checkplayergender
 # 0 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Script_LittlerootTown_ProfessorBirchsLab_Starter_PostChose_1
-# 501 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	call Route101_EventScript_HideBrendanInBedroom
+# 502 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Starter_PostChose_1:
-# 499 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	call Route101_EventScript_HideMayInBedroom
+# 500 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
 	return
 
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide::
-# 506 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	lock
 # 507 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	faceplayer
+	lock
 # 508 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	faceplayer
+# 509 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	compare VAR_QUEST_INTRO_STATE, 6
 	goto_if_eq Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_2
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_1:
-# 515 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	waitmessage
 # 516 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	waitmessage
+# 517 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	release
 	end
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_2:
-# 509 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 510 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	goto_if_set FLAG_MONOTYPE_STARTERS, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_4
-# 512 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 513 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	call Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen
 	goto Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_1
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_4:
-# 510 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 511 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	call Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono
 	goto Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_1
 
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono::
-# 521 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	switch VAR_STARTER_SELECTION
 # 522 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	switch VAR_STARTER_SELECTION
+# 523 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 0, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_2
-# 524 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 525 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 1, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_3
-# 526 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 527 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 2, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_4
-# 528 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 529 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 3, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_5
-# 530 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 531 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 4, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_6
-# 532 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 533 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 5, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_7
-# 534 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 535 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 6, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_8
-# 536 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 537 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 7, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_9
-# 538 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 539 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 8, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_10
-# 540 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 541 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 9, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_11
-# 542 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 543 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 10, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_12
-# 544 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 545 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 11, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_13
-# 546 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 547 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 12, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_14
-# 548 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 549 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 13, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_15
-# 550 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 551 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 14, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_16
-# 553 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 554 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_Text_0
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_2:
-# 523 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 524 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Fighting
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_3:
-# 525 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 526 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Flying
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_4:
-# 527 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 528 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Poison
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_5:
-# 529 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 530 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Ground
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_6:
-# 531 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 532 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Rock
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_7:
-# 533 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 534 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Bug
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_8:
-# 535 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 536 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Ghost
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_9:
-# 537 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 538 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Steel
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_10:
-# 539 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 540 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Electric
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_11:
-# 541 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 542 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Psychic
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_12:
-# 543 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 544 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Ice
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_13:
-# 545 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 546 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Dragon
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_14:
-# 547 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 548 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Dark
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_15:
-# 549 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 550 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Normal
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_16:
-# 551 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 552 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Mono_Fairy
 	return
 
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen::
-# 669 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	switch VAR_STARTER_SELECTION
 # 670 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	switch VAR_STARTER_SELECTION
+# 671 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 0, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_2
-# 672 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 673 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 1, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_3
-# 674 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 675 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 2, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_4
-# 676 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 677 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 3, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_5
-# 678 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 679 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 4, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_6
-# 680 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 681 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 5, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_7
-# 682 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 683 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 6, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_8
-# 684 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 685 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 7, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_9
-# 686 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 687 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	case 8, Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_10
-# 689 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 690 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_Text_0
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_2:
-# 671 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 672 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen1
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_3:
-# 673 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 674 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen2
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_4:
-# 675 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 676 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen3
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_5:
-# 677 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 678 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen4
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_6:
-# 679 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 680 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen5
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_7:
-# 681 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 682 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen6
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_8:
-# 683 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 684 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen7
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_9:
-# 685 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 686 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen8
 	return
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen_10:
-# 687 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 688 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox Text_Aide_Gen9
 	return
 
@@ -1145,7 +1147,7 @@ Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_Left_Text_3:
 	.string "Better not get greedy!$"
 
 Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono_Text_0:
-# 553 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 554 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "WTF did you do to see this message!?$"
 
 Text_LittlerootTown_ProfessorBirchsLab_Books:
@@ -1167,7 +1169,7 @@ Text_LittlerootTown_ProfessorBirchsLab_Bookshelf:
 	.string "It's crammed with books on Pokémon.$"
 
 Text_Aide_Mono_Fighting::
-# 557 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 558 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Primeape will evolve into Annihilape\n"
@@ -1175,28 +1177,28 @@ Text_Aide_Mono_Fighting::
 	.string "Machamp can Mega Evolve.$"
 
 Text_Aide_Mono_Flying::
-# 565 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 566 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Hoppip's evolution line has\n"
 	.string "been buffed.$"
 
 Text_Aide_Mono_Poison::
-# 572 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 573 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Roserade can Mega Evolve.\p"
 	.string "Scolipede can Mega Evolve.$"
 
 Text_Aide_Mono_Ground::
-# 579 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 580 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Geodude's evolution line has\n"
 	.string "been buffed.$"
 
 Text_Aide_Mono_Rock::
-# 586 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 587 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Coalossal can Mega Evolve.\n"
@@ -1204,7 +1206,7 @@ Text_Aide_Mono_Rock::
 	.string "been buffed.$"
 
 Text_Aide_Mono_Bug::
-# 594 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 595 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Blipbug's evolution line has\n"
@@ -1212,21 +1214,21 @@ Text_Aide_Mono_Bug::
 	.string "Orbeetle can Mega Evolve.$"
 
 Text_Aide_Mono_Ghost::
-# 602 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 603 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Chandelure can Mega Evolve.\p"
 	.string "Dusknoir can Mega Evolve.$"
 
 Text_Aide_Mono_Steel::
-# 609 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 610 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Klink's evolution line has\n"
 	.string "been slightly buffed.$"
 
 Text_Aide_Mono_Electric::
-# 616 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 617 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Raichu is Electric/Normal type.\p"
@@ -1236,34 +1238,34 @@ Text_Aide_Mono_Electric::
 	.string "Ampharos is Electric/Dragon type.$"
 
 Text_Aide_Mono_Psychic::
-# 626 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 627 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Actually, most of these Pokémon\n"
 	.string "haven't changed much.$"
 
 Text_Aide_Mono_Ice::
-# 633 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 634 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Actually, most of these Pokémon\n"
 	.string "haven't been changed much.$"
 
 Text_Aide_Mono_Dragon::
-# 640 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 641 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Dragonite can Mega Evolve.$"
 
 Text_Aide_Mono_Dark::
-# 646 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 647 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Bisharp evolves to Kingambit\n"
 	.string "by level up now.$"
 
 Text_Aide_Mono_Normal::
-# 653 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 654 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Whismur's evolution line has\n"
@@ -1272,20 +1274,20 @@ Text_Aide_Mono_Normal::
 	.string "been buffed slightly.$"
 
 Text_Aide_Mono_Fairy::
-# 662 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 663 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Grimmsnarl can Mega Evolve.$"
 
 Text_Aide_Gen1::
-# 693 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 694 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Actually, these Pokémon haven't\n"
 	.string "changed significantly.$"
 
 Text_Aide_Gen2::
-# 700 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 701 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Meganium is Grass/Fairy type and\n"
@@ -1295,13 +1297,13 @@ Text_Aide_Gen2::
 	.string "can Mega Evolve.$"
 
 Text_Aide_Gen3::
-# 710 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 711 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Sceptile is Grass/Dragon type.$"
 
 Text_Aide_Gen4::
-# 716 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 717 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Torterra can Mega Evolve.\p"
@@ -1309,14 +1311,14 @@ Text_Aide_Gen4::
 	.string "Empoleon can Mega Evolve.$"
 
 Text_Aide_Gen5::
-# 724 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 725 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Emboar can Mega Evolve.\p"
 	.string "Samurott is Water/Steel type.$"
 
 Text_Aide_Gen6::
-# 731 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 732 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Chesnaught can Mega Evolve.\p"
@@ -1324,21 +1326,21 @@ Text_Aide_Gen6::
 	.string "Greninja can Mega Evolve.$"
 
 Text_Aide_Gen7::
-# 739 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 740 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Rowlet's evolution line has\n"
 	.string "been buffed slightly.$"
 
 Text_Aide_Gen8::
-# 746 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 747 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Actually, these Pokémon haven't\n"
 	.string "changed significantly.$"
 
 Text_Aide_Gen9::
-# 753 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 754 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Aide: Some fine starter choices.\n"
 	.string "You might not know this but…\p"
 	.string "Actually, these Pokémon haven't\n"

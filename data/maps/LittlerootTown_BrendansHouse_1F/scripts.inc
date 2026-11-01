@@ -27,7 +27,7 @@ LittlerootTown_BrendansHouse_1F_EventScript_YoureNewNeighbor::
 # 14 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	setflag FLAG_MET_RIVAL_MOM
 # 15 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 2
+	setvar VAR_RIVAL_HOUSE_STATE, 2
 # 16 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	releaseall
 # 17 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"

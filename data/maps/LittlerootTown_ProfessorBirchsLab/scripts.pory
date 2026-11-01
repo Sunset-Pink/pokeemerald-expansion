@@ -492,13 +492,14 @@ script Script_LittlerootTown_ProfessorBirchsLab_GiveStarter {
 
 script Script_LittlerootTown_ProfessorBirchsLab_Starter_PostChose {
 	setvar(VAR_STARTER_MON, 0)
+	setvar(VAR_QUEST_INTRO_STATE, 7)
 	call(Common_EventScript_NameReceivedPartyMon)
 	setflag(FLAG_SYS_POKEMON_GET)
 	clearflag(FLAG_HIDE_MAP_NAME_POPUP)
 	if(checkplayergender == MALE) {
-		call(Route101_EventScript_HideMayInBedroom)
+		setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY)
 	} else {
-		call(Route101_EventScript_HideBrendanInBedroom)
+		setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN)
 	}
 }
 

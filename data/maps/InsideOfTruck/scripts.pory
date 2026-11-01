@@ -34,7 +34,7 @@ script Script_InsideOfTruck_GameInit_MaleStart {
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL)
-    setvar(VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1)
+    setvar(VAR_RIVAL_HOUSE_STATE, 1)
     setdynamicwarp(MAP_LITTLEROOT_TOWN, 3, 10)
     return
 }
@@ -47,7 +47,7 @@ script Script_InsideOfTruck_GameInit_FemaleStart {
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL)
-    setvar(VAR_LITTLEROOT_HOUSES_STATE_MAY, 1)
+    setvar(VAR_RIVAL_HOUSE_STATE, 1)
     setdynamicwarp(MAP_LITTLEROOT_TOWN, 12, 10)
     return
 }
@@ -108,7 +108,8 @@ script Script_InsideOfTruck_GameInit_ConfigSettings_SettingsMenu {
 }
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_WhichOption {
-    "Which option would you like to customize?\n"
+    "Which option would you like to\n"
+    "customize?\p"
 }
 
 script Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu {
@@ -208,18 +209,18 @@ text Text_InsideOfTruck_GameInit_ConfigSettings_WhichDifficulty {
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_Description {
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} has vanilla trainer\n"
-    "teams, with minor changes to movests.\l"
+    "teams, with minor changes to movesets.\l"
     "There have been updates to Pok\emon,\l"
     "Abilities, Item, and Moves.\p"
-    "There is a no level cap, and Boss teams\n"
+    "There is a no level cap, and Bosses\n"
     "will not scale with the Player's team.\p"
-    "The player is allowed to access the\n"
+    "The player is allowed to access\n"
     "the Bag during any battle.\p"
     "Additionally, the player can change the\n"
     "battle style from Set to Shift.\p"
     "This mode is meant to feel closer to a\n"
-    "regular Pok\emon game, and is considered\l"
-    "to be the easiest.\p"
+    "regular Pok\emon game, and is\l"
+    "considered to be the easiest.\p"
 }
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Vanilla_AlreadySelected {
@@ -241,16 +242,16 @@ text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_Description {
     "trainer battles with updated teams.\p"
     "There have been updates to Pok\emon,\n"
     "Abilities, Items, and Moves.\p"
-    "There is a hard level cap, and Boss teams\n"
+    "There is a hard level cap, and Bosses\n"
     "will scale with the Player's team.\p"
     "However, they will be 2 levels lower\n"
     "than normal.\p"
-    "The player is allowed to access the\n"
+    "The player is allowed to access\n"
     "the Bag during any battle.\p"
     "Additionally, the player can change the\n"
     "battle style from Set to Shift.\p"
     "This mode is more challenging than\n"
-    "a regular Pok\emon game.\p"
+    "a regular Pok\emon game."
 }
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Easy_AlreadySelected {
@@ -272,13 +273,13 @@ text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_Description {
     "trainer battles with updated teams.\p"
     "There have been updates to Pok\emon,\n"
     "Abilities, Items, and Moves.\p"
-    "There is a hard level cap, and Boss teams\n"
+    "There is a hard level cap, and Bosses\n"
     "will scale with the Player's team.\p"
-    "The player is not allowed to access the\n"
+    "The player is not allowed to access\n"
     "the Bag during trainer battles.\p"
     "Additionally, battle style is set to Set.\p"
     "This mode is primarily what the game\n"
-    "has been balanced around.\p"
+    "has been balanced around."
 }
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Normal_AlreadySelected {
@@ -302,11 +303,11 @@ text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_Description {
     "Abilities, Items, and Moves.\p"
     "Certain Pok\emon, Moves and Abilities\n"
     "are not available for the Player.\p"
-    "There is a hard level cap, and Boss teams\n"
+    "There is a hard level cap, and Bosses\n"
     "will scale with the Player's team.\p"
-    "The player is not allowed to access the\n"
+    "The player is not allowed to access\n"
     "the Bag during trainer battles.\p"
-    "Additionally, battle style is set to Set.\p"
+    "Additionally, battle style is set to Set."
 }
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_Difficulty_Hard_AlreadySelected {
@@ -347,11 +348,11 @@ text Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Description {
     "and EVs cannot be obtained.\l"
     "Boss Pok\emon will not have EVs either.\p"
     "If this mode is disabled, obtainable\n"
-    "Pok\emon will have random IVs and can be\l"
-    "EV trained.\l"
+    "Pok\emon will have random IVs and\l"
+    "can be EV trained.\l"
     "Boss Pok\emon will be EV trained.\p"
     "If you don't know what that all means\n"
-    "you want this enabled.\p"
+    "you want this enabled."
 }
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_TurnOff {

@@ -234,8 +234,18 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
-    FlagSet(FLAG_IS_MIN_GRINDING_MODE);
+    // Custom Config
+    // Default Min Griding mode
+    FlagSet(FLAG_IS_MIN_GRINDING_MODE); 
+    // Ensure Mono starters is not on.
     FlagClear(FLAG_MONOTYPE_STARTERS);
+
+    //Give running shoes off
+    FlagSet(FLAG_RECEIVED_RUNNING_SHOES); //Might be able to remove.
+    FlagSet(FLAG_SYS_B_DASH);
+
+    // Turn on National dex.
+    FlagSet(FLAG_SYS_NATIONAL_DEX);
 }
 
 static void ResetMiniGamesRecords(void)

@@ -273,363 +273,363 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 # 137 "data/scripts/players_house.pory"
 	closemessage
 # 138 "data/scripts/players_house.pory"
-	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 4
+	setvar VAR_RIVAL_HOUSE_STATE, 4
 # 139 "data/scripts/players_house.pory"
-	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4
-# 140 "data/scripts/players_house.pory"
 	releaseall
-# 141 "data/scripts/players_house.pory"
+# 140 "data/scripts/players_house.pory"
 	end
+# 141 "data/scripts/players_house.pory"
+
 # 142 "data/scripts/players_house.pory"
-
-# 143 "data/scripts/players_house.pory"
 @ Never called.
-# 144 "data/scripts/players_house.pory"
+# 143 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_AirLatiBroadcast::
-# 145 "data/scripts/players_house.pory"
+# 144 "data/scripts/players_house.pory"
 	setflag FLAG_SYS_TV_LATIAS_LATIOS
+# 145 "data/scripts/players_house.pory"
+	return
 # 146 "data/scripts/players_house.pory"
-	return
+
 # 147 "data/scripts/players_house.pory"
-
-# 148 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_SetUpObjectEventVarsMale::
-# 149 "data/scripts/players_house.pory"
+# 148 "data/scripts/players_house.pory"
 	setvar VAR_0x8008, MALE
+# 149 "data/scripts/players_house.pory"
+	setvar VAR_0x8009, LOCALID_PLAYERS_HOUSE_1F_DAD
 # 150 "data/scripts/players_house.pory"
-	setvar VAR_0x8009, LOCALID_PLAYERS_HOUSE_1F_DAD
+	setvar VAR_0x800A, LOCALID_PLAYERS_HOUSE_1F_MOM
 # 151 "data/scripts/players_house.pory"
-	setvar VAR_0x800A, LOCALID_PLAYERS_HOUSE_1F_MOM
+	return
 # 152 "data/scripts/players_house.pory"
-	return
+
 # 153 "data/scripts/players_house.pory"
-
-# 154 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_SetUpObjectEventVarsFemale::
-# 155 "data/scripts/players_house.pory"
+# 154 "data/scripts/players_house.pory"
 	setvar VAR_0x8008, FEMALE
-# 156 "data/scripts/players_house.pory"
+# 155 "data/scripts/players_house.pory"
 	setvar VAR_0x8009, LOCALID_PLAYERS_HOUSE_1F_DAD
-# 157 "data/scripts/players_house.pory"
+# 156 "data/scripts/players_house.pory"
 	setvar VAR_0x800A, LOCALID_PLAYERS_HOUSE_1F_MOM
+# 157 "data/scripts/players_house.pory"
+	return
 # 158 "data/scripts/players_house.pory"
-	return
+
 # 159 "data/scripts/players_house.pory"
-
-# 160 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_DadApproachPlayerMale::
-# 161 "data/scripts/players_house.pory"
+# 160 "data/scripts/players_house.pory"
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadApproachPlayerMale
+# 161 "data/scripts/players_house.pory"
+	waitmovement 0
 # 162 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 163 "data/scripts/players_house.pory"
-	return
+
 # 164 "data/scripts/players_house.pory"
-
-# 165 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_DadApproachPlayerFemale::
-# 166 "data/scripts/players_house.pory"
+# 165 "data/scripts/players_house.pory"
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadApproachPlayerFemale
+# 166 "data/scripts/players_house.pory"
+	waitmovement 0
 # 167 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 168 "data/scripts/players_house.pory"
-	return
+
 # 169 "data/scripts/players_house.pory"
-
-# 170 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomApproachDadMale::
-# 171 "data/scripts/players_house.pory"
+# 170 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachDadMale
+# 171 "data/scripts/players_house.pory"
+	waitmovement 0
 # 172 "data/scripts/players_house.pory"
-	waitmovement 0
-# 173 "data/scripts/players_house.pory"
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadFaceMomMale
+# 173 "data/scripts/players_house.pory"
+	waitmovement 0
 # 174 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 175 "data/scripts/players_house.pory"
-	return
+
 # 176 "data/scripts/players_house.pory"
-
-# 177 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomApproachDadFemale::
-# 178 "data/scripts/players_house.pory"
+# 177 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachDadFemale
+# 178 "data/scripts/players_house.pory"
+	waitmovement 0
 # 179 "data/scripts/players_house.pory"
-	waitmovement 0
-# 180 "data/scripts/players_house.pory"
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadFaceMomFemale
+# 180 "data/scripts/players_house.pory"
+	waitmovement 0
 # 181 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 182 "data/scripts/players_house.pory"
-	return
+
 # 183 "data/scripts/players_house.pory"
-
-# 184 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_DadExitsMale::
+# 184 "data/scripts/players_house.pory"
+	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 # 185 "data/scripts/players_house.pory"
-	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
+	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 # 186 "data/scripts/players_house.pory"
-	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
-# 187 "data/scripts/players_house.pory"
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadExitsMale
+# 187 "data/scripts/players_house.pory"
+	waitmovement 0
 # 188 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 189 "data/scripts/players_house.pory"
-	return
+
 # 190 "data/scripts/players_house.pory"
-
-# 191 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_DadExitsFemale::
-# 192 "data/scripts/players_house.pory"
+# 191 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
-# 193 "data/scripts/players_house.pory"
+# 192 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
-# 194 "data/scripts/players_house.pory"
+# 193 "data/scripts/players_house.pory"
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadExitsFemale
+# 194 "data/scripts/players_house.pory"
+	waitmovement 0
 # 195 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 196 "data/scripts/players_house.pory"
-	return
+
 # 197 "data/scripts/players_house.pory"
-
-# 198 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_PlayerEnterRoomMale::
-# 199 "data/scripts/players_house.pory"
+# 198 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerEnterRoomMale
+# 199 "data/scripts/players_house.pory"
+	waitmovement 0
 # 200 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 201 "data/scripts/players_house.pory"
-	return
+
 # 202 "data/scripts/players_house.pory"
-
-# 203 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_PlayerEnterRoomFemale::
-# 204 "data/scripts/players_house.pory"
+# 203 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerEnterRoomFemale
+# 204 "data/scripts/players_house.pory"
+	waitmovement 0
 # 205 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 206 "data/scripts/players_house.pory"
-	return
+
 # 207 "data/scripts/players_house.pory"
-
-# 208 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_PlayerApproachTVForLatiMale::
-# 209 "data/scripts/players_house.pory"
+# 208 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachTVForLatiMale
+# 209 "data/scripts/players_house.pory"
+	waitmovement 0
 # 210 "data/scripts/players_house.pory"
-	waitmovement 0
-# 211 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, Common_Movement_WalkInPlaceFasterLeft
+# 211 "data/scripts/players_house.pory"
+	waitmovement 0
 # 212 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 213 "data/scripts/players_house.pory"
-	return
+
 # 214 "data/scripts/players_house.pory"
-
-# 215 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_PlayerApproachTVForLatiFemale::
-# 216 "data/scripts/players_house.pory"
+# 215 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale
+# 216 "data/scripts/players_house.pory"
+	waitmovement 0
 # 217 "data/scripts/players_house.pory"
-	waitmovement 0
-# 218 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, Common_Movement_WalkInPlaceFasterRight
+# 218 "data/scripts/players_house.pory"
+	waitmovement 0
 # 219 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 220 "data/scripts/players_house.pory"
-	return
+
 # 221 "data/scripts/players_house.pory"
-
-# 222 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomApproachPlayerMale::
-# 223 "data/scripts/players_house.pory"
+# 222 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachPlayerMale
+# 223 "data/scripts/players_house.pory"
+	waitmovement 0
 # 224 "data/scripts/players_house.pory"
-	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 # 225 "data/scripts/players_house.pory"
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
 # 226 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 227 "data/scripts/players_house.pory"
-	return
+
 # 228 "data/scripts/players_house.pory"
-
-# 229 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomApproachPlayerFemale::
-# 230 "data/scripts/players_house.pory"
+# 229 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachPlayerFemale
+# 230 "data/scripts/players_house.pory"
+	waitmovement 0
 # 231 "data/scripts/players_house.pory"
-	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 # 232 "data/scripts/players_house.pory"
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
 # 233 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 234 "data/scripts/players_house.pory"
-	return
+
 # 235 "data/scripts/players_house.pory"
-
-# 236 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomNoticesLatiBroadcastMale::
-# 237 "data/scripts/players_house.pory"
+# 236 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomNoticesLatiBroadcastMale
+# 237 "data/scripts/players_house.pory"
+	waitmovement 0
 # 238 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 239 "data/scripts/players_house.pory"
-	return
+
 # 240 "data/scripts/players_house.pory"
-
-# 241 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomNoticesLatiBroadcastFemale::
-# 242 "data/scripts/players_house.pory"
+# 241 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomNoticesLatiBroadcastFemale
+# 242 "data/scripts/players_house.pory"
+	waitmovement 0
 # 243 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 244 "data/scripts/players_house.pory"
-	return
+
 # 245 "data/scripts/players_house.pory"
-
-# 246 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomApproachPlayerAfterTVMale::
-# 247 "data/scripts/players_house.pory"
+# 246 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachPlayerAfterTVMale
+# 247 "data/scripts/players_house.pory"
+	waitmovement 0
 # 248 "data/scripts/players_house.pory"
-	waitmovement 0
-# 249 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+# 249 "data/scripts/players_house.pory"
+	waitmovement 0
 # 250 "data/scripts/players_house.pory"
-	waitmovement 0
+	return
 # 251 "data/scripts/players_house.pory"
-	return
+
 # 252 "data/scripts/players_house.pory"
-
-# 253 "data/scripts/players_house.pory"
 PlayersHouse_1F_EventScript_MomApproachPlayerAfterTVFemale::
-# 254 "data/scripts/players_house.pory"
+# 253 "data/scripts/players_house.pory"
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachPlayerAfterTVFemale
+# 254 "data/scripts/players_house.pory"
+	waitmovement 0
 # 255 "data/scripts/players_house.pory"
-	waitmovement 0
-# 256 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-# 257 "data/scripts/players_house.pory"
+# 256 "data/scripts/players_house.pory"
 	waitmovement 0
-# 258 "data/scripts/players_house.pory"
+# 257 "data/scripts/players_house.pory"
 	return
-# 259 "data/scripts/players_house.pory"
+# 258 "data/scripts/players_house.pory"
 
-# 260 "data/scripts/players_house.pory"
+# 259 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_DadApproachPlayerMale:
+# 260 "data/scripts/players_house.pory"
+	walk_right
 # 261 "data/scripts/players_house.pory"
 	walk_right
 # 262 "data/scripts/players_house.pory"
-	walk_right
-# 263 "data/scripts/players_house.pory"
 	step_end
-# 264 "data/scripts/players_house.pory"
+# 263 "data/scripts/players_house.pory"
 
-# 265 "data/scripts/players_house.pory"
+# 264 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_DadApproachPlayerFemale:
+# 265 "data/scripts/players_house.pory"
+	walk_left
 # 266 "data/scripts/players_house.pory"
 	walk_left
 # 267 "data/scripts/players_house.pory"
-	walk_left
+	step_end
 # 268 "data/scripts/players_house.pory"
-	step_end
+
 # 269 "data/scripts/players_house.pory"
-
-# 270 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_DadFaceMomMale:
-# 271 "data/scripts/players_house.pory"
+# 270 "data/scripts/players_house.pory"
 	face_left
+# 271 "data/scripts/players_house.pory"
+	step_end
 # 272 "data/scripts/players_house.pory"
-	step_end
+
 # 273 "data/scripts/players_house.pory"
-
-# 274 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_DadFaceMomFemale:
-# 275 "data/scripts/players_house.pory"
+# 274 "data/scripts/players_house.pory"
 	face_right
+# 275 "data/scripts/players_house.pory"
+	step_end
 # 276 "data/scripts/players_house.pory"
-	step_end
+
 # 277 "data/scripts/players_house.pory"
-
-# 278 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_DadExitsMale:
+# 278 "data/scripts/players_house.pory"
+	walk_down
 # 279 "data/scripts/players_house.pory"
-	walk_down
-# 280 "data/scripts/players_house.pory"
 	walk_right
+# 280 "data/scripts/players_house.pory"
+	walk_down
 # 281 "data/scripts/players_house.pory"
-	walk_down
+	delay_8
 # 282 "data/scripts/players_house.pory"
-	delay_8
+	step_end
 # 283 "data/scripts/players_house.pory"
-	step_end
+
 # 284 "data/scripts/players_house.pory"
-
-# 285 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_DadExitsFemale:
+# 285 "data/scripts/players_house.pory"
+	walk_down
 # 286 "data/scripts/players_house.pory"
-	walk_down
-# 287 "data/scripts/players_house.pory"
 	walk_left
-# 288 "data/scripts/players_house.pory"
+# 287 "data/scripts/players_house.pory"
 	walk_down
-# 289 "data/scripts/players_house.pory"
+# 288 "data/scripts/players_house.pory"
 	delay_8
-# 290 "data/scripts/players_house.pory"
+# 289 "data/scripts/players_house.pory"
 	step_end
-# 291 "data/scripts/players_house.pory"
+# 290 "data/scripts/players_house.pory"
 
-# 292 "data/scripts/players_house.pory"
+# 291 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_PlayerEnterRoomMale:
-# 293 "data/scripts/players_house.pory"
+# 292 "data/scripts/players_house.pory"
 	delay_16
+# 293 "data/scripts/players_house.pory"
+	walk_down
 # 294 "data/scripts/players_house.pory"
 	walk_down
 # 295 "data/scripts/players_house.pory"
 	walk_down
 # 296 "data/scripts/players_house.pory"
-	walk_down
-# 297 "data/scripts/players_house.pory"
 	walk_in_place_faster_left
-# 298 "data/scripts/players_house.pory"
+# 297 "data/scripts/players_house.pory"
 	step_end
-# 299 "data/scripts/players_house.pory"
+# 298 "data/scripts/players_house.pory"
 
-# 300 "data/scripts/players_house.pory"
+# 299 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit:
-# 301 "data/scripts/players_house.pory"
+# 300 "data/scripts/players_house.pory"
 	delay_8
+# 301 "data/scripts/players_house.pory"
+	delay_16
 # 302 "data/scripts/players_house.pory"
 	delay_16
 # 303 "data/scripts/players_house.pory"
-	delay_16
-# 304 "data/scripts/players_house.pory"
 	walk_in_place_faster_down
-# 305 "data/scripts/players_house.pory"
+# 304 "data/scripts/players_house.pory"
 	step_end
-# 306 "data/scripts/players_house.pory"
+# 305 "data/scripts/players_house.pory"
 
-# 307 "data/scripts/players_house.pory"
+# 306 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_PlayerEnterRoomFemale:
-# 308 "data/scripts/players_house.pory"
+# 307 "data/scripts/players_house.pory"
 	delay_16
+# 308 "data/scripts/players_house.pory"
+	walk_down
 # 309 "data/scripts/players_house.pory"
 	walk_down
 # 310 "data/scripts/players_house.pory"
 	walk_down
 # 311 "data/scripts/players_house.pory"
-	walk_down
-# 312 "data/scripts/players_house.pory"
 	walk_in_place_faster_right
-# 313 "data/scripts/players_house.pory"
+# 312 "data/scripts/players_house.pory"
 	step_end
-# 314 "data/scripts/players_house.pory"
+# 313 "data/scripts/players_house.pory"
 
-# 315 "data/scripts/players_house.pory"
+# 314 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_PlayerApproachTVForLatiMale:
-# 316 "data/scripts/players_house.pory"
+# 315 "data/scripts/players_house.pory"
 	walk_up
+# 316 "data/scripts/players_house.pory"
+	walk_left
 # 317 "data/scripts/players_house.pory"
 	walk_left
 # 318 "data/scripts/players_house.pory"
@@ -637,17 +637,17 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiMale:
 # 319 "data/scripts/players_house.pory"
 	walk_left
 # 320 "data/scripts/players_house.pory"
-	walk_left
-# 321 "data/scripts/players_house.pory"
 	walk_in_place_faster_up
-# 322 "data/scripts/players_house.pory"
+# 321 "data/scripts/players_house.pory"
 	step_end
-# 323 "data/scripts/players_house.pory"
+# 322 "data/scripts/players_house.pory"
 
-# 324 "data/scripts/players_house.pory"
+# 323 "data/scripts/players_house.pory"
 PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
-# 325 "data/scripts/players_house.pory"
+# 324 "data/scripts/players_house.pory"
 	walk_up
+# 325 "data/scripts/players_house.pory"
+	walk_right
 # 326 "data/scripts/players_house.pory"
 	walk_right
 # 327 "data/scripts/players_house.pory"
@@ -655,407 +655,407 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
 # 328 "data/scripts/players_house.pory"
 	walk_right
 # 329 "data/scripts/players_house.pory"
-	walk_right
-# 330 "data/scripts/players_house.pory"
 	walk_in_place_faster_up
-# 331 "data/scripts/players_house.pory"
+# 330 "data/scripts/players_house.pory"
 	step_end
 
 Script_PlayersHouse_1F_Interact_Mom::
-# 335 "data/scripts/players_house.pory"
+# 334 "data/scripts/players_house.pory"
 	lock
-# 336 "data/scripts/players_house.pory"
+# 335 "data/scripts/players_house.pory"
 	faceplayer
-# 337 "data/scripts/players_house.pory"
+# 336 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_DontPushYourselfTooHard
-# 338 "data/scripts/players_house.pory"
+# 337 "data/scripts/players_house.pory"
 	goto_if_set FLAG_HAS_MATCH_CALL, Script_PlayersHouse_1F_Interact_Mom_2
-# 350 "data/scripts/players_house.pory"
+# 349 "data/scripts/players_house.pory"
 	goto_if_set FLAG_ENABLE_MOM_MATCH_CALL, Script_PlayersHouse_1F_Interact_Mom_8
 Script_PlayersHouse_1F_Interact_Mom_7:
-# 358 "data/scripts/players_house.pory"
+# 357 "data/scripts/players_house.pory"
 	compare VAR_QUEST_INTRO_STATE, 4
 	goto_if_eq Script_PlayersHouse_1F_Interact_Mom_4
-# 361 "data/scripts/players_house.pory"
+# 360 "data/scripts/players_house.pory"
 	goto_if_set FLAG_ADVENTURE_STARTED, Script_PlayersHouse_1F_Interact_Mom_5
 Script_PlayersHouse_1F_Interact_Mom_1:
-# 368 "data/scripts/players_house.pory"
+# 367 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_1F_Interact_Mom_Farewell
-# 369 "data/scripts/players_house.pory"
+# 368 "data/scripts/players_house.pory"
 	release
 	end
 
 Script_PlayersHouse_1F_Interact_Mom_2:
-# 339 "data/scripts/players_house.pory"
+# 338 "data/scripts/players_house.pory"
 	goto_if_unset FLAG_ENABLE_MOM_MATCH_CALL, Script_PlayersHouse_1F_Interact_Mom_12
 	goto Script_PlayersHouse_1F_Interact_Mom_1
 
 Script_PlayersHouse_1F_Interact_Mom_3:
-# 351 "data/scripts/players_house.pory"
+# 350 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_SomethingFromMom
-# 352 "data/scripts/players_house.pory"
+# 351 "data/scripts/players_house.pory"
 	giveitem ITEM_AMULET_COIN
-# 353 "data/scripts/players_house.pory"
+# 352 "data/scripts/players_house.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Script_PlayersHouse_1F_Interact_Mom_14
-# 356 "data/scripts/players_house.pory"
+# 355 "data/scripts/players_house.pory"
 	setflag FLAG_RECEIVED_AMULET_COIN
 	goto Script_PlayersHouse_1F_Interact_Mom_1
 
 Script_PlayersHouse_1F_Interact_Mom_4:
-# 359 "data/scripts/players_house.pory"
+# 358 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_DidYouMeetBirch
 	goto Script_PlayersHouse_1F_Interact_Mom_1
 
 Script_PlayersHouse_1F_Interact_Mom_5:
-# 363 "data/scripts/players_house.pory"
+# 362 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_YouShouldRest
-# 364 "data/scripts/players_house.pory"
+# 363 "data/scripts/players_house.pory"
 	call Common_EventScript_OutOfCenterPartyHeal
-# 365 "data/scripts/players_house.pory"
+# 364 "data/scripts/players_house.pory"
 	incrementgamestat GAME_STAT_RESTED_AT_HOME
 	goto Script_PlayersHouse_1F_Interact_Mom_1
 
 Script_PlayersHouse_1F_Interact_Mom_8:
-# 350 "data/scripts/players_house.pory"
+# 349 "data/scripts/players_house.pory"
 	goto_if_set FLAG_BADGE05_GET, Script_PlayersHouse_1F_Interact_Mom_3
 	goto Script_PlayersHouse_1F_Interact_Mom_7
 
 Script_PlayersHouse_1F_Interact_Mom_12:
-# 340 "data/scripts/players_house.pory"
+# 339 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_PokeNav
+# 340 "data/scripts/players_house.pory"
+	closemessage
 # 341 "data/scripts/players_house.pory"
-	closemessage
+	delay 30
 # 342 "data/scripts/players_house.pory"
-	delay 30
-# 343 "data/scripts/players_house.pory"
 	playfanfare MUS_REGISTER_MATCH_CALL
-# 344 "data/scripts/players_house.pory"
+# 343 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_PokeNav_Registered
-# 345 "data/scripts/players_house.pory"
+# 344 "data/scripts/players_house.pory"
 	waitfanfare
-# 346 "data/scripts/players_house.pory"
+# 345 "data/scripts/players_house.pory"
 	closemessage
-# 347 "data/scripts/players_house.pory"
+# 346 "data/scripts/players_house.pory"
 	delay 30
-# 348 "data/scripts/players_house.pory"
+# 347 "data/scripts/players_house.pory"
 	setflag FLAG_ENABLE_MOM_MATCH_CALL
 	goto Script_PlayersHouse_1F_Interact_Mom_1
 
 Script_PlayersHouse_1F_Interact_Mom_14:
-# 354 "data/scripts/players_house.pory"
+# 353 "data/scripts/players_house.pory"
 	call Common_EventScript_ShowBagIsFull
 	goto Script_PlayersHouse_1F_Interact_Mom_1
 
 
 Script_PlayersHouse_1F_Interact_Mom_Farewell:
-# 403 "data/scripts/players_house.pory"
+# 402 "data/scripts/players_house.pory"
 	random 3
-# 404 "data/scripts/players_house.pory"
+# 403 "data/scripts/players_house.pory"
 	switch VAR_RESULT
-# 405 "data/scripts/players_house.pory"
+# 404 "data/scripts/players_house.pory"
 	case 0, Script_PlayersHouse_1F_Interact_Mom_Farewell_2
-# 408 "data/scripts/players_house.pory"
+# 407 "data/scripts/players_house.pory"
 	case 1, Script_PlayersHouse_1F_Interact_Mom_Farewell_3
-# 411 "data/scripts/players_house.pory"
+# 410 "data/scripts/players_house.pory"
 	case 2, Script_PlayersHouse_1F_Interact_Mom_Farewell_4
 	return
 
 Script_PlayersHouse_1F_Interact_Mom_Farewell_2:
-# 406 "data/scripts/players_house.pory"
+# 405 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_TakeCareHoney
 	return
 
 Script_PlayersHouse_1F_Interact_Mom_Farewell_3:
-# 409 "data/scripts/players_house.pory"
+# 408 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_SeeYouHoney
 	return
 
 Script_PlayersHouse_1F_Interact_Mom_Farewell_4:
-# 412 "data/scripts/players_house.pory"
+# 411 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_DontPushYourselfTooHard
 	return
 
 
 Script_PlayersHouse_1F_PetalburgGymReport::
-# 432 "data/scripts/players_house.pory"
+# 431 "data/scripts/players_house.pory"
 	compare VAR_0x8004, MALE
 	goto_if_eq Script_PlayersHouse_1F_PetalburgGymReport_2
-# 435 "data/scripts/players_house.pory"
+# 434 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Common_Movement_WalkInPlaceFasterLeft
 Script_PlayersHouse_1F_PetalburgGymReport_1:
-# 437 "data/scripts/players_house.pory"
+# 436 "data/scripts/players_house.pory"
 	waitmovement 0
-# 438 "data/scripts/players_house.pory"
+# 437 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_1F_Mom_NoticesGymBroadcast
-# 439 "data/scripts/players_house.pory"
+# 438 "data/scripts/players_house.pory"
 	compare VAR_0x8004, MALE
 	goto_if_eq Script_PlayersHouse_1F_PetalburgGymReport_6
-# 445 "data/scripts/players_house.pory"
+# 444 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Script_PlayersHouse_1F_PetalburgGymReport_Movement_1
 Script_PlayersHouse_1F_PetalburgGymReport_5:
-# 450 "data/scripts/players_house.pory"
+# 449 "data/scripts/players_house.pory"
 	waitmovement 0
-# 451 "data/scripts/players_house.pory"
+# 450 "data/scripts/players_house.pory"
 	playbgm MUS_ENCOUNTER_INTERVIEWER, FALSE
-# 452 "data/scripts/players_house.pory"
+# 451 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_MaybeDadWillBeOn
-# 453 "data/scripts/players_house.pory"
+# 452 "data/scripts/players_house.pory"
 	closemessage
-# 454 "data/scripts/players_house.pory"
+# 453 "data/scripts/players_house.pory"
 	compare VAR_0x8004, MALE
 	goto_if_eq Script_PlayersHouse_1F_PetalburgGymReport_10
-# 460 "data/scripts/players_house.pory"
+# 459 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Script_PlayersHouse_1F_PetalburgGymReport_Movement_3
 Script_PlayersHouse_1F_PetalburgGymReport_9:
-# 465 "data/scripts/players_house.pory"
+# 464 "data/scripts/players_house.pory"
 	waitmovement 0
-# 466 "data/scripts/players_house.pory"
+# 465 "data/scripts/players_house.pory"
 	compare VAR_0x8004, MALE
 	goto_if_eq Script_PlayersHouse_1F_PetalburgGymReport_14
-# 472 "data/scripts/players_house.pory"
+# 471 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Script_PlayersHouse_1F_PetalburgGymReport_Movement_5
 Script_PlayersHouse_1F_PetalburgGymReport_13:
-# 477 "data/scripts/players_house.pory"
+# 476 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_1F_TV_GymBroadcast
-# 478 "data/scripts/players_house.pory"
+# 477 "data/scripts/players_house.pory"
 	compare VAR_0x8004, MALE
 	goto_if_eq Script_PlayersHouse_1F_PetalburgGymReport_18
-# 481 "data/scripts/players_house.pory"
+# 480 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 Script_PlayersHouse_1F_PetalburgGymReport_17:
-# 483 "data/scripts/players_house.pory"
+# 482 "data/scripts/players_house.pory"
 	waitmovement 0
-# 484 "data/scripts/players_house.pory"
+# 483 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_ItsOver
-# 485 "data/scripts/players_house.pory"
+# 484 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_GoIntroduceProfBirch
-# 486 "data/scripts/players_house.pory"
+# 485 "data/scripts/players_house.pory"
 	closemessage
-# 487 "data/scripts/players_house.pory"
+# 486 "data/scripts/players_house.pory"
 	setvar VAR_TEMP_1, 1
-# 488 "data/scripts/players_house.pory"
+# 487 "data/scripts/players_house.pory"
 	compare VAR_0x8004, MALE
 	goto_if_eq Script_PlayersHouse_1F_PetalburgGymReport_22
-# 495 "data/scripts/players_house.pory"
+# 494 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Script_PlayersHouse_1F_PetalburgGymReport_Movement_7
 Script_PlayersHouse_1F_PetalburgGymReport_21:
-# 501 "data/scripts/players_house.pory"
+# 500 "data/scripts/players_house.pory"
 	waitmovement 0
-# 502 "data/scripts/players_house.pory"
+# 501 "data/scripts/players_house.pory"
 	setvar VAR_QUEST_INTRO_STATE, 5
-# 503 "data/scripts/players_house.pory"
+# 502 "data/scripts/players_house.pory"
 	releaseall
 	return
 
 Script_PlayersHouse_1F_PetalburgGymReport_2:
-# 433 "data/scripts/players_house.pory"
+# 432 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Common_Movement_WalkInPlaceFasterRight
 	goto Script_PlayersHouse_1F_PetalburgGymReport_1
 
 Script_PlayersHouse_1F_PetalburgGymReport_6:
-# 440 "data/scripts/players_house.pory"
+# 439 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Script_PlayersHouse_1F_PetalburgGymReport_Movement_0
 	goto Script_PlayersHouse_1F_PetalburgGymReport_5
 
 Script_PlayersHouse_1F_PetalburgGymReport_10:
-# 455 "data/scripts/players_house.pory"
+# 454 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Script_PlayersHouse_1F_PetalburgGymReport_Movement_2
 	goto Script_PlayersHouse_1F_PetalburgGymReport_9
 
 Script_PlayersHouse_1F_PetalburgGymReport_14:
-# 467 "data/scripts/players_house.pory"
+# 466 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Script_PlayersHouse_1F_PetalburgGymReport_Movement_4
 	goto Script_PlayersHouse_1F_PetalburgGymReport_13
 
 Script_PlayersHouse_1F_PetalburgGymReport_18:
-# 479 "data/scripts/players_house.pory"
+# 478 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	goto Script_PlayersHouse_1F_PetalburgGymReport_17
 
 Script_PlayersHouse_1F_PetalburgGymReport_22:
-# 489 "data/scripts/players_house.pory"
+# 488 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Script_PlayersHouse_1F_PetalburgGymReport_Movement_6
 	goto Script_PlayersHouse_1F_PetalburgGymReport_21
 
 
 Script_PlayersHouse_1F_Mom_NoticesGymBroadcast::
-# 507 "data/scripts/players_house.pory"
+# 506 "data/scripts/players_house.pory"
 	playse SE_PIN
-# 508 "data/scripts/players_house.pory"
+# 507 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Common_Movement_ExclamationMark
+# 508 "data/scripts/players_house.pory"
+	waitmovement 0
 # 509 "data/scripts/players_house.pory"
-	waitmovement 0
-# 510 "data/scripts/players_house.pory"
 	applymovement VAR_0x8005, Common_Movement_Delay48
-# 511 "data/scripts/players_house.pory"
+# 510 "data/scripts/players_house.pory"
 	waitmovement 0
-# 512 "data/scripts/players_house.pory"
+# 511 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_OhComeQuickly
-# 513 "data/scripts/players_house.pory"
+# 512 "data/scripts/players_house.pory"
 	closemessage
 	return
 
 
 Script_PlayersHouse_1F_TV_GymBroadcast:
-# 534 "data/scripts/players_house.pory"
+# 533 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-# 535 "data/scripts/players_house.pory"
+# 534 "data/scripts/players_house.pory"
 	waitmovement 0
-# 536 "data/scripts/players_house.pory"
+# 535 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Interviewer_PetalburgGym
-# 537 "data/scripts/players_house.pory"
+# 536 "data/scripts/players_house.pory"
 	fadedefaultbgm
-# 538 "data/scripts/players_house.pory"
+# 537 "data/scripts/players_house.pory"
 	special TurnOffTVScreen
-# 539 "data/scripts/players_house.pory"
+# 538 "data/scripts/players_house.pory"
 	setflag FLAG_SYS_TV_HOME
-# 540 "data/scripts/players_house.pory"
+# 539 "data/scripts/players_house.pory"
 	delay 35
 	return
 
 
 Script_PlayersHouse_1F_Intro_EnterHouse::
-# 560 "data/scripts/players_house.pory"
+# 559 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_ItsNiceInHere
-# 561 "data/scripts/players_house.pory"
+# 560 "data/scripts/players_house.pory"
 	applymovement VAR_0x8004, Common_Movement_FacePlayer
-# 562 "data/scripts/players_house.pory"
+# 561 "data/scripts/players_house.pory"
 	waitmovement
-# 563 "data/scripts/players_house.pory"
+# 562 "data/scripts/players_house.pory"
 	compare VAR_0x8005, MALE
 	goto_if_eq Script_PlayersHouse_1F_Intro_EnterHouse_2
-# 566 "data/scripts/players_house.pory"
+# 565 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 Script_PlayersHouse_1F_Intro_EnterHouse_1:
-# 568 "data/scripts/players_house.pory"
+# 567 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Mom_MoversAndGift
-# 569 "data/scripts/players_house.pory"
+# 568 "data/scripts/players_house.pory"
 	closemessage
-# 570 "data/scripts/players_house.pory"
+# 569 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Script_PlayersHouse_1F_Intro_EnterHouse_Movement_0
-# 571 "data/scripts/players_house.pory"
+# 570 "data/scripts/players_house.pory"
 	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
-# 572 "data/scripts/players_house.pory"
+# 571 "data/scripts/players_house.pory"
 	waitmovement 0
-# 573 "data/scripts/players_house.pory"
+# 572 "data/scripts/players_house.pory"
 	setvar VAR_QUEST_INTRO_STATE, 2
-# 574 "data/scripts/players_house.pory"
+# 573 "data/scripts/players_house.pory"
 	releaseall
 	end
 
 Script_PlayersHouse_1F_Intro_EnterHouse_2:
-# 564 "data/scripts/players_house.pory"
+# 563 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	goto Script_PlayersHouse_1F_Intro_EnterHouse_1
 
 
 Script_PlayersHouse_1F_SetMovingBoxes:
-# 597 "data/scripts/players_house.pory"
+# 596 "data/scripts/players_house.pory"
 	setmetatile 5, 4, METATILE_BrendansMaysHouse_MovingBox_Open, TRUE
-# 598 "data/scripts/players_house.pory"
+# 597 "data/scripts/players_house.pory"
 	setmetatile 5, 2, METATILE_BrendansMaysHouse_MovingBox_Closed, TRUE
 	return
 
 
 Script_PlayersHouse_1F_Interact_Vigoroth_1::
-# 614 "data/scripts/players_house.pory"
+# 613 "data/scripts/players_house.pory"
 	lock
-# 615 "data/scripts/players_house.pory"
+# 614 "data/scripts/players_house.pory"
 	faceplayer
-# 616 "data/scripts/players_house.pory"
+# 615 "data/scripts/players_house.pory"
 	waitse
-# 617 "data/scripts/players_house.pory"
+# 616 "data/scripts/players_house.pory"
 	playmoncry SPECIES_VIGOROTH, CRY_MODE_NORMAL
-# 618 "data/scripts/players_house.pory"
+# 617 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Vigoroth_Fugi
-# 619 "data/scripts/players_house.pory"
+# 618 "data/scripts/players_house.pory"
 	waitmoncry
-# 620 "data/scripts/players_house.pory"
+# 619 "data/scripts/players_house.pory"
 	release
 	end
 
 
 Script_PlayersHouse_1F_Interact_Vigoroth_2::
-# 629 "data/scripts/players_house.pory"
+# 628 "data/scripts/players_house.pory"
 	lock
-# 630 "data/scripts/players_house.pory"
+# 629 "data/scripts/players_house.pory"
 	faceplayer
-# 631 "data/scripts/players_house.pory"
+# 630 "data/scripts/players_house.pory"
 	waitse
-# 632 "data/scripts/players_house.pory"
+# 631 "data/scripts/players_house.pory"
 	playmoncry SPECIES_VIGOROTH, CRY_MODE_NORMAL
-# 633 "data/scripts/players_house.pory"
+# 632 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_Vigoroth_Huggoh
-# 634 "data/scripts/players_house.pory"
+# 633 "data/scripts/players_house.pory"
 	waitmoncry
-# 635 "data/scripts/players_house.pory"
+# 634 "data/scripts/players_house.pory"
 	release
 	end
 
 
 Script_PlayersHouse_1F_Interact_RunningShoesManual::
-# 645 "data/scripts/players_house.pory"
+# 644 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_1F_RunningShoesManual
-	return
+# 645 "data/scripts/players_house.pory"
+	closemessage
+	end
 
 
 Script_PlayersHouse_2F_BlockStairsUntilGiftIsAccepted::
-# 703 "data/scripts/players_house.pory"
+# 704 "data/scripts/players_house.pory"
 	setvar VAR_QUEST_INTRO_STATE, 3
 	return
 
 
 Script_PlayersHouse_2F_Interact_MomsGift::
-# 709 "data/scripts/players_house.pory"
-	lockall
 # 710 "data/scripts/players_house.pory"
-	msgbox Text_PlayersHouse_2F_MomsGift_Note
+	lockall
 # 711 "data/scripts/players_house.pory"
-	giveitem ITEM_OVAL_CHARM, 1
+	msgbox Text_PlayersHouse_2F_MomsGift_Note
 # 712 "data/scripts/players_house.pory"
-	giveitem ITEM_CATCHING_CHARM, 1
+	giveitem ITEM_OVAL_CHARM, 1
 # 713 "data/scripts/players_house.pory"
-	giveitem ITEM_SHINY_CHARM, 1
+	giveitem ITEM_CATCHING_CHARM, 1
 # 714 "data/scripts/players_house.pory"
-	waitmessage
+	giveitem ITEM_SHINY_CHARM, 1
 # 715 "data/scripts/players_house.pory"
-	setvar VAR_QUEST_INTRO_STATE, 4
-# 716 "data/scripts/players_house.pory"
-	setflag FLAG_HIDE_MOMS_GIFT_BRENDANS_HOUSE
-# 717 "data/scripts/players_house.pory"
-	setflag FLAG_HIDE_MOMS_GIFT_MAYS_HOUSE
-# 718 "data/scripts/players_house.pory"
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTHS
-# 719 "data/scripts/players_house.pory"
-	removeobject VAR_LAST_TALKED
-# 720 "data/scripts/players_house.pory"
-	call Script_PlayersHouse_2F_Mom_ApproachPlayer
-# 721 "data/scripts/players_house.pory"
-	msgbox Text_PlayersHouse_2F_Mom_HowDoYouLikeYourRoom
-# 722 "data/scripts/players_house.pory"
 	waitmessage
+# 716 "data/scripts/players_house.pory"
+	setvar VAR_QUEST_INTRO_STATE, 4
+# 717 "data/scripts/players_house.pory"
+	setflag FLAG_HIDE_MOMS_GIFT_BRENDANS_HOUSE
+# 718 "data/scripts/players_house.pory"
+	setflag FLAG_HIDE_MOMS_GIFT_MAYS_HOUSE
+# 719 "data/scripts/players_house.pory"
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTHS
+# 720 "data/scripts/players_house.pory"
+	removeobject VAR_LAST_TALKED
+# 721 "data/scripts/players_house.pory"
+	call Script_PlayersHouse_2F_Mom_ApproachPlayer
+# 722 "data/scripts/players_house.pory"
+	msgbox Text_PlayersHouse_2F_Mom_HowDoYouLikeYourRoom
 # 723 "data/scripts/players_house.pory"
-	call Script_PlayersHouse_2F_Mom_Leaves
+	waitmessage
 # 724 "data/scripts/players_house.pory"
+	call Script_PlayersHouse_2F_Mom_Leaves
+# 725 "data/scripts/players_house.pory"
 	releaseall
 	end
 
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer:
-# 736 "data/scripts/players_house.pory"
+# 737 "data/scripts/players_house.pory"
 	addobject LOCALID_PLAYERS_HOUSE_2F_MOM
 	checkplayergender
 # 0 "data/scripts/players_house.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Script_PlayersHouse_2F_Mom_ApproachPlayer_2
-# 740 "data/scripts/players_house.pory"
+# 741 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_Female
 Script_PlayersHouse_2F_Mom_ApproachPlayer_1:
 	return
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_2:
-# 738 "data/scripts/players_house.pory"
+# 739 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_Male
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_1
 
@@ -1065,28 +1065,21 @@ Script_PlayersHouse_2F_Mom_ApproachPlayer_North:
 # 0 "data/scripts/players_house.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Script_PlayersHouse_2F_Mom_ApproachPlayer_North_1
-# 753 "data/scripts/players_house.pory"
+# 754 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_ApproachPlayer_North_Movement_1
-# 757 "data/scripts/players_house.pory"
+# 758 "data/scripts/players_house.pory"
 	waitmovement 0
 	return
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_North_1:
-# 747 "data/scripts/players_house.pory"
+# 748 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_ApproachPlayer_North_Movement_0
-# 751 "data/scripts/players_house.pory"
+# 752 "data/scripts/players_house.pory"
 	waitmovement 0
 	return
 
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_West:
-	checkplayergender
-# 0 "data/scripts/players_house.pory"
-	compare VAR_RESULT, MALE
-	goto_if_eq Script_PlayersHouse_2F_Mom_ApproachPlayer_West_1
-	return
-
-Script_PlayersHouse_2F_Mom_ApproachPlayer_West_1:
 # 763 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_ApproachPlayer_West_Movement_0
 # 767 "data/scripts/players_house.pory"
@@ -1095,128 +1088,128 @@ Script_PlayersHouse_2F_Mom_ApproachPlayer_West_1:
 
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_South:
-# 773 "data/scripts/players_house.pory"
+# 772 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_ApproachPlayer_South_Movement_0
-# 777 "data/scripts/players_house.pory"
+# 776 "data/scripts/players_house.pory"
 	waitmovement 0
 	return
 
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male:
-# 781 "data/scripts/players_house.pory"
+# 780 "data/scripts/players_house.pory"
 	switch VAR_FACING
-# 782 "data/scripts/players_house.pory"
+# 781 "data/scripts/players_house.pory"
 	case DIR_NORTH, Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_3
-# 784 "data/scripts/players_house.pory"
+# 783 "data/scripts/players_house.pory"
 	case DIR_SOUTH, Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_4
-# 786 "data/scripts/players_house.pory"
+# 785 "data/scripts/players_house.pory"
 	case DIR_EAST, Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_5
-# 788 "data/scripts/players_house.pory"
+# 787 "data/scripts/players_house.pory"
 	case DIR_WEST, Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_6
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_1:
 	return
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_3:
-# 783 "data/scripts/players_house.pory"
+# 782 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_South
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_1
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_4:
-# 785 "data/scripts/players_house.pory"
+# 784 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_North
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_1
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_5:
-# 787 "data/scripts/players_house.pory"
+# 786 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_East
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_1
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_6:
-# 789 "data/scripts/players_house.pory"
+# 788 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_West
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_1
 
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_East:
-# 795 "data/scripts/players_house.pory"
+# 794 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_East_Movement_0
-# 800 "data/scripts/players_house.pory"
+# 799 "data/scripts/players_house.pory"
 	waitmovement 0
 	return
 
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female:
-# 804 "data/scripts/players_house.pory"
+# 803 "data/scripts/players_house.pory"
 	switch VAR_FACING
-# 805 "data/scripts/players_house.pory"
+# 804 "data/scripts/players_house.pory"
 	case DIR_NORTH, Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_3
-# 808 "data/scripts/players_house.pory"
+# 807 "data/scripts/players_house.pory"
 	case DIR_SOUTH, Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_4
-# 811 "data/scripts/players_house.pory"
+# 810 "data/scripts/players_house.pory"
 	case DIR_EAST, Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_5
-# 814 "data/scripts/players_house.pory"
+# 813 "data/scripts/players_house.pory"
 	case DIR_WEST, Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_6
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_1:
 	return
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_3:
-# 806 "data/scripts/players_house.pory"
+# 805 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_South
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_1
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_4:
-# 809 "data/scripts/players_house.pory"
+# 808 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_North
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_1
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_5:
-# 812 "data/scripts/players_house.pory"
+# 811 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_West
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_1
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_6:
-# 815 "data/scripts/players_house.pory"
+# 814 "data/scripts/players_house.pory"
 	call Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_East
 	goto Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_1
 
 
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_East:
-# 822 "data/scripts/players_house.pory"
+# 821 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_East_Movement_0
-# 827 "data/scripts/players_house.pory"
+# 826 "data/scripts/players_house.pory"
 	waitmovement 0
 	return
 
 
 Script_PlayersHouse_2F_Mom_Leaves:
-# 833 "data/scripts/players_house.pory"
+# 832 "data/scripts/players_house.pory"
 	compare VAR_FACING, DIR_SOUTH
 	goto_if_eq Script_PlayersHouse_2F_Mom_Leaves_2
-# 839 "data/scripts/players_house.pory"
+# 838 "data/scripts/players_house.pory"
 	compare VAR_FACING, DIR_NORTH
 	goto_if_eq Script_PlayersHouse_2F_Mom_Leaves_3
-# 845 "data/scripts/players_house.pory"
+# 844 "data/scripts/players_house.pory"
 	compare VAR_FACING, DIR_WEST
 	goto_if_eq Script_PlayersHouse_2F_Mom_Leaves_4
-# 860 "data/scripts/players_house.pory"
+# 859 "data/scripts/players_house.pory"
 	compare VAR_FACING, DIR_EAST
 	goto_if_eq Script_PlayersHouse_2F_Mom_Leaves_5
 Script_PlayersHouse_2F_Mom_Leaves_1:
-# 876 "data/scripts/players_house.pory"
+# 875 "data/scripts/players_house.pory"
 	removeobject LOCALID_PLAYERS_HOUSE_2F_MOM
 	return
 
 Script_PlayersHouse_2F_Mom_Leaves_2:
-# 834 "data/scripts/players_house.pory"
+# 833 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_Leaves_Movement_0
-# 838 "data/scripts/players_house.pory"
+# 837 "data/scripts/players_house.pory"
 	waitmovement 0
 	goto Script_PlayersHouse_2F_Mom_Leaves_1
 
 Script_PlayersHouse_2F_Mom_Leaves_3:
-# 840 "data/scripts/players_house.pory"
+# 839 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_Leaves_Movement_1
-# 844 "data/scripts/players_house.pory"
+# 843 "data/scripts/players_house.pory"
 	waitmovement 0
 	goto Script_PlayersHouse_2F_Mom_Leaves_1
 
@@ -1225,9 +1218,9 @@ Script_PlayersHouse_2F_Mom_Leaves_4:
 # 0 "data/scripts/players_house.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Script_PlayersHouse_2F_Mom_Leaves_10
-# 853 "data/scripts/players_house.pory"
+# 852 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_Leaves_Movement_2
-# 858 "data/scripts/players_house.pory"
+# 857 "data/scripts/players_house.pory"
 	waitmovement 0
 	goto Script_PlayersHouse_2F_Mom_Leaves_1
 
@@ -1236,273 +1229,273 @@ Script_PlayersHouse_2F_Mom_Leaves_5:
 # 0 "data/scripts/players_house.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Script_PlayersHouse_2F_Mom_Leaves_13
-# 869 "data/scripts/players_house.pory"
+# 868 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_Leaves_Movement_0
-# 873 "data/scripts/players_house.pory"
+# 872 "data/scripts/players_house.pory"
 	waitmovement 0
 	goto Script_PlayersHouse_2F_Mom_Leaves_1
 
 Script_PlayersHouse_2F_Mom_Leaves_10:
-# 847 "data/scripts/players_house.pory"
+# 846 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_Leaves_Movement_0
-# 851 "data/scripts/players_house.pory"
+# 850 "data/scripts/players_house.pory"
 	waitmovement 0
 	goto Script_PlayersHouse_2F_Mom_Leaves_1
 
 Script_PlayersHouse_2F_Mom_Leaves_13:
-# 862 "data/scripts/players_house.pory"
+# 861 "data/scripts/players_house.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_2F_MOM, Script_PlayersHouse_2F_Mom_Leaves_Movement_3
-# 867 "data/scripts/players_house.pory"
+# 866 "data/scripts/players_house.pory"
 	waitmovement 0
 	goto Script_PlayersHouse_2F_Mom_Leaves_1
 
 
 Script_PlayersHouse_2F_Interact_Notebook::
-# 894 "data/scripts/players_house.pory"
+# 893 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_Notebook, MSGBOX_SIGN
 	end
 
 
 Script_PlayersHouse_2F_Interact_GameCube::
-# 914 "data/scripts/players_house.pory"
+# 913 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_EnterCode, MSGBOX_YESNO
-# 915 "data/scripts/players_house.pory"
+# 914 "data/scripts/players_house.pory"
 	compare VAR_RESULT, NO
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_2
-# 919 "data/scripts/players_house.pory"
+# 918 "data/scripts/players_house.pory"
 	special EnterCode
-# 920 "data/scripts/players_house.pory"
+# 919 "data/scripts/players_house.pory"
 	waitstate
-# 921 "data/scripts/players_house.pory"
+# 920 "data/scripts/players_house.pory"
 	special GetCodeFeedback
-# 922 "data/scripts/players_house.pory"
+# 921 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 0
 	goto_if_le Script_PlayersHouse_2F_Interact_GameCube_5
-# 922 "data/scripts/players_house.pory"
+# 921 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 7
 	goto_if_gt Script_PlayersHouse_2F_Interact_GameCube_5
-# 928 "data/scripts/players_house.pory"
+# 927 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_Success
-# 929 "data/scripts/players_house.pory"
+# 928 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_10
-# 935 "data/scripts/players_house.pory"
+# 934 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 2
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_11
-# 937 "data/scripts/players_house.pory"
+# 936 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 3
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_12
-# 943 "data/scripts/players_house.pory"
+# 942 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_13
-# 949 "data/scripts/players_house.pory"
+# 948 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 5
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_14
-# 951 "data/scripts/players_house.pory"
+# 950 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 6
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_15
-# 957 "data/scripts/players_house.pory"
+# 956 "data/scripts/players_house.pory"
 	compare VAR_RESULT, 7
 	goto_if_eq Script_PlayersHouse_2F_Interact_GameCube_16
 Script_PlayersHouse_2F_Interact_GameCube_9:
-# 964 "data/scripts/players_house.pory"
+# 963 "data/scripts/players_house.pory"
 	waitmessage
-# 965 "data/scripts/players_house.pory"
+# 964 "data/scripts/players_house.pory"
 	releaseall
 	end
 
 Script_PlayersHouse_2F_Interact_GameCube_2:
-# 916 "data/scripts/players_house.pory"
+# 915 "data/scripts/players_house.pory"
 	releaseall
 	end
 
 Script_PlayersHouse_2F_Interact_GameCube_5:
-# 923 "data/scripts/players_house.pory"
+# 922 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_Fail
-# 924 "data/scripts/players_house.pory"
+# 923 "data/scripts/players_house.pory"
 	waitmessage
-# 925 "data/scripts/players_house.pory"
+# 924 "data/scripts/players_house.pory"
 	releaseall
 	end
 
 Script_PlayersHouse_2F_Interact_GameCube_10:
-# 930 "data/scripts/players_house.pory"
+# 929 "data/scripts/players_house.pory"
 	goto_if_set FLAG_DEXALL, Script_PlayersHouse_2F_Interact_GameCube_24
-# 933 "data/scripts/players_house.pory"
+# 932 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_DexAll_Off
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_11:
-# 936 "data/scripts/players_house.pory"
+# 935 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_CaughtAll_On
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_12:
-# 938 "data/scripts/players_house.pory"
+# 937 "data/scripts/players_house.pory"
 	goto_if_set FLAG_EZCATCH, Script_PlayersHouse_2F_Interact_GameCube_27
-# 941 "data/scripts/players_house.pory"
+# 940 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_EzCatch_Off
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_13:
-# 944 "data/scripts/players_house.pory"
+# 943 "data/scripts/players_house.pory"
 	goto_if_set FLAG_SHINY_STARTERS, Script_PlayersHouse_2F_Interact_GameCube_30
-# 947 "data/scripts/players_house.pory"
+# 946 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_ShinyStarter_Off
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_14:
-# 950 "data/scripts/players_house.pory"
+# 949 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_MaxMoney
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_15:
-# 952 "data/scripts/players_house.pory"
+# 951 "data/scripts/players_house.pory"
 	goto_if_set FLAG_SHINY_LEGENDS, Script_PlayersHouse_2F_Interact_GameCube_33
-# 955 "data/scripts/players_house.pory"
+# 954 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_ShinyLegends_Off
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_16:
-# 958 "data/scripts/players_house.pory"
+# 957 "data/scripts/players_house.pory"
 	goto_if_set FLAG_MONOTYPE_STARTERS, Script_PlayersHouse_2F_Interact_GameCube_36
-# 961 "data/scripts/players_house.pory"
+# 960 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_MonoStarter_Off
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_24:
-# 931 "data/scripts/players_house.pory"
+# 930 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_DexAll_On
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_27:
-# 939 "data/scripts/players_house.pory"
+# 938 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_EzCatch_On
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_30:
-# 945 "data/scripts/players_house.pory"
+# 944 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_ShinyStarter_On
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_33:
-# 953 "data/scripts/players_house.pory"
+# 952 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_ShinyLegends_On
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 Script_PlayersHouse_2F_Interact_GameCube_36:
-# 959 "data/scripts/players_house.pory"
+# 958 "data/scripts/players_house.pory"
 	msgbox Text_PlayersHouse_2F_GameCube_Code_MonoStarter_On
 	goto Script_PlayersHouse_2F_Interact_GameCube_9
 
 
-# 440 "data/scripts/players_house.pory"
+# 439 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_0:
-# 441 "data/scripts/players_house.pory"
+# 440 "data/scripts/players_house.pory"
+	walk_down
+# 440 "data/scripts/players_house.pory"
 	walk_down
 # 441 "data/scripts/players_house.pory"
-	walk_down
-# 442 "data/scripts/players_house.pory"
 	walk_left
-# 442 "data/scripts/players_house.pory"
+# 441 "data/scripts/players_house.pory"
 	walk_left
-# 442 "data/scripts/players_house.pory"
+# 441 "data/scripts/players_house.pory"
 	walk_left
 	step_end
 
-# 445 "data/scripts/players_house.pory"
+# 444 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_1:
-# 446 "data/scripts/players_house.pory"
+# 445 "data/scripts/players_house.pory"
+	walk_down
+# 445 "data/scripts/players_house.pory"
 	walk_down
 # 446 "data/scripts/players_house.pory"
-	walk_down
-# 447 "data/scripts/players_house.pory"
 	walk_right
-# 447 "data/scripts/players_house.pory"
+# 446 "data/scripts/players_house.pory"
 	walk_right
-# 447 "data/scripts/players_house.pory"
+# 446 "data/scripts/players_house.pory"
 	walk_right
 	step_end
 
-# 455 "data/scripts/players_house.pory"
+# 454 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_2:
+# 455 "data/scripts/players_house.pory"
+	walk_left
 # 456 "data/scripts/players_house.pory"
-	walk_left
-# 457 "data/scripts/players_house.pory"
 	walk_in_place_faster_right
 	step_end
 
-# 460 "data/scripts/players_house.pory"
+# 459 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_3:
-# 461 "data/scripts/players_house.pory"
+# 460 "data/scripts/players_house.pory"
 	walk_right
-# 462 "data/scripts/players_house.pory"
+# 461 "data/scripts/players_house.pory"
 	walk_in_place_faster_left
 	step_end
 
-# 467 "data/scripts/players_house.pory"
+# 466 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_4:
+# 467 "data/scripts/players_house.pory"
+	walk_left
 # 468 "data/scripts/players_house.pory"
-	walk_left
-# 469 "data/scripts/players_house.pory"
 	face_up
 	step_end
 
-# 472 "data/scripts/players_house.pory"
+# 471 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_5:
-# 473 "data/scripts/players_house.pory"
+# 472 "data/scripts/players_house.pory"
 	walk_right
-# 474 "data/scripts/players_house.pory"
+# 473 "data/scripts/players_house.pory"
 	face_up
 	step_end
 
-# 489 "data/scripts/players_house.pory"
+# 488 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_6:
-# 490 "data/scripts/players_house.pory"
+# 489 "data/scripts/players_house.pory"
 	walk_left
-# 491 "data/scripts/players_house.pory"
+# 490 "data/scripts/players_house.pory"
 	walk_down
-# 492 "data/scripts/players_house.pory"
+# 491 "data/scripts/players_house.pory"
 	walk_in_place_faster_right
 	step_end
 
-# 495 "data/scripts/players_house.pory"
+# 494 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_PetalburgGymReport_Movement_7:
-# 496 "data/scripts/players_house.pory"
+# 495 "data/scripts/players_house.pory"
 	walk_right
-# 497 "data/scripts/players_house.pory"
+# 496 "data/scripts/players_house.pory"
 	walk_down
-# 498 "data/scripts/players_house.pory"
+# 497 "data/scripts/players_house.pory"
 	walk_in_place_faster_left
 	step_end
 
-# 570 "data/scripts/players_house.pory"
+# 569 "data/scripts/players_house.pory"
 Script_PlayersHouse_1F_Intro_EnterHouse_Movement_0:
-# 570 "data/scripts/players_house.pory"
+# 569 "data/scripts/players_house.pory"
 	walk_up
 	step_end
 
-# 747 "data/scripts/players_house.pory"
+# 748 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_ApproachPlayer_North_Movement_0:
-# 748 "data/scripts/players_house.pory"
-	walk_down
-# 748 "data/scripts/players_house.pory"
-	walk_down
-# 748 "data/scripts/players_house.pory"
+# 749 "data/scripts/players_house.pory"
 	walk_down
 # 749 "data/scripts/players_house.pory"
+	walk_down
+# 749 "data/scripts/players_house.pory"
+	walk_down
+# 750 "data/scripts/players_house.pory"
 	face_left
 	step_end
 
-# 753 "data/scripts/players_house.pory"
+# 754 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_ApproachPlayer_North_Movement_1:
-# 754 "data/scripts/players_house.pory"
-	walk_down
-# 754 "data/scripts/players_house.pory"
-	walk_down
-# 754 "data/scripts/players_house.pory"
+# 755 "data/scripts/players_house.pory"
 	walk_down
 # 755 "data/scripts/players_house.pory"
+	walk_down
+# 755 "data/scripts/players_house.pory"
+	walk_down
+# 756 "data/scripts/players_house.pory"
 	face_right
 	step_end
 
@@ -1518,132 +1511,132 @@ Script_PlayersHouse_2F_Mom_ApproachPlayer_West_Movement_0:
 	face_down
 	step_end
 
-# 773 "data/scripts/players_house.pory"
+# 772 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_ApproachPlayer_South_Movement_0:
-# 774 "data/scripts/players_house.pory"
+# 773 "data/scripts/players_house.pory"
+	walk_down
+# 773 "data/scripts/players_house.pory"
+	walk_down
+# 773 "data/scripts/players_house.pory"
+	walk_down
+# 773 "data/scripts/players_house.pory"
+	walk_down
+# 773 "data/scripts/players_house.pory"
 	walk_down
 # 774 "data/scripts/players_house.pory"
-	walk_down
-# 774 "data/scripts/players_house.pory"
-	walk_down
-# 774 "data/scripts/players_house.pory"
-	walk_down
-# 774 "data/scripts/players_house.pory"
-	walk_down
-# 775 "data/scripts/players_house.pory"
 	face_player
 	step_end
 
-# 795 "data/scripts/players_house.pory"
+# 794 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Male_East_Movement_0:
-# 796 "data/scripts/players_house.pory"
+# 795 "data/scripts/players_house.pory"
+	walk_down
+# 795 "data/scripts/players_house.pory"
+	walk_down
+# 795 "data/scripts/players_house.pory"
 	walk_down
 # 796 "data/scripts/players_house.pory"
-	walk_down
+	walk_left
 # 796 "data/scripts/players_house.pory"
-	walk_down
-# 797 "data/scripts/players_house.pory"
 	walk_left
 # 797 "data/scripts/players_house.pory"
-	walk_left
-# 798 "data/scripts/players_house.pory"
 	face_player
 	step_end
 
-# 822 "data/scripts/players_house.pory"
+# 821 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_ApproachPlayer_Female_East_Movement_0:
-# 823 "data/scripts/players_house.pory"
+# 822 "data/scripts/players_house.pory"
+	walk_down
+# 822 "data/scripts/players_house.pory"
+	walk_down
+# 822 "data/scripts/players_house.pory"
 	walk_down
 # 823 "data/scripts/players_house.pory"
-	walk_down
+	walk_right
 # 823 "data/scripts/players_house.pory"
-	walk_down
-# 824 "data/scripts/players_house.pory"
 	walk_right
 # 824 "data/scripts/players_house.pory"
-	walk_right
-# 825 "data/scripts/players_house.pory"
 	face_player
 	step_end
 
-# 834 "data/scripts/players_house.pory"
+# 833 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_Leaves_Movement_0:
-# 835 "data/scripts/players_house.pory"
+# 834 "data/scripts/players_house.pory"
+	walk_up
+# 834 "data/scripts/players_house.pory"
+	walk_up
+# 834 "data/scripts/players_house.pory"
 	walk_up
 # 835 "data/scripts/players_house.pory"
-	walk_up
-# 835 "data/scripts/players_house.pory"
-	walk_up
-# 836 "data/scripts/players_house.pory"
 	set_invisible
 	step_end
 
-# 840 "data/scripts/players_house.pory"
+# 839 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_Leaves_Movement_1:
-# 841 "data/scripts/players_house.pory"
+# 840 "data/scripts/players_house.pory"
+	walk_up
+# 840 "data/scripts/players_house.pory"
+	walk_up
+# 840 "data/scripts/players_house.pory"
+	walk_up
+# 840 "data/scripts/players_house.pory"
+	walk_up
+# 840 "data/scripts/players_house.pory"
 	walk_up
 # 841 "data/scripts/players_house.pory"
-	walk_up
-# 841 "data/scripts/players_house.pory"
-	walk_up
-# 841 "data/scripts/players_house.pory"
-	walk_up
-# 841 "data/scripts/players_house.pory"
-	walk_up
-# 842 "data/scripts/players_house.pory"
 	set_invisible
 	step_end
 
-# 853 "data/scripts/players_house.pory"
+# 852 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_Leaves_Movement_2:
-# 854 "data/scripts/players_house.pory"
+# 853 "data/scripts/players_house.pory"
+	walk_left
+# 853 "data/scripts/players_house.pory"
 	walk_left
 # 854 "data/scripts/players_house.pory"
-	walk_left
-# 855 "data/scripts/players_house.pory"
+	walk_up
+# 854 "data/scripts/players_house.pory"
+	walk_up
+# 854 "data/scripts/players_house.pory"
 	walk_up
 # 855 "data/scripts/players_house.pory"
-	walk_up
-# 855 "data/scripts/players_house.pory"
-	walk_up
-# 856 "data/scripts/players_house.pory"
 	set_invisible
 	step_end
 
-# 862 "data/scripts/players_house.pory"
+# 861 "data/scripts/players_house.pory"
 Script_PlayersHouse_2F_Mom_Leaves_Movement_3:
-# 863 "data/scripts/players_house.pory"
+# 862 "data/scripts/players_house.pory"
+	walk_right
+# 862 "data/scripts/players_house.pory"
 	walk_right
 # 863 "data/scripts/players_house.pory"
-	walk_right
-# 864 "data/scripts/players_house.pory"
+	walk_up
+# 863 "data/scripts/players_house.pory"
+	walk_up
+# 863 "data/scripts/players_house.pory"
 	walk_up
 # 864 "data/scripts/players_house.pory"
-	walk_up
-# 864 "data/scripts/players_house.pory"
-	walk_up
-# 865 "data/scripts/players_house.pory"
 	set_invisible
 	step_end
 
 Text_PlayersHouse_1F_Mom_DidYouMeetBirch:
-# 373 "data/scripts/players_house.pory"
+# 372 "data/scripts/players_house.pory"
 	.string "Mom: Did you introduce yourself to\n"
 	.string "Prof. Birch?$"
 
 Text_PlayersHouse_1F_Mom_YouShouldRest:
-# 378 "data/scripts/players_house.pory"
+# 377 "data/scripts/players_house.pory"
 	.string "Mom: How are you doing, {PLAYER}?\n"
 	.string "You look a little tired.\p"
 	.string "I thin you should rest a bit.$"
 
 Text_PlayersHouse_1F_Mom_SomethingFromMom:
-# 384 "data/scripts/players_house.pory"
+# 383 "data/scripts/players_house.pory"
 	.string "Mom: Oh? Did Dad give you that Badge?\p"
 	.string "Then here's something from your Mom!$"
 
 Text_PlayersHouse_1F_Mom_PokeNav:
-# 389 "data/scripts/players_house.pory"
+# 388 "data/scripts/players_house.pory"
 	.string "Mom: What is that, honey? A PokéNav?\n"
 	.string "Someone from Devon gave it to you?\p"
 	.string "Well, honey, how about registering\n"
@@ -1651,47 +1644,47 @@ Text_PlayersHouse_1F_Mom_PokeNav:
 	.string "… … …$"
 
 Text_PlayersHouse_1F_Mom_PokeNav_Registered:
-# 397 "data/scripts/players_house.pory"
+# 396 "data/scripts/players_house.pory"
 	.string "Registered Mom\n"
 	.string "in the PokéNav.$"
 
 Text_PlayersHouse_1F_Mom_TakeCareHoney:
-# 417 "data/scripts/players_house.pory"
+# 416 "data/scripts/players_house.pory"
 	.string "Mom: Take care, honey!$"
 
 Text_PlayersHouse_1F_Mom_SeeYouHoney:
-# 421 "data/scripts/players_house.pory"
+# 420 "data/scripts/players_house.pory"
 	.string "Mom: See you, honey!$"
 
 Text_PlayersHouse_1F_Mom_DontPushYourselfTooHard::
-# 425 "data/scripts/players_house.pory"
+# 424 "data/scripts/players_house.pory"
 	.string "Don't push yourself too hard, dear.\n"
 	.string "You can always come home.\p"
 	.string "Go for it, honey!$"
 
 Text_PlayersHouse_1F_Mom_OhComeQuickly:
-# 517 "data/scripts/players_house.pory"
+# 516 "data/scripts/players_house.pory"
 	.string "Mom: Oh! {PLAYER}, {PLAYER}!\n"
 	.string "Quick! Come quickly!$"
 
 Text_PlayersHouse_1F_Mom_MaybeDadWillBeOn:
-# 522 "data/scripts/players_house.pory"
+# 521 "data/scripts/players_house.pory"
 	.string "Mom: Look! It's Petalburg Gym!\n"
 	.string "Maybe Dad will be on!$"
 
 Text_PlayersHouse_1F_Mom_ItsOver:
-# 527 "data/scripts/players_house.pory"
+# 526 "data/scripts/players_house.pory"
 	.string "Mom: Oh… It's over.\p"
 	.string "I think Dad was on, but we missed him.\n"
 	.string "Too bad.$"
 
 Text_PlayersHouse_1F_Interviewer_PetalburgGym:
-# 544 "data/scripts/players_house.pory"
+# 543 "data/scripts/players_house.pory"
 	.string "Interviewer: …We brought you this\n"
 	.string "report from in front of Petalburg Gym.$"
 
 Text_PlayersHouse_1F_Mom_GoIntroduceProfBirch:
-# 549 "data/scripts/players_house.pory"
+# 548 "data/scripts/players_house.pory"
 	.string "Oh, yes.\n"
 	.string "One of your Dad's and I's friends\l"
 	.string "lives and works in Littleroot Town.\p"
@@ -1701,12 +1694,12 @@ Text_PlayersHouse_1F_Mom_GoIntroduceProfBirch:
 	.string "for the next part of your gift!$"
 
 Text_PlayersHouse_1F_Mom_ItsNiceInHere:
-# 578 "data/scripts/players_house.pory"
+# 577 "data/scripts/players_house.pory"
 	.string "Mom: See, {PLAYER}?\n"
 	.string "Isn't it nice in here, too?$"
 
 Text_PlayersHouse_1F_Mom_MoversAndGift:
-# 583 "data/scripts/players_house.pory"
+# 582 "data/scripts/players_house.pory"
 	.string "The mover's Pokémon do all the work\n"
 	.string "of moving us in and cleaning up after.\l"
 	.string "This is so convenient!\p"
@@ -1719,26 +1712,26 @@ Text_PlayersHouse_1F_Mom_MoversAndGift:
 	.string "actually like!$"
 
 Text_PlayersHouse_1F_GoOpenGift::
-# 602 "data/scripts/players_house.pory"
+# 601 "data/scripts/players_house.pory"
 	.string "Mom: {PLAYER}.\p"
 	.string "Go open my gift up in your room, honey.$"
 
 Text_PlayersHouse_1F_Mom_ArentYouInterestedInRoom::
-# 607 "data/scripts/players_house.pory"
+# 606 "data/scripts/players_house.pory"
 	.string "Mom: Well, {PLAYER}?\p"
 	.string "Aren't you interested in seeing your\n"
 	.string "very own room?$"
 
 Text_PlayersHouse_1F_Vigoroth_Fugi::
-# 624 "data/scripts/players_house.pory"
+# 623 "data/scripts/players_house.pory"
 	.string "Fugiiiih!$"
 
 Text_PlayersHouse_1F_Vigoroth_Huggoh::
-# 639 "data/scripts/players_house.pory"
+# 638 "data/scripts/players_house.pory"
 	.string "Huggoh, uggo uggo…$"
 
 Text_PlayersHouse_1F_RunningShoesManual::
-# 648 "data/scripts/players_house.pory"
+# 649 "data/scripts/players_house.pory"
 	.string "It's the instruction booklet for the\n"
 	.string "Running Shoes.\p"
 	.string "Press the B Button to run while\n"
@@ -1747,7 +1740,7 @@ Text_PlayersHouse_1F_RunningShoesManual::
 	.string "the road running!”$"
 
 Text_PlayersHouse_1F_Dad_TicketFromBriney::
-# 657 "data/scripts/players_house.pory"
+# 658 "data/scripts/players_house.pory"
 	.string "Dad: Hm?\p"
 	.string "Hey, it's {PLAYER}!\p"
 	.string "It's been a while since I saw you,\n"
@@ -1759,48 +1752,48 @@ Text_PlayersHouse_1F_Dad_TicketFromBriney::
 	.string "Mr. Briney.$"
 
 Text_PlayersHouse_1F_Dad_TicketsForFerry::
-# 668 "data/scripts/players_house.pory"
+# 669 "data/scripts/players_house.pory"
 	.string "Dad: Hm, a Ticket for a ferry?"
 	.string "If I recall, there are ferry ports in\n"
 	.string "Slateport and Lilycove.$"
 
 Text_PlayersHouse_1F_Dad_BetterGetBackToGym::
-# 674 "data/scripts/players_house.pory"
+# 675 "data/scripts/players_house.pory"
 	.string "I'd better get back to Petalburg Gym.\p"
 	.string "Mom, thanks for looking after the house\n"
 	.string "while I'm away.$"
 
 Text_PlayersHouse_1F_Mom_DadShouldStayLonger::
-# 680 "data/scripts/players_house.pory"
+# 681 "data/scripts/players_house.pory"
 	.string "Mom: That Dad of yours…\p"
 	.string "He comes home for the first time in a\n"
 	.string "while, but all he talks about is Pokémon.\p"
 	.string "He should relax and stay a little longer.$"
 
 Text_PlayersHouse_1F_Mom_BreakingNews::
-# 687 "data/scripts/players_house.pory"
+# 688 "data/scripts/players_house.pory"
 	.string "Mom: Is that a breaking news story?$"
 
 Text_PlayersHouse_1F_Mom_WhatColor::
-# 691 "data/scripts/players_house.pory"
+# 692 "data/scripts/players_house.pory"
 	.string "Mom: {PLAYER}, did you catch that?\p"
 	.string "What color did the announcer say\n"
 	.string "that Pokémon was?$"
 
 Text_PlayersHouse_1F_Mom_StillUnknownPokemon::
-# 697 "data/scripts/players_house.pory"
+# 698 "data/scripts/players_house.pory"
 	.string "Mom: Well, isn't that something!\n"
 	.string "There are still unknown Pokémon.$"
 
 Text_PlayersHouse_2F_MomsGift_Note::
-# 728 "data/scripts/players_house.pory"
+# 729 "data/scripts/players_house.pory"
 	.string "“I know moving to Hoenn wasn't\n"
 	.string "really what you wanted. But hopefully\l"
 	.string "these will make your time in Hoenn,\l"
 	.string "that much more exciting!” - Mom$"
 
 Text_PlayersHouse_2F_Mom_HowDoYouLikeYourRoom:
-# 879 "data/scripts/players_house.pory"
+# 878 "data/scripts/players_house.pory"
 	.string "Mom: {PLAYER}, how do you like your\n"
 	.string "new room?\p"
 	.string "Good! Everything's put away neatly!\p"
@@ -1814,7 +1807,7 @@ Text_PlayersHouse_2F_Mom_HowDoYouLikeYourRoom:
 	.string "in his lab for the second part of it.$"
 
 Text_PlayersHouse_2F_Notebook:
-# 898 "data/scripts/players_house.pory"
+# 897 "data/scripts/players_house.pory"
 	.string "{PLAYER} flipped open the notebook.\n"
 	.string "{UP_ARROW}{UP_ARROW}{DOWN_ARROW}{DOWN_ARROW}{LEFT_ARROW}{RIGHT_ARROW}{LEFT_ARROW}{RIGHT_ARROW}{B_BUTTON}{A_BUTTON}\l"
 	.string "The book is filled with cheat codes.\p"
@@ -1829,67 +1822,67 @@ Text_PlayersHouse_2F_Notebook:
 	.string "▶Codes cannot be reverted.\p$"
 
 Text_PlayersHouse_2F_GameCube_EnterCode:
-# 969 "data/scripts/players_house.pory"
+# 968 "data/scripts/players_house.pory"
 	.string "It's a Nintendo GameCube.\p"
 	.string "Enter a cheat code?$"
 
 Text_PlayersHouse_2F_GameCube_Code_Fail:
-# 974 "data/scripts/players_house.pory"
+# 973 "data/scripts/players_house.pory"
 	.string "Cheat code failed.$"
 
 Text_PlayersHouse_2F_GameCube_Code_Success:
-# 978 "data/scripts/players_house.pory"
+# 977 "data/scripts/players_house.pory"
 	.string "Cheat code succeeded.$"
 
 Text_PlayersHouse_2F_GameCube_Code_DexAll_On:
-# 982 "data/scripts/players_house.pory"
+# 981 "data/scripts/players_house.pory"
 	.string "DexAll cheat enabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_DexAll_Off:
-# 986 "data/scripts/players_house.pory"
+# 985 "data/scripts/players_house.pory"
 	.string "DexAll cheat disabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_CaughtAll_On:
-# 990 "data/scripts/players_house.pory"
+# 989 "data/scripts/players_house.pory"
 	.string "CaughtAll cheat enabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_MaxMoney:
-# 994 "data/scripts/players_house.pory"
+# 993 "data/scripts/players_house.pory"
 	.string "Money set to max amount.$"
 
 Text_PlayersHouse_2F_GameCube_Code_EzCatch_On:
-# 998 "data/scripts/players_house.pory"
+# 997 "data/scripts/players_house.pory"
 	.string "EZCatch cheat enabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_EzCatch_Off:
-# 1002 "data/scripts/players_house.pory"
+# 1001 "data/scripts/players_house.pory"
 	.string "EZCatch cheat disabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_ShinyStarter_On:
-# 1006 "data/scripts/players_house.pory"
+# 1005 "data/scripts/players_house.pory"
 	.string "ShinyStarters cheat enabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_ShinyStarter_Off:
-# 1010 "data/scripts/players_house.pory"
+# 1009 "data/scripts/players_house.pory"
 	.string "ShinyStarters cheat disabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_ShinyLegends_On:
-# 1014 "data/scripts/players_house.pory"
+# 1013 "data/scripts/players_house.pory"
 	.string "ShinyLegends cheat enabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_ShinyLegends_Off:
-# 1018 "data/scripts/players_house.pory"
+# 1017 "data/scripts/players_house.pory"
 	.string "ShinyLegends cheat disabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_MonoStarter_On:
-# 1022 "data/scripts/players_house.pory"
+# 1021 "data/scripts/players_house.pory"
 	.string "Monotype Starters cheat enabled.$"
 
 Text_PlayersHouse_2F_GameCube_Code_MonoStarter_Off:
-# 1026 "data/scripts/players_house.pory"
+# 1025 "data/scripts/players_house.pory"
 	.string "Monotype Starters cheat disabled.$"
 
 Text_Common_LookCloserAtMap:
-# 1030 "data/scripts/players_house.pory"
+# 1029 "data/scripts/players_house.pory"
 	.string "{PLAYER} took a closer look at the\n"
 	.string "{REGION} region map.$"

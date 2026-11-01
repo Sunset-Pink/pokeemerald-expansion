@@ -13,7 +13,7 @@ LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor::
 	special GetRivalSonDaughterString
 	msgbox Text_RivalsHouse_1F_RivalsMom_OhYoureTheNewNeighbor, MSGBOX_DEFAULT
 	setflag FLAG_MET_RIVAL_MOM
-	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2
+	setvar VAR_RIVAL_HOUSE_STATE, 2
 	releaseall
 	end
 
@@ -208,8 +208,8 @@ mapscripts LittlerootTown_MaysHouse_1F_MapScripts {
 		VAR_QUEST_INTRO_STATE, 1: Script_LittlerootTown_MaysHouse_1F_Intro_EnterHouse
 		VAR_QUEST_INTRO_STATE, 3: Script_LittlerootTown_MaysHouse_1F_Intro_GoUpstairsForGift
 		VAR_QUEST_INTRO_STATE, 4: Script_LittlerootTown_MaysHouse_1F_PetalburgGymReport
-		//VAR_LITTLEROOT_HOUSES_STATE_MAY, 1: LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor
-		//VAR_LITTLEROOT_HOUSES_STATE_MAY, 3: PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV
+		//VAR_RIVAL_HOUSE_STATE, 1: LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor
+		//VAR_RIVAL_HOUSE_STATE, 3: PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV
 	]
 }
 

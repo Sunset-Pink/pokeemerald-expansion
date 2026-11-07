@@ -426,7 +426,7 @@ Script_LittlerootTown_MaysHouse_1F_OnLoad:
 	goto_if_lt Script_LittlerootTown_MaysHouse_1F_OnLoad_2
 Script_LittlerootTown_MaysHouse_1F_OnLoad_1:
 # 220 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	goto_if_set FLAG_RECEIVED_RUNNING_SHOES, Script_LittlerootTown_MaysHouse_1F_OnLoad_4
+	goto_if_set FLAG_RECEIVED_RUNNING_SHOES, Script_LittlerootTown_MaysHouse_1F_OnLoad_5
 	return
 
 Script_LittlerootTown_MaysHouse_1F_OnLoad_2:
@@ -437,6 +437,13 @@ Script_LittlerootTown_MaysHouse_1F_OnLoad_2:
 Script_LittlerootTown_MaysHouse_1F_OnLoad_4:
 # 221 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	call Script_LittlerootTown_MaysHouse_1F_RunningShoesManual
+	return
+
+Script_LittlerootTown_MaysHouse_1F_OnLoad_5:
+	checkplayergender
+# 0 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
+	compare VAR_RESULT, FEMALE
+	goto_if_eq Script_LittlerootTown_MaysHouse_1F_OnLoad_4
 	return
 
 

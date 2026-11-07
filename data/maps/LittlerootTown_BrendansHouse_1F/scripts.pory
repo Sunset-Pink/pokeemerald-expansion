@@ -214,7 +214,7 @@ script(local) Script_LittlerootTown_BrendansHouse_1F_OnLoad {
 	if(var(VAR_QUEST_INTRO_STATE) < 4) {
 		call(Script_PlayersHouse_1F_SetMovingBoxes)
 	}
-	if(flag(FLAG_RECEIVED_RUNNING_SHOES)) {
+	if(flag(FLAG_RECEIVED_RUNNING_SHOES) && checkplayergender == MALE) {
 		call(Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual)
 	}
 }
@@ -249,9 +249,7 @@ script Script_LittlerootTown_BrendansHouse_1F_MoveMom_ToStairs{
 }
 
 script Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual {
-	if(checkplayergender == MALE) {
-		setmetatile(3, 7, METATILE_BrendansMaysHouse_BookOnTable, TRUE)
-	}
+	setmetatile(3, 7, METATILE_BrendansMaysHouse_BookOnTable, TRUE)
 	return
 }
 

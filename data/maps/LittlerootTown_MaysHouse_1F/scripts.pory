@@ -217,7 +217,7 @@ script(local) Script_LittlerootTown_MaysHouse_1F_OnLoad {
 		if(var(VAR_QUEST_INTRO_STATE) < 4) {
 		call(Script_PlayersHouse_1F_SetMovingBoxes)
 	}
-	if(flag(FLAG_RECEIVED_RUNNING_SHOES)) {
+	if(flag(FLAG_RECEIVED_RUNNING_SHOES) && checkplayergender == FEMALE) {
 		call(Script_LittlerootTown_MaysHouse_1F_RunningShoesManual)
 	}
 }

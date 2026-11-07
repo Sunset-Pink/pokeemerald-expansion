@@ -633,8 +633,10 @@ script Script_PlayersHouse_1F_Interact_RunningShoesManual {
 text Text_PlayersHouse_1F_RunningShoesManual {
 	"It's the instruction booklet for the\n"
 	"Running Shoes.\p"
-	"Press the B Button to run while\n"
-	"wearing your Running Shoes.\p"
+	"Auto Run can be toggled by using\n"
+	"the Running Shoes in the Bag.\l"
+	"Holding {B_BUTTON} will temporary toggle\l"
+	"Auto Run.\p"
 	"\qoLace up your Running Shoes and hit\n"
 	"the road running!\qc"
 }

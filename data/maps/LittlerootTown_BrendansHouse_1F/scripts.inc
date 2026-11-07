@@ -422,7 +422,7 @@ Script_LittlerootTown_BrendansHouse_1F_OnLoad:
 	goto_if_lt Script_LittlerootTown_BrendansHouse_1F_OnLoad_2
 Script_LittlerootTown_BrendansHouse_1F_OnLoad_1:
 # 217 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	goto_if_set FLAG_RECEIVED_RUNNING_SHOES, Script_LittlerootTown_BrendansHouse_1F_OnLoad_4
+	goto_if_set FLAG_RECEIVED_RUNNING_SHOES, Script_LittlerootTown_BrendansHouse_1F_OnLoad_5
 	return
 
 Script_LittlerootTown_BrendansHouse_1F_OnLoad_2:
@@ -433,6 +433,13 @@ Script_LittlerootTown_BrendansHouse_1F_OnLoad_2:
 Script_LittlerootTown_BrendansHouse_1F_OnLoad_4:
 # 218 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	call Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual
+	return
+
+Script_LittlerootTown_BrendansHouse_1F_OnLoad_5:
+	checkplayergender
+# 0 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+	compare VAR_RESULT, MALE
+	goto_if_eq Script_LittlerootTown_BrendansHouse_1F_OnLoad_4
 	return
 
 
@@ -491,67 +498,59 @@ Script_LittlerootTown_BrendansHouse_1F_MoveMom_ToStairs::
 
 
 Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual::
-	checkplayergender
-# 0 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
-	compare VAR_RESULT, MALE
-	goto_if_eq Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual_2
-Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual_1:
-	return
-
-Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual_2:
-# 253 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 252 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	setmetatile 3, 7, METATILE_BrendansMaysHouse_BookOnTable, TRUE
-	goto Script_LittlerootTown_BrendansHouse_1F_RunningShoesManual_1
+	return
 
 
 Script_LittlerootTown_BrendansHouse_1F_Intro_EnterHouse::
-# 259 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 257 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	lockall
-# 260 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 258 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	setvar VAR_0x8004, LOCALID_PLAYERS_HOUSE_1F_MOM
-# 261 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 259 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	setvar VAR_0x8005, MALE
-# 262 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 260 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	goto Script_PlayersHouse_1F_Intro_EnterHouse
 	end
 
 
 Script_LittlerootTown_BrendansHouse_1F_Intro_GoUpstairsForGift::
-# 267 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 265 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	lockall
-# 268 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 266 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	msgbox Text_PlayersHouse_1F_GoOpenGift
-# 269 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 267 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	closemessage
-# 270 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 268 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	applymovement LOCALID_PLAYER, Script_LittlerootTown_BrendansHouse_1F_Intro_GoUpstairsForGift_Movement_0
-# 271 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 269 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Script_LittlerootTown_BrendansHouse_1F_Intro_GoUpstairsForGift_Movement_0
-# 272 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 270 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	waitmovement 0
-# 273 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 271 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F, 7, 1
-# 274 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 272 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	waitstate
-# 275 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 273 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	releaseall
 	end
 
 
 Script_LittlerootTown_BrendansHouse_1F_PetalburgGymReport::
-# 280 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 278 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	lockall
-# 281 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 279 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	setvar VAR_0x8004, MALE
-# 282 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 280 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	setvar VAR_0x8005, LOCALID_PLAYERS_HOUSE_1F_MOM
-# 283 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 281 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	goto Script_PlayersHouse_1F_PetalburgGymReport
 	end
 
 
-# 270 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 268 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 Script_LittlerootTown_BrendansHouse_1F_Intro_GoUpstairsForGift_Movement_0:
-# 270 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
+# 268 "data/maps/LittlerootTown_BrendansHouse_1F/scripts.pory"
 	walk_up
 	step_end

@@ -375,7 +375,6 @@ script Script_InsideOfTruck_GameInit_ConfigSettings_SetDefault {
     msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_DefaultSettingsSaved)
     setdifficulty(DIFFICULTY_NORMAL)
     setflag(FLAG_IS_MIN_GRINDING_MODE)
-    special(ForceBattleStyleSet)
     releaseall
 }
 
@@ -386,7 +385,6 @@ text(local) Text_InsideOfTruck_GameInit_ConfigSettings_DefaultSettingsSaved {
 
 script Script_InsideOfTruck_GameInit_ConfigSettings_SaveSettings {
     msgbox(Text_InsideOfTruck_GameInit_ConfigSettings_CustomSettingsSaved)
-    special(ForceBattleStyleSet)
     releaseall
 }
 

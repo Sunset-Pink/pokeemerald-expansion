@@ -394,24 +394,20 @@ Script_InsideOfTruck_GameInit_ConfigSettings_SetDefault::
 # 377 "data/maps/InsideOfTruck/scripts.pory"
 	setflag FLAG_IS_MIN_GRINDING_MODE
 # 378 "data/maps/InsideOfTruck/scripts.pory"
-	special ForceBattleStyleSet
-# 379 "data/maps/InsideOfTruck/scripts.pory"
 	releaseall
 	return
 
 
 Script_InsideOfTruck_GameInit_ConfigSettings_SaveSettings::
-# 388 "data/maps/InsideOfTruck/scripts.pory"
+# 387 "data/maps/InsideOfTruck/scripts.pory"
 	msgbox Text_InsideOfTruck_GameInit_ConfigSettings_CustomSettingsSaved
-# 389 "data/maps/InsideOfTruck/scripts.pory"
-	special ForceBattleStyleSet
-# 390 "data/maps/InsideOfTruck/scripts.pory"
+# 388 "data/maps/InsideOfTruck/scripts.pory"
 	releaseall
 	return
 
 
 Script_InsideOfTruck_Interact_MovingBox::
-# 399 "data/maps/InsideOfTruck/scripts.pory"
+# 397 "data/maps/InsideOfTruck/scripts.pory"
 	msgbox Text_InsideOfTruck_BoxPrintedWithMonLogo, MSGBOX_SIGN
 	end
 
@@ -642,17 +638,17 @@ Text_InsideOfTruck_GameInit_ConfigSettings_MinGrinding_Disabled::
 	.string "{COLOR RED}{SHADOW LIGHT_RED}Minimal Griding Mode disabled.$"
 
 Text_InsideOfTruck_GameInit_ConfigSettings_DefaultSettingsSaved:
-# 382 "data/maps/InsideOfTruck/scripts.pory"
+# 381 "data/maps/InsideOfTruck/scripts.pory"
 	.string "Default settings saved.\n"
 	.string "Good luck!$"
 
 Text_InsideOfTruck_GameInit_ConfigSettings_CustomSettingsSaved:
-# 393 "data/maps/InsideOfTruck/scripts.pory"
+# 391 "data/maps/InsideOfTruck/scripts.pory"
 	.string "Custom settings saved.\n"
 	.string "Good luck!$"
 
 Text_InsideOfTruck_BoxPrintedWithMonLogo:
-# 403 "data/maps/InsideOfTruck/scripts.pory"
+# 401 "data/maps/InsideOfTruck/scripts.pory"
 	.string "The box is printed with a Pokémon logo.\p"
 	.string "It's a Pokémon brand moving and\n"
 	.string "delivery service.$"

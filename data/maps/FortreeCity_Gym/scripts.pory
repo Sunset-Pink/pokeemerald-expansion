@@ -1,0 +1,364 @@
+mapscripts FortreeCity_Gym_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: FortreeCity_Gym_OnTransition
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_TEMP_0, VAR_TEMP_0: FortreeCity_Gym_EventScript_InitRotatingGates
+    ]
+}
+
+script FortreeCity_Gym_EventScript_Winona {
+	trainerbattle_single(
+        TRAINER_WINONA_NORMAL,
+        FortreeCity_Gym_Text_WinonaIntro, 
+        FortreeCity_Gym_Text_WinonaDefeat, 
+        FortreeCity_Gym_EventScript_WinonaDefeated, 
+        NO_MUSIC
+    )
+	specialvar(VAR_RESULT, ShouldTryRematchBattle)
+    if(var(VAR_RESULT) == TRUE) {
+        goto(FortreeCity_Gym_EventScript_WinonaRematch)
+    }
+    if(flag(FLAG_RECEIVED_TM_AERIAL_ACE) == FALSE) {
+        goto(FortreeCity_Gym_EventScript_GiveAerialAce2)
+    }
+	msgbox(FortreeCity_Gym_Text_WinonaPostBattle)
+	release
+	end
+}
+
+raw`
+
+FortreeCity_Gym_OnTransition:
+	special RotatingGate_InitPuzzle
+	setflag FLAG_TEMP_HIDE_FOLLOWER @ Hide follower bc of rotating gates
+	end
+
+@ NOTE: This rotating gate puzzle makes use of VAR_TEMP_0 - VAR_TEMP_3
+FortreeCity_Gym_EventScript_InitRotatingGates::
+	special RotatingGate_InitPuzzleAndGraphics
+	end
+
+FortreeCity_Gym_EventScript_WinonaDefeated::
+	message FortreeCity_Gym_Text_ReceivedFeatherBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	msgbox FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_FORTREE_GYM
+	setflag FLAG_BADGE06_GET
+	setvar VAR_0x8008, 6
+	call Common_EventScript_SetGymTrainers
+	call FortreeCity_Gym_EventScript_GiveAerialAce
+	closemessage
+	delay 30
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox FortreeCity_Gym_Text_RegisteredWinona, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_WINONA_MATCH_CALL
+	setvar VAR_SCOTT_FORTREE_CALL_STEP_COUNTER, 0
+	setflag FLAG_SCOTT_CALL_FORTREE_GYM
+	release
+	end
+
+FortreeCity_Gym_EventScript_GiveAerialAce2::
+	giveitem ITEM_TM_AERIAL_ACE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	msgbox FortreeCity_Gym_Text_ExplainAerialAce, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM_AERIAL_ACE
+	release
+	end
+
+FortreeCity_Gym_EventScript_GiveAerialAce::
+	giveitem ITEM_TM_AERIAL_ACE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	msgbox FortreeCity_Gym_Text_ExplainAerialAce, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM_AERIAL_ACE
+	return
+
+FortreeCity_Gym_EventScript_WinonaRematch::
+	@trainerbattle_rematch_double TRAINER_WINONA_NORMAL, FortreeCity_Gym_Text_WinonaPreRematch, FortreeCity_Gym_Text_WinonaRematchDefeat, FortreeCity_Gym_Text_WinonaRematchNeedTwoMons
+	msgbox FortreeCity_Gym_Text_WinonaPostRematch, MSGBOX_AUTOCLOSE
+	end
+
+FortreeCity_Gym_EventScript_Jared::
+	trainerbattle_single TRAINER_JARED, FortreeCity_Gym_Text_JaredIntro, FortreeCity_Gym_Text_JaredDefeat
+	msgbox FortreeCity_Gym_Text_JaredPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+FortreeCity_Gym_EventScript_Edwardo::
+	trainerbattle_single TRAINER_EDWARDO, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
+	msgbox FortreeCity_Gym_Text_EdwardoPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+FortreeCity_Gym_EventScript_Flint::
+	trainerbattle_single TRAINER_FLINT, FortreeCity_Gym_Text_FlintIntro, FortreeCity_Gym_Text_FlintDefeat
+	msgbox FortreeCity_Gym_Text_FlintPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+FortreeCity_Gym_EventScript_Ashley::
+	trainerbattle_single TRAINER_ASHLEY, FortreeCity_Gym_Text_AshleyIntro, FortreeCity_Gym_Text_AshleyDefeat
+	msgbox FortreeCity_Gym_Text_AshleyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+FortreeCity_Gym_EventScript_Humberto::
+	trainerbattle_single TRAINER_HUMBERTO, FortreeCity_Gym_Text_HumbertoIntro, FortreeCity_Gym_Text_HumbertoDefeat
+	msgbox FortreeCity_Gym_Text_HumbertoPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+FortreeCity_Gym_EventScript_Darius::
+	trainerbattle_single TRAINER_DARIUS, FortreeCity_Gym_Text_DariusIntro, FortreeCity_Gym_Text_DariusDefeat
+	msgbox FortreeCity_Gym_Text_DariusPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+FortreeCity_Gym_EventScript_GymGuide::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_FORTREE_GYM, FortreeCity_Gym_EventScript_GymGuidePostVictory
+	msgbox FortreeCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	release
+	end
+
+FortreeCity_Gym_EventScript_GymGuidePostVictory::
+	msgbox FortreeCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
+	release
+	end
+
+FortreeCity_Gym_EventScript_LeftGymStatue::
+	lockall
+	goto_if_set FLAG_BADGE06_GET, FortreeCity_Gym_EventScript_GymStatueCertified
+	goto FortreeCity_Gym_EventScript_GymStatue
+	end
+
+FortreeCity_Gym_EventScript_RightGymStatue::
+	lockall
+	goto_if_set FLAG_BADGE06_GET, FortreeCity_Gym_EventScript_GymStatueCertified
+	goto FortreeCity_Gym_EventScript_GymStatue
+	end
+
+FortreeCity_Gym_EventScript_GymStatueCertified::
+	msgbox FortreeCity_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT
+	releaseall
+	end
+
+FortreeCity_Gym_EventScript_GymStatue::
+	msgbox FortreeCity_Gym_Text_GymStatue, MSGBOX_DEFAULT
+	releaseall
+	end
+`
+
+text(local) FortreeCity_Gym_Text_GymGuideAdvice {
+	"Yo, how's it going, Champion-\n"
+	"bound {PLAYER}?\p"
+	"Fortree Gym Leader Winona is\n"
+	"a master of Flying-type Pok\emon.\p"
+	"She's waiting at the back of this Gym,\n"
+	"behind the rotating doors.\p"
+	"She's waiting for new challengers\n"
+	"who are trying to take wing!\p"
+	"Okay, go for it!"
+}
+
+text(local) FortreeCity_Gym_Text_GymGuidePostVictory {
+	"You did it!\n"
+	"You've achieved liftoff!"
+}
+
+text(local) FortreeCity_Gym_Text_JaredIntro {
+	"Behold the elegant battle style of\n"
+	"Bird Pok\emon!"
+}
+
+text(local) FortreeCity_Gym_Text_JaredDefeat {
+	"You\.\n"
+	"You're strong\."
+}
+
+text(local) FortreeCity_Gym_Text_JaredPostBattle {
+	"A Trainer has to be smart to keep\n"
+	"up with unexpected turns of events.\p"
+	"Do you have the smarts to get to\n"
+	"our Leader?"
+}
+
+text(local) FortreeCity_Gym_Text_EdwardoIntro {
+	"The lovers of Bird Pok\emon aspire\n"
+	"to join this Gym.\p"
+	"As a member of the Fortree Gym,\n"
+	"I'm not allowed to lose!"
+}
+
+text(local) FortreeCity_Gym_Text_EdwardoDefeat {
+	"It was too much of a load for me\n"
+	"to bear\."
+}
+
+text(local) FortreeCity_Gym_Text_EdwardoPostBattle {
+	"The world is huge, and there are\n"
+	"countless tough Trainers.\p"
+	"I'm going to keep training and make\n"
+	"myself even stronger."
+}
+
+text(local) FortreeCity_Gym_Text_FlintIntro {
+	"There's no need for Wiona, our Gym\n"
+	"Leader, to deal with you!\p"
+	"I'm plenty good enough for you!"
+}
+
+text(local) FortreeCity_Gym_Text_FlintDefeat {
+	"Winona, I\.\n"
+	"I lost!"
+}
+
+text(local) FortreeCity_Gym_Text_FlintPostBattle {
+	"Winona is cute and she's strong.\n"
+	"She's the ultimate Leader!\p"
+	"Blush\."
+}
+
+text(local) FortreeCity_Gym_Text_AshleyIntro {
+	"Winona taught me personally!\n"
+	"You can't beat me easily!"
+}
+
+text(local) FortreeCity_Gym_Text_AshleyDefeat {
+	"I was beaten\."
+}
+
+text(local) FortreeCity_Gym_Text_AshleyPostBattle {
+	"Thanks to Winona, the people of\n"
+	"Fortree can live without fear."
+}
+
+text(local) FortreeCity_Gym_Text_HumbertoIntro {
+	"When Winona takes to battle, her face\n"
+	"shines with beautiful determination\.\p"
+	"I'm not letting you witness that\n"
+	"lovely sight!"
+}
+
+text(local) FortreeCity_Gym_Text_HumbertoDefeat {
+	"Urk!\n"
+	"I couldn't stop you."
+}
+
+text(local) FortreeCity_Gym_Text_HumbertoPostBattle {
+	"You'd better watch it!\n"
+	"Don't get distracted staring at Winona\l"
+	"or you'll go crashing down in a heap!"
+}
+
+text(local) FortreeCity_Gym_Text_DariusIntro {
+	"You'd better know that there are all\n"
+	"sorts of FLYING-type Pok\emon.\p"
+	"You do know that, right?"
+}
+
+text(local) FortreeCity_Gym_Text_DariusDefeat {
+	"You seem to know your stuff!"
+}
+
+text(local) FortreeCity_Gym_Text_DariusPostBattle {
+	"Sure, you beat me all right.\n"
+	"But you'd better watch it! Our Leader\l"
+	"Winona's Pok\emon are all business."
+}
+
+text(local) FortreeCity_Gym_Text_WinonaIntro {
+	"I am Winona. I am the Leader of\n"
+	"the Fortree Pok\emon Gym.\p"
+	"I have become one with Flying Pok\emon\n"
+	"and have soared the skies\.\p"
+	"However grueling the battle, we have\n"
+	"triumphed with grace\.\p"
+	"Witness the elegant choreography\n"
+	"of Flying Pok\emon and I!"
+}
+
+text(local) FortreeCity_Gym_Text_WinonaDefeat {
+	"Never before have I seen a Trainer\n"
+	"command Pok\emon with more grace\l"
+	"than I\.\p"
+	"In recognition of your prowess,\n"
+	"I present to you this Gym Badge."
+}
+
+text(local) FortreeCity_Gym_Text_ReceivedFeatherBadge {
+	"{PLAYER} received the Feather Badge\n"
+	"from Winona."
+}
+
+text(local) FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis {
+	"With the Feather Badge, all Pok\emon up\n"
+	"to LV 70, even those received through\l"
+	"trades, will obey your every command.\p"
+	"You will also be able to use\n"
+	"the HM move Fly outside of battle.\p"
+	"And this\.\n"
+	"This is a gift from me."
+}
+
+text(local) FortreeCity_Gym_Text_ExplainAerialAce {
+	"TM40 contains Aerial Ace.\p"
+	"Its speed\.\n"
+	"No Pok\emon should be able to avoid it.\p"
+	"\. \. \. \. \. \."
+}
+
+text(local) FortreeCity_Gym_Text_RegisteredWinona {
+	"Registered Gym Leader Winona\n"
+	"in the Pok\eNav."
+}
+
+text(local) FortreeCity_Gym_Text_WinonaPostBattle {
+	"Though I fell to you, I will remain\n"
+	"devoted to Flying Pok\emon."
+}
+
+text(local) FortreeCity_Gym_Text_GymStatue {
+	"Fortree City Pok\emon Gym"
+}
+
+text(local) FortreeCity_Gym_Text_GymStatueCertified {
+	"Foretree City Pok\emon Gym\p"
+	"Winona's Certified Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) FortreeCity_Gym_Text_WinonaPreRematch {
+	"Winona: We humans can never escape\n"
+	"gravity's pull on the ground.\p"
+	"But by striving for excellence,\n"
+	"we have the power to soar!\p"
+	"You have scaled the pinnacle as\n"
+	"the reigning Champion.\p"
+	"Please, allow me to see your power\n"
+	"at full flight!"
+}
+
+text(local) FortreeCity_Gym_Text_WinonaRematchDefeat {
+	"I failed to reach your height again\."
+}
+
+text(local) FortreeCity_Gym_Text_WinonaPostRematch {
+	"Winona: Even though I have lost,\n"
+	"the wings of my heart remain unbroken.\p"
+	"I can rise and soar again and\n"
+	"yet again.\p"
+	"I am convinced of it!"
+}
+
+text(local) FortreeCity_Gym_Text_WinonaRematchNeedTwoMons {
+	"Winona: We humans can never escape\n"
+	"gravity's pull on the ground.\p"
+	"But by striving for excellence,\n"
+	"we have the power to soar!\p"
+	"You have scaled the pinnacle as\n"
+	"the reigning Champion.\p"
+	"Please, allow me to see your power\n"
+	"at full flight!\p"
+	"Oh, no\. Do you have but one\n"
+	"Pok\emon with you?\p"
+	"Please return with two Pok\emon\n"
+	"at the very least."
+}

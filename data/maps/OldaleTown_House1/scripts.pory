@@ -1,0 +1,17 @@
+raw`
+OldaleTown_House1_MapScripts::
+	.byte 0
+
+OldaleTown_House1_EventScript_Woman::
+	msgbox OldaleTown_House1_Text_LeftPokemonGoesOutFirst, MSGBOX_NPC
+	end
+`
+
+text(local) OldaleTown_House1_Text_LeftPokemonGoesOutFirst {
+	"When a Pok\emon battle starts, the one\n"
+	"at the left of the list goes out first.\p"
+	"So, when you get more Pok\emon in your\n"
+	"party, try switching around the order\l"
+	"of your Pok\emon.\p"
+	"It could give you an advantage."
+}

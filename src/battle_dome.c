@@ -2127,7 +2127,7 @@ static void CalcDomeMonStats(const struct TrainerMon *fmon, int level, u8 ivs, i
 
     for (enum Stat i = 0; i < NUM_STATS; i++)
     {
-        if (fmon->ev != NULL)
+        if (fmon->ev != NULL && !FlagGet(FLAG_IS_MIN_GRINDING_MODE))
             evs[i] = fmon->ev[i];
         else
             evs[i] = 0;

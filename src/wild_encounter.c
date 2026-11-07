@@ -514,7 +514,25 @@ void CreateWildMon(enum Species species, u8 level)
 {
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species, GetSynchronizedGender(WILDMON_ORIGIN, species), PickWildMonNature(species), RANDOM_UNOWN_LETTER);
-    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    u8 ivMethod = USE_RANDOM_IVS;
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        ivMethod = MAX_PER_STAT_IVS;
+    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, ivMethod);
+
+    if(
+        FlagGet(FLAG_SHINY_LEGENDS) 
+        && (
+            IsSpeciesRestrictedLegendary(species)
+            || IsSpeciesUltraBeast(species)
+            || IsSpeciesMythical(species)
+            || IsSpeciesParadox(species)
+            || IsSpeciesSubLegendary(species)
+        )
+    ) {
+        bool32 isShiny = TRUE;
+        SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_IS_SHINY, &isShiny);
+    }
+
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
 }
 

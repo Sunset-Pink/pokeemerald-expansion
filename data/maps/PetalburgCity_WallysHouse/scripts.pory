@@ -1,0 +1,140 @@
+mapscripts PetalburgCity_WallysHouse_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_PETALBURG_CITY_STATE, 4: PetalburgCity_WallysHouse_EventScript_GiveHMSurf
+    ]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_PETALBURG_CITY_STATE, 4: PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther
+    ]
+}
+
+raw`
+PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther::
+	turnobject LOCALID_PLAYER, DIR_EAST
+	turnobject LOCALID_WALLYS_HOUSE_WALLYS_DAD, DIR_WEST
+	end
+
+PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
+	lockall
+	msgbox PetalburgCity_WallysHouse_Text_PleaseExcuseUs, MSGBOX_DEFAULT
+	giveitem ITEM_HM_SURF
+	setflag FLAG_RECEIVED_HM_SURF
+	msgbox PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces, MSGBOX_DEFAULT
+	setvar VAR_PETALBURG_CITY_STATE, 5
+	releaseall
+	end
+
+PetalburgCity_WallysHouse_EventScript_WallysDad::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_WALLY_VICTORY_ROAD, PetalburgCity_WallysHouse_EventScript_DefeatedWallyInVictoryRoad
+	goto_if_set FLAG_RECEIVED_HM_SURF, PetalburgCity_WallysHouse_EventScript_ReceievedHMSurf
+	goto_if_set FLAG_THANKED_FOR_PLAYING_WITH_WALLY, PetalburgCity_WallysHouse_EventScript_PlayedWithWally
+	msgbox PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally, MSGBOX_DEFAULT
+	setflag FLAG_THANKED_FOR_PLAYING_WITH_WALLY
+	release
+	end
+
+PetalburgCity_WallysHouse_EventScript_ReceievedHMSurf::
+	msgbox PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_WallysHouse_EventScript_DefeatedWallyInVictoryRoad::
+	msgbox PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_WallysHouse_EventScript_PlayedWithWally::
+	msgbox PetalburgCity_WallysHouse_Text_WonderHowWallyIsDoing, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_WallysHouse_EventScript_WallysMom::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_HM_SURF, PetalburgCity_WallysHouse_EventScript_ReceivedHMSurf
+	msgbox PetalburgCity_WallysHouse_Text_WallyWasReallyHappy, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_WallysHouse_EventScript_ReceivedHMSurf::
+	msgbox PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling, MSGBOX_DEFAULT
+	release
+	end
+`
+
+text(local) PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally {
+	"You're\.\n"
+	"Ah, you must be {PLAYER}{KUN}, right?\p"
+	"Thank you for playing with WALLY a\n"
+	"little while ago.\p"
+	"He's been frail and sickly ever\n"
+	"since he was a baby.\p"
+	"We've sent him to stay with my relatives\n"
+	"in Verdanturf Town for a while.\p"
+	"The air is a lot cleaner there\n"
+	"than it is here.\p"
+	"What's that? Where's Wally?\n"
+	"He's already left, our Wally.\p"
+	"I wonder where he could have\n"
+	"gotten by now?"
+}
+
+text(local) PetalburgCity_WallysHouse_Text_WonderHowWallyIsDoing {
+	"I wonder how our Wally is doing?"
+}
+
+text(local) PetalburgCity_WallysHouse_Text_PleaseExcuseUs {
+	"{PLAYER}{KUN}! Please excuse us for\n"
+	"dragging you here this way.\p"
+	"But our Wally's become very healthy\n"
+	"since he went to Verdanturf Town.\p"
+	"We owe it all to you!\p"
+	"When Wally left town, you helped\n"
+	"him catch a Pok\emon, right?\p"
+	"I think that made Wally really\n"
+	"happy.\p"
+	"Actually, not just Wally.\n"
+	"It made me, his father, happy too.\p"
+	"Happy that he's gained such a great\n"
+	"friend as you.\p"
+	"This isn't a bribe or anything, but\n"
+	"I'd really like you to have this."
+}
+
+text(local) PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces {
+	"If your Pok\emon can Surf, you'll be\n"
+	"able to go to all sorts of places."
+}
+
+text(local) PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon {
+	"Wally's coming home soon.\n"
+	"I'm looking forward to that."
+}
+
+text(local) PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity {
+	"Oh? You met WALLY in\n"
+	"Ever Grande City?\p"
+	"Oh, {PLAYER}{KUN}, don't be silly.\p"
+	"He may have gotten healthy, but he\n"
+	"can't go somewhere far away like\l"
+	"that all by himself."
+}
+
+text(local) PetalburgCity_WallysHouse_Text_WallyWasReallyHappy {
+	"Wally was really happy when he told\n"
+	"us that he caught a Pok\emon.\p"
+	"It's been ages since I've seen him\n"
+	"smile like that."
+}
+
+text(local) PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling {
+	"I want you to keep this a secret\n"
+	"from my husband\.\p"
+	"But our Wally left Verdanturf Town\n"
+	"without telling anyone.\p"
+	"You know, Wally is frail, but\n"
+	"he's surprisingly strong-willed.\p"
+	"I'm sure that he'll come back safe\n"
+	"and sound one day!"
+}

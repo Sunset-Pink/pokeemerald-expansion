@@ -215,7 +215,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_13"
     },
     {
@@ -229,7 +229,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_15"
     },
     {
@@ -243,7 +243,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_16"
     },
     {
@@ -257,7 +257,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_17"
     },
     {
@@ -271,7 +271,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_18"
     },
     {
@@ -285,7 +285,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_19"
     },
     {
@@ -299,7 +299,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_1A"
     },
     {
@@ -313,7 +313,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_1B"
     },
     {
@@ -327,7 +327,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_1C"
     },
     {
@@ -341,7 +341,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_1D"
     },
     {
@@ -355,7 +355,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_1E"
     },
     {
@@ -369,7 +369,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_1F"
     },
     {
@@ -383,7 +383,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "Rock",
       "flag": "FLAG_TEMP_11"
     },
     {

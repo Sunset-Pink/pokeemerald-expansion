@@ -51,8 +51,8 @@
 
 #else
 
-#define FLAG_HIDE_MOMS_GIFT_MAYS_HOUSE        0x20 // Hide Mom's gift in May's House (Male character).
-#define FLAG_HIDE_MOMS_GIFT_BRENDANS_HOUSE    0x21 // Hide Mom's gift in Brendan's House (Female Character)
+#define FLAG_0x20                             0x20
+#define FLAG_UNUSED_0x21                      0x21
 #define FLAG_DEXALL                           0x22 // Allows all DexNavs to be seen.
 #define FLAG_EZCATCH                          0x23 // Allows for 100% catch odds.
 #define FLAG_SHINY_STARTERS                   0x24 // Starters to always be shiny.
@@ -753,19 +753,19 @@
 #define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
 
 // Event Flags
-#define FLAG_0x2BC                                                  0x2BC
-#define FLAG_0x2BD                                                  0x2BD
-#define FLAG_0x2BE                                                  0x2BE
-#define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_1               0x2C7
-#define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_2               0x2C8
+#define FLAG_HIDE_PLAYERS_HOUSE_VIGOROTHS                           0x2BC
+#define FLAG_HIDE_PLAYERS_HOUSE_MOMS_GIFT                           0x2BD
+#define FLAG_HIDE_LEFT_BALL                                         0x2BE
+#define FLAG_HIDE_MIDDLE_BALL                                       0x2C7
+#define FLAG_HIDE_RIGHT_BALL                                       0x2C8
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_3               0x2C9
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_4               0x2CA
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_5               0x2CB
-#define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_6               0x2CC
+#define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_1               0x2CC
 #define FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS            0x2CD
 #define FLAG_HIDE_MEW                                               0x2CE
 #define FLAG_HIDE_ROUTE_104_RIVAL                                   0x2CF
-#define FLAG_UNUSED_0x2D0                                           0x2D0
+#define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_6               0x2D0
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH                  0x2D1
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM          0x2D2
 #define FLAG_HIDE_ROUTE_103_RIVAL                                   0x2D3
@@ -799,7 +799,7 @@
 #define FLAG_HIDE_VICTORY_ROAD_EXIT_WALLY                           0x2EF
 #define FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE                       0x2F0
 #define FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_STEVEN              0x2F1
-#define FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTHS           0x2F2
+#define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_2               0x2F2
 #define FLAG_HIDE_POKEMON_CENTER_2F_MYSTERY_GIFT_MAN                0x2F3
 #define FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_TEAM_MAGMA          0x2F4
 #define FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_BEDROOM_MOM               0x2F5

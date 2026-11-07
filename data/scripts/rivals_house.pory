@@ -20,7 +20,7 @@ script Script_RivalsHouse_1F_Interact_RivalMom {
         msgbox(Text_RivalsHouse_1F_RivalsMom_ShouldGoHome)
     } elif(flag(FLAG_SYS_POKEMON_GET)) {
         msgbox(Text_RivalsHouse_1F_RivalsMom_WentOutToRoute103)
-    } elif(var(VAR_LITTLEROOT_RIVAL_STATE) == 3) {
+    } elif(var(VAR_RIVAL_STATE) == 1) {
         msgbox(Text_RivalsHouse_1F_RivalsMom_TooBusyToNoticeVisit)
     } else {
         special(GetRivalSonDaughterString)
@@ -61,52 +61,6 @@ text(local) Text_RivalsHouse_1F_RivalsMom_ShouldGoHome {
     "worries about you, {PLAYER}{KUN}."
 }
 
-text(local) Text_RivalsHouse_2F_May_WhoAreYou {
-    "Huh?\n"
-    "Who… Who are you?\p"
-    "\. \. \. \. \. \. \.\n"
-    "\. \. \. \. \. \. \. \.\p"
-    "Oh, you're {PLAYER}{KUN}.\n"
-    "So your move was today.\p"
-    "Um… I'm MAY.\n"
-    "Glad to meet you!\p"
-    "I\.\n"
-    "I have this dream of becoming friends\l"
-    "with Pok\emon all over the world.\p"
-    "I… I heard about you, {PLAYER}{KUN}, from\n"
-    "my dad, Prof. Birch.\p"
-    "I was hoping that you would be nice,\n"
-    "{PLAYER}{KUN}, and that we could be friends.\p"
-    "Oh, this is silly, isn't it?\n"
-    "I\. I've just met you, {PLAYER}{KUN}.\p"
-    "Eheheh\.\p"
-    "Oh, no! I forgot!\p"
-    "I was supposed to go help Dad catch\n"
-    "some wild Pok\emon!\p"
-    "{PLAYER}{KUN}, I'll catch you later!$"
-}
-
-text(local) Text_RivalsHouse_2F_Brendan_WhoAreYou {
-    "Hey!\n"
-    "You…\p"
-    "Who are you?\p"
-    "Oh, you're {PLAYER}, aren't you?\n"
-    "Moved in next door, right?\p"
-    "I didn't know that you're a girl.\p"
-    "Dad, Prof. Birch, said that our new\n"
-    "next-door neighbor is a Gym Leader's\l"
-    "kid, so I assumed you'd be a guy.\p"
-    "My name's Brendan.\n"
-    "So, hi, neighbor!\p"
-    "Huh? Hey, {PLAYER}, don't you have\n"
-    "a Pokémon?\p"
-    "Do you want me to go catch you one?\p"
-    "Aw, darn, I forgot…\p"
-    "I'm supposed to go help my dad catch\n"
-    "some wild Pokémon.\p"
-    "Some other time, okay?$"
-}
-
 script Script_RivalsHouse_1F_Interact_RivalSibling {
     lockall
     faceplayer
@@ -145,4 +99,421 @@ text(local) Text_RivalsHouse_2F_Notebook {
     "Adventure Rule No. 2\n"
     "Record your progress with Save.\p"
     "The remaining pages are blank\."
+}
+
+text(local) Text_RivalsHouse_2F_Rival_GettingRead {
+    "Pok\emon fully restored\.\n"
+    "Items all packed, and\."
+}
+	
+
+script RivalsHouse_2F_EventScript_Rival {
+    lockall
+    if(flag(FLAG_MET_RIVAL_LILYCOVE) == TRUE) {
+        goto(RivalsHouse_2F_EventScript_RivalPostLilycove)
+    }
+    msgbox(Text_RivalsHouse_2F_Rival_GettingRead)
+    releaseall
+    end
+}
+
+script RivalsHouse_2F_EventScript_RivalPostLilycove {
+	applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
+	waitmovement(0)
+    if(checkplayergender == MALE) {
+        if(flag(FLAG_MET_RIVAL_IN_HOUSE_AFTER_LILYCOVE) == TRUE) {
+            msgbox(RivalsHouse_2F_Text_MayWhereShouldIGoNext)
+        } else {
+            msgbox(RivalsHouse_2F_Text_MayJustCheckingMyPokedex)
+        }
+    } else {
+        if(flag(FLAG_MET_RIVAL_IN_HOUSE_AFTER_LILYCOVE) == TRUE) {
+            msgbox(RivalsHouse_2F_Text_BrendanWhereShouldIGoNext)
+        } else {
+            msgbox(RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex)
+        }
+    }
+    setflag(FLAG_MET_RIVAL_IN_HOUSE_AFTER_LILYCOVE)
+    releaseall
+    end
+}
+
+text(local) RivalsHouse_2F_Text_MayJustCheckingMyPokedex {
+	"May: {PLAYER}{KUN}!\p"
+	"I was just checking my Pok\eDex.\p"
+	"There's still a lot of Pok\emon that\n"
+	"I've seen but haven't caught.\p"
+	"And there are many others that\n"
+	"I think will evolve.\p"
+	"I wonder where I should go catch\n"
+	"some Pok\emon next?"
+}
+
+text(local) RivalsHouse_2F_Text_MayWhereShouldIGoNext {
+	"May: I wonder where I should go catch\n"
+	"some Pok\emon next?\p"
+	"Wouldn't it be funny if we ran into each\n"
+	"other, {PLAYER}{KUN}?"
+}
+
+text(local) RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex {
+	"Brendan: Hey, it's {PLAYER}.\p"
+	"I was just checking out my Pok\eDex.\p"
+	"There are still many Pok\emon that\n"
+	"I need to catch, I know, but this\l"
+	"is looking pretty good.\p"
+	"Checking this Pok\eDex out gives me\n"
+	"the urge to hit the road again."
+}
+
+text(local) RivalsHouse_2F_Text_BrendanWhereShouldIGoNext {
+	"Brendan: I'm having a hard time deciding\n"
+	"where I should catch Pok\emon next.\p"
+	"Hey, {PLAYER}, if I see you while I'm out\n"
+	"catching Pok\emon, I can pitch you a\l"
+	"battle if you'd like."
+}
+
+
+
+script LittlerootTown_RivalsHouse_2F_EventScript_TurnOffPlayerPC {
+    if(checkplayergender == MALE ) {
+        setvar(VAR_0x8004, PC_LOCATION_MAYS_HOUSE)
+    } else {
+        setvar(VAR_0x8004, PC_LOCATION_BRENDANS_HOUSE)
+    }
+    playse(SE_PC_OFF)
+    special(DoPCTurnOffEffect)
+    releaseall
+    end
+}
+
+script RivalsHouse_2F_EventScript_RivalsPokeBall {
+    lockall
+    if(var(VAR_RIVAL_STATE) == 0) {
+        call(RivalsHouse_2F_EventScript_MeetRival)
+    } else {
+        msgbox(RivalsHouse_2F_Text_ItsRivalsPokeBall)
+    }
+    releaseall
+    end
+}
+
+text(local) RivalsHouse_2F_Text_ItsRivalsPokeBall {
+	"It's {RIVAL}'s Pok\e Ball!\p"
+	"Better leave it right where it is."
+}
+
+
+script RivalsHouse_2F_EventScript_MeetRival {
+    delay(10)
+	addobject(LOCALID_RIVALS_HOUSE_2F_RIVAL)
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_down * 2
+            walk_in_place_faster_right
+        ))
+    } else {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_down * 2
+            walk_in_place_faster_left
+        ))
+    }
+	waitmovement(0)
+	playse(SE_PIN)
+    applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, Common_Movement_Delay48)
+    waitmovement(0)
+    delay(10)
+    if(checkplayergender) {
+        playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    } else {
+        playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    }
+    switch(var(VAR_FACING)) {
+        case DIR_NORTH: call(RivalsHouse_2F_EventScript_MeetRivalNorth)
+        case DIR_SOUTH: call(RivalsHouse_2F_EventScript_MeetRivalSouth)
+        case DIR_WEST: call(RivalsHouse_2F_EventScript_MeetRivalWest)
+        case DIR_EAST: call(RivalsHouse_2F_EventScript_MeetRivalEast)
+    }
+    setvar(VAR_RIVAL_STATE, 1)
+    if(checkplayergender == MALE) {
+        setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL)
+        clearflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM)
+    } else {
+        setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL)
+        clearflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM)
+    }
+    savebgm(MUS_DUMMY)
+    fadedefaultbgm
+    releaseall
+    end
+}
+
+
+script RivalsHouse_2F_EventScript_MeetRivalNorth {
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            Walk_right * 2
+            walk_down * 2
+            walk_right
+        ))
+    } else {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_left * 2
+            walk_down * 2
+            walk_left
+        ))
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+    } else {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        msgbox(Text_RivalsHouse_2F_May_WhoAreYou)
+    } else {
+        msgbox(Text_RivalsHouse_2F_Brendan_WhoAreYou)
+    }
+    closemessage
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_16
+            walk_in_place_faster_up
+            delay_16 * 4
+            walk_in_place_faster_left
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up * 3
+            walk_in_place_faster_right
+            walk_right * 4
+            walk_in_place_faster_up
+        ))
+    } else {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_16
+            walk_in_place_faster_up
+            delay_16 * 4
+            walk_in_place_faster_right
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up * 3
+            walk_in_place_faster_left
+            walk_left * 4
+            walk_in_place_faster_up
+        ))
+    }
+    waitmovement(0)
+    return
+}
+
+script RivalsHouse_2F_EventScript_MeetRivalSouth {
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_right * 3
+        ))
+    } else {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_left * 3
+        ))
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+    } else {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        msgbox(Text_RivalsHouse_2F_May_WhoAreYou)
+    } else {
+        msgbox(Text_RivalsHouse_2F_Brendan_WhoAreYou)
+    }
+    closemessage
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_16
+            walk_in_place_faster_up
+            delay_16 * 2
+            walk_in_place_faster_right
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up
+            walk_in_place_faster_right
+            walk_right * 4
+            walk_in_place_faster_up
+        ))
+    } else {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_16
+            walk_in_place_faster_up
+            delay_16 * 2
+            walk_in_place_faster_left
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up
+            walk_in_place_faster_left
+            walk_left * 4
+            walk_in_place_faster_up
+        ))
+    }
+    waitmovement(0)
+    return
+}
+
+script RivalsHouse_2F_EventScript_MeetRivalWest {
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_right * 5
+            walk_in_place_faster_down
+        ))
+    } else {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_left * 2
+            walk_down
+            walk_in_place_faster_left
+        ))
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+    } else {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        msgbox(Text_RivalsHouse_2F_May_WhoAreYou)
+    } else {
+        msgbox(Text_RivalsHouse_2F_Brendan_WhoAreYou)
+    }
+    closemessage
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_16 * 2
+            walk_in_place_faster_right
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up
+            walk_right * 2
+            walk_in_place_faster_up
+        ))
+    } else {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_8
+            delay_16
+            walk_in_place_faster_up
+            delay_16 * 2
+            walk_in_place_faster_left
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up * 2
+            walk_left * 5
+            walk_in_place_faster_up
+        ))
+    }
+    waitmovement(0)
+    return
+}
+
+script RivalsHouse_2F_EventScript_MeetRivalEast {
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_right * 2
+            walk_down
+            walk_in_place_faster_right
+        ))
+    } else {
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_left * 5
+            walk_in_place_faster_down
+        ))
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+    } else {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+    }
+    waitmovement(0)
+    if(checkplayergender == MALE) {
+        msgbox(Text_RivalsHouse_2F_May_WhoAreYou)
+    } else {
+        msgbox(Text_RivalsHouse_2F_Brendan_WhoAreYou)
+    }
+    closemessage
+    if(checkplayergender == MALE) {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_16
+            walk_in_place_faster_up
+            delay_16 * 2
+            walk_in_place_faster_right
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up * 2
+            walk_right * 2
+            walk_in_place_faster_up
+        ))
+    } else {
+        applymovement(LOCALID_PLAYER, moves(
+            delay_16 * 2
+            walk_in_place_faster_left
+        ))
+        applymovement(LOCALID_RIVALS_HOUSE_2F_RIVAL, moves(
+            walk_up
+            walk_left * 2
+            walk_in_place_faster_up
+        ))
+    }
+    waitmovement(0)
+    return
+}
+
+
+text(local) Text_RivalsHouse_2F_May_WhoAreYou {
+    "Huh?\n"
+    "Who… Who are you?\p"
+    "\. \. \. \. \. \. \.\n"
+    "\. \. \. \. \. \. \. \.\p"
+    "Oh, you're {PLAYER}{KUN}.\n"
+    "So your move was today.\p"
+    "Um… I'm MAY.\n"
+    "Glad to meet you!\p"
+    "I\.\n"
+    "I have this dream of becoming friends\l"
+    "with Pok\emon all over the world.\p"
+    "I… I heard about you, {PLAYER}{KUN}, from\n"
+    "my dad, Prof. Birch.\p"
+    "I was hoping that you would be nice,\n"
+    "{PLAYER}{KUN}, and that we could be friends.\p"
+    "Oh, this is silly, isn't it?\n"
+    "I\. I've just met you, {PLAYER}{KUN}.\p"
+    "Eheheh\.\p"
+    "Oh, no! I forgot!\p"
+    "I was supposed to go help Dad catch\n"
+    "some wild Pok\emon!\p"
+    "{PLAYER}{KUN}, I'll catch you later!$"
+}
+
+text(local) Text_RivalsHouse_2F_Brendan_WhoAreYou {
+    "Hey!\n"
+    "You\.\p"
+    "Who are you?\p"
+    "Oh, you're {PLAYER}, aren't you?\n"
+    "Moved in next door, right?\p"
+    "I didn't know that you're a girl.\p"
+    "Dad, Prof. Birch, said that our new\n"
+    "next-door neighbor is a Gym Leader's\l"
+    "kid, so I assumed you'd be a guy.\p"
+    "My name's Brendan.\n"
+    "So, hi, neighbor!\p"
+    "Huh? Hey, {PLAYER}, don't you have\n"
+    "a Pokémon?\p"
+    "Do you want me to go catch you one?\p"
+    "Aw, darn, I forgot…\p"
+    "I'm supposed to go help my dad catch\n"
+    "some wild Pokémon.\p"
+    "Some other time, okay?$"
 }

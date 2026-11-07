@@ -221,7 +221,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_MaysHouse_2F_EventScript_RivalsPokeBall",
+      "script": "RivalsHouse_2F_EventScript_RivalsPokeBall",
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL"
     },
     {
@@ -235,7 +235,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Script_PlayersHouse_2F_Interact_MomsGift",
-      "flag": "FLAG_HIDE_MOMS_GIFT_MAYS_HOUSE"
+      "flag": "FLAG_HIDE_PLAYERS_HOUSE_MOMS_GIFT"
     }
   ],
   "warp_events": [

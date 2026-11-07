@@ -70,17 +70,7 @@
 #define VAR_FRONTIER_GAMBLER_SET_CHALLENGE               0x4031
 #define VAR_FRONTIER_GAMBLER_AMOUNT_BET                  0x4032
 #define VAR_FRONTIER_GAMBLER_STATE                       0x4033
-
-#define VAR_QUEST_INTRO_STATE                            0x4034
-// 0: Inside of Truck
-// 1: Selected settings.
-// 2: Entered House
-// 3: Been upstairs
-// 4: Accepted Mom's Gifts
-// 5: Watched broadcast.
-// 6: Met professor Birch.
-// 7: Selected starter.
-// 8: Defeated rival.
+#define VAR_SECRET_BASE_IS_NOT_LOCAL                     0x4034
 #define VAR_DEOXYS_ROCK_LEVEL                            0x4035
 #define VAR_PC_BOX_TO_SEND_MON                           0x4036
 #define VAR_ABNORMAL_WEATHER_LOCATION                    0x4037
@@ -196,7 +186,7 @@
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
-#define VAR_UNUSED_0x40A8                                0x40A8 // Unused Var
+#define VAR_DAILY_BP                                     0x40A8
 #define VAR_CYCLING_CHALLENGE_STATE                      0x40A9
 #define VAR_SLATEPORT_MUSEUM_1F_STATE                    0x40AA
 #define VAR_TRICK_HOUSE_PUZZLE_1_STATE                   0x40AB
@@ -212,7 +202,7 @@
 #define VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR              0x40B5
 #define VAR_TRICK_HOUSE_PUZZLE_7_STATE_2                 0x40B6 // Leftover from RS, never set
 #define VAR_SLATEPORT_FAN_CLUB_STATE                     0x40B7
-#define VAR_UNUSED_0x40B8                                0x40B8 // Unused Var
+#define VAR_WALLY_CALL_STEP_COUNTER                      0x40B8
 #define VAR_MT_PYRE_STATE                                0x40B9
 #define VAR_NEW_MAUVILLE_STATE                           0x40BA
 #define VAR_LITTLEROOT_INTRO_STATE                       0x40BB
@@ -268,10 +258,39 @@
 #define VAR_SECRET_BASE_LAST_ITEM_USED                   0x40ED // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_LOW_TV_FLAGS                     0x40EE // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_HIGH_TV_FLAGS                    0x40EF // Used by Secret Base TV programs
-#define VAR_SECRET_BASE_IS_NOT_LOCAL                     0x40F0 // Set to TRUE while in another player's secret base.
-#define VAR_DAILY_BP                                     0x40F1
-#define VAR_WALLY_CALL_STEP_COUNTER                      0x40F2
-#define VAR_0x40F3                                       0x40F3 // Unused
+#define VAR_UNUNSED_0x40F0                               0x40F0 // Set to TRUE while in another player's secret base.
+#define VAR_WALLY_STATE                                  0x40F1
+#define VAR_RIVAL_STATE                                  0x40F2
+// 0: Rival House 2F Pre-Scene
+// 1: Rival House 2F Post-Scene
+// 2: Route 103 For Battle
+// 3: Oldale Town After Battle
+// 4: Lab pre PokeDex
+// 5: House after PokeDex
+// 6: Rustboro
+#define VAR_QUEST_INTRO_STATE                            0x40F3
+// 0: Inside of Truck
+// 1: Selected settings.
+// 2: Entered House
+// 3: Been upstairs
+// 4: Accepted Mom's Gifts
+// 5: Watched broadcast.
+// 6: Met professor Birch.
+// 7: Selected starter.
+// 8: Defeated rival.
+
+// ==== Badge Levels ====
+// 0: No Badge
+// 1: Normal
+// 2: Bronze
+// 3: Silver
+// 4: Gold
+// 5: Diamond
+// 6: Platinum
+// 7: Ultra (Double Battle)
+// 8: Hyper
+// 9: Master (Post Champion)
+// 36 Points required for Elite 4
 #define VAR_STONE_BADGE_LEVEL                            0x40F4 // Level of Stone Badge (Roxanne)
 #define VAR_KNUCKLE_BADGE_LEVEL                          0x40F5 // Level of Knuckle Badge (Brawly)
 #define VAR_DYNAMO_BADGE_LEVEL                           0x40F6 // Level of Dynamo Badge (Wattson)

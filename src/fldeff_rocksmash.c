@@ -145,7 +145,7 @@ bool32 SetUpFieldMove_RockSmash(void)
 static void FieldCallback_RockSmash(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
-    ScriptContext_SetupScript(EventScript_UseRockSmash);
+    ScriptContext_SetupScript(RockSmash);
 }
 
 bool8 FldEff_UseRockSmash(void)

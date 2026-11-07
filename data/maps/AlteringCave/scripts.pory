@@ -1,0 +1,9 @@
+mapscripts AlteringCave_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: AlteringCave_OnTransition
+}
+
+script(local) AlteringCave_OnTransition {
+	setflag(FLAG_LANDMARK_ALTERING_CAVE)
+	end
+}
+

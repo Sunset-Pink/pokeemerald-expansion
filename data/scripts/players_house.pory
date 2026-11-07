@@ -1,13 +1,4 @@
 raw`
-PlayersHouse_1F_EventScript_MomGoSeeRoom::
-	msgbox Text_PlayersHouse_1F_Mom_ArentYouInterestedInRoom, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
-	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_MovePlayerAwayFromDoor
-	waitmovement 0
-	releaseall
-	end
-
 PlayersHouse_1F_Movement_MomApproachDadMale:
 	walk_up
 	walk_right
@@ -70,10 +61,6 @@ PlayersHouse_1F_Movement_MomApproachPlayerAfterTVFemale:
 	walk_right
 	step_end
 
-
-PlayersHouse_1F_Movement_MovePlayerAwayFromDoor:
-	walk_up
-	step_end
 
 PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	lockall
@@ -333,10 +320,9 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
 script Script_PlayersHouse_1F_Interact_Mom {
 	lock
 	faceplayer
-	msgbox(Text_PlayersHouse_1F_Mom_DontPushYourselfTooHard)
 	if(flag(FLAG_HAS_MATCH_CALL)) {
 		if(!flag(FLAG_ENABLE_MOM_MATCH_CALL)) {
-			msgbox(Text_PlayersHouse_1F_Mom_PokeNav)
+			msgbox(Text_PlayersHouse_1F_Mom_PokeNav, MSGBOX_NPC)
 			closemessage
 			delay(30)
 			playfanfare(MUS_REGISTER_MATCH_CALL)
@@ -347,22 +333,27 @@ script Script_PlayersHouse_1F_Interact_Mom {
 			setflag(FLAG_ENABLE_MOM_MATCH_CALL)
 		}
 	} elif(flag(FLAG_ENABLE_MOM_MATCH_CALL) && flag(FLAG_BADGE05_GET)) {
-		msgbox(Text_PlayersHouse_1F_Mom_SomethingFromMom)
+		msgbox(Text_PlayersHouse_1F_Mom_SomethingFromMom, MSGBOX_NPC)
 		giveitem(ITEM_AMULET_COIN)
 		if(var(VAR_RESULT) == FALSE) {
 			call(Common_EventScript_ShowBagIsFull)
 		} else {
 			setflag(FLAG_RECEIVED_AMULET_COIN)
 		}
-	} elif(var(VAR_QUEST_INTRO_STATE) == 4) { 
-		msgbox(Text_PlayersHouse_1F_Mom_DidYouMeetBirch)
+	} elif(var(VAR_QUEST_INTRO_STATE) > 4 && var(VAR_QUEST_INTRO_STATE) <= 7) { 
+		msgbox(Text_PlayersHouse_1F_Mom_DidYouMeetBirch, MSGBOX_NPC)
+		release
+		end
+	} elif(var(VAR_QUEST_INTRO_STATE) <= 4) {
+		msgbox(Text_PlayersHouse_1F_GoOpenGift,MSGBOX_NPC)
+		release
+		end
 	}
 	elif (flag(FLAG_ADVENTURE_STARTED)) {
 		// Heal party
-		msgbox(Text_PlayersHouse_1F_Mom_YouShouldRest)
+		msgbox(Text_PlayersHouse_1F_Mom_YouShouldRest, MSGBOX_NPC)
 		call(Common_EventScript_OutOfCenterPartyHeal)
 		incrementgamestat(GAME_STAT_RESTED_AT_HOME)
-
 	}
 	call(Script_PlayersHouse_1F_Interact_Mom_Farewell)
 	release
@@ -402,13 +393,13 @@ script(local) Script_PlayersHouse_1F_Interact_Mom_Farewell {
 	random(3)
 	switch(var(VAR_RESULT)) {
 		case 0: 
-			msgbox(Text_PlayersHouse_1F_Mom_TakeCareHoney)
+			msgbox(Text_PlayersHouse_1F_Mom_TakeCareHoney, MSGBOX_NPC)
 			break
 		case 1:
-			msgbox(Text_PlayersHouse_1F_Mom_SeeYouHoney)
+			msgbox(Text_PlayersHouse_1F_Mom_SeeYouHoney, MSGBOX_NPC)
 			break	
 		case 2:
-			msgbox(Text_PlayersHouse_1F_Mom_DontPushYourselfTooHard)
+			msgbox(Text_PlayersHouse_1F_Mom_DontPushYourselfTooHard, MSGBOX_NPC)
 			break
 	}
 }
@@ -422,7 +413,7 @@ text(local) Text_PlayersHouse_1F_Mom_SeeYouHoney {
 }
 
 text Text_PlayersHouse_1F_Mom_DontPushYourselfTooHard {
-	"Don't push yourself too hard, dear.\n"
+	"Mom: Don't push yourself too hard, dear.\n"
 	"You can always come home.\p"
 	"Go for it, honey!"
 }
@@ -599,14 +590,7 @@ script(local) Script_PlayersHouse_1F_SetMovingBoxes {
 }
 
 text Text_PlayersHouse_1F_GoOpenGift {
-	"Mom: {PLAYER}.\p"
-	"Go open my gift up in your room, honey."
-}
-
-text Text_PlayersHouse_1F_Mom_ArentYouInterestedInRoom {
-	"Mom: Well, {PLAYER}?\p"
-	"Aren't you interested in seeing your\n"
-	"very own room?"
+	"Mom: Go open my gift upstairs, honey."
 }
 
 script Script_PlayersHouse_1F_Interact_Vigoroth_1 {
@@ -712,15 +696,18 @@ script Script_PlayersHouse_2F_Interact_MomsGift {
 	giveitem(ITEM_OVAL_CHARM, 1)
 	giveitem(ITEM_CATCHING_CHARM, 1)
 	giveitem(ITEM_SHINY_CHARM, 1)
+	giveitem(ITEM_EXP_CHARM, 1)
+	giveitem(ITEM_GLIMMERING_CHARM, 1)
 	waitmessage
+	closemessage
 	setvar(VAR_QUEST_INTRO_STATE, 4)
-	setflag(FLAG_HIDE_MOMS_GIFT_BRENDANS_HOUSE)
-	setflag(FLAG_HIDE_MOMS_GIFT_MAYS_HOUSE)
-	setflag(FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTHS)
+	setflag(FLAG_HIDE_PLAYERS_HOUSE_MOMS_GIFT)
+	setflag(FLAG_HIDE_PLAYERS_HOUSE_VIGOROTHS)
 	removeobject(VAR_LAST_TALKED)
 	call(Script_PlayersHouse_2F_Mom_ApproachPlayer)
 	msgbox(Text_PlayersHouse_2F_Mom_HowDoYouLikeYourRoom)
 	waitmessage
+	closemessage
 	call(Script_PlayersHouse_2F_Mom_Leaves)
 	releaseall
 	end
@@ -1029,4 +1016,32 @@ text(local) Text_PlayersHouse_2F_GameCube_Code_MonoStarter_Off {
 text(local) Text_Common_LookCloserAtMap{
 	"{PLAYER} took a closer look at the\n"
 	"{REGION} region map.$"
+}
+
+script LittlerootTown_PlayersHouse_2F_EventScript_CheckPlayersPC {
+	if(checkplayergender == MALE) {
+		setvar(VAR_0x8004, PC_LOCATION_BRENDANS_HOUSE)
+	} else {
+		setvar(VAR_0x8004, PC_LOCATION_MAYS_HOUSE)
+	}
+	playse(SE_PC_ON)
+	msgbox(gText_PlayerHouseBootPC)
+	special(BedroomPC)
+	return
+}
+
+script PlayersHouse_1F_EventScript_MomGoSeeRoom {
+	msgbox(Text_PlayersHouse_1F_Mom_ArentYouInterestedInRoom)
+	closemessage
+	applymovement(VAR_0x8004, Common_Movement_WalkInPlaceFasterUp)
+	applymovement(LOCALID_PLAYER, moves(walk_up))
+	waitmovement(0)
+	releaseall
+	end
+}
+
+text Text_PlayersHouse_1F_Mom_ArentYouInterestedInRoom {
+	"Mom: Well, {PLAYER}?\p"
+	"Aren't you interested in seeing your\n"
+	"very own room?"
 }

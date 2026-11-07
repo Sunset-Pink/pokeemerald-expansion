@@ -989,6 +989,12 @@ bool32 HasShedinjaHPHandling(enum Species species);
 void ResolveEVs(const u16 *evsTemplate, u8 *evs, bool32 ignoreTotalEvCheck);
 void CreateMonFromTemplate(struct Pokemon *mon, const struct PokemonTemplate *monTemplate);
 
+bool32 IsSpeciesRestrictedLegendary(enum Species species);
+bool32 IsSpeciesMythical(enum Species species);
+bool32 IsSpeciesParadox(enum Species species);
+bool32 IsSpeciesUltraBeast(enum Species species);
+bool32 IsSpeciesSubLegendary(enum Species species);
+
 static inline u32 OWE_GetMovementTypeFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);

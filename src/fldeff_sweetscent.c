@@ -116,7 +116,7 @@ static void FailSweetScentEncounter(u8 taskId)
     {
         CpuFastCopy(GetPalBufferPtr(taskId), gPlttBufferUnfaded, PLTT_SIZE);
         SetWeatherPalStateIdle();
-        ScriptContext_SetupScript(EventScript_FailSweetScent);
+        ScriptContext_SetupScript(SweetScent_Fail);
         FreeDestroyTask(taskId);
     }
 }

@@ -31,7 +31,7 @@ bool32 SetUpFieldMove_Strength(void)
 static void FieldCallback_Strength(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
-    ScriptContext_SetupScript(EventScript_UseStrength);
+    ScriptContext_SetupScript(Strength);
 }
 
 bool8 FldEff_UseStrength(void)
@@ -43,7 +43,7 @@ bool8 FldEff_UseStrength(void)
     return FALSE;
 }
 
-// Just passes control back to EventScript_UseStrength
+// Just passes control back to Boulder
 static void StartStrengthFieldEffect(void)
 {
     FieldEffectActiveListRemove(FLDEFF_USE_STRENGTH);

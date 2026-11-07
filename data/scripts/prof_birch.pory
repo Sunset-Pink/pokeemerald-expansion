@@ -1,35 +1,3 @@
-script Script_ProfBirch_Interact_Prior {
-	lock
-	faceplayer
-	if(flag(FLAG_HAS_MATCH_CALL) == FALSE) {
-		call(Script_ProfBirch_Interact_Pokedex_AskForRating)
-	} elif (flag(FLAG_ENABLE_PROF_BIRCH_MATCH_CALL)) {
-		call(Script_ProfBirch_Interact_Register)
-	} elif(var(VAR_BIRCH_LAB_STATE) == 5) {
-		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Birch_CountlessPokemon)
-	} else {
-		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Birch_RivalsGoneHome)
-	}
-	release
-	end
-}
-
-text(local)Text_LittlerootTown_ProfessorBirchsLab_Birch_CountlessPokemon {
-	"Prof. Birch: Countless Pok\emon\n"
-	"await you!\p"
-	"Argh, I'm getting the itch to get out\n"
-	"and do fieldwork again!"
-}
-
-text(local) Text_LittlerootTown_ProfessorBirchsLab_Birch_RivalsGoneHome {
-	"Prof. Birch: {RIVAL}?\n"
-	"Gone home, I think.\p"
-	"Or maybe that kid's scrabbling around\n"
-	"in tall grass again somewhere\.\p"
-	"If you or your Pok\emon get tired,\n"
-	"you should get some rest at home."
-}
-
 script Script_ProfBirch_Interact_Pokedex_AskForRating {
 	msgbox(gBirchDexRatingText_AreYouCurious, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
@@ -141,10 +109,11 @@ text(local) Text_ProfBirch_Welcome_Male {
     "I hope the two of you can be friends\n"
     "who can start a new Pokémon journey\l"
     "together.\p"
-	"How about this, I'll give you one of\n"
-    "these Starter Pokémon, and then if\l"
-    "you can beat {RIVAL} with your Pokémon.\l"
-    "Come back and I'll give you a Pokédex!\p"
+	"I agreed to give you a Pok\emon, as\n"
+	"part of a welcome gift, your Mom\l"
+	"put together. How about this, if\l"
+	"you can beat {RIVAL}, I will gift\l"
+	"you a Pok\edex as well.\p" 
     "I'll tell you which Starter she chose\n"
     "after you pick yours, it wouldn't be\l"
     "fair if you knew before you picked!\p"
@@ -169,10 +138,11 @@ text(local) Text_ProfBirch_Welcome_Female {
     "I hope the two of you can be friends\n"
     "who can start a new Pokémon journey\l"
     "together.\p"
-	"How about this, I'll give you one of\n"
-    "these Starter Pokémon, and then if\l"
-    "you can beat {RIVAL} with your Pokémon.\l"
-    "Come back and I'll give you a Pokédex!\p"
+	"I agreed to give you a Pok\emon, as\n"
+	"part of a welcome gift, your Mom\l"
+	"put together. How about this, if\l"
+	"you can beat {RIVAL}, I will gift\l"
+	"you a Pok\edex as well.\p" 
     "I'll tell you which Starter he chose\n"
     "after you pick yours, it wouldn't be\l"
     "fair if you knew before you picked!\p"
@@ -185,8 +155,12 @@ text(local) Text_ProfBirch_Welcome_Female {
 
 script Script_ProfBirch_Interact_Starter_ChangeSelection {
 	if(flag(FLAG_MONOTYPE_STARTERS)) {
+		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeMonotype)
+		waitmessage
 		call(Script_ProfBirch_Interact_Starter_TypeBased)
 	} else {
+		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeGeneration)
+		waitmessage
 		call(Script_ProfBirch_Interact_Starter_GenBased)
 	}
 }
@@ -411,20 +385,20 @@ text(local) Text_ProfBirch_Starters_Mono_Fairy {
 
 text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Treecko {
 	"A great choice, but also an unlucky one!\n"
-	"{RIVAL} chose a Treecko as\l"
-	"their starter!"
+	"{RIVAL} chose a Treecko as their\l"
+	"starter!"
 }
 
 text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Torchic {
 	"A great choice, but also an unlucky one!\n"
-	"{RIVAL} chose a Torchic as\l"
-	"their starter!"
+	"{RIVAL} chose a Torchic as their\l"
+	"starter!"
 }
 
 text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Mudkip {
 	"A great choice, but also an unlucky one!\n"
-	"{RIVAL} chose a Mudkip as\l"
-	"their starter!"
+	"{RIVAL} chose a Mudkip as their\l"
+	" starter!"
 }
 
 text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeGeneration {

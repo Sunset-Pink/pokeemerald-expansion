@@ -307,6 +307,26 @@ void ItemUseOutOfBattle_Bike(u8 taskId)
     }
 }
 
+void ItemUseOutOfBattle_RunningShoes(u8 taskId) {
+    if (gSaveBlock2Ptr->autoRun)
+    {
+        PlaySE(SE_PC_OFF);
+        if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_RunningShoesOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_RunningShoesOff, CloseItemMessage);
+    }
+    else
+    {
+        PlaySE(SE_PIN);
+        if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_RunningShoesOn, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_RunningShoesOn, CloseItemMessage);
+    }
+    gSaveBlock2Ptr->autoRun = !gSaveBlock2Ptr->autoRun;
+}
+
 static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
     if (GetItemSecondaryId(gSpecialVar_ItemId) == STANDARD_BIKE)

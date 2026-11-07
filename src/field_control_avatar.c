@@ -598,7 +598,7 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return Common_EventScript_ShowPokemonCenterSign;
     }
     if (IsFieldMoveUnlocked(FIELD_MOVE_ROCK_CLIMB) && MetatileBehavior_IsRockClimbable(metatileBehavior) == TRUE && !IsRockClimbActive())
-        return EventScript_UseRockClimb;
+        return Cliff;
 
     elevation = position->elevation;
     if (elevation == MapGridGetElevationAt(position->x, position->y))
@@ -650,9 +650,9 @@ static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metati
      )
     {
         if (IsFieldMoveUnlocked(FIELD_MOVE_WATERFALL) && IsPlayerSurfingNorth() == TRUE)
-            return EventScript_UseWaterfall;
+            return Waterfall;
         else
-            return EventScript_CannotUseWaterfall;
+            return Waterfall_CantUse;
     }
     return NULL;
 }
@@ -664,7 +664,7 @@ static bool32 TrySetupDiveDownScript(void)
 
     if (IsFieldMoveUnlocked(FIELD_MOVE_DIVE) && TrySetDiveWarp() == 2)
     {
-        ScriptContext_SetupScript(EventScript_UseDive);
+        ScriptContext_SetupScript(Dive);
         return TRUE;
     }
     return FALSE;
@@ -677,7 +677,7 @@ static bool32 TrySetupDiveEmergeScript(void)
 
     if (IsFieldMoveUnlocked(FIELD_MOVE_DIVE) && gMapHeader.mapType == MAP_TYPE_UNDERWATER && TrySetDiveWarp() == 1)
     {
-        ScriptContext_SetupScript(EventScript_UseDiveUnderwater);
+        ScriptContext_SetupScript(Dive_Underwater);
         return TRUE;
     }
     return FALSE;

@@ -1,0 +1,435 @@
+script Tree {
+	lockall
+	checkfieldmove(FIELD_MOVE_CUT, TRUE)
+	if(var(VAR_RESULT) == PARTY_SIZE) {
+		msgbox(Tree_CantCut_Text)
+		releaseall
+		return
+	}
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	buffermovename(STR_VAR_2, MOVE_CUT)
+	msgbox(Tree_WantToCut_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		closemessage
+		releaseall
+		return
+	}
+	msgbox(MonUsedFieldMove_Text)
+	closemessage
+Tree_Common:
+	isfollowerfieldmoveuser(VAR_0x8004)
+	setfieldeffectargument(3, VAR_0x8004)
+	dofieldeffect(FLDEFF_USE_CUT_ON_GRASS)
+	waitstate
+Tree_Cut:
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+	if(var(VAR_0x8004) == TRUE) {
+		call(Follower_FieldMove)
+	}
+	applymovement(VAR_LAST_TALKED, moves(cut_tree))
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	releaseall
+	end
+}
+
+text Tree_CantCut_Text {
+	"This tree looks like it can be\n"
+	"Cut down!"
+}
+
+text Tree_WantToCut_Text {
+	"This tree looks like it can be \n"
+	"Cut down!\p"
+	"Would you like to Cut it?"
+}
+
+text MonUsedFieldMove_Text {
+	"{STR_VAR_1} use {STR_VAR_2}!"
+}
+
+script Follower_FieldMove {
+	getdirectiontoface(VAR_0x8005, OBJ_EVENT_ID_FOLLOWER, OBJ_EVENT_ID_PLAYER)
+	specialvar(VAR_0x8006, GetPlayerFacingDirection)
+	if(var(VAR_0x8005) == DIR_NONE) {
+		goto(Follower_FieldMove_End)
+	}
+	switch(var(VAR_0x8005)) {
+		case DIR_NORTH: call(Follower_SwapPosition_North)
+		case DIR_EAST:  call(Follower_SwapPosition_East)
+		case DIR_SOUTH: call(Follower_SwapPosition_South)
+		case DIR_WEST:  call(Follower_SwapPosition_West)
+	}
+Follower_FieldMove_End:
+	return
+}
+
+script(local) Follower_SwapPosition_North {
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_FOLLOWER, moves(
+		jump_in_place_up
+	))
+	waitmovement(0)
+	return
+}
+
+script(local) Follower_SwapPosition_South {
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_FOLLOWER, moves(jump_in_place_down))
+	waitmovement(0)
+	return
+}
+
+script(local) Follower_SwapPosition_East {
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_FOLLOWER, moves(jump_in_place_right))
+	waitmovement(0)
+	return
+}
+
+script(local) Follower_SwapPosition_West {
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_FOLLOWER, moves(jump_in_place_left))
+}
+
+script Cut {
+	lockall()
+	goto(Tree_Common)
+}
+
+script Rock {
+	lockall
+	checkfieldmove(FIELD_MOVE_ROCK_SMASH, TRUE)
+	if(var(VAR_RESULT) == PARTY_SIZE) {
+		msgbox(Rock_CantSmash_Text)
+		releaseall
+		return
+	}
+	setfieldeffectargument(0, VAR_RESULT)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	buffermovename(STR_VAR_2, MOVE_ROCK_SMASH)
+	msgbox(Rock_WantToSmash_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		closemessage
+		releaseall
+		end
+	}
+	closemessage
+Rock_SmashCommon:
+	isfollowerfieldmoveuser(VAR_0x8004)
+	setfieldeffectargument(4, VAR_0x8004)
+	dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+	waitstate
+Rock_Smash:
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+		call(Follower_FieldMove)
+	applymovement(VAR_LAST_TALKED, moves(rock_smash_break))
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	specialvar(VAR_RESULT, TryUpdateRusturfTunnelState)
+	if(var(VAR_RESULT)) {
+		releaseall
+		end
+	}
+	special(RockSmashWildEncounter)
+	if(!var(VAR_RESULT)) {
+		releaseall
+		end
+	}
+	waitstate
+	releaseall
+	end
+}
+
+text(local) Rock_CantSmash_Text {
+	"It's a rugged rock, but a Pok\emon\n"
+	"may be able to smash it."
+}
+
+text(local) Rock_WantToSmash_Text {
+	"This rock appears to be breakable.\n"
+	"Would you like to use Rock Smash?"
+}
+
+script RockSmash {
+	lockall
+	goto(Rock_SmashCommon)
+}
+
+script Boulder {
+	lockall
+	if(flag(FLAG_SYS_USE_STRENGTH)) {
+		msgbox(Boulder_StrengthActivated_Text)
+		releaseall
+		end
+	}
+	checkfieldmove(FIELD_MOVE_STRENGTH, TRUE)
+	if(var(VAR_RESULT) == PARTY_SIZE) {
+		msgbox(Boulder_CantStrength_Text)
+		releaseall
+		end
+	}
+	setfieldeffectargument(0, VAR_RESULT)
+	msgbox(Boulder_WantToStrength_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		closemessage
+		releaseall
+		end
+	}
+	closemessage
+	dofieldeffect(FLDEFF_USE_STRENGTH)
+	waitstate
+StrengthActivate:
+	setflag(FLAG_SYS_USE_STRENGTH)
+	msgbox(MonUsedStrength_Text)
+	releaseall
+	end
+}
+
+text(local) Boulder_StrengthActivated_Text {
+	"Strength made it possible to move\n"
+	"boulders around."
+}
+
+text(local) Boulder_CantStrength_Text {
+	"It's a big boulder, but a Pok\emon\n"
+	"may be able to push it aside."
+}
+
+text(local) Boulder_WantToStrength_Text {
+	"It's a big boulder, but a Pok\emon\n"
+	"may be able to push it aside.\p"
+	"Would you like to use Strength?"
+}
+
+text(local) MonUsedStrength_Text {
+	"{STR_VAR_1} used Strength!\p"
+	"{STR_VAR_1}'s Strength made it\n"
+	"possible to move boulders around!$"
+}
+
+script Strength {
+	lockall
+	dofieldeffect(FIELD_MOVE_STRENGTH)
+	waitstate
+	goto(StrengthActivate)
+	end
+}
+
+script Waterfall {
+	lockall
+	checkfieldmove(FIELD_MOVE_WATERFALL)
+	if(var(VAR_RESULT) == PARTY_SIZE) {
+Waterfall_CannotUse:
+		msgbox(Waterfall_CantUse_Text)
+		releaseall
+		end
+	}
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	setfieldeffectargument(0, VAR_RESULT)
+	msgbox(Waterfall_WantTo_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		releaseall
+		end
+	}
+	msgbox(MonUsedWaterfall_Text)
+	hidefollowernpc
+	dofieldeffect(FLDEFF_USE_WATERFALL)
+	callnative(FollowerNPC_WarpSetEnd)
+	releaseall
+	end
+}
+
+script Waterfall_CantUse {
+	lockall
+	goto(Waterfall_CannotUse)
+}
+
+text(local) Waterfall_CantUse_Text {
+	"A wall of water is crashing down with\n"
+	"a mighty roar."
+}
+
+text(local) Waterfall_WantTo_Text {
+	"It's a large waterfall.\n"
+	"Would you liek to use Waterfall?"
+}
+
+text(local) MonUsedWaterfall_Text {
+	"{STR_VAR_1} used Waterfall.$"
+}
+
+script Dive {
+	lockall
+	checkfieldmove(FIELD_MOVE_DIVE)
+	if(var(VAR_RESULT) == PARTY_SIZE) {
+		msgbox(Dive_Cant_Text)
+		releaseall
+		end
+	}
+	copyvar(VAR_0x8004, VAR_RESULT)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	setfieldeffectargument(0, VAR_RESULT)
+	setfieldeffectargument(1, 1)
+	msgbox(Dive_Cant_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		releaseall
+		end
+	}
+	msgbox(MonUsedDive_Text)
+	hidefollowernpc
+	setfieldeffectargument(0, VAR_0x8004)
+	setfieldeffectargument(1, 1)
+	dofieldeffect(FLDEFF_USE_DIVE)
+	releaseall
+	end
+}
+
+script Dive_Underwater {
+	lockall
+	checkfieldmove(FIELD_MOVE_DIVE)
+	if(var(VAR_RESULT) == PARTY_SIZE) {
+		msgbox(Dive_CantSurface_Text)
+		releaseall
+		end
+	}
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	setfieldeffectargument(0, VAR_RESULT)
+	setfieldeffectargument(1, 1)
+	msgbox(Dive_WantToSurface_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		releaseall
+		end
+	}
+	msgbox(MonUsedDive_Text)
+	hidefollowernpc
+	dofieldeffect(FLDEFF_USE_DIVE)
+	callnative(SetFollowerNPCSurfSpriteAfterDive)
+	releaseall
+	end
+}
+
+text(local) Dive_Cant_Text {
+	"The sea is deep here. A Pok\emon\n"
+	"may be able to go underwater.$"
+}
+
+text(local) Dive_WantTo_Text {
+	"The sea is deep here.\n"
+	"Would you like to use Dive?"
+}
+
+text(local) MonUsedDive_Text {
+	"{STR_VAR_1} used Dive."
+}
+
+text(local) Dive_CantSurface_Text {
+	"Light is filtering down from above.\n"
+	"A Pok\emon may be able to surface.$"
+}
+
+text(local) Dive_WantToSurface_Text {
+	"Light is filtering down from above.\n"
+	"Would you like to use Dive?"
+}
+
+script Dig {
+	lockall
+	isfollowerfieldmoveuser(VAR_0x8004)
+	setfieldeffectargument(3, VAR_0x8004)
+	dofieldeffect(FLDEFF_USE_DIG)
+	waitstate
+SealedChamber:
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+	if(var(VAR_0x8004)) {
+		call(Follower_FieldMove)
+	}
+	callnative(DoBrailleDigEffect)
+	releaseall
+	end
+}
+
+script Grass {
+	lockall
+	isfollowerfieldmoveuser(VAR_0x8004)
+	setfieldeffectargument(3, VAR_0x8004)
+	dofieldeffect(FLDEFF_USE_CUT_ON_GRASS)
+	waitstate
+}
+
+script SweetScent_Fail {
+	msgbox(SweetScent_Fail_Text, MSGBOX_SIGN)
+	end
+}
+
+text(local) SweetScent_Fail_Text {
+	"Looks like there's nothing here\."
+}
+
+script Fog {
+	lockall
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	buffermovename(STR_VAR_2, MOVE_DEFOG)
+	msgbox(MonUsedFieldMove_Text)
+	closemessage
+	isfollowerfieldmoveuser(VAR_0x8004)
+	setfieldeffectargument(3, VAR_0x8004)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+	if(var(VAR_0x8004)) {
+		call(Follower_FieldMove)
+	}
+	waitmovement(0)
+	setfieldeffectargument(0, VAR_RESULT)
+	dofieldeffect(FLDEFF_DEFOG)
+	waitstate
+	releaseall
+	end
+}
+
+script Cliff {
+	lockall
+	checkfieldmove(FIELD_MOVE_ROCK_CLIMB)
+	if(var(VAR_RESULT) == PARTY_SIZE) {
+		releaseall
+		end
+	}
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	setfieldeffectargument(0, VAR_RESULT)
+	msgbox(Cliff_WantToClimb_Text, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		releaseall
+		end
+	}
+	msgbox(MonUsedRockClimb_Text)
+	closemessage
+	dofieldeffect(FLDEFF_USE_ROCK_CLIMB)
+	waitstate
+	releaseall
+	end
+}
+
+text(local) Cliff_WantToClimb_Text {
+	"The cliff is steep.\n"
+	"Would you like to use Rock Climb?$"
+}
+
+text(local) MonUsedRockClimb_Text {
+	"{STR_VAR_1} used Rock Climb!"
+}
+
+text(local) Cliff_CantClimb_Text {
+	"The cliff is steep.\n"
+	"A Pokémon may be able to climb it.$"
+}

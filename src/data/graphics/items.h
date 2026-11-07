@@ -1823,6 +1823,9 @@ const u16 gItemIconPalette_DynamaxBand[] = INCGFX_U16("graphics/items/icon_palet
 const u32 gItemIcon_Bicycle[] = INCGFX_U32("graphics/items/icons/bicycle.png", ".4bpp.smol");
 const u16 gItemIconPalette_Bicycle[] = INCGFX_U16("graphics/items/icon_palettes/bicycle.pal", ".gbapal");
 
+const u32 gItemIcon_RunningShoes[] = INCGFX_U32("graphics/items/icons/running_shoes.png", ".4bpp.smol");
+const u16 gItemIconPalette_RunningShoes[] = INCGFX_U16("graphics/items/icon_palettes/running_shoes.pal", ".gbapal");
+
 const u32 gItemIcon_MachBike[] = INCGFX_U32("graphics/items/icons/mach_bike.png", ".4bpp.smol");
 const u16 gItemIconPalette_MachBike[] = INCGFX_U16("graphics/items/icon_palettes/mach_bike.pal", ".gbapal");
 

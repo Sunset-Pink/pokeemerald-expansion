@@ -129,7 +129,10 @@ void CreateScriptedWildMon(enum Species species, u8 level, enum Item item)
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species),
         GetSynchronizedNature(STATIC_WILDMON_ORIGIN, species),
         RANDOM_UNOWN_LETTER);
-    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    u8 ivMethod = USE_RANDOM_IVS;
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        ivMethod = MAX_PER_STAT_IVS;
+    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, ivMethod);
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     if (item)
     {
@@ -142,13 +145,16 @@ void CreateScriptedDoubleWildMon(enum Species species1, u8 level1, enum Item ite
 {
     u8 heldItem1[2];
     u8 heldItem2[2];
+    u8 ivMethod = USE_RANDOM_IVS;
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        ivMethod = MAX_PER_STAT_IVS;
 
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species1,
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species1),
         GetSynchronizedNature(STATIC_WILDMON_ORIGIN, species1),
         RANDOM_UNOWN_LETTER);
-    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species1, level1, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species1, level1, personality, OTID_STRUCT_PLAYER_ID, ivMethod);
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     if (item1)
     {
@@ -161,7 +167,7 @@ void CreateScriptedDoubleWildMon(enum Species species1, u8 level1, enum Item ite
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species2),
         GetSynchronizedNature(STATIC_WILDMON_ORIGIN, species2),
         RANDOM_UNOWN_LETTER);
-    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][1], species2, level2, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][1], species2, level2, personality, OTID_STRUCT_PLAYER_ID, ivMethod);
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][1]);
     if (item2)
     {
@@ -409,6 +415,10 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     u8 side                   = ScriptReadByte(ctx);
     u8 slot                   = ScriptReadByte(ctx);
 
+    u8 ivMethod = USE_RANDOM_IVS;
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        ivMethod = MAX_PER_STAT_IVS;
+
     struct PokemonTemplate monTemplate = {0};
     monTemplate.species      = VarGet(ScriptReadHalfword(ctx));
     monTemplate.level        = VarGet(ScriptReadHalfword(ctx));
@@ -432,7 +442,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
         monTemplate.evs[i]   = PARSE_FLAG(5 + i, 0);
 
     for (i = 0; i < NUM_STATS; i++)
-        monTemplate.ivs[i]   = PARSE_FLAG(11 + i, USE_RANDOM_IVS);
+        monTemplate.ivs[i]   = PARSE_FLAG(11 + i, ivMethod);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         monTemplate.moves[i] = PARSE_FLAG(17 + i, MOVE_DEFAULT);

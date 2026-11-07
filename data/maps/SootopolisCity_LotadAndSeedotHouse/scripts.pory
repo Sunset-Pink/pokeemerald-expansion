@@ -1,0 +1,208 @@
+mapscripts SootopolisCity_LotadAndSeedotHouse_MapScripts {}
+raw`
+SootopolisCity_LotadAndSeedotHouse_EventScript_SeedotBrother::
+	special GetSeedotSizeRecordInfo
+	lock
+	faceplayer
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_PleaseShowMeBigSeedot, MSGBOX_DEFAULT
+	setvar VAR_0x8009, SPECIES_SEEDOT
+	chooseboxmon SELECT_PC_MON_TRADE
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowSeedot
+	special CompareSeedotSize
+	goto_if_eq VAR_RESULT, COMPARE_SIZE_INCORRECT_SPECIES, SootopolisCity_LotadAndSeedotHouse_EventScript_NotSeedot
+	goto_if_eq VAR_RESULT, COMPARE_SIZE_SMALLER, SootopolisCity_LotadAndSeedotHouse_EventScript_SmallSeedot
+	goto_if_eq VAR_RESULT, COMPARE_SIZE_LARGER, SootopolisCity_LotadAndSeedotHouse_EventScript_BigSeedot
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowSeedot::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_DontHaveBigSeedot, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_NotSeedot::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_ThatsNotSeedot, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_SmallSeedot::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_SeenBiggerSeedot, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_BigSeedot::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_GoshMightBeBiggerThanLotad, MSGBOX_DEFAULT
+	giveitem ITEM_ELIXIR
+	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir1
+	closemessage
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir1::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BagCrammedFull1, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_LotadBrother::
+	special GetLotadSizeRecordInfo
+	lock
+	faceplayer
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_PleaseShowMeBigLotad, MSGBOX_DEFAULT
+	setvar VAR_0x8009, SPECIES_LOTAD
+	chooseboxmon SELECT_PC_MON_TRADE
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowLotad
+	special CompareLotadSize
+	goto_if_eq VAR_RESULT, COMPARE_SIZE_INCORRECT_SPECIES, SootopolisCity_LotadAndSeedotHouse_EventScript_NotLotad
+	goto_if_eq VAR_RESULT, COMPARE_SIZE_SMALLER, SootopolisCity_LotadAndSeedotHouse_EventScript_SmallLotad
+	goto_if_eq VAR_RESULT, COMPARE_SIZE_LARGER, SootopolisCity_LotadAndSeedotHouse_EventScript_BigLotad
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_CancelShowLotad::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_DontHaveBigLotad, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_NotLotad::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_ThatsNotLotad, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_SmallLotad::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_SeenBiggerLotad, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_BigLotad::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_WowMightBeBiggerThanSeedot, MSGBOX_DEFAULT
+	giveitem ITEM_ELIXIR
+	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir2
+	closemessage
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_NoRoomForElixir2::
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BagCrammedFull2, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_SeedotSizeRecord::
+	special GetSeedotSizeRecordInfo
+	lockall
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BiggestSeedotInHistory, MSGBOX_DEFAULT
+	releaseall
+	end
+
+SootopolisCity_LotadAndSeedotHouse_EventScript_LotadSizeRecord::
+	special GetLotadSizeRecordInfo
+	lockall
+	msgbox SootopolisCity_LotadAndSeedotHouse_Text_BiggestLotadInHistory, MSGBOX_DEFAULT
+	releaseall
+	end
+`
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_PleaseShowMeBigSeedot {
+	"Do you know the Pok\emon Seedot?\n"
+	"It's hardly ever seen in Sootopolis.\p"
+	"Anyway, I love big Seedot.\n"
+	"The bigger the better.\p"
+	"But my younger brother, he says that\n"
+	"Lotad is bigger.\p"
+	"That's silly.\n"
+	"Seedot has to be bigger than that!\p"
+	"Huh? Do you have a Seedot with you?\n"
+	"P-p-please, show me!"
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_GoshMightBeBiggerThanLotad {
+	"{STR_VAR_2}!\n"
+	"Oh, my gosh, this is a big one!\p"
+	"It might even beat the big Lotad\n"
+	"my younger brother saw!\p"
+	"Thanks for showing me.\n"
+	"This is my thanks!"
+}
+
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_BagCrammedFull1 {
+	"Hunh?\n"
+	"Your Bag is crammed full."
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_SeenBiggerSeedot {
+	"{STR_VAR_2}, is it?\p"
+	"Hmm\. I've seen a bigger Seedot\n"
+	"than this one."
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_ThatsNotSeedot {
+	"Oh, now this is quite something…\n"
+	"But it's not a Seedot!"
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_DontHaveBigSeedot {
+	"You don't have a big Seedot?\n"
+	"That's too bad\.\p"
+	"If you get a big Seedot, please\n"
+	"come show me."
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_BiggestSeedotInHistory {
+	"The biggest Seedot in history!\n"
+	"{STR_VAR_2}'s {STR_VAR_3} giant!\p"
+	"A Seedot bigger than a Lotad\n"
+	"always wanted!"
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_PleaseShowMeBigLotad {
+	"Do you know the Pok\emon Lotad?\n"
+	"It's rarely seen in Sootopolis.\p"
+	"I love, I mean love, big Lotad!\p"
+	"My big brother says that Seedot is\n"
+	"bigger.\p"
+	"But that's wrong! Everyone knows that\n"
+	"Lotad is a lot bigger.\p"
+	"Hunh? Do you have a Lotad?\n"
+	"P-p-please show me!"
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_WowMightBeBiggerThanSeedot{
+	"{STR_VAR_2}!\n"
+	"Wow, that is big!\p"
+	"It might be even bigger than the huge\n"
+	"Seedot my big brother saw.\p"
+	"Thanks for showing me!\n"
+	"This is my thanks!"
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_BagCrammedFull2 {
+	"Hunh?\n"
+	"Your Bag is crammed full."
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_SeenBiggerLotad {
+	"{STR_VAR_2}?\p"
+	"Hmm\. I've seen a bigger Lotad\n"
+	"than this one here."
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_ThatsNotLotad {
+	"Well, isn't this something!\n"
+	"But it's no Lotad!"
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_DontHaveBigLotad {
+	"Don't you have a big Lotad?\n"
+	"How disappointing\.\p"
+	"If you get a big Lotad, please\n"
+	"come show me!"
+}
+
+text(local) SootopolisCity_LotadAndSeedotHouse_Text_BiggestLotadInHistory {
+	"The biggest Lotad in history!\n"
+	"{STR_VAR_2}'s {STR_VAR_3} colossus!\p"
+	"A Lotad bigger than a Seedot\n"
+	"always wanted!"
+}

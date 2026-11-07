@@ -34,7 +34,7 @@ static void FieldCallback_Dig(void)
 {
     Overworld_ResetStateAfterDigEscRope();
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
-    ScriptContext_SetupScript(EventScript_UseDig);
+    ScriptContext_SetupScript(Dig);
 }
 
 bool8 FldEff_UseDig(void)

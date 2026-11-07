@@ -30,7 +30,6 @@ script Script_InsideOfTruck_GameInit_MaleStart {
     setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK)
-    setflag(FLAG_HIDE_MOMS_GIFT_MAYS_HOUSE)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL)
@@ -43,7 +42,6 @@ script Script_InsideOfTruck_GameInit_FemaleStart {
     setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
-    setflag(FLAG_HIDE_MOMS_GIFT_BRENDANS_HOUSE)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL)
@@ -109,7 +107,7 @@ script Script_InsideOfTruck_GameInit_ConfigSettings_SettingsMenu {
 
 text Text_InsideOfTruck_GameInit_ConfigSettings_WhichOption {
     "Which option would you like to\n"
-    "customize?\p"
+    "customize?"
 }
 
 script Script_InsideOfTruck_GameInit_ConfigSettings_DifficultyMenu {

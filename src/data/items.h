@@ -13977,8 +13977,24 @@ const struct ItemInfo gItemsInfo[] =
 
 // Miscellaneous Key Items
 
-    [ITEM_BICYCLE] =
+    [ITEM_RUNNING_SHOES] = 
     {
+        .name = ITEM_NAME("Running Shoes"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "They use compressed air to propel the wearer,\n"
+            "allowing them to run quickly."
+        ),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_RunningShoes,
+        .iconPic = gItemIcon_HeavyDutyBoots,
+        .iconPalette = gItemIconPalette_HeavyDutyBoots,
+    },
+
+    [ITEM_BICYCLE] =
+    {   
         .name = ITEM_NAME("Bike"),
         .price = 0,
         .description = COMPOUND_STRING(

@@ -419,19 +419,18 @@ extern const u8 SecretBase_Text_Trainer8Defeated[];
 extern const u8 SecretBase_Text_Trainer9Defeated[];
 
 //field effects
-extern const u8 EventScript_UseStrength[];
-extern const u8 EventScript_FailSweetScent[];
+extern const u8 Strength[];
+extern const u8 SweetScent_Fail[];
 extern const u8 EventScript_UseFlash[];
-extern const u8 EventScript_UseCut[];
-extern const u8 EventScript_UseRockSmash[];
-extern const u8 EventScript_UseDig[];
-extern const u8 EventScript_UseCutGrass[];
-extern const u8 EventScript_UseDefog[];
+extern const u8 Grass[];
+extern const u8 RockSmash[];
+extern const u8 Dig[];
+extern const u8 Grass[];
+extern const u8 Fog[];
 
 //player pc
 extern const u8 EventScript_PalletTown_PlayersHouse_2F_ShutDownPC[];
-extern const u8 LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC[];
-extern const u8 LittlerootTown_MaysHouse_2F_EventScript_TurnOffPlayerPC[];
+extern const u8 LittlerootTown_RivalsHouse_2F_EventScript_TurnOffPlayerPC[];
 
 // Mauville Old Man (Giddy)
 extern const u8 GiddyText_Is[];
@@ -591,11 +590,11 @@ extern const u8 EventScript_Questionnaire[];
 extern const u8 EventScript_TrainerHillTimer[];
 extern const u8 EventScript_CurrentTooFast[];
 extern const u8 EventScript_UseSurf[];
-extern const u8 EventScript_UseWaterfall[];
-extern const u8 EventScript_CannotUseWaterfall[];
-extern const u8 EventScript_UseDive[];
-extern const u8 EventScript_UseDiveUnderwater[];
-extern const u8 EventScript_UseRockClimb[];
+extern const u8 Waterfall[];
+extern const u8 Waterfall_CantUse[];
+extern const u8 Dive[];
+extern const u8 Dive_Underwater[];
+extern const u8 Cliff[];
 extern const u8 EventScript_FallDownHole[];
 extern const u8 EventScript_FieldPoison[];
 extern const u8 EventScript_EggHatch[];

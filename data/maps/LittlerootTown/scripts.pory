@@ -12,119 +12,10 @@ LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::
 	setvar VAR_RIVAL_HOUSE_STATE, 5
 	return
 
-LittlerootTown_EventScript_SetTwinPos::
-	goto_if_eq VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
-	setobjectxyperm LOCALID_LITTLEROOT_TWIN, 10, 1
-	setobjectmovementtype LOCALID_LITTLEROOT_TWIN, MOVEMENT_TYPE_FACE_UP
-	return
-
-LittlerootTown_EventScript_SetTwinGuardingRoutePos::
-	setobjectxyperm LOCALID_LITTLEROOT_TWIN, 7, 2
-	setobjectmovementtype LOCALID_LITTLEROOT_TWIN, MOVEMENT_TYPE_FACE_DOWN
-	return
-
 LittlerootTown_EventScript_GoodLuck::
 	msgbox LittlerootTown_Text_GoodLuckCatchingPokemon, MSGBOX_DEFAULT
 	release
 	end
-
-LittlerootTown_EventScript_NeedPokemonTriggerLeft::
-	lockall
-	applymovement LOCALID_LITTLEROOT_TWIN, LittlerootTown_Movement_TwinApproachPlayerLeft
-	waitmovement 0
-	call LittlerootTown_EventScript_DangerousWithoutPokemon
-	applymovement LOCALID_LITTLEROOT_TWIN, LittlerootTown_Movement_TwinReturnLeft
-	waitmovement 0
-	releaseall
-	end
-
-LittlerootTown_EventScript_DangerousWithoutPokemon::
-	msgbox Text_LittlerootTown_Twin_PokemonWillJumpOut, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_LITTLEROOT_TWIN, LittlerootTown_Movement_TwinPushPlayerFromRoute
-	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PushPlayerBackFromRoute
-	waitmovement 0
-	msgbox LittlerootTown_Text_DangerousIfYouDontHavePokemon, MSGBOX_DEFAULT
-	closemessage
-	return
-
-LittlerootTown_Movement_TwinApproachPlayerLeft:
-	face_right
-	delay_8
-	disable_jump_landing_ground_effect
-	jump_in_place_right
-	delay_8
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
-	walk_fast_up
-	walk_fast_left
-	face_down
-	step_end
-
-LittlerootTown_Movement_TwinPushPlayerFromRoute:
-	walk_down
-	step_end
-
-LittlerootTown_Movement_TwinReturnLeft:
-	walk_right
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_in_place_faster_down
-	step_end
-
-LittlerootTown_Movement_PushPlayerBackFromRoute:
-	lock_facing_direction
-	walk_down
-	unlock_facing_direction
-	step_end
-
-LittlerootTown_EventScript_NeedPokemonTriggerRight::
-	lockall
-	applymovement LOCALID_LITTLEROOT_TWIN, LittlerootTown_Movement_TwinApproachPlayerRight
-	waitmovement 0
-	call LittlerootTown_EventScript_DangerousWithoutPokemon
-	applymovement LOCALID_LITTLEROOT_TWIN, LittlerootTown_Movement_TwinReturnRight
-	waitmovement 0
-	releaseall
-	end
-
-LittlerootTown_Movement_TwinApproachPlayerRight:
-	face_right
-	delay_8
-	disable_jump_landing_ground_effect
-	jump_in_place_right
-	delay_8
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	face_down
-	step_end
-
-LittlerootTown_Movement_TwinReturnRight:
-	walk_left
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_in_place_faster_down
-	step_end
-
-	
-LittlerootTown_Text_DangerousIfYouDontHavePokemon:
-	.string "It's dangerous if you don't have\n"
-	.string "your own POKéMON.$"
-
 
 LittlerootTown_Text_GoodLuckCatchingPokemon:
 	.string "Are you going to catch POKéMON?\n"
@@ -135,6 +26,7 @@ mapscripts LittlerootTown_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: Script_LittlerootTown_OnTransition
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_QUEST_INTRO_STATE, 1: Script_LittlerootTown_Intro_StepOffTruck
+
 	]
 	//MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE []
 }
@@ -151,6 +43,11 @@ script(local) Script_LittlerootTown_OnTransition {
 	call(Common_EventScript_SetupRivalGfxId)
 	if(checkplayergender == FEMALE) {
 		setobjectxyperm(LOCALID_LITTLEROOT_MOM, 14, 8)
+	}
+	if(var(VAR_QUEST_INTRO_STATE) < 6) {
+		call(LittlerootTown_Twin_Reposition_ByRoute)
+	} elif(var(VAR_QUEST_INTRO_STATE) == 6) {
+		call(LittlerootTown_Twin_Reposition_Default)
 	}
 	end
 }
@@ -210,7 +107,7 @@ script Script_LittlerootTown_Intro_GoInsideWithMom {
 		walk_in_place_faster_left
 	))
 	waitmovement(0)
-	msgbox(Text_LittlerootTown_Mom_OurNewHome)
+	msgbox(LittlerootTown_Mom_OurNewHome_Text)
 	closemessage
 	applymovement(LOCALID_LITTLEROOT_MOM, moves(
 		delay_16
@@ -242,31 +139,34 @@ script Script_LittlerootTown_Intro_GoInsideWithMom {
 	return
 }
 
-script Script_LittlerootTown_Interact_FatMan {
-	msgbox(Text_LittlerootTown_FatMan_UsePCToStoreItems, MSGBOX_NPC)
+script LittlerootTown_FatMan {
+	msgbox(LittlerootTown_FatMan_UsePCToStoreItems_Text, MSGBOX_NPC)
 	end
 }
 
-text(local) Text_LittlerootTown_FatMan_UsePCToStoreItems {
+text(local) LittlerootTown_FatMan_UsePCToStoreItems_Text {
 	"If you use a PC, you can store items\n"
 	"and Pokemon.\p"
 	"The power of science is staggering!"
 }
 
-script Script_LittlerootTown_Interact_Boy {
-	msgbox(Text_LittlerootTown_Boy_ProfBitch, MSGBOX_NPC)
+script LittlerootTown_Boy {
+	msgbox(LittlerootTown_Boy_ProfBitch_Text, MSGBOX_NPC)
 	end
 }
 
-text(local) Text_LittlerootTown_Boy_ProfBitch {
+text(local) LittlerootTown_Boy_ProfBitch_Text {
 	"Prof. Birch tries to spend time\n"
 	"in the wild. But he is absolutely\l"
 	"useless in the field.\p"
 	"One time he got absolutely swarmed\n"
-	"by some Zigzagoons. Talk about useless,\l"
-	"might as well call him, Prof. Bitch."
+	"by some Zigzagoons. Talk about\l"
+	"useless.\p"
+	"Might as well start calling him\n"
+	"Prof. Bitch."
 }
-text(local) Text_LittlerootTown_Mom_OurNewHome {
+
+text(local) LittlerootTown_Mom_OurNewHome_Text {
 	"Mom: {PLAYER}, we're here, honey!\p"
 	"It must be tiring riding with our things\n"
 	"in the moving truck.\p"
@@ -279,62 +179,94 @@ text(local) Text_LittlerootTown_Mom_OurNewHome {
 	"Let's go inside.$"
 }
 
-script Script_LittlerootTown_Interact_TownSign {
-	msgbox(Text_LittlerootTown_TownSign, MSGBOX_SIGN)
+script LittlerootTown_Sign_Town {
+	msgbox(Text_LittlerootTown_Sign_Town_Text, MSGBOX_SIGN)
 	end
 }
 
-text Text_LittlerootTown_TownSign {
+text(local) Text_LittlerootTown_Sign_Town_Text {
 	"Littleroot Town\n"
 	"\qoA town that can't be shaded any hue.\qc"
 }
 
-script Script_LittlerootTown_Interact_LabSign {
-	msgbox(Text_LittlerootTown_LabSign, MSGBOX_SIGN)
+script LittlerootTown_Sign_Lab {
+	msgbox(LittlerootTown_LabSign_Text, MSGBOX_SIGN)
 	end
 }
 
-text Text_LittlerootTown_LabSign {
+text(local) LittlerootTown_LabSign_Text {
 	"Prof. Birch's Pok\emon Lab."
 }
 
-script Script_LittlerootTown_Interact_BrendansHouseSign {
+script LittlerootTown_Sign_BrendansHouse {
 	if(checkplayergender == MALE) {
-		msgbox(Text_LittlerootTown_PlayersSign, MSGBOX_SIGN)
+		msgbox(LittlerootTown_HouseSign_Player_Text, MSGBOX_SIGN)
 	} else {
-		msgbox(Text_LittlerootTown_BirchsSign, MSGBOX_SIGN)
+		msgbox(LittlerootTown_HouseSign_Rival_Text, MSGBOX_SIGN)
 	}
 }
 
-script Script_LittlerootTown_Interact_MaysHouseSign {
+script LittlerootTown_Sign_MaysHouse {
 	if(checkplayergender == FEMALE) {
-		msgbox(Text_LittlerootTown_PlayersSign, MSGBOX_SIGN)
+		msgbox(LittlerootTown_HouseSign_Player_Text, MSGBOX_SIGN)
 	} else {
-		msgbox(Text_LittlerootTown_BirchsSign, MSGBOX_SIGN)
+		msgbox(LittlerootTown_HouseSign_Rival_Text, MSGBOX_SIGN)
 	}
 }
 
-text Text_LittlerootTown_PlayersSign {
+text(local) LittlerootTown_HouseSign_Player_Text {
 	"{PLAYER}'s House."
 }
 
-text Text_LittlerootTown_BirchsSign {
+text(local) LittlerootTown_HouseSign_Rival_Text {
 	"Prof. Birch's House."
 }
 
-script Script_LittlerootTown_Interact_Twin {
+script LittlerootTown_Twin {
 	lock
 	faceplayer
-	if(flag(FLAG_ADVENTURE_STARTED)) {
+	if(var(VAR_QUEST_INTRO_STATE) < 6) {
+		msgbox(LittlerootTown_Twin_ZigzagoonHorde_Text, MSGBOX_NPC)
+	}elif(flag(FLAG_ADVENTURE_STARTED)) {
 		goto(LittlerootTown_EventScript_GoodLuck)
 	} else {
-		msgbox(Text_LittlerootTown_Twin_PokemonWillJumpOut)
+		msgbox(Text_LittlerootTown_Twin_PokemonWillJumpOut_Text, MSGBOX_NPC)
 	}
 	releaseall
 	end
 }
-text(local) Text_LittlerootTown_Twin_PokemonWillJumpOut {
+text(local) Text_LittlerootTown_Twin_PokemonWillJumpOut_Text {
 	"Um, um, um!\p"
 	"If you go outside and go in the grass,\n"
 	"wild Pok\emon will jump out!"
+}
+
+text(local) LittlerootTown_Twin_ZigzagoonHorde_Text {
+	"Oh wow!\p"
+	"There are so many Zigzagoons\n"
+	"out to play today.\l"
+	"Prof. Birch just ran back to\l"
+	"to his lab, to escape them.\p"
+	"Is it just me, or does that one\n"
+	"in the back look a bit strange?"
+}
+
+script LittlerootTown_Twin_Reposition_ByRoute {
+	setobjectxyperm(LOCALID_LITTLEROOT_TWIN 10, 2)
+	setobjectmovementtype(LOCALID_LITTLEROOT_TWIN, MOVEMENT_TYPE_FACE_UP)
+}
+
+script LittlerootTown_Twin_Reposition_Default {
+	setobjectxyperm(LOCALID_LITTLEROOT_TWIN, 16, 10)
+	setobjectmovementtype(LOCALID_LITTLEROOT_TWIN, MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT)
+}
+
+script LittlerootTown_Zigzagoon {
+	msgbox(LittlerootTown_Zigzagoon_Text, MSGBOX_NPC)
+	end
+}
+
+text(local) LittlerootTown_Zigzagoon_Text {
+	"Zig\. Zag\.\n"
+	"Zigzagoon\."
 }

@@ -1,0 +1,9 @@
+mapscripts TerraCave_Entrance_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: TerraCave_Entrance_OnTransition
+}
+
+script(local) TerraCave_Entrance_OnTransition {
+	setflag(FLAG_ARRIVED_AT_TERRA_CAVE_ENTRANCE)
+	end
+}
+

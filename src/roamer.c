@@ -100,13 +100,31 @@ void MoveAllRoamers(void)
 
 static void CreateInitialRoamerMon(u8 index, enum Species species, u8 level)
 {
+    u8 ivMethod = USE_RANDOM_IVS;
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        ivMethod = MAX_PER_STAT_IVS;
     ClearRoamerLocationHistory(index);
     u32 personality = GetMonPersonality(species,
         GetSynchronizedGender(ROAMER_ORIGIN, species),
         GetSynchronizedNature(ROAMER_ORIGIN, species),
         RANDOM_UNOWN_LETTER);
-    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, ivMethod);
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
+
+    if(
+        FlagGet(FLAG_SHINY_LEGENDS) 
+        && (
+            IsSpeciesRestrictedLegendary(species)
+            || IsSpeciesUltraBeast(species)
+            || IsSpeciesMythical(species)
+            || IsSpeciesParadox(species)
+            || IsSpeciesSubLegendary(species)
+        )
+    ) {
+        bool32 isShiny = TRUE;
+        SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_IS_SHINY, &isShiny);
+    }
+
     ROAMER(index)->ivs = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_IVS);
     ROAMER(index)->personality = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY);
     ROAMER(index)->species = species;

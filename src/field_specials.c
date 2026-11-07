@@ -1495,8 +1495,12 @@ void GiveLeadMonEffortRibbon(void)
 
 bool8 Special_AreLeadMonEVsMaxedOut(void)
 {
-    if (GetMonEVCount(&gParties[B_TRAINER_PLAYER][GetLeadMonIndex()]) >= MAX_TOTAL_EVS)
+    if (
+        FlagGet(FLAG_IS_MIN_GRINDING_MODE)
+        || GetMonEVCount(&gParties[B_TRAINER_PLAYER][GetLeadMonIndex()]) >= MAX_TOTAL_EVS
+    ) {
         return TRUE;
+    }
 
     return FALSE;
 }

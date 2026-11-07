@@ -202,6 +202,7 @@ void NewGameInitData(void)
     DeactivateAllRoamers();
     gSaveBlock1Ptr->registeredItem = ITEM_NONE;
     ClearBag();
+    AddBagItem(ITEM_RUNNING_SHOES, 1);
     NewGameInitPCItems();
     ClearPokeblocks();
     ClearDecorationInventories();
@@ -243,8 +244,9 @@ void NewGameInitData(void)
     //Give running shoes off
     FlagSet(FLAG_RECEIVED_RUNNING_SHOES); //Might be able to remove.
     FlagSet(FLAG_SYS_B_DASH);
+    gSaveBlock2Ptr->autoRun = FALSE;
 
-    // Turn on National dex.
+    // Give PokeDex.
     FlagSet(FLAG_SYS_NATIONAL_DEX);
 }
 

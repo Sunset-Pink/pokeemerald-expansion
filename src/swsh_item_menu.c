@@ -1255,7 +1255,7 @@ STATIC_ASSERT(ARRAY_COUNT(sDefaultBagWindows) == WIN_COUNT + 1, BagWindowTemplat
 // bg0 - see sContextMenuWindowTemplates
 // ----------------------------------------------------------------------------
 
-#define ITEMWIN_MESSAGE_W           27
+#define ITEMWIN_MESSAGE_W           26
 #define ITEMWIN_MESSAGE_H           4
 #define ITEMWIN_MESSAGE_TILES       (ITEMWIN_MESSAGE_W * ITEMWIN_MESSAGE_H)
 #define ITEMWIN_MESSAGE_BASE        WIN_PARTY_INFO(PARTY_SIZE)

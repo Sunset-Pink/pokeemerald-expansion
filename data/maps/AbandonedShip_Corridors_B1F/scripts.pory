@@ -1,0 +1,94 @@
+mapscripts AbandonedShip_Corridors_B1F_MapScripts {
+    MAP_SCRIPT_ON_RESUME: AbandonedShip_Corridors_B1F_OnResume
+    MAP_SCRIPT_ON_LOAD: AbandonedShip_Corridors_B1F_OnLoad
+}
+
+raw`
+AbandonedShip_Corridors_B1F_OnResume:
+	setdivewarp MAP_ABANDONED_SHIP_UNDERWATER1, 5, 4
+	end
+
+AbandonedShip_Corridors_B1F_OnLoad:
+	call_if_unset FLAG_USED_STORAGE_KEY, AbandonedShip_Corridors_B1F_EventScript_LockStorageRoom
+	call_if_set FLAG_USED_STORAGE_KEY, AbandonedShip_Corridors_B1F_EventScript_UnlockStorageRoom
+	end
+
+AbandonedShip_Corridors_B1F_EventScript_LockStorageRoom::
+	setmetatile 11, 4, METATILE_InsideShip_IntactDoor_Bottom_Locked, TRUE
+	return
+
+AbandonedShip_Corridors_B1F_EventScript_UnlockStorageRoom::
+	setmetatile 11, 4, METATILE_InsideShip_IntactDoor_Bottom_Unlocked, TRUE
+	return
+
+AbandonedShip_Corridors_B1F_EventScript_TuberM::
+	msgbox AbandonedShip_Corridors_B1F_Text_YayItsAShip, MSGBOX_NPC
+	end
+
+AbandonedShip_Corridors_B1F_EventScript_StorageRoomDoor::
+	lockall
+	goto_if_set FLAG_USED_STORAGE_KEY, AbandonedShip_Corridors_B1F_EventScript_DoorIsUnlocked
+	checkitem ITEM_STORAGE_KEY
+	goto_if_eq VAR_RESULT, FALSE, AbandonedShip_Corridors_B1F_EventScript_DoorIsLocked
+	msgbox AbandonedShip_Corridors_B1F_Text_InsertedStorageKey, MSGBOX_DEFAULT
+	playse SE_PIN
+	removeitem ITEM_STORAGE_KEY
+	setflag FLAG_USED_STORAGE_KEY
+	call AbandonedShip_Corridors_B1F_EventScript_UnlockStorageRoom
+	special DrawWholeMapView
+	releaseall
+	end
+
+AbandonedShip_Corridors_B1F_EventScript_DoorIsLocked::
+	msgbox AbandonedShip_Corridors_B1F_Text_DoorIsLocked, MSGBOX_DEFAULT
+	releaseall
+	end
+
+AbandonedShip_Corridors_B1F_EventScript_DoorIsUnlocked::
+	msgbox AbandonedShip_Text_TheDoorIsOpen, MSGBOX_DEFAULT
+	releaseall
+	end
+
+AbandonedShip_Corridors_B1F_EventScript_Duncan::
+	trainerbattle_single TRAINER_DUNCAN, AbandonedShip_Corridors_B1F_Text_DuncanIntro, AbandonedShip_Corridors_B1F_Text_DuncanDefeat
+	msgbox AbandonedShip_Corridors_B1F_Text_DuncanPostBattle, MSGBOX_AUTOCLOSE
+	end
+`
+
+text(local) AbandonedShip_Corridors_B1F_Text_DuncanIntro {
+	"When we go out to sea, we Sailors\n"
+	"always bring our Pok\emon.\l"
+	"How about a quick battle?"
+}
+
+text(local) AbandonedShip_Corridors_B1F_Text_DuncanDefeat {
+	"Whoops, I'm sunk!"
+}
+
+text(local) AbandonedShip_Corridors_B1F_Text_DuncanPostBattle {
+	"The ship's bottom has sunk into the\n"
+	"depths.\p"
+	"If a Pok\emon knew how to go underwater,\n"
+	"we might make some progress\."
+}
+
+text(local) AbandonedShip_Corridors_B1F_Text_YayItsAShip {
+	"Yay!\n"
+	"It's a ship!"
+}
+
+text(local) AbandonedShip_Corridors_B1F_Text_DoorIsLocked {
+	"The door is locked.\p"
+	"\qoSTORAGE\qc is painted on the door."
+}
+
+text(local) AbandonedShip_Corridors_B1F_Text_InsertedStorageKey {
+	"{PLAYER} inserted and turned the\n"
+	"Storage Key.\p"
+	"The inserted Key stuck fast,\n"
+	"but the door opened.$"
+}
+
+text(local) AbandonedShip_Text_TheDoorIsOpen {
+	"The door is open."
+}

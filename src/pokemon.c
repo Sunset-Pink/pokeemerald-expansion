@@ -823,7 +823,10 @@ void ZeroEnemyPartyMons(void)
 
 void CreateRandomMon(struct Pokemon *mon, enum Species species, u8 level)
 {
-    CreateRandomMonWithIVs(mon, species, level, USE_RANDOM_IVS);
+    u8 ivMethod = USE_RANDOM_IVS;
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        ivMethod = MAX_PER_STAT_IVS;
+    CreateRandomMonWithIVs(mon, species, level, ivMethod);
 }
 
 void CreateRandomMonWithIVs(struct Pokemon *mon, enum Species species, u8 level, u8 fixedIv)
@@ -1214,9 +1217,11 @@ void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 m
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(mon, src->party[monId].moves[i], i);
 
-    evAmount = MAX_TOTAL_EVS / NUM_STATS;
-    for (i = 0; i < NUM_STATS; i++)
-        SetMonData(mon, MON_DATA_HP_EV + i, &evAmount);
+    if(!FlagGet(FLAG_IS_MIN_GRINDING_MODE)) {
+        evAmount = MAX_TOTAL_EVS / NUM_STATS;
+        for (i = 0; i < NUM_STATS; i++)
+            SetMonData(mon, MON_DATA_HP_EV + i, &evAmount);
+    }
 
     language = src->language;
     SetMonData(mon, MON_DATA_LANGUAGE, &language);
@@ -1264,8 +1269,11 @@ void ConvertPokemonToBattleTowerPokemon(struct Pokemon *mon, struct BattleTowerP
 static void CreateEventMon(struct Pokemon *mon, enum Species species, u8 level, u32 personality, struct OriginalTrainerId otId)
 {
     bool32 isModernFatefulEncounter = TRUE;
+    u8 ivMethod = USE_RANDOM_IVS;
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        ivMethod = MAX_PER_STAT_IVS;
 
-    CreateMonWithIVs(mon, species, level, personality, otId, USE_RANDOM_IVS);
+    CreateMonWithIVs(mon, species, level, personality, otId, ivMethod);
     GiveMonInitialMoveset(mon);
     SetMonData(mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
     CalculateMonStats(mon);
@@ -1396,6 +1404,8 @@ void CalculateMonStatsCont(struct Pokemon *mon, bool32 updateSpeedStat)
 
         u8 baseStat = GetSpeciesBaseStat(species, i);
         s32 n = (((2 * baseStat + iv[i] + ev[i] / 4) * level) / 100) + 5;
+        if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+            n = (((2 * baseStat + iv[i])* level) /100) + 5;
         n = ModifyStatByNature(nature, n, i);
         if (B_FRIENDSHIP_BOOST == TRUE)
             n = n + ((n * 10 * friendship) / (MAX_FRIENDSHIP * 100));
@@ -1415,6 +1425,8 @@ void CalculateMonStatsCont(struct Pokemon *mon, bool32 updateSpeedStat)
     {
         s32 n = 2 * GetSpeciesBaseHP(species) + iv[STAT_HP];
         newMaxHP = (((n + ev[STAT_HP] / 4) * level) / 100) + level + 10;
+        if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+            newMaxHP = ((n * level)/100) + level + 10;
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
@@ -3451,6 +3463,8 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
 
     // Determine the EV cap to use
     u32 maxAllowedEVs = !B_EV_ITEMS_CAP ? MAX_TOTAL_EVS : GetCurrentEVCap();
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE))
+        maxAllowedEVs = 0;
 
     // Get item hold effect
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM);
@@ -4892,6 +4906,11 @@ s32 CalculateFriendshipBonuses(struct Pokemon *mon, s32 modifier, enum HoldEffec
 
 void MonGainEVs(struct Pokemon *mon, enum Species defeatedSpecies)
 {
+
+    if(FlagGet(FLAG_IS_MIN_GRINDING_MODE)) {
+        return;
+    }
+
     u8 evs[NUM_STATS];
     u16 evIncrease = 0;
     u16 totalEVs = 0;
@@ -6616,6 +6635,26 @@ uq4_12_t GetDynamaxLevelHPMultiplier(u32 dynamaxLevel, bool32 inverseMultiplier)
     return UQ_4_12(1.5 + 0.05 * dynamaxLevel);
 }
 
+bool32 IsSpeciesSubLegendary(enum Species species) {
+    return gSpeciesInfo[species].isSubLegendary;
+}
+
+bool32 IsSpeciesUltraBeast(enum Species species) {
+    return gSpeciesInfo[species].isUltraBeast;
+}
+
+bool32 IsSpeciesParadox(enum Species species) {
+    return gSpeciesInfo[species].isParadox;
+}
+
+bool32 IsSpeciesMythical(enum Species species) {
+    return gSpeciesInfo[species].isMythical;
+}
+
+bool32 IsSpeciesRestrictedLegendary(enum Species species) {
+    return gSpeciesInfo[species].isRestrictedLegendary;
+}
+
 bool32 IsSpeciesRegionalForm(enum Species species)
 {
     return gSpeciesInfo[species].isAlolanForm
@@ -6993,12 +7032,16 @@ void CreateMonFromTemplate(struct Pokemon *mon, const struct PokemonTemplate *mo
 
     u8 ivs[NUM_STATS];
     u8 evs[NUM_STATS];
+    u8 zero = 0;
+    u8 maxIV = MAX_PER_STAT_IVS;
+
     ResolveIVs(species, monTemplate->ivs, ivs);
     ResolveEVs(monTemplate->evs, evs, monTemplate->ignoreTotalEvCheck);
+
     for (u32 i = 0; i < NUM_STATS; i++)
     {
-        SetMonData(mon, MON_DATA_HP_IV + i, &ivs[i]);
-        SetMonData(mon, MON_DATA_HP_EV + i, &evs[i]);
+        SetMonData(mon, MON_DATA_HP_IV + i, FlagGet(FLAG_IS_MIN_GRINDING_MODE) ? &maxIV : &ivs[i]);
+        SetMonData(mon, MON_DATA_HP_EV + i, FlagGet(FLAG_IS_MIN_GRINDING_MODE) ? &zero : &evs[i]);
     }
 
     enum Move moves[MAX_MON_MOVES];

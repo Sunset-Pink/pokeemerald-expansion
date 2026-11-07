@@ -5035,7 +5035,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 - Crunch
 
-=== TRAINER_ROXANNE_1 ===
+=== TRAINER_ROXANNE_NORMAL ===
 Name: ROXANNE
 Class: Leader
 Pic: Leader Roxanne
@@ -5070,7 +5070,7 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Tackle
 - Rock Tomb
 
-=== TRAINER_BRAWLY_1 ===
+=== TRAINER_BRAWLY_NORMAL ===
 Name: BRAWLY
 Class: Leader
 Pic: Leader Brawly
@@ -5105,7 +5105,7 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Reversal
 - Bulk Up
 
-=== TRAINER_WATTSON_1 ===
+=== TRAINER_WATTSON_NORMAL ===
 Name: WATTSON
 Class: Leader
 Pic: Leader Wattson
@@ -5148,7 +5148,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Shock Wave
 - Howl
 
-=== TRAINER_FLANNERY_1 ===
+=== TRAINER_FLANNERY_NORMAL ===
 Name: FLANNERY
 Class: Leader
 Pic: Leader Flannery
@@ -5191,7 +5191,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Body Slam
 - Attract
 
-=== TRAINER_NORMAN_1 ===
+=== TRAINER_NORMAN_NORMAL ===
 Name: NORMAN
 Class: Leader
 Pic: Leader Norman
@@ -5234,7 +5234,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Facade
 - Feint Attack
 
-=== TRAINER_WINONA_1 ===
+=== TRAINER_WINONA_NORMAL ===
 Name: WINONA
 Class: Leader
 Pic: Leader Winona
@@ -5285,7 +5285,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dragon Dance
 - Aerial Ace
 
-=== TRAINER_TATE_AND_LIZA_1 ===
+=== TRAINER_TATE_AND_LIZA_NORMAL ===
 Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
@@ -5328,7 +5328,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Psychic
 - Flamethrower
 
-=== TRAINER_JUAN_1 ===
+=== TRAINER_JUAN_NORMAL ===
 Name: JUAN
 Class: Leader
 Pic: Leader Juan
@@ -14896,14 +14896,14 @@ Mudkip
 Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_ROXANNE_2 ===
+=== TRAINER_ROXANNE_BRONZE ===
 Name: ROXANNE
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -14939,14 +14939,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Protect
 - Rock Slide
 
-=== TRAINER_ROXANNE_3 ===
+=== TRAINER_ROXANNE_SILVER ===
 Name: ROXANNE
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -14990,14 +14990,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Protect
 - Rock Slide
 
-=== TRAINER_ROXANNE_4 ===
+=== TRAINER_ROXANNE_GOLD ===
 Name: ROXANNE
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15041,14 +15041,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Protect
 - Rock Slide
 
-=== TRAINER_ROXANNE_5 ===
+=== TRAINER_ROXANNE_DIAMOND ===
 Name: ROXANNE
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15100,14 +15100,70 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Protect
 - Rock Slide
 
-=== TRAINER_BRAWLY_2 ===
+=== TRAINER_ROXANNE_PLATINUM ===
+Name: ROXANNE
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regirock
+Level: 5
+
+=== TRAINER_ROXANNE_ULTRA ===
+Name: ROXANNE
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regirock
+Level: 5
+
+=== TRAINER_ROXANNE_HYPER ===
+Name: ROXANNE
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regirock
+Level: 5
+
+=== TRAINER_ROXANNE_MASTER ===
+Name: ROXANNE
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regirock
+Level: 5
+
+=== TRAINER_BRAWLY_BRONZE ===
 Name: BRAWLY
 Class: Leader
 Pic: Leader Brawly
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15143,14 +15199,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Belly Drum
 - Earthquake
 
-=== TRAINER_BRAWLY_3 ===
+=== TRAINER_BRAWLY_SILVER ===
 Name: BRAWLY
 Class: Leader
 Pic: Leader Brawly
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15186,14 +15242,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Belly Drum
 - Earthquake
 
-=== TRAINER_BRAWLY_4 ===
+=== TRAINER_BRAWLY_GOLD ===
 Name: BRAWLY
 Class: Leader
 Pic: Leader Brawly
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15237,14 +15293,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Belly Drum
 - Earthquake
 
-=== TRAINER_BRAWLY_5 ===
+=== TRAINER_BRAWLY_DIAMOND ===
 Name: BRAWLY
 Class: Leader
 Pic: Leader Brawly
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15296,14 +15352,70 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Belly Drum
 - Earthquake
 
-=== TRAINER_WATTSON_2 ===
+=== TRAINER_BRAWLY_PLATINUM ===
+Name: BRAWLY
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
+
+=== TRAINER_BRAWLY_ULTRA ===
+Name: BRAWLY
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
+
+=== TRAINER_BRAWLY_HYPER ===
+Name: BRAWLY
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
+
+=== TRAINER_BRAWLY_MASTER ===
+Name: BRAWLY
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
+
+=== TRAINER_WATTSON_BRONZE ===
 Name: WATTSON
 Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15339,14 +15451,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunder
 - Protect
 
-=== TRAINER_WATTSON_3 ===
+=== TRAINER_WATTSON_SILVER ===
 Name: WATTSON
 Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15390,14 +15502,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunder
 - Protect
 
-=== TRAINER_WATTSON_4 ===
+=== TRAINER_WATTSON_GOLD ===
 Name: WATTSON
 Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15441,14 +15553,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunder
 - Protect
 
-=== TRAINER_WATTSON_5 ===
+=== TRAINER_WATTSON_DIAMOND ===
 Name: WATTSON
 Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15500,14 +15612,70 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunder
 - Protect
 
-=== TRAINER_FLANNERY_2 ===
+=== TRAINER_WATTSON_PLATINUM ===
+Name: WATTSON
+Class: Leader
+Pic: Leader Wattson
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Zapdos
+Level: 5
+
+=== TRAINER_WATTSON_ULTRA ===
+Name: WATTSON
+Class: Leader
+Pic: Leader Wattson
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Zapdos
+Level: 5
+
+=== TRAINER_WATTSON_HYPER ===
+Name: WATTSON
+Class: Leader
+Pic: Leader Wattson
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Zapdos
+Level: 5
+
+=== TRAINER_WATTSON_MASTER ===
+Name: WATTSON
+Class: Leader
+Pic: Leader Wattson
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Zapdos
+Level: 5
+
+=== TRAINER_FLANNERY_BRONZE ===
 Name: FLANNERY
 Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15543,14 +15711,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Explosion
 - Attract
 
-=== TRAINER_FLANNERY_3 ===
+=== TRAINER_FLANNERY_SILVER ===
 Name: FLANNERY
 Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15594,14 +15762,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Explosion
 - Attract
 
-=== TRAINER_FLANNERY_4 ===
+=== TRAINER_FLANNERY_GOLD ===
 Name: FLANNERY
 Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15653,14 +15821,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Explosion
 - Attract
 
-=== TRAINER_FLANNERY_5 ===
+=== TRAINER_FLANNERY_DIAMOND ===
 Name: FLANNERY
 Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15712,14 +15880,70 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Explosion
 - Attract
 
-=== TRAINER_NORMAN_2 ===
+=== TRAINER_FLANNERY_PLATINUM ===
+Name: FLANNERY
+Class: Leader
+Pic: Leader Flannery
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Moltres
+Level: 5
+
+=== TRAINER_FLANNERY_ULTRA ===
+Name: FLANNERY
+Class: Leader
+Pic: Leader Flannery
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Moltres
+Level: 5
+
+=== TRAINER_FLANNERY_HYPER ===
+Name: FLANNERY
+Class: Leader
+Pic: Leader Flannery
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Moltres
+Level: 5
+
+=== TRAINER_FLANNERY_MASTER ===
+Name: FLANNERY
+Class: Leader
+Pic: Leader Flannery
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Moltres
+Level: 5
+
+=== TRAINER_NORMAN_BRONZE ===
 Name: NORMAN
 Class: Leader
 Pic: Leader Norman
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15755,14 +15979,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunderbolt
 - Shadow Ball
 
-=== TRAINER_NORMAN_3 ===
+=== TRAINER_NORMAN_SILVER ===
 Name: NORMAN
 Class: Leader
 Pic: Leader Norman
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15806,14 +16030,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunderbolt
 - Shadow Ball
 
-=== TRAINER_NORMAN_4 ===
+=== TRAINER_NORMAN_GOLD ===
 Name: NORMAN
 Class: Leader
 Pic: Leader Norman
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15857,14 +16081,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunderbolt
 - Shadow Ball
 
-=== TRAINER_NORMAN_5 ===
+=== TRAINER_NORMAN_DIAMOND ===
 Name: NORMAN
 Class: Leader
 Pic: Leader Norman
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -15916,14 +16140,71 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Thunderbolt
 - Shadow Ball
 
-=== TRAINER_WINONA_2 ===
+
+=== TRAINER_NORMAN_PLATINUM ===
+Name: NORMAN
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+=== TRAINER_NORMAN_ULTRA ===
+Name: NORMAN
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+=== TRAINER_NORMAN_HYPER ===
+Name: NORMAN
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+=== TRAINER_NORMAN_MASTER ===
+Name: NORMAN
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+=== TRAINER_WINONA_BRONZE ===
 Name: WINONA
 Class: Leader
 Pic: Leader Winona
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer / Risky
 Difficulty: Vanilla
 
@@ -15967,14 +16248,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dragon Dance
 - Earthquake
 
-=== TRAINER_WINONA_3 ===
+=== TRAINER_WINONA_SILVER ===
 Name: WINONA
 Class: Leader
 Pic: Leader Winona
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer / Risky
 Difficulty: Vanilla
 
@@ -16026,14 +16307,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dragon Dance
 - Earthquake
 
-=== TRAINER_WINONA_4 ===
+=== TRAINER_WINONA_GOLD ===
 Name: WINONA
 Class: Leader
 Pic: Leader Winona
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer / Risky
 Difficulty: Vanilla
 
@@ -16085,14 +16366,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dragon Dance
 - Earthquake
 
-=== TRAINER_WINONA_5 ===
+=== TRAINER_WINONA_DIAMOND ===
 Name: WINONA
 Class: Leader
 Pic: Leader Winona
 Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer / Risky
 Difficulty: Vanilla
 
@@ -16144,7 +16425,63 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dragon Dance
 - Earthquake
 
-=== TRAINER_TATE_AND_LIZA_2 ===
+=== TRAINER_WINONA_PLATINUM ===
+Name: WINONA
+Class: Leader
+Pic: Leader Winona
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer / Risky
+Difficulty: Vanilla
+
+Thundurus
+Level:5
+
+=== TRAINER_WINONA_ULTRA ===
+Name: WINONA
+Class: Leader
+Pic: Leader Winona
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer / Risky
+Difficulty: Vanilla
+
+Thundurus
+Level:5
+
+=== TRAINER_WINONA_HYPER ===
+Name: WINONA
+Class: Leader
+Pic: Leader Winona
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer / Risky
+Difficulty: Vanilla
+
+Thundurus
+Level:5
+
+=== TRAINER_WINONA_MASTER ===
+Name: WINONA
+Class: Leader
+Pic: Leader Winona
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer / Risky
+Difficulty: Vanilla
+
+Thundurus
+Level:5
+
+=== TRAINER_TATE_AND_LIZA_BRONZE ===
 Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
@@ -16195,7 +16532,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Psychic
 - Flamethrower
 
-=== TRAINER_TATE_AND_LIZA_3 ===
+=== TRAINER_TATE_AND_LIZA_SILVER ===
 Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
@@ -16254,7 +16591,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Psychic
 - Flamethrower
 
-=== TRAINER_TATE_AND_LIZA_4 ===
+=== TRAINER_TATE_AND_LIZA_GOLD ===
 Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
@@ -16313,7 +16650,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Psychic
 - Flamethrower
 
-=== TRAINER_TATE_AND_LIZA_5 ===
+=== TRAINER_TATE_AND_LIZA_DIAMOND ===
 Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
@@ -16372,14 +16709,82 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Psychic
 - Flamethrower
 
-=== TRAINER_JUAN_2 ===
+=== TRAINER_TATE_AND_LIZA_PLATINUM ===
+Name: TATE&LIZA
+Class: Leader
+Pic: Leader Tate And Liza
+Gender: Male
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Mewtwo
+Level: 5
+
+Mewtwo
+Level: 5
+
+=== TRAINER_TATE_AND_LIZA_HYPER ===
+Name: TATE&LIZA
+Class: Leader
+Pic: Leader Tate And Liza
+Gender: Male
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Mewtwo
+Level: 5
+
+Mewtwo
+Level: 5
+
+=== TRAINER_TATE_AND_LIZA_ULTRA ===
+Name: TATE&LIZA
+Class: Leader
+Pic: Leader Tate And Liza
+Gender: Male
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Mewtwo
+Level: 5
+
+Mewtwo
+Level: 5
+
+=== TRAINER_TATE_AND_LIZA_MASTER ===
+Name: TATE&LIZA
+Class: Leader
+Pic: Leader Tate And Liza
+Gender: Male
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Mewtwo
+Level: 5
+
+Mewtwo
+Level: 5
+
+=== TRAINER_JUAN_BRONZE ===
 Name: JUAN
 Class: Leader
 Pic: Leader Juan
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -16423,14 +16828,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Rest
 
-=== TRAINER_JUAN_3 ===
+=== TRAINER_JUAN_SILVER ===
 Name: JUAN
 Class: Leader
 Pic: Leader Juan
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -16474,14 +16879,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Rest
 
-=== TRAINER_JUAN_4 ===
+=== TRAINER_JUAN_GOLD ===
 Name: JUAN
 Class: Leader
 Pic: Leader Juan
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -16533,14 +16938,14 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Rest
 
-=== TRAINER_JUAN_5 ===
+=== TRAINER_JUAN_DIAMOND ===
 Name: JUAN
 Class: Leader
 Pic: Leader Juan
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 
@@ -16591,6 +16996,62 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Double Team
 - Ice Beam
 - Rest
+
+=== TRAINER_JUAN_PLATINUM ===
+Name: JUAN
+Class: Leader
+Pic: Leader Juan
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Kyogre
+Level: 5
+
+=== TRAINER_JUAN_ULTRA ===
+Name: JUAN
+Class: Leader
+Pic: Leader Juan
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Kyogre
+Level: 5
+
+=== TRAINER_JUAN_HYPER ===
+Name: JUAN
+Class: Leader
+Pic: Leader Juan
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Kyogre
+Level: 5
+
+=== TRAINER_JUAN_MASTER ===
+Name: JUAN
+Class: Leader
+Pic: Leader Juan
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Kyogre
+Level: 5
 
 === TRAINER_ANGELO ===
 Name: ANGELO

@@ -181,7 +181,7 @@
 #define VAR_0x40A5                 0x40A5
 #define VAR_0x40A6                 0x40A6
 #define VAR_0x40A7                 0x40A7
-#define VAR_0x40A8                 0x40A8
+#define VAR_DAILY_BP               0x40A8
 #define VAR_0x40A9                 0x40A9
 
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
@@ -253,7 +253,7 @@
 #define VAR_0x40EE                 0x40EE
 #define VAR_0x40EF                 0x40EF
 #define VAR_0x40F0                 0x40F0
-#define VAR_DAILY_BP               0x40F1
+#define VAR_0x40F1                 0x40F1
 #define VAR_0x40F2                 0x40F2
 #define VAR_0x40F3                 0x40F3
 #define VAR_0x40F4                 0x40F4

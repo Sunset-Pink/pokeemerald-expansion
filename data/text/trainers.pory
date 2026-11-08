@@ -1,0 +1,5940 @@
+text(local) Route102_Text_CalvinIntro {
+	"If you have Pok\emon with you, then\n"
+	"you're an official Pok\emon Trainer!\l"
+	"You can't say no to my challenge!"
+}
+
+text(local) Route102_Text_CalvinDefeated {
+	"Arrgh, I lost\.\n"
+	"I should have trained mine more\."
+}
+
+text(local) Route102_Text_CalvinPostBattle {
+	"Listen, you. If you're strong,\n"
+	"you should have told me before!"
+}
+
+text(local) Route102_Text_CalvinRegister {
+	"I've been working hard at this since\n"
+	"I saw you before.\p"
+	"I'd like to battle you again, so can\n"
+	"you register me in your Pok\eNav?"
+}
+
+text(local) Route102_Text_CalvinRegisterShort {
+	"I'd like to battle you again, so can\n"
+	"you register me in your Pok\eNav?"
+}
+
+text(local) Route102_Text_CalvinRematchIntro {
+	"Ever since I lost to you, I desperately\n"
+	"trained my Pok\emon.\l"
+	"You can't say no to my challenge!"
+}
+
+text(local) Route102_Text_CalvinRematchDefeated {
+	"Arrgh, I lost\.\n"
+	"Is my training method not right?"
+}
+
+text(local) Route102_Text_CalvinRematchPostBattle {
+	"If you're going to get stronger,\n"
+	"I'll get stronger, too."
+}
+
+text(local) Route102_Text_AllenIntro {
+	"Did you just become a Trainer?\n"
+	"We're both beginners!"
+}
+
+text(local) Route102_Text_AllenDefeated {
+	"I called you because I thought\n"
+	"I could beat you\."
+}
+
+text(local) Route102_Text_AllenPostBattle {
+	"I haven't won once yet\.\n"
+	"I wish I would win soon\."
+}
+
+text(local) Route102_Text_RickIntro {
+	"Hahah! Our eyes met!\n"
+	"I'll take you on with my Bug Pok\emon!"
+}
+
+text(local) Route102_Text_RickDefeated {
+	"Ow! Down and out!"
+}
+
+text(local) Route102_Text_RickPostBattle {
+	"If you lock eyes with a Trainer,\n"
+	"you have to challenge! It's a rule!"
+}
+
+text(local) Route102_Text_TianaIntro {
+	"I'm going to keep winning and aim\n"
+	"to be the best Trainer.\p"
+	"Help me further my career!"
+}
+
+text(local) Route102_Text_TianaDefeated {
+	"I ended up furthering your career\."
+}
+
+text(local) Route102_Text_TianaPostBattle {
+	"To keep winning my way up, I see that\n"
+	"I have to catch more Pok\emon."
+}
+
+text(local) Route103_Text_DaisyIntro {
+	"Did you feel the tug of our\n"
+	"soul-soothing fragrance?"
+}
+
+text(local) Route103_Text_DaisyDefeated {
+	"You weren't led astray by our aroma\."
+}
+
+text(local) Route103_Text_DaisyPostBattle {
+	"Aromatherapy is a form of mental\n"
+	"healing that works with fragrances."
+}
+
+text(local) Route103_Text_AmyIntro {
+	"Amy: I'm Amy.\n"
+	"And this is my little sister Liv.\l"
+	"We battle together!"
+}
+
+text(local) Route103_Text_AmyDefeated {
+	"Amy: Uh-oh, we lost."
+}
+
+text(local) Route103_Text_AmyPostBattle {
+	"Amy: You have to think about all\n"
+	"kinds of things when you're battling\l"
+	"against two Trainers."
+}
+
+text(local) Route103_Text_AmyNotEnoughPokemon {
+	"Amy: Uh-oh, you have only one\n"
+	"Pok\emon with you.\l"
+	"You can't battle us like that."
+}
+
+text(local) Route103_Text_LivIntro {
+	"Liv: We battle together as one\n"
+	"team."
+}
+
+text(local) Route103_Text_LivDefeated {
+	"Liv: Oh, we lost, big sister\."
+}
+
+text(local) Route103_Text_LivPostBattle {
+	"Liv: We work perfectly together,\n"
+	"me and my big sister\.\p"
+	"But we still lost\."
+}
+
+text(local) Route103_Text_AmyLivRegister {
+	"Liv: Really, we're a lot better\.\n"
+	"It's true! We'll show you next time!"
+}
+
+text(local) Route103_Text_LivNotEnoughPokemon {
+	"Liv: If you want to battle us,\n"
+	"you have to have two Pok\emon!\l"
+	"It's not fair if you don't!"
+}
+
+text(local) Route103_Text_AmyRematchIntro {
+	"Amy: I'm Amy.\n"
+	"And this is my little sister Liv.\l"
+	"We battle together!"
+}
+
+text(local) Route103_Text_AmyRematchDefeated {
+	"Amy: Aww, boo!\n"
+	"We couldn't win again\."
+}
+
+text(local) Route103_Text_AmyRematchPostBattle {
+	"Amy: You have to think about all\n"
+	"kinds of things when you're battling\l"
+	"against two Trainers."
+}
+
+text(local) Route103_Text_AmyRematchNotEnoughPokemon {
+	"Amy: Uh-oh, you have only one\n"
+	"Pok\emon with you.\l"
+	"You can't battle us like that."
+}
+
+text(local) Route103_Text_LivRematchIntro {
+	"Liv: We battle together as one\n"
+	"team."
+}
+
+text(local) Route103_Text_LivRematchDefeated {
+	"Liv: Awww, we lost again\.\n"
+	"Big sister\."
+}
+
+text(local) Route103_Text_LivRematchPostBattle {
+	"Liv: We work perfectly together,\n"
+	"me and my big sister\.\p"
+	"But why did we lose again?"
+}
+
+text(local) Route103_Text_LivRematchNotEnoughPokemon {
+	"Liv: If you want to battle us, you\n"
+	"have to have two Pok\emon!\l"
+	"It's not fair if you don't!"
+}
+
+text(local) Route103_Text_AndrewIntro {
+	"Gah! My fishing line's all snarled up!\n"
+	"I'm getting frustrated and mean!\l"
+	"That's it! Battle me!"
+}
+
+text(local) Route103_Text_AndrewDefeated {
+	"Gah! Lost it!\n"
+	"I'm even more annoyed now!"
+}
+
+text(local) Route103_Text_AndrewPostBattle {
+	"Gah, I'm still boiling mad\.\n"
+	"Grrrrr\."
+}
+
+text(local) Route103_Text_MiguelIntro {
+	"My Pok\emon is delightfully adorable!\n"
+	"Don't be shy--I'll show you!"
+}
+
+text(local) Route103_Text_MiguelDefeated {
+	"Oh, my gosh!\n"
+	"My darling Pok\emon!"
+}
+
+text(local) Route103_Text_MiguelPostBattle {
+	"My delightful Pok\emon looks darling\n"
+	"even when it's fainted!"
+}
+
+text(local) Route103_Text_MiguelRegister {
+	"I'll get you to come out and look in\n"
+	"on my delightful Pok\emon again!"
+}
+
+text(local) Route103_Text_MiguelRematchIntro {
+	"Hi, you! My delightfully adorable\n"
+	"Pok\emon has become more darling!"
+}
+
+text(local) Route103_Text_MiguelRematchDefeated {
+	"Oh!\n"
+	"My darling Pok\emon!"
+}
+
+text(local) Route103_Text_MiguelRematchPostBattle {
+	"The more I spend time with it,\n"
+	"the more adorable my Pok\emon becomes."
+}
+
+text(local) Route103_Text_PeteIntro {
+	"This sort of distance\.\n"
+	"You should just swim it!"
+}
+
+text(local) Route103_Text_PeteDefeated {
+	"Oh, that's good going!"
+}
+
+text(local) Route103_Text_PetePostBattle {
+	"Oh, I understand where you're coming\n"
+	"from now.\p"
+	"If I had a Pok\emon that trusty,\n"
+	"I'd want to Surf on it, too!"
+}
+
+text(local) Route103_Text_IsabelleIntro {
+	"Watch where you're going!\n"
+	"We're going to crash!"
+}
+
+text(local) Route103_Text_IsabelleDefeated {
+	"Groan\."
+}
+
+text(local) Route103_Text_IsabellePostBattle {
+	"I'm a poor swimmer so I was practicing\.\n"
+	"Sorry for almost crashing into you."
+}
+
+text(local) Route103_Text_RhettIntro {
+	"Whoa!\n"
+	"How'd you get into a space this small?"
+}
+
+text(local) Route103_Text_RhettDefeated {
+	"Whoa!\n"
+	"The kid can rock!"
+}
+
+text(local) Route103_Text_RhettPostBattle {
+	"Do you like cramped quarters\n"
+	"like this?"
+}
+
+text(local) Route103_Text_MarcosIntro {
+	"Did my guitar's wailing draw you in?"
+}
+
+text(local) Route103_Text_MarcosDefeated {
+	"My one-man show is ruined\."
+}
+
+text(local) Route103_Text_MarcosPostBattle {
+	"I was playing my guitar where few\n"
+	"people were around, but a lot of fans\l"
+	"have gathered.\p"
+	"Heh, maybe I should turn pro."
+}
+
+text(local) Route104_Text_GinaIntro {
+	"Gina: Okay, let's battle with our\n"
+	"Pok\emon!"
+}
+
+text(local) Route104_Text_GinaDefeat {
+	"Gina: Losing upsets me!"
+}
+
+text(local) Route104_Text_GinaPostBattle {
+	"Gina: You are strong!\n"
+	"We have to train lots more!"
+}
+
+text(local) Route104_Text_GinaNotEnoughMons {
+	"Gina: Oh? Only one Pok\emon?\n"
+	"Then, we don't battle with you.\p"
+	"If there's only one Pok\emon, it will\n"
+	"be lonesome. That's not nice."
+}
+
+text(local) Route104_Text_MiaIntro {
+	"Mia: We are twins, so we battle\n"
+	"Pok\emon together."
+}
+
+text(local) Route104_Text_MiaDefeat {
+	"Mia: We battled together, but we\n"
+	"both lost\."
+}
+
+text(local) Route104_Text_MiaPostBattle {
+	"Mia: We will train our Pok\emon more\n"
+	"and be strong like you."
+}
+
+text(local) Route104_Text_MiaNotEnoughMons {
+	"Mia: You want to battle with us?\p"
+	"It's a big no-no if you don't have two\n"
+	"Pok\emon with you.\l"
+	"We're too strong for you!"
+}
+
+text(local) Route104_Text_IvanIntro {
+	"Why keep it a secret?\n"
+	"I'm the Water Pok\emon expert!\p"
+	"Huh?\n"
+	"You don't know me?"
+}
+
+text(local) Route104_Text_IvanDefeat {
+	"I thought I wasn't too bad, if I may\n"
+	"say so, but I guess not\. Bleah\."
+}
+
+text(local) Route104_Text_IvanPostBattle {
+	"I got too into fishing.\n"
+	"I forgot I had to raise my Pok\emon\."
+}
+
+text(local) Route104_Text_BillyIntro {
+	"Leaving footprints in the sand is\n"
+	"so fun!"
+}
+
+text(local) Route104_Text_BillyDefeat {
+	"Waah! I got sand in my runners!\n"
+	"They're all gritty!"
+}
+
+text(local) Route104_Text_BillyPostBattle {
+	"I want to leave my footprints in\n"
+	"the sand everywhere, but they\l"
+	"disappear quickly\."
+}
+
+text(local) Route104_Text_HaleyIntro {
+	"Should I\.\n"
+	"Or shouldn't I?\p"
+	"Okay, sure, I will battle!"
+}
+
+text(local) Route104_Text_HaleyDefeat {
+	"I shouldn't have battled\."
+}
+
+text(local) Route104_Text_HaleyPostBattle {
+	"If you're faced with a decision and\n"
+	"you let someone else choose for you,\l"
+	"you will regret it, however things\l"
+	"turn out."
+}
+
+text(local) Route104_Text_HaleyRegister1 {
+	"You're strong, but should I register\n"
+	"you in my Pok\eNav?\l"
+	"Maybe I shouldn't\.\p"
+	"Okay, sure, I will register you!"
+}
+
+text(local) Route104_Text_HaleyRegister2 {
+	"You're strong, but should I register\n"
+	"you in my Pok\eNav?\l"
+	"Maybe I shouldn't\.\p"
+	"Okay, sure, I will register you!"
+}
+
+text(local) Route104_Text_HaleyRematchIntro {
+	"Come on, battle with me!"
+}
+
+text(local) Route104_Text_HaleyRematchDefeat {
+	"Ohh\.\n"
+	"I thought I could win\."
+}
+
+text(local) Route104_Text_HaleyPostRematch {
+	"I made the decision to battle, so\n"
+	"I can accept this loss with grace.\p"
+	"I am still upset about losing!"
+}
+
+text(local) Route104_Text_WinstonIntro {
+	"Oh, sure, I'll accept your challenge.\n"
+	"I have a lot of money."
+}
+
+text(local) Route104_Text_WinstonDefeat {
+	"Why couldn't I win?"
+}
+
+text(local) Route104_Text_WinstonPostBattle {
+	"There are some things money can't buy.\n"
+	"That's Pok\emon\."
+}
+
+text(local) Route104_Text_WinstonRegister1 {
+	"Hm?\n"
+	"Ah, you've obtained a Pok\eNav.\p"
+	"I will gladly register you.\n"
+	"After all, I have plenty of money."
+}
+
+text(local) Route104_Text_WinstonRegister2 {
+	"Hm?\n"
+	"Ah, you've obtained a Pok\eNav.\p"
+	"I will gladly register you.\n"
+	"After all, I have plenty of money."
+}
+
+text(local) Route104_Text_WinstonRematchIntro {
+	"After I lost to you, I learned a bunch\n"
+	"of things about Pok\emon."
+}
+
+text(local) Route104_Text_WinstonRematchDefeat {
+	"I lost again?\n"
+	"Why couldn't I win?"
+}
+
+text(local) Route104_Text_WinstonPostRematch {
+	"I'm fabulously wealthy, but I can't\n"
+	"seem to win at Pok\emon\.\p"
+	"It's so deep, the world of Pok\emon\."
+}
+
+text(local) Route104_Text_CindyIntro {
+	"We must have been fated to meet.\n"
+	"May I ask you for a battle?"
+}
+
+text(local) Route104_Text_CindyDefeat {
+	"Oh, my!"
+}
+
+text(local) Route104_Text_CindyPostBattle {
+	"\qoHello\qc is the beginning of \qogood-bye.\qc\n"
+	"I hope we meet again."
+}
+
+text(local) Route104_Text_CindyRegister1 {
+	"Hello, we meet again.\p"
+	"We seem to be drawn together. Let's\n"
+	"register each other in our Pok\eNavs."
+}
+
+text(local) Route104_Text_CindyRegister2 {
+	"We should commemorate how we seem\n"
+	"to be drawn to each other.\p"
+	"Let's register each other in our\n"
+	"Pok\eNavs."
+}
+
+text(local) Route104_Text_CindyRematchIntro {
+	"Hello, we meet again.\n"
+	"May I ask you for a battle?"
+}
+
+text(local) Route104_Text_CindyRematchDefeat {
+	"Oh, my\.\n"
+	"I did the best that I could\."
+}
+
+text(local) Route104_Text_CindyPostRematch {
+	"\qoHello\qc is the beginning of \qogood-bye.\qc\n"
+	"I hope we meet again."
+}
+
+text(local) Route104_Text_DarianIntro {
+	"I fished up a tough-looking Pok\emon!\p"
+	"It has this magical quality to it!\n"
+	"It surely looks tough, yes it does!"
+}
+
+text(local) Route104_Text_DarianDefeat {
+	"What the\."
+}
+
+text(local) Route104_Text_DarianPostBattle {
+	"Hey, Magikarp, you sure don't live up\n"
+	"to your name, do you?"
+}
+
+text(local) Route105_Text_FosterIntro {
+	"There's supposed to be a mystical\n"
+	"rock around here.\l"
+	"Do you know anything about it?"
+}
+
+text(local) Route105_Text_FosterDefeated {
+	"I was thinking too much about that\n"
+	"rock, while my Pok\emon remained weak\."
+}
+
+text(local) Route105_Text_FosterPostBattle {
+	"I can spend hours and hours staring\n"
+	"at a nice rock without growing bored."
+}
+
+text(local) Route105_Text_LuisIntro {
+	"Whew! I was worried that a kid was\n"
+	"drowning when I saw you.\p"
+	"You seem to be okay, so what do you\n"
+	"say to a battle?"
+}
+
+text(local) Route105_Text_LuisDefeated {
+	"Glub\. Glub\."
+}
+
+text(local) Route105_Text_LuisPostBattle {
+	"If you are drowning, the signal is to\n"
+	"wave one arm toward the beach."
+}
+
+text(local) Route105_Text_DominikIntro {
+	"Swimming the deep blue sea\.\n"
+	"It feels the greatest!"
+}
+
+text(local) Route105_Text_DominikDefeated {
+	"I lost\.\n"
+	"Now I'm feeling blue\."
+}
+
+text(local) Route105_Text_DominikPostBattle {
+	"Why is the sea blue?\p"
+	"I learned about that at the Museum in\n"
+	"Slateport, but I forgot."
+}
+
+text(local) Route105_Text_BeverlyIntro {
+	"My body feels lighter in the water.\n"
+	"It's as if I've gotten slimmer!"
+}
+
+text(local) Route105_Text_BeverlyDefeated {
+	"I'm floating\."
+}
+
+text(local) Route105_Text_PostBattle {
+	"Your body weight is reduced to just\n"
+	"one tenth in the water.\p"
+	"That would make me\.\n"
+	"Whoops! I'm not telling you my weight!"
+}
+
+text(local) Route105_Text_ImaniIntro {
+	"The blue, blue sky\.\n"
+	"The vast sea\.\l"
+	"It's so peaceful\."
+}
+
+text(local) Route105_Text_ImaniDefeated {
+	"I lost while I was lounging!"
+}
+
+text(local) Route105_Text_ImaniPostBattle {
+	"I want to be told I'm relaxing to be\n"
+	"with. Giggle."
+}
+
+text(local) Route105_Text_AndresIntro {
+	"I'm convinced that the sea keeps\n"
+	"secrets from us."
+}
+
+text(local) Route105_Text_AndresDefeated {
+	"Yes\.\n"
+	"I am no good at battling\."
+}
+
+text(local) Route105_Text_AndresPostBattle {
+	"I'm sure there are many secrets to be\n"
+	"discovered in the world's seas.\p"
+	"I mean to find them all!"
+}
+
+text(local) Route105_Text_AndresRegister {
+	"Huh? I'm so weak, but you're willing\n"
+	"to register me in your Pok\eNav?"
+}
+
+text(local) Route105_Text_AndresRematchIntro {
+	"I've told you that I'm weak\.\n"
+	"Are you sure you want to do this?"
+}
+
+text(local) Route105_Text_AndresRematchDefeated {
+	"Yes\.\n"
+	"I didn't think I could win."
+}
+
+text(local) Route105_Text_AndresRematchPostBattle {
+	"I may be weak at battling, but my\n"
+	"drive to explore can't be bested.\p"
+	"I will travel the seas all around\n"
+	"the world!"
+}
+
+text(local) Route105_Text_JosueIntro {
+	"I'm exhausted from swimming.\n"
+	"I'm just not used to it.\p"
+	"I need a battle for a change of pace!"
+}
+
+text(local) Route105_Text_JosueDefeated {
+	"I lost because I battled at sea."
+}
+
+text(local) Route105_Text_JosuePostBattle {
+	"Yeah, for me, the sky is a much better\n"
+	"match than the sea."
+}
+
+text(local) Route106_Text_ElliotIntro {
+	"Which do you prefer, fishing in the\n"
+	"sea or a stream?"
+}
+
+text(local) Route106_Text_ElliotDefeated {
+	"Like in deep-sea fishing, I lost\n"
+	"spectacularly!"
+}
+
+text(local) Route106_Text_ElliotPostBattle {
+	"Fishing is the greatest whether it's\n"
+	"in the sea or a stream.\l"
+	"You agree with me, right?"
+}
+
+text(local) Route106_Text_ElliotRegister {
+	"Fishing's great, but so is battling.\n"
+	"If you don't mind, can we meet again?"
+}
+
+text(local) Route106_Text_ElliotRematchIntro {
+	"I caught a bunch of Pok\emon fishing.\n"
+	"I'll show you an impressive battle!"
+}
+
+text(local) Route106_Text_ElliotRematchDefeated {
+	"I lost again spectacularly!"
+}
+
+text(local) Route106_Text_ElliotRematchPostBattle {
+	"Win or lose, Pok\emon are the greatest!\n"
+	"You agree with me, right?"
+}
+
+text(local) Route106_Text_NedIntro {
+	"What do people do if they need to go\n"
+	"to a washroom?\p"
+	"What if my Rod hooks a big one while\n"
+	"I'm in the washroom? I just can't go\."
+}
+
+text(local) Route106_Text_NedDefeated {
+	"I lost because I'm trying to not go\n"
+	"to the washroom\."
+}
+
+text(local) Route106_Text_NedPostBattle {
+	"Oh, no! I've got this feeling I'll hook\n"
+	"a big one!"
+}
+
+text(local) Route106_Text_DouglasIntro {
+	"Hahahah! I'm a lousy runner, but in\n"
+	"the water you can't catch me!"
+}
+
+text(local) Route106_Text_DouglasDefeated {
+	"I give up!"
+}
+
+text(local) Route106_Text_DouglasPostBattle {
+	"I wouldn't lose in a swim race\."
+}
+
+text(local) Route106_Text_KylaIntro {
+	"The sea is my backyard. I'm not going\n"
+	"to take it easy because you're a kid!"
+}
+
+text(local) Route106_Text_KylaDefeated {
+	"Did you take it easy on me by any\n"
+	"chance?"
+}
+
+text(local) Route106_Text_KylaPostBattle {
+	"Drifting along with the waves\.\n"
+	"I love it! Why don't you give it a try?"
+}
+
+text(local) Route107_Text_DarrinIntro {
+	"Yawn\.\p"
+	"I must have drifted off to sleep while\n"
+	"I was drifting in the waves."
+}
+
+text(local) Route107_Text_DarrinDefeated {
+	"Ahaha, I lost\.\n"
+	"I'll take a snooze, I think\."
+}
+
+text(local) Route107_Text_DarrinPostBattle {
+	"Floating and being rocked by\n"
+	"the waves--it's like sleeping in\l"
+	"a plush, comfy bed."
+}
+
+text(local) Route107_Text_TonyIntro {
+	"The sea is like my backyard.\n"
+	"Let's battle!"
+}
+
+text(local) Route107_Text_TonyDefeated {
+	"I lost on my home field\.\n"
+	"I'm in shock!"
+}
+
+text(local) Route107_Text_TonyPostBattle {
+	"I swim the seas with a heart full of\n"
+	"dreams\.\p"
+	"It's a song!\n"
+	"Anyways, I'm swimming some more."
+}
+
+text(local) Route107_Text_TonyRegister {
+	"You've shocked me to the bone!\n"
+	"Well, so you won't forget me\."
+}
+
+text(local) Route107_Text_TonyRematchIntro {
+	"Swimming in the big, wide sea,\n"
+	"my Pok\emon has grown stronger!"
+}
+
+text(local) Route107_Text_TonyRematchDefeated {
+	"What a shock!\p"
+	"My Pok\emon has gotten stronger, but\n"
+	"I stayed weak as a Trainer!"
+}
+
+text(local) Route107_Text_TonyRematchPostBattle {
+	"What you learn in battle makes you\n"
+	"a stronger Trainer.\l"
+	"The waves taught me that."
+}
+
+text(local) Route107_Text_DeniseIntro {
+	"Do you know a little town called\n"
+	"Dewford?"
+}
+
+text(local) Route107_Text_DeniseDefeated {
+	"I hate this!"
+}
+
+text(local) Route107_Text_DenisePostBattle {
+	"A weird saying is getting really\n"
+	"trendy at Dewford Hall."
+}
+
+text(local) Route107_Text_BethIntro {
+	"Did you want to battle me?\n"
+	"Sure, I'll go with you!"
+}
+
+text(local) Route107_Text_BethDefeated {
+	"I wasn't good enough for you."
+}
+
+text(local) Route107_Text_BethPostBattle {
+	"I think you're going to keep getting\n"
+	"better. I'll go for it, too!"
+}
+
+text(local) Route107_Text_LisaIntro {
+	"Lisa: We challenge you as a sister\n"
+	"and brother!"
+}
+
+text(local) Route107_Text_LisaDefeated {
+	"Lisa: Awesome.\n"
+	"You're in a different class of tough."
+}
+
+text(local) Route107_Text_LisaPostBattle {
+	"Lisa: Do you have any friends who\n"
+	"would go to the beach with you?"
+}
+
+text(local) Route107_Text_LisaNotEnoughPokemon {
+	"Lisa: If you want to battle with us,\n"
+	"bring more Pok\emon."
+}
+
+text(local) Route107_Text_RayIntro {
+	"Ray: We always battle Pok\emon,\n"
+	"me and my sister.\p"
+	"I always lose, but we can beat you\n"
+	"2-on-2!"
+}
+
+text(local) Route107_Text_RayDefeated {
+	"Ray: Wowee, you're at a higher level\n"
+	"than us!"
+}
+
+text(local) Route107_Text_RayPostBattle {
+	"Ray: My sister gave me my Pok\emon.\n"
+	"I raised it, and now it's my important\l"
+	"partner!"
+}
+
+text(local) Route107_Text_RayNotEnoughPokemon {
+	"Ray: If you want to battle us,\n"
+	"go bring some more Pok\emon!"
+}
+
+text(local) Route107_Text_CamronIntro {
+	"I'm in the middle of a triathlon,\n"
+	"but I'm nowhere near tired!"
+}
+
+text(local) Route107_Text_CamronDefeated {
+	"That exhausted me\."
+}
+
+text(local) Route107_Text_CamronPostBattle {
+	"I still have swimming and running left\n"
+	"to do after this.\p"
+	"Am I going to be okay?"
+}
+
+text(local) Route108_Text_JeromeIntro {
+	"My dream is to swim the world's seven\n"
+	"seas!"
+}
+
+text(local) Route108_Text_JeromeDefeated {
+	"I won't be able to swim the seven seas\n"
+	"like this\."
+}
+
+text(local) Route108_Text_JeromePostBattle {
+	"Playing with marine Pok\emon is one of\n"
+	"the pleasures of swimming!"
+}
+
+text(local) Route108_Text_MatthewIntro {
+	"Ahoy, there! Are you going out to\n"
+	"the Abandoned Ship, too?"
+}
+
+text(local) Route108_Text_MatthewDefeated {
+	"I'm sinking!\n"
+	"Glub\. Glub\."
+}
+
+text(local) Route108_Text_MatthewPostBattle {
+	"Some people even go inside that\n"
+	"Abandoned Ship."
+}
+
+text(local) Route108_Text_TaraIntro {
+	"My liar of a boyfriend told me that\n"
+	"I look great in a bikini\."
+}
+
+text(local) Route108_Text_TaraDefeated {
+	"Oh, boo!"
+}
+
+text(local) Route108_Text_TaraPostBattle {
+	"Even if it's a lie, I love being told\n"
+	"I look great\.\l"
+	"We girls are so complex\."
+}
+
+text(local) Route108_Text_MissyIntro {
+	"I love the sea!\n"
+	"I forget all my worries when I swim!"
+}
+
+text(local) Route108_Text_MissyDefeated {
+	"When I lose a battle, I get all\n"
+	"stressed out!"
+}
+
+text(local) Route108_Text_MissyPostBattle {
+	"Work off your stress by swimming!\n"
+	"It's so healthy!"
+}
+
+text(local) Route108_Text_CoryIntro {
+	"I love Water-type Pok\emon.\n"
+	"I love other Pok\emon, too!"
+}
+
+text(local) Route108_Text_CoryDefeated {
+	"Waaah! I lost!\n"
+	"Waaah! Waaah!"
+}
+
+text(local) Route108_Text_CoryPostBattle {
+	"Shouting is good for me!\n"
+	"It uplifts me!"
+}
+
+text(local) Route108_Text_CoryRegister {
+	"I love tough Trainers, too!\n"
+	"Register me in your Pok\eNav!"
+}
+
+text(local) Route108_Text_CoryRematchIntro {
+	"Win or lose, I love battling at sea!"
+}
+
+text(local) Route108_Text_CoryRematchDefeated {
+	"Waaah! I lost again!\n"
+	"Waaah! Waaah!"
+}
+
+text(local) Route108_Text_CoryRematchPostBattle {
+	"If you're faced with a challenge,\n"
+	"try shouting at the sea!"
+}
+
+text(local) Route108_Text_CarolinaIntro {
+	"I take huge pride in my Pok\emon.\n"
+	"We'll show you one speedy battle!"
+}
+
+text(local) Route108_Text_CarolinaDefeated {
+	"That wasn't cute at all."
+}
+
+text(local) Route108_Text_CarolinaPostBattle {
+	"Since I'm at sea like this, I wouldn't\n"
+	"mind putting on a pink, frilly swimsuit\."
+}
+
+text(local) Route109_Text_DavidIntro {
+	"Hiyah! Look at my chiseled abs!\n"
+	"This is what you call \qocut\qc!"
+}
+
+text(local) Route109_Text_DavidDefeated {
+	"Aiyah!\n"
+	"Flubbed out!"
+}
+
+text(local) Route109_Text_DavidPostBattle {
+	"Hiyah!\p"
+	"My sculpted abs have nothing to do\n"
+	"with Pok\emon battles!"
+}
+
+text(local) Route109_Text_AliceIntro {
+	"Are you properly protected against\n"
+	"the sun?"
+}
+
+text(local) Route109_Text_AliceDefeated {
+	"Ouch, ouch, ouch!"
+}
+
+text(local) Route109_Text_AlicePostBattle {
+	"Cheeks are the most prone to burning!"
+}
+
+text(local) Route109_Text_HueyIntro {
+	"I've laid anchor in ports around\n"
+	"the world, but Slateport's the best."
+}
+
+text(local) Route109_Text_HueyDefeated {
+	"You're the best!"
+}
+
+text(local) Route109_Text_HueyPostBattle {
+	"In the best port was the best\n"
+	"Trainer\."
+}
+
+text(local) Route109_Text_EdmondIntro {
+	"Urrrrppp\.\n"
+	"Battle? With me?"
+}
+
+text(local) Route109_Text_EdmondDefeated {
+	"Urp\. Ooooooohhhhhh\.\n"
+	"Urrrrpppp\."
+}
+
+text(local) Route109_Text_EdmondPostBattle {
+	"I'm usually stronger than this!\n"
+	"I'm just seasick as a dog!\p"
+	"I'm a Sailor, but\."
+}
+
+text(local) Route109_Text_RickyIntro:
+	"I'm thirsty\. I could go for a Soda Pop\n"
+	"at the Seashore House\."
+
+text(local) Route109_Text_RickyDefeated {
+	"Groan\."
+}
+
+text(local) Route109_Text_RickyPostBattle {
+	"I'm getting famished\. My inner tube\n"
+	"looks like a giant doughnut\."
+}
+
+text(local) Route109_Text_RickyRegister {
+	"Will you have another match with me\n"
+	"when I'm not all thirsty?"
+}
+
+text(local) Route109_Text_RickyRematchIntro {
+	"I'm hungry, but I've got enough pep in\n"
+	"me for a battle!"
+}
+
+text(local) Route109_Text_RickyRematchDefeated {
+	"I lost\.\n"
+	"It's because I'm hungry\."
+}
+
+text(local) Route109_Text_RickyRematchPostBattle {
+	"When you eat on a beach, everything\n"
+	"seems to taste a little better."
+}
+
+text(local) Route109_Text_LolaIntro {
+	"Doesn't a beach umbrella look like\n"
+	"a giant flower?"
+}
+
+text(local) Route109_Text_LolaDefeated {
+	"Mommy!"
+}
+
+text(local) Route109_Text_LolaPostBattle {
+	"If you look at the beach from the sky,\n"
+	"it looks like a big flower garden!"
+}
+
+text(local) Route109_Text_LolaRegister {
+	"Me?\n"
+	"I'm here every day!"
+}
+
+text(local) Route109_Text_LolaRematchIntro {
+	"I'm not losing to you again!\n"
+	"That's why I have my inner tube!"
+}
+
+text(local) Route109_Text_LolaRematchDefeated {
+	"Mommy!"
+}
+
+text(local) Route109_Text_LolaRematchPostBattle {
+	"If I have an inner tube, me and my\n"
+	"Pok\emon's cuteness goes way up!"
+}
+
+text(local) Route109_Text_AustinaIntro {
+	"I can't swim without my inner tube,\n"
+	"but I won't lose at Pok\emon!"
+}
+
+text(local) Route109_Text_AustinaDefeated {
+	"Did I lose because I have an inner\n"
+	"tube?"
+}
+
+text(local) Route109_Text_AustinaPostBattle {
+	"My inner tube is a fashion item.\n"
+	"I can't be seen without it."
+}
+
+text(local) Route109_Text_GwenIntro {
+	"Hi, big Trainer.\n"
+	"Will you battle with me?"
+}
+
+text(local) Route109_Text_GwenDefeated{
+	"Oh, you're strong."
+}
+
+text(local) Route109_Text_GwenPostBattle {
+	"How did you get to be so strong?"
+}
+
+text(local) Route109_Text_CarterIntro {
+	"Wahahah! This dude's going to catch\n"
+	"himself a big one!"
+}
+
+text(local) Route109_Text_CarterDefeated {
+	"This dude just lost one\."
+}
+
+text(local) Route109_Text_CarterPostBattle {
+	"This dude thinks you're a big one.\n"
+	"No, you're a big-one-to-be!"
+}
+
+text(local) Route109_Text_PaulIntro {
+	"Paul: Well, this is a mood-breaker.\p"
+	"I wish you wouldn't disturb our\n"
+	"precious time together."
+}
+
+text(local) Route109_Text_PaulDefeated {
+	"Paul: Well, I give up."
+}
+
+text(local) Route109_Text_PaulPostBattle {
+	"Paul: Well, don't tell anyone that\n"
+	"we're here.\l"
+	"This is just our private world of two!"
+}
+
+text(local) Route109_Text_PaulNotEnoughPokemon {
+	"Paul: We're totally, deeply in love.\n"
+	"That's why we make our Pok\emon battle\l"
+	"together."
+}
+
+text(local) Route109_Text_MelIntro {
+	"Mel: We're, like, totally in love.\n"
+	"Our romance is heating up all of Hoenn!"
+}
+
+text(local) Route109_Text_MelDefeated {
+	"Mel: We lost, and it's my fault!\n"
+	"Paul will hate me!"
+}
+
+text(local) Route109_Text_MelPostBattle {
+	"Mel: Um, Paul, are you angry with me?\n"
+	"Please don't be angry."
+}
+
+text(local) Route109_Text_MelNotEnoughPokemon {
+	"Mel: We're, like, deeply and truly in love.\n"
+	"That's why we make our Pok\emon\l"
+	"battle together."
+}
+
+text(local) Route109_Text_ChandlerIntro {
+	"Tadaah! See?\n"
+	"My inner tube's round!"
+}
+
+text(local) Route109_Text_ChandlerDefeated {
+	"Oh, oh!\n"
+	"Too bad!"
+}
+
+text(local) Route109_Text_ChandlerPostBattle {
+	"After I showed you my round inner\n"
+	"tube, too\."
+}
+
+text(local) Route109_Text_HaileyIntro {
+	"I can't swim, so I'm pretending\n"
+	"to swim."
+}
+
+text(local) Route109_Text_HaileyDefeated {
+	"I thought so!\n"
+	"I didn't think we could win."
+}
+
+text(local) Route109_Text_HaileyPostBattle {
+	"When I learn how to swim, I think\n"
+	"my Pok\emon will become tougher."
+}
+
+text(local) Route109_Text_ElijahIntro {
+	"For a guy as macho as me, this kind\n"
+	"of Pok\emon is the perfect match!"
+}
+
+text(local) Route109_Text_ElijahDefeated {
+	"I'm cool even in defeat, hey?"
+}
+
+text(local) Route109_Text_ElijahPostBattle {
+	"For a guy as macho as me, a port\n"
+	"is the perfect setting!\p"
+	"I guess I'll head for Slateport."
+}
+
+text(local) Route110_Text_JacobIntro {
+	"Whoa! Watch it!\n"
+	"I guess you're not used to Bike racing."
+}
+
+text(local) Route110_Text_JacobDefeated {
+	"Whoa!\n"
+	"My brakes failed!"
+}
+
+text(local) Route110_Text_JacobPostBattle {
+	"Flat tires and brake problems can\n"
+	"cause serious injury!\l"
+	"Inspect your Bike for problems!"
+}
+
+text(local) Route110_Text_AnthonyIntro {
+	"Yo, you!\n"
+	"Can you keep up with my speed?"
+}
+
+text(local) Route110_Text_AnthonyDefeated {
+	"Crash and burn!"
+}
+
+text(local) Route110_Text_AnthonyPostBattle {
+	"Speed alone won't let me win at Pok\emon.\n"
+	"I need to reconsider this\."
+}
+
+text(local) Route110_Text_BenjaminIntro {
+	"Don't panic if your Bike's going fast!"
+}
+
+text(local) Route110_Text_BenjaminDefeated {
+	"I shouldn't panic during Pok\emon\n"
+	"battles\."
+}
+
+text(local) Route110_Text_BenjaminPostBattle {
+	"There's no need to panic or stress.\n"
+	"Take it easy. There's plenty of time."
+}
+
+text(local) Route110_Text_BenjaminRegister {
+	"I'll keep chugging on without stressing.\n"
+	"Give me a shout if you're up to it."
+}
+
+text(local) Route110_Text_BenjaminRematchIntro {
+	"Aren't you going a little too fast?\n"
+	"Take it easy and let's battle."
+}
+
+text(local) Route110_Text_BenjaminRematchDefeated {
+	"I didn't panic, but I still lost\."
+}
+
+text(local) Route110_Text_BenjaminRematchPostBattle {
+	"There's no need to panic or stress.\n"
+	"Take it easy. There's plenty of time."
+}
+
+text(local) Route110_Text_AbigailIntro {
+	"The triathlon is hard in the extreme.\p"
+	"You have to complete the three events\n"
+	"of swimming, cycling, and running."
+}
+
+text(local) Route110_Text_AbigailDefeated {
+	"Pok\emon battles are hard, too!"
+}
+
+text(local) Route110_Text_AbigailPostBattle {
+	"I'm exhausted, so I need a break.\n"
+	"It's important to get proper rest."
+}
+
+text(local) Route110_Text_AbigailRegister {
+	"You know, I like you!\n"
+	"Let's have a rematch on Cycling Road."
+}
+
+text(local) Route110_Text_AbigailRematchIntro {
+	"Isn't it neat to hold a battle while\n"
+	"cycling?"
+}
+
+text(local) Route110_Text_AbigailRematchDefeated {
+	"Wow\.\n"
+	"How could you be so strong?"
+}
+
+text(local) Route110_Text_AbigailRematchPostBattle {
+	"Were you going after a record?\p"
+	"I'm sorry if I held you up!"
+}
+
+text(local) Route110_Text_JasmineIntro {
+	"I've been riding without stopping.\n"
+	"My thighs are like rocks!"
+}
+
+text(local) Route110_Text_JasmineDefeated {
+	"I'm worried about muscle cramps\."
+}
+
+text(local) Route110_Text_JasminePostBattle {
+	"Oh, you have some Gym Badges?\n"
+	"No wonder you're so strong!"
+}
+
+text(local) Route110_Text_EdwardIntro {
+	"I have foreseen your intentions!\n"
+	"I cannot possibly lose!"
+}
+
+text(local) Route110_Text_EdwardDefeated {
+	"I failed to prophesize my own demise!"
+}
+
+text(local) Route110_Text_EdwardPostBattle {
+	"I see your future\.\p"
+	"Hmm\.\n"
+	"I see a shining light\."
+}
+
+text(local) Route110_Text_JaclynIntro {
+	"Ahahahaha!\n"
+	"I'll dazzle you with my wonders!"
+}
+
+text(local) Route110_Text_JaclynDefeated {
+	"I wondrously lost!"
+}
+
+text(local) Route110_Text_JaclynPostBattle {
+	"You managed to win only because it was\n"
+	"a wonder! Yes, a wonder!\l"
+	"Don't think you can win all the time!"
+}
+
+text(local) Route110_Text_EdwinIntro {
+	"Could I see your Pok\emon?\n"
+	"Just one look, please?"
+}
+
+text(local) Route110_Text_EdwinDefeated {
+	"I wanted to complete\n"
+	"my collection\."
+}
+
+text(local) Route110_Text_EdwinPostBattle {
+	"When I see a Pok\emon that I don't know,\n"
+	"my passion as a collector is ignited!"
+}
+
+text(local) Route110_Text_EdwinRegister {
+	"I like collecting Match Call\n"
+	"registrations, too\."
+}
+
+text(local) Route110_Text_EdwinRematchIntro {
+	"Hi, have you caught any new Pok\emon?\p"
+	"Could I see your Pok\emon?\n"
+	"Just one look, please?"
+}
+
+text(local) Route110_Text_EdwinRematchDefeated {
+	"Your Pok\emon\.\n"
+	"I envy you."
+}
+
+text(local) Route110_Text_EdwinRematchPostBattle {
+	"Oh, I long to make all rare Pok\emon\n"
+	"mine!"
+}
+
+text(local) Route110_Text_DaleIntro {
+	"Hey!\n"
+	"Don't sneak up behind me like that!"
+}
+
+
+text(local) Route110_Text_DaleDefeated {
+	"I lost!\n"
+	"Drat!"
+}
+
+text(local) Route110_Text_DalePostBattle {
+	"Fishing is all about concentration.\n"
+	"You have to focus on the floater."
+}
+
+text(local) Route110_Text_IsabelIntro {
+	"Ahahaha! I would go anywhere to show\n"
+	"off my delightful Pok\emon."
+}
+
+text(local) Route110_Text_IsabelDefeated {
+	"Oh, dear, this won't do."
+}
+
+text(local) Route110_Text_IsabelPostBattle {
+	"Rather than battling, perhaps I should\n"
+	"show off my Pok\emon at the Fan Club."
+}
+
+text(local) Route110_Text_IsabelRegister {
+	"That wasn't close to what I could\n"
+	"do to show off my Pok\emon.\p"
+	"I'll have you as my captive audience\n"
+	"as often as possible!"
+}
+
+text(local) Route110_Text_IsabelRematchIntro {
+	"Ahahahaha! I would be happy to show\n"
+	"off my Pok\emon as often as you like!"
+}
+
+text(local) Route110_Text_IsabelRematchDefeated {
+	"Oh, dear, this won't do."
+}
+
+text(local) Route110_Text_IsabelRematchPostBattle {
+	"I don't think that I could ever stop\n"
+	"from showing off my Pok\emon.\p"
+	"But I like to battle, too!"
+}
+
+text(local) Route110_Text_TimmyIntro {
+	"I found some cool Pok\emon in the grass\n"
+	"around here!"
+}
+
+text(local) Route110_Text_TimmyDefeated {
+	"Being cool isn't enough to win\."
+}
+
+text(local) Route110_Text_TimmyPostBattle {
+	"It's hard to battle with Pok\emon you\n"
+	"just caught."
+}
+
+text(local) Route110_Text_AlyssaIntro {
+	"I fell off Cycling Road\.\p"
+	"I'll get over my embarrassment by\n"
+	"battling with you!"
+}
+
+text(local) Route110_Text_AlyssaDefeated {
+	"Oops!\n"
+	"I ended up losing!"
+}
+
+text(local) Route110_Text_AlyssaPostBattle {
+	"Falling\. Losing\.\n"
+	"This is so humiliating for me!"
+}
+
+text(local) Route110_Text_JosephIntro {
+	"Okay! Full-throttle time! If you can't\n"
+	"groove, you get left behind!"
+}
+
+text(local) Route110_Text_JosephDefeated {
+	"You got into the groove all right\."
+}
+
+text(local) Route110_Text_JosephPostBattle {
+	"This isn't going to bring me down!\n"
+	"Losing has made me a better man!"
+}
+
+text(local) Route110_Text_KalebIntro {
+	"When cute Pok\emon help each other\.\n"
+	"You won't see a more adorable sight!"
+}
+
+text(local) Route110_Text_KalebDefeated {
+	"Have you no compassion or pity?"
+}
+
+text(local) Route110_Text_KalebPostBattle {
+	"Okay, okay, you've done the best you\n"
+	"could, my pretties."
+}
+
+text(local) Route111_Text_DrewIntro {
+	"Oh, hey! Those Go-Goggles suit you.\n"
+	"But I think they look better on me.\p"
+	"Let's decide who they look better on\n"
+	"with a battle!"
+}
+
+text(local) Route111_Text_DrewDefeat {
+	"I couldn't see what was happening at\n"
+	"my sides because of the Go-Goggles."
+}
+
+text(local) Route111_Text_DrewPostBattle {
+	"The Go-Goggles make it possible to\n"
+	"get through sandstorms.\l"
+	"That makes me happy!"
+}
+
+text(local) Route111_Text_HeidiIntro {
+	"I'm having a picnic in the desert.\p"
+	"You can always find a Trainer,\n"
+	"so I can enjoy a battle here, too!"
+}
+
+text(local) Route111_Text_HeidiDefeat {
+	"Ohhh! You're mean!"
+}
+
+text(local) Route111_Text_HeidiPostBattle {
+	"When you're battling in a sandstorm,\n"
+	"watch out for your Pok\emon's HP.\p"
+	"It can faint if you don't keep\n"
+	"an eye on it!"
+}
+
+text(local) Route111_Text_BeauIntro {
+	"Wearing these Go-Goggles makes me\n"
+	"feel like a superhero.\l"
+	"Right now, nobody can beat me!"
+}
+
+text(local) Route111_Text_BeauDefeat {
+	"I can't win on spirit alone\."
+}
+
+text(local) Route111_Text_BeauPostBattle {
+	"I'm going to be a real hero one day.\n"
+	"I'm going to work harder to make me\l"
+	"and my Pok\emon stronger."
+}
+
+text(local) Route111_Text_BeckyIntro {
+	"I heard there are fossils to be found\n"
+	"in the desert. Where could they be?"
+}
+
+text(local) Route111_Text_BeckyDefeat {
+	"I came up short\."
+}
+
+text(local) Route111_Text_BeckyPostBattle {
+	"If they can find fossils in the desert,\n"
+	"it must have been a sea before."
+}
+
+text(local) Route111_Text_DustyIntro {
+	"For thirty years I have searched for\n"
+	"ancient ruins!\l"
+	"I am to be challenged?"
+}
+
+text(local) Route111_Text_DustyDefeat {
+	"While I have searched for ruins,\n"
+	"I've not searched for strong Pok\emon."
+}
+
+text(local) Route111_Text_DustyPostBattle {
+	"For thirty years I have searched for\n"
+	"ancient ruins!\p"
+	"No, wait, was that forty years?\n"
+	"Which was it now?"
+}
+
+text(local) Route111_Text_DustyRegister {
+	"I haven't been searching for any\n"
+	"tough Pok\emon.\p"
+	"But, for some reason, I sure do like\n"
+	"Pok\eNavs."
+}
+
+text(local) Route111_Text_DustyRematchIntro {
+	"For thirty years I have searched for\n"
+	"ancient ruins!\p"
+	"No, wait, was that forty years?\n"
+	"Anyway, am I to be challenged?"
+}
+
+text(local) Route111_Text_DustyRematchDefeat {
+	"I've found no ruins, nor have I found\n"
+	"any strong Pok\emon\."
+}
+
+text(local) Route111_Text_DustyPostRematch {
+	"For thirty years I have searched for\n"
+	"ancient ruins!\p"
+	"No, wait, was that forty years\n"
+	"I've searched?\p"
+	"Hmm\. It could even be fifty\.\n"
+	"How long have I been at this?"
+}
+
+text(local) Route111_Text_TravisIntro {
+	"I'm full of pep!\n"
+	"And my Pok\emon is peppy, too!"
+}
+
+text(local) Route111_Text_TravisDefeat {
+	"My Pok\emon lost its pep\."
+}
+
+text(local) Route111_Text_TravisPostBattle {
+	"When I see a Trainer with a lot of pep,\n"
+	"I can't help looking."
+}
+
+text(local) Route111_Text_IreneIntro {
+	"I don't know where you're going,\n"
+	"but would you like to battle?"
+}
+
+text(local) Route111_Text_IreneDefeat {
+	"Oh, you're disgustingly good!"
+}
+
+text(local) Route111_Text_IrenePostBattle {
+	"I'm thinking that I should go to\n"
+	"Mt. Chimney, but the view around\l"
+	"here is very nice, too."
+}
+
+text(local) Route111_Text_DaisukeIntro {
+	"To train myself, I challenge all\n"
+	"whom I meet!"
+}
+
+text(local) Route111_Text_DaisukeDefeat {
+	"Uncle! I give up!"
+}
+
+text(local) Route111_Text_DaisukePostBattle {
+	"All I can do is keep training until\n"
+	"I can defeat strong Trainers such\l"
+	"as yourself."
+}
+
+text(local) Route111_Text_WiltonIntro {
+	"Show me how much you've toughened\n"
+	"your Pok\emon."
+}
+
+text(local) Route111_Text_WiltonDefeat {
+	"I see, you've toughened them\n"
+	"considerably."
+}
+
+text(local) Route111_Text_WiltonPostBattle {
+	"Pok\emon and Trainers learn much\n"
+	"through battling.\p"
+	"What's important is to never give up\n"
+	"even if you lose."
+}
+
+text(local) Route111_Text_WiltonRegister {
+	"There is much to be learned from\n"
+	"your training style.\p"
+	"I request a rematch if it\n"
+	"behooves you."
+}
+
+text(local) Route111_Text_WiltonRematchIntro {
+	"We're training here to elevate our\n"
+	"game to the next level.\l"
+	"Stay and train with us!"
+}
+
+text(local) Route111_Text_WiltonRematchDefeat {
+	"Ooh, you're decent!"
+}
+
+text(local) Route111_Text_WiltonPostRematch {
+	"Since you're that strong, you should\n"
+	"aim for the Pok\emon League."
+}
+
+text(local) Route111_Text_BrookeIntro {
+	"Oh, your Pok\emon look like serious\n"
+	"actors.\l"
+	"I have to ask you for an engagement."
+}
+
+text(local) Route111_Text_BrookeDefeat {
+	"They didn't just look strong,\n"
+	"they are strong!"
+}
+
+text(local) Route111_Text_BrookePostBattle {
+	"I thought I was raising my Pok\emon\n"
+	"diligently, but, oh no, there is still\l"
+	"much to be done."
+}
+
+text(local) Route111_Text_BrookeRegister {
+	"I wish I could become friends with\n"
+	"more strong people like you!"
+}
+
+text(local) Route111_Text_BrookeRematchIntro {
+	"You can make Pok\emon stronger or\n"
+	"weaker depending on the moves you\l"
+	"teach them.\p"
+	"What kinds of moves do your Pok\emon\n"
+	"know?"
+}
+
+text(local) Route111_Text_BrookeRematchDefeat {
+	"You've taught them good moves!"
+}
+
+text(local) Route111_Text_BrookePostRematch {
+	"Maybe I should have stopped my\n"
+	"Pok\emon from evolving until they\l"
+	"learned better moves\."
+}
+
+text(local) Route111_Text_CeliaIntro {
+	"I shouldn't have come to a place like\n"
+	"this for a picnic!"
+}
+
+text(local) Route111_Text_CeliaDefeat {
+	"Aww!\n"
+	"I really shouldn't have come!"
+}
+
+text(local) Route111_Text_CeliaPostBattle {
+	"In a sandstorm like this, I can't set\n"
+	"the places for a picnic even with my\l"
+	"Go-Goggles on\."
+}
+
+text(local) Route111_Text_BryanIntro {
+	"How tough are you?\n"
+	"We shall expose that secret!"
+}
+
+text(local) Route111_Text_BryanDefeat {
+	"Oh! Your strength!\n"
+	"It is shrouded in mystery!"
+}
+
+text(local) Route111_Text_BryanPostBattle {
+	"This desert hoards mysteries in\n"
+	"its shifting sands!"
+}
+
+text(local) Route111_Text_BrandenIntro {
+	"I'll give you some of my sandwich\n"
+	"if you'll lose."
+}
+
+text(local) Route111_Text_BrandenDefeat {
+	"Tch! I thought a sandwich would be\n"
+	"enough of a bribe\."
+}
+
+text(local) Route111_Text_BrandenPostBattle {
+	"My Sandshrew loves eating\n"
+	"my sandwiches."
+}
+
+text(local) Route111_Text_TyronIntro {
+	"This is my favorite kind of Pok\emon!"
+}
+
+text(local) Route111_Text_TyronDefeat {
+	"Wait!\n"
+	"Did you get a good look at my Pok\emon?"
+}
+
+text(local) Route111_Text_TyronPostBattle {
+	"When having a battle, I get a kick out\n"
+	"of showing off my Pok\emon.\p"
+	"I bet everyone feels that way when\n"
+	"they enter a battle!"
+}
+
+text(local) Route111_Text_CelinaIntro {
+	"Show me how to put a little excitement\n"
+	"into my life."
+}
+
+text(local) Route111_Text_CelinaDefeat {
+	"Oh\. My\.\n"
+	"That was too much excitement."
+}
+
+text(local) Route111_Text_CelinaPostBattle {
+	"My pulse is still racing.\n"
+	"You're one fabulous Trainer."
+}
+
+text(local) Route111_Text_HaydenIntro {
+	"When you're as famished as I am,\n"
+	"there is no room for pity!"
+}
+
+text(local) Route111_Text_HaydenDefeat {
+	"Groan\."
+}
+
+text(local) Route111_Text_HaydenPostBattle {
+	"My stomach is grumbling!\n"
+	"Maybe I can grill some Berries\."
+}
+
+text(local) Route111_Text_BiancaIntro {
+	"Did you come from Mauville?\n"
+	"Then you should be full of energy!"
+}
+
+text(local) Route111_Text_BiancaDefeat {
+	"Ooh lala!\n"
+	"That's a lot to take!"
+}
+
+text(local) Route111_Text_BiancaPostBattle {
+	"This road here\.\n"
+	"You have quite a ways to travel."
+}
+
+text(local) Route112_Text_BriceIntro {
+	"Hahahaha!\n"
+	"How about we have a battle?\l"
+	"You and me!\l"
+	"Hahahaha!"
+}
+
+text(local) Route112_Text_BriceDefeat {
+	"I lost!\n"
+	"Hahahaha!"
+}
+
+text(local) Route112_Text_BricePostBattle {
+	"Hahahahaha! Something flew up my nose!\n"
+	"Hahahaha-hatchoo!"
+}
+
+text(local) Route112_Text_TrentIntro {
+	"My legs are solid from pounding up\n"
+	"and down the mountains.\p"
+	"They're not going to buckle easily,\n"
+	"friend!"
+}
+
+text(local) Route112_Text_TrentDefeat {
+	"Ouch! My legs cramped up!"
+}
+
+text(local) Route112_Text_TrentPostBattle {
+	"Try hiking, and I mean really\n"
+	"pounding, on these mountain trails\l"
+	"with a heavy pack weighing dozens of\l"
+	"pounds.\p"
+	"That, my friend, will get your body\n"
+	"into serious shape."
+}
+
+text(local) Route112_Text_TrentRegister {
+	"Ow, my legs have cramped up.\n"
+	"Can you grab me some bandages from\l"
+	"my backpack?\p"
+	"No, that's my Pok\eNav!\n"
+	"Oh, fine, I'll register you."
+}
+
+text(local) Route112_Text_TrentRematchIntro {
+	"I've been keeping fit by hiking.\n"
+	"Power, I have in spades!"
+}
+
+text(local) Route112_Text_TrentRematchDefeat {
+	"I got trumped in power?"
+}
+
+text(local) Route112_Text_TrentRematchPostBattle {
+	"I hear there are some seriously tough\n"
+	"Trainers on top of Mt. Chimney.\p"
+	"I intend to get up there and give them\n"
+	"a challenge!"
+}
+
+text(local) Route112_Text_LarryIntro {
+	"I'm strong.\n"
+	"I won't cry if I lose."
+}
+
+text(local) Route112_Text_LarryDefeat {
+	"Waaaah!"
+} 
+
+text(local) Route112_Text_LarryPostBattle {
+	"I'm not crying because I miss my mommy!\n"
+	"Snivel\."
+}
+
+text(local) Route112_Text_CarolIntro {
+	"When you're out on a picnic, why,\n"
+	"you simply have to sing!\l"
+	"Come on, sing with me!"
+}
+
+text(local) Route112_Text_CarolDefeat {
+	"Oh, you're so strong!"
+}
+
+text(local) Route112_Text_CarolPostBattle {
+	"It doesn't matter if you're good or bad\n"
+	"at singing or Pok\emon.\p"
+	"If you have the most fun, you win!"
+}
+
+text(local) Route112_Text_BryantIntro {
+	"I caught hot Pok\emon in Fiery Path!\n"
+	"Take a look!"
+}
+
+text(local) Route112_Text_BryantDefeat {
+	"What a bumpy ride that was!"
+}
+
+text(local) Route112_Text_BryantPostBattle {
+	"I like the way you battle.\n"
+	"It has a certain flair to it."
+}
+
+text(local) Route112_Text_ShaylaIntro {
+	"Oh, aren't you an adorable Trainer!\n"
+	"Please, I need a romantic battle!\l"
+	"I'm somewhat decent!"
+}
+
+text(local) Route112_Text_ShaylaDefeat {
+	"Oh, how strong you are!\n"
+	"You've given me quite a shock!"
+}
+
+text(local) Route112_Text_ShaylaPostBattle {
+	"Are you busy right now?\n"
+	"I was thinking that maybe we can have\l"
+	"a rematch right now\.\l"
+	"But it's all right if you're busy."
+}
+
+text(local) Route113_Text_JaylenIntro {
+	"Can you guess why it's so cool\n"
+	"around here?"
+}
+
+text(local) Route113_Text_JaylenDefeat {
+	"Peeuuw!\n"
+	"That stinks!"
+} 
+
+text(local) Route113_Text_JaylenPostBattle {
+	"The volcanic ash blocks the sun,\n"
+	"so it doesn't get very warm.\p"
+	"That's good for me--I can't stand heat!"
+}
+
+text(local) Route113_Text_DillonIntro {
+	"The volcano's eruption is proof that\n"
+	"the earth is alive."
+}
+
+text(local) Route113_Text_DillonDefeat {
+	"You're some kind of strong!"
+}
+
+text(local) Route113_Text_DillonPostBattle {
+	"Ouch! Owww! I can't see!\n"
+	"I got ashes in my eyelashes!\p"
+	"Get it? Ashes and eyelashes?\p"
+	"Okay, that was bad, sorry\."
+}
+
+text(local) Route113_Text_MadelineIntro {
+	"I use this parasol to ward off this\n"
+	"filthy, yucky volcanic ash from\l"
+	"my dear Numel."
+}
+
+text(local) Route113_Text_MadelineDefeat {
+	"Huff, huff\.\n"
+	"I am exhausted\."
+}
+
+text(local) Route113_Text_MadelinePostBattle {
+	"You're very good at this.\n"
+	"I must say I'm impressed!"
+}
+
+text(local) Route113_Text_MadelineRegister {
+	"Here, slide under my parasol.\n"
+	"Let me register you in my Pok\eNav."
+}
+
+text(local) Route113_Text_MadelineRematchIntro {
+	"Oh, hello, hasn't it been a while?\n"
+	"May I invite you to battle?"
+}
+
+text(local) Route113_Text_MadelineRematchDefeat {
+	"Oh, how super!"
+}
+
+text(local) Route113_Text_MadelinePostRematch {
+	"You've remained very good at this.\n"
+	"I must say I'm impressed!"
+}
+
+text(local) Route113_Text_LaoIntro {
+	"From out of the ashes I leap! Hiyah!\n"
+	"I challenge thee!"
+}
+
+text(local) Route113_Text_LaoDefeat {
+	"With honor I admit defeat!"
+}
+
+text(local) Route113_Text_LaoPostBattle {
+	"I must refine the art of concealment.\n"
+	"I bid thee farewell."
+}
+
+text(local) Route113_Text_LaoRegister {
+	"Yiiyaah! Witness the ancient ninja\n"
+	"technique of Pok\eNav registration!"
+}
+
+text(local) Route113_Text_LaoRematchIntro {
+	"From out of the ashes I leap! Hiyah!\n"
+	"I challenge thee!"
+}
+
+text(local) Route113_Text_LaoRematchDefeat {
+	"With honor I admit defeat!"
+}
+
+text(local) Route113_Text_LaoPostRematch {
+	"My flawless concealment was let down\n"
+	"by my immature battle skills\.\p"
+	"I bid thee farewell."
+}
+
+text(local) Route113_Text_LungIntro {
+	"Thanks for finding me!\n"
+	"But we still have to battle!"
+}
+
+text(local) Route113_Text_LungDefeat {
+	"I'll use my ninjutsu on you\.\n"
+	"\qoVolcanic Ash Swirl Cloak\qc!\p"
+	"\.What?\n"
+	"It's already over?"
+}
+
+text(local) Route113_Text_LungPostBattle {
+	"You know what's crummy about hiding?\n"
+	"It's lonely if no one comes along."
+}
+
+text(local) Route113_Text_ToriIntro {
+	"Tori: Both of us, we collect ashes.\n"
+	"We battle Pok\emon, too."
+}
+
+text(local) Route113_Text_ToriDefeat {
+	"Tori: We lost\. It's boring, so I'm going\n"
+	"to get some more ashes."
+}
+
+text(local) Route113_Text_ToriPostBattle {
+	"Tori: How much ash do we have?\n"
+	"Enough for a White Flute, I hope."
+}
+
+text(local) Route113_Text_ToriNotEnoughMons {
+	"Tori: We want to battle 2-on-2.\n"
+	"If we didn't, we would lose!"
+}
+
+text(local) Route113_Text_TiaIntro {
+	"Tia: Both of us, we collect ashes.\n"
+	"We battle Pok\emon, too."
+}
+
+text(local) Route113_Text_TiaDefeat {
+	"Tia: We couldn't win\. It's boring,\n"
+	"so I'm getting some more ashes."
+}
+
+text(local) Route113_Text_TiaPostBattle {
+	"Tia: We have a lot of ashes!\n"
+	"I think enough for a White Flute!"
+}
+
+text(local) Route113_Text_TiaNotEnoughMons {
+	"Tia: We want to battle 2-on-2.\n"
+	"If we don't, we won't win!"
+}
+
+text(local) Route113_Text_CobyIntro {
+	"Pfft, with these wings I can\n"
+	"flick you away!"
+}
+
+text(local) Route113_Text_CobyDefeat {
+	"A\. What?"
+}
+
+text(local) Route113_Text_CobyPostBattle {
+	"I don't know what to say when I get\n"
+	"beaten so easily\."
+}
+
+text(local) Route113_Text_SophieIntro {
+	"The warmth here is making me drowsy.\n"
+	"Battle with me so I can stay awake."
+}
+
+text(local) Route113_Text_SophieDefeat {
+	"This is a dream.\n"
+	"I'm sure of it\."
+}
+
+text(local) Route113_Text_SophiePostBattle {
+	"Losing burns me up\.\n"
+	"I'm just going to sleep right here!\l"
+	"Zzz!"
+}
+
+text(local) Route113_Text_LawrenceIntro {
+	"Were you maybe in the middle\n"
+	"of gathering volcanic ashes?"
+}
+
+text(local) Route113_Text_LawrenceDefeat  {
+	"Ehehe.\n"
+	"We got beaten cleanly."
+}
+
+text(local) Route113_Text_LawrencePostBattle {
+	"I ought to hide under the ashes, too."
+}
+
+text(local) Route113_Text_WyattIntro {
+	"Y-you want to battle with me?\n"
+	"Even though I just caught my Pok\emon?"
+}
+
+text(local) Route113_Text_WyattDefeat {
+	"Y-you're all happy to win?\n"
+	"Even though it's only me?"
+}
+
+text(local) Route113_Text_WyattPostBattle {
+	"Oh, so now you want to say a word to\n"
+	"the loser?\p"
+	"Aren't you just the coolest?\n"
+	"Humph!"
+}
+
+text(local) Route114_Text_LennyIntro {
+	"Yodelayhihoo!\p"
+	"\. \.\p"
+	"You're supposed to shout\n"
+	"\qoyodelayhihoo\qc since it doesn't\l"
+	"echo here!"
+}
+
+text(local) Route114_Text_LennyDefeat {
+	"Yodelayhihoo!"
+}
+
+text(local) Route114_Text_LennyPostBattle {
+	"When I was a wee tyke, I believed there\n"
+	"was someone copying me and shouting\l"
+	"back, \qoYodelayhihoo.\qc"
+}
+
+text(local) Route114_Text_LucasIntro {
+	"If you're not prepared, you shouldn't\n"
+	"be up in the mountains!"
+}
+
+text(local) Route114_Text_LucasDefeat {
+	"The mountains are unforgiving\."
+}
+
+text(local) Route114_Text_LucasPostBattle {
+	"In the winter, mountains turn deadly\n"
+	"with blizzards and avalanches."
+}
+
+text(local) Route114_Text_ShaneIntro {
+	"Camping's fun! You can fish, roast\n"
+	"marshmallows, and tell spooky stories!\p"
+	"But the best of all are the Pok\emon\n"
+	"battles!"
+}
+
+text(local) Route114_Text_ShaneDefeat {
+	"Way too strong!"
+}
+
+text(local) Route114_Text_ShanePostBattle {
+	"I think it's great that I can go\n"
+	"camping with my Pok\emon."
+}
+
+text(local) Route114_Text_NancyIntro {
+	"I need to exercise after a meal.\n"
+	"Let's have a match!"
+}
+
+text(local) Route114_Text_NancyDefeat {
+	"Oh, no!"
+}
+
+text(local) Route114_Text_NancyPostBattle {
+	"I just had a tasty meal.\n"
+	"I'm getting drowsy\."
+}
+
+text(local) Route114_Text_SteveIntro {
+	"Ufufufufufu\.\n"
+	"Want to battle against my Pok\emon?"
+}
+
+text(local) Route114_Text_SteveDefeat {
+	"M-My Pok\emon\."
+}
+
+text(local) Route114_Text_StevePostBattle {
+	"A big body that's all lumpy and hard,\n"
+	"enormous horns, and vicious fangs\.\p"
+	"Ufufufufu\.\n"
+	"I wish I had a Pok\emon like that\."
+}
+
+text(local) Route114_Text_SteveRegister {
+	"Don't forget what you've done to me!\n"
+	"I'll make it so you can't forget!"
+}
+
+text(local) Route114_Text_SteveRematchIntro {
+	"Ufufufufufu\.\n"
+	"Come on, battle my Pok\emon\."
+}
+
+text(local) Route114_Text_SteveRematchDefeat {
+	"I feel so lucky getting to see your\n"
+	"Pok\emon\."
+}
+
+text(local) Route114_Text_StevePostRematch {
+	"Ufufufufufu\.\p"
+	"When I see Pok\emon battling, I get all\n"
+	"shivery and shaky\."
+}
+
+text(local) Route114_Text_BernieIntro {
+	"If you're lighting a campfire,\n"
+	"make sure you have water handy."
+}
+
+text(local) Route114_Text_BernieDefeat {
+	"Thanks for dousing my fire!"
+}
+
+text(local) Route114_Text_BerniePostBattle {
+	"You really do have to be careful with\n"
+	"any sort of fire in a forest.\p"
+	"Don't ever underestimate the power\n"
+	"of fire."
+}
+
+text(local) Route114_Text_BernieRegister {
+	"You set my spirit on fire.\n"
+	"Let's register each other!"
+}
+
+text(local) Route114_Text_BernieRematchIntro {
+	"Have you learned to keep water handy\n"
+	"for campfires?"
+}
+
+text(local) Route114_Text_BernieRematchDefeat {
+	"I got hosed down before I could\n"
+	"flare up, I guess."
+}
+
+text(local) Route114_Text_BerniePostRematch {
+	"You really do have to be careful with\n"
+	"any sort of fire in a forest.\p"
+	"Don't ever underestimate the power\n"
+	"of fire."
+}
+
+text(local) Route114_Text_ClaudeIntro {
+	"If we were fishing, you wouldn't stand\n"
+	"a chance against me.\l"
+	"So, bring on your Pok\emon!"
+}
+
+text(local) Route114_Text_ClaudeDefeat {
+	"If we were fishing, I would've won\."
+}
+
+text(local) Route114_Text_ClaudePostBattle {
+	"I think I'll try my luck at landing\n"
+	"a big one at Meteor Falls.\p"
+	"There has to be something in there.\n"
+	"I just know it."
+}
+
+text(local) Route114_Text_NolanIntro {
+	"I like to fish. But I also like to\n"
+	"battle!\p"
+	"If anyone challenges me, I'm there,\n"
+	"even if I'm fishing."
+}
+
+text(local) Route114_Text_NolanDefeat {
+	"I like to battle, but that doesn't\n"
+	"mean I'm good at it\."
+}
+
+text(local) Route114_Text_NolanPostBattle {
+	"This time I'll do it!\p"
+	"I always think that, so I can't walk\n"
+	"away from fishing or Pok\emon."
+}
+
+text(local) Route114_Text_TyraIntro {
+	"Tyra: Well, sure.\n"
+	"I'm in the mood for it.\l"
+	"I'll teach you a little about Pok\emon."
+}
+
+text(local) Route114_Text_TyraDefeat {
+	"Tyra: What an amazing battle style!"
+}
+
+text(local) Route114_Text_TyraPostBattle {
+	"Tyra: I was teaching my junior Ivy\n"
+	"about Pok\emon."
+}
+
+text(local) Route114_Text_TyraNotEnoughMons {
+	"Tyra: Giggle\.\n"
+	"If you want to battle with us, just one\l"
+	"Pok\emon isn't enough!"
+}
+
+text(local) Route114_Text_IvyIntro {
+	"Ivy: Who taught you about Pok\emon?"
+}
+
+text(local) Route114_Text_IvyDefeat {
+	"Ivy: What an amazing battle style!"
+}
+
+text(local) Route114_Text_IvyPostBattle {
+	"Ivy: I started training Pok\emon\n"
+	"because Tyra, my student mentor,\l"
+	"taught me!"
+}
+
+text(local) Route114_Text_IvyNotEnoughMons {
+	"Ivy: Do you only have one Pok\emon?\n"
+	"I think it must feel lonesome."
+}
+
+text(local) Route114_Text_KaiIntro {
+	"I landed a big one!\n"
+	"A huge one, I tell you!"
+}
+
+text(local) Route114_Text_KaiDefeat {
+	"What was that about?\n"
+	"Did mine lose in size?"
+}
+
+text(local) Route114_Text_KaiPostBattle {
+	"Okay!\n"
+	"I'll just fish me a bigger one!"
+}
+
+text(local) Route114_Text_CharlotteIntro {
+	"Me!\n"
+	"I'm not just a pretty face!"
+}
+
+text(local) Route114_Text_CharlotteDefeat {
+	"That wasn't cute in the least!"
+}
+
+text(local) Route114_Text_CharlottePostBattle {
+	"I don't want a Pok\emon that's\n"
+	"just cute.\p"
+	"I adore cute ones that have a quirk\n"
+	"or two!"
+}
+
+text(local) Route114_Text_AngelinaIntro {
+	"Have you made your Pok\emon evolve\n"
+	"very much?"
+}
+
+text(local) Route114_Text_AngelinaDefeat {
+	"Oh, I see.\n"
+	"That's good to know."
+}
+
+text(local) Route114_Text_AngelinaPostBattle {
+	"Some Pok\emon change so much when\n"
+	"they evolve, it's startling!"
+}
+
+text(local) Route115_Text_TimothyIntro {
+	"Hm\.\n"
+	"You seem rather capable\.\l"
+	"Let me keep you company!"
+}
+
+text(local) Route115_Text_TimothyDefeat {
+	"You're much stronger than\n"
+	"I'd imagined!"
+}
+
+text(local) Route115_Text_TimothyPostBattle {
+	"There is no such thing as a born genius.\n"
+	"It all depends on effort!\l"
+	"That is what I believe\."
+}
+
+text(local) Route115_Text_TimothyRegister {
+	"Hmm\. A loss this thorough has been\n"
+	"a distant memory.\p"
+	"If you would allow it, I wish for\n"
+	"another opportunity to do battle."
+}
+
+text(local) Route115_Text_TimothyRematchIntro {
+	"Hm\. As always, your agility speaks\n"
+	"for itself.\l"
+	"Come, keep me company!"
+}
+
+text(local) Route115_Text_TimothyRematchDefeat {
+	"As strong as ever!"
+}
+
+text(local) Route115_Text_TimothyPostRematch {
+	"All it takes is effort!\p"
+	"I lost because I haven't put in enough\n"
+	"effort!"
+}
+
+text(local) Route115_Text_KoichiIntro {
+	"You!\p"
+	"My Machop!\p"
+	"Demand a battle!"
+}
+
+text(local) Route115_Text_KoichiDefeat {
+	"Ouch, ouch, ouch!"
+}
+
+text(local) Route115_Text_KoichiPostBattle {
+	"My Machop crew!\p"
+	"So long as they seek power, I will\n"
+	"grow strong with them!"
+}
+
+text(local) Route115_Text_NobIntro {
+	"My strongest skill is busting bricks\n"
+	"with my forehead!"
+}
+
+text(local) Route115_Text_NobDefeat {
+	"Ugwaaaah!\n"
+	"My head is busted!"
+}
+
+text(local) Route115_Text_NobPostBattle {
+	"I've been teaching my Pok\emon karate.\p"
+	"It looks like they'll get a lot better\n"
+	"than me. I'm excited about that."
+}
+
+text(local) Route115_Text_NobRegister {
+	"You impress me! Give me a rematch\n"
+	"after I redo my training!"
+}
+
+text(local) Route115_Text_NobRematchIntro {
+	"After you beat me, we trained hard to\n"
+	"improve our skills.\l"
+	"Come on, give us a rematch!"
+}
+
+text(local) Route115_Text_NobRematchDefeat {
+	"Ugwaaah!\n"
+	"We lost again!"
+}
+
+text(local) Route115_Text_NobPostRematch {
+	"My Pok\emon will grow stronger!\n"
+	"I'll redouble my training!"
+}
+
+text(local) Route115_Text_CyndyIntro {
+	"This beach is my secret training spot!\n"
+	"Don't come butting in!"
+}
+
+text(local) Route115_Text_CyndyDefeat {
+	"I haven't trained enough!"
+}
+
+text(local) Route115_Text_CyndyPostBattle {
+	"The sand acts as a cushion to reduce\n"
+	"impact and prevent injury.\l"
+	"This is the perfect place to train."
+}
+
+text(local) Route115_Text_CyndyRegister {
+	"Okay, fine, you're free to come here.\n"
+	"In return, I'd like to battle you again."
+}
+
+text(local) Route115_Text_CyndyRematchIntro {
+	"Okay, let's get this battle on!"
+}
+
+text(local) Route115_Text_CyndyRematchDefeat {
+	"I can battle but my Pok\emon\."
+}
+
+text(local) Route115_Text_CyndyPostRematch {
+	"Even when I lose, I still get some\n"
+	"enjoyment out of it.\l"
+	"It must be that I love Pok\emon."
+}
+
+text(local) Route115_Text_HectorIntro {
+	"I have a rare Pok\emon!\n"
+	"Would you like me to show you?"
+}
+
+text(local) Route115_Text_HectorDefeat {
+	"You\.\n"
+	"You want my Pok\emon, don't you?"
+}
+
+text(local) Route115_Text_HectorPostBattle {
+	"I have this rare Pok\emon.\n"
+	"It's enough to keep me satisfied."
+}
+
+text(local) Route115_Text_KyraIntro {
+	"I'll battle while I'm running!\n"
+	"Try to keep up with me!"
+}
+
+text(local) Route115_Text_KyraDefeat {
+	"Gasp, gasp\."
+}
+
+text(local) Route115_Text_KyraPostBattle {
+	"I made the mistake of trying to battle\n"
+	"while running!\p"
+	"I should take a run to calm down\."
+}
+
+text(local) Route115_Text_JaidenIntro {
+	"Take that!\n"
+	"Ultra Pok\emon ninja attack!"
+}
+
+text(local) Route115_Text_JaidenDefeat {
+	"Waaah!\n"
+	"Our strategy failed!"
+}
+
+text(local) Route115_Text_JaidenPostBattle {
+	"But my Pok\emon were ultra,\n"
+	"weren't they?"
+}
+
+text(local) Route115_Text_HeleneIntro {
+	"My Pok\emon have black belt-level\n"
+	"strength!"
+}
+
+text(local) Route115_Text_HeleneDefeat {
+	"This is too humiliating!"
+}
+
+text(local) Route115_Text_HelenePostBattle {
+	"I rarely meet anyone who's better\n"
+	"than me\.\p"
+	"I get it now!\n"
+	"You're a Gym Leader, aren't you?"
+}
+
+text(local) Route115_Text_AlixIntro {
+	"Our eyes met!\n"
+	"There's no getting away now!"
+}
+
+text(local) Route115_Text_AlixDefeat {
+	"Gah!\n"
+	"Not bad!"
+}
+
+text(local) Route115_Text_AlixPostBattle {
+	"Oh, well.\n"
+	"I think I will Teleport home."
+}
+
+text(local) Route115_Text_MarleneIntro {
+	"You've disturbed my meditation\.\n"
+	"You'll be punished for it."
+}
+
+text(local) Route115_Text_MarleneDefeat {
+	"You've broken my concentration!"
+}
+
+text(local) Route115_Text_MarlenePostBattle {
+	"I was meditating with my Pok\emon.\n"
+	"But this place isn't very peaceful\."
+}
+
+text(local) Route116_Text_ClarkIntro {
+	"If the tunnel doesn't go through, then\n"
+	"I'll just go over the top."
+}
+
+text(local) Route116_Text_ClarkDefeat {
+	"Gasp\. Gasp\.\n"
+	"Losing made me tired\."
+}
+
+text(local) Route116_Text_ClarkPostBattle {
+	"It's no big deal if there's no tunnel.\n"
+	"To a Hiker, mountains are roads!"
+}
+
+text(local) Route116_Text_JoeyIntro {
+	"My Pok\emon rule!\n"
+	"Check them out!"
+}
+
+text(local) Route116_Text_JoeyDefeat {
+	"Ouch! A scrape!\n"
+	"I have to put on a bandage!"
+}
+
+text(local) Route116_Text_JoeyPostBattle {
+	"Bandages are signs of toughness!\n"
+	"I've got another one!"
+}
+
+text(local) Route116_Text_JoseIntro {
+	"My Bug Pok\emon are tough!\n"
+	"Let's battle!"
+}
+
+text(local) Route116_Text_JoseDefeat {
+	"I lost!\n"
+	"I thought I had you!"
+}
+
+text(local) Route116_Text_JosePostBattle {
+	"Bug Pok\emon evolve quickly.\n"
+	"So they get strong quickly, too."
+}
+
+text(local) Route116_Text_JaniceIntro {
+	"Let me teach you how strong my\n"
+	"adorable Pok\emon is!"
+}
+
+text(local) Route116_Text_JaniceDefeat {
+	"You're a notch above me\."
+}
+
+text(local) Route116_Text_JanicePostBattle {
+	"Pok\emon that possess cuteness and\n"
+	"power, that's ideal, I think."
+}
+
+text(local) Route116_Text_JerryIntro {
+	"We learn all sorts of things at the\n"
+	"Trainer's School.\p"
+	"I want to test things out for real!"
+}
+
+text(local) Route116_Text_JerryDefeat {
+	"I slacked off in school\.\n"
+	"That's why I lost."
+}
+
+text(local) Route116_Text_JerryPostBattle {
+	"I'll have to redo some courses at\n"
+	"the Trainer's School.\l"
+	"If I don't, Roxanne will be steamed."
+}
+
+text(local) Route116_Text_JerryRegister1 {
+	"I learned at the Trainer's School\n"
+	"that a Pok\eNav can register Trainers.\p"
+	"I don't really get what that means,\n"
+	"so can I just try it?"
+}
+
+text(local) Route116_Text_JerryRegister2 {
+	"I learned at the Trainer's School\n"
+	"that a Pok\eNav can register Trainers.\p"
+	"I don't really get what that means,\n"
+	"so can I just try it?"
+}
+
+text(local) Route116_Text_JerryRematchIntro {
+	"I've been studying seriously at the\n"
+	"Trainer's School.\l"
+	"I won't lose like I did last time."
+}
+
+text(local) Route116_Text_JerryRematchDefeat {
+	"Hunh?\n"
+	"I studied diligently."
+}
+
+text(local) Route116_Text_JerryPostRematch {
+	"I'll have to redo some courses at\n"
+	"the Trainer's School.\l"
+	"If I don't, Roxanne will be steamed."
+}
+
+text(local) Route116_Text_KarenIntro {
+	"I study at school, and I study on\n"
+	"the way home, too!"
+}
+
+text(local) Route116_Text_KarenDefeat {
+	"I'm in shock--I lost?"
+}
+
+text(local) Route116_Text_KarenPostBattle {
+	"Awww, I'll never become an elegant\n"
+	"Trainer like Roxanne this way!"
+}
+
+text(local) Route116_Text_KarenRegister1 {
+	"Oh, wow! Isn't that a Pok\eNav?\n"
+	"I have one, too! Please register me!"
+}
+
+text(local) Route116_Text_KarenRegister2 {
+	"Oh, wow! Isn't that a Pok\eNav?\n"
+	"I have one, too! Please register me!"
+}
+
+text(local) Route116_Text_KarenRematchIntro {
+	"I studied a whole lot since I saw you.\n"
+	"You must see my achievements!"
+}
+
+text(local) Route116_Text_KarenRematchDefeat {
+	"I'm in shock.\n"
+	"I lost again?"
+}
+
+text(local) Route116_Text_KarenPostRematch {
+	"You've beaten Roxanne?\n"
+	"I can't beat you, then. Not yet."
+}
+
+text(local) Route116_Text_SarahIntro {
+	"Just so you know, I've never once been\n"
+	"bested by anyone at anything."
+}
+
+text(local) Route116_Text_SarahDefeat {
+	"Oh, my goodness.\n"
+	"This is a new experience for me."
+}
+
+text(local) Route116_Text_SarahPostBattle {
+	"My life of luxury affords me all that\n"
+	"I could possibly desire.\p"
+	"However, when it comes to Pok\emon,\n"
+	"my wealth has no meaning."
+}
+
+text(local) Route116_Text_DawsonIntro {
+	"When you lay your eyes on my Pok\emon's\n"
+	"gorgeous fur, their beauty will render\l"
+	"you helpless!"
+}
+
+text(local) Route116_Text_DawsonDefeat {
+	"Oh, baby, say it isn't so!"
+}
+
+text(local) Route116_Text_DawsonPostBattle {
+	"Oh, no, no, no!\n"
+	"You've mussed up my Pok\emon's fur!\l"
+	"You've ruined my hairdo, too!\l"
+	"I'll have to call my stylist now!"
+}
+
+text(local) Route116_Text_DevanIntro {
+	"We'll rock you hard!"
+}
+
+text(local) Route116_Text_DevanDefeat {
+	"Aiyiyi!\n"
+	"No contest at all!"
+}
+
+text(local) Route116_Text_DevanPostBattle {
+	"I should try different Pok\emon\n"
+	"types, that's what I ought to do."
+}
+
+text(local) Route116_Text_JohnsonIntro {
+	"It's a dead end up here.\n"
+	"I'm bored, so can we battle?"
+}
+
+text(local) Route116_Text_JohnsonDefeat {
+	"That was fun even though I lost."
+}
+
+text(local) Route116_Text_JohnsonPostBattle {
+	"Want to stay here and keep\n"
+	"me company?"
+}
+
+text(local) Route117_Text_IsaacIntro {
+	"Listen, could I get you to battle\n"
+	"the Pok\emon I'm raising?"
+}
+
+text(local) Route117_Text_IsaacDefeat {
+	"You've raised yours superbly\."
+}
+
+text(local) Route117_Text_IsaacPostBattle {
+	"Pok\emon isn't all about power.\p"
+	"Polishing a unique aspect of one's\n"
+	"character is another way of enjoying\l"
+	"Pok\emon."
+}
+
+text(local) Route117_Text_IsaacRegister {
+	"I'm going to redouble my training.\n"
+	"Would you come look in on us?"
+}
+
+text(local) Route117_Text_IsaacRematchIntro {
+	"The Pok\emon I've been raising are\n"
+	"looking good, just like before."
+}
+
+text(local) Route117_Text_IsaacRematchDefeat {
+	"You know how to raise them properly.\n"
+	"You might have Day Care skills\."
+}
+
+text(local) Route117_Text_IsaacPostRematch {
+	"Your Pok\emon are growing good!\n"
+	"You should enter them in Contests."
+}
+
+text(local) Route117_Text_LydiaIntro {
+	"Please, allow me to evaluate if you\n"
+	"have raised your Pok\emon properly."
+}
+
+text(local) Route117_Text_LydiaDefeat {
+	"Yes, they are growing properly."
+}
+
+text(local) Route117_Text_LydiaPostBattle {
+	"Try raising Pok\emon with more\n"
+	"attention to their character traits."
+}
+
+text(local) Route117_Text_LydiaRegister {
+	"I'm glad I met a superb Trainer in you.\n"
+	"I hope to see you again."
+}
+
+text(local) Route117_Text_LydiaRematchIntro {
+	"Allow me to reevaluate if you have\n"
+	"raised your Pok\emon properly."
+}
+
+text(local) Route117_Text_LydiaRematchDefeat {
+	"They are growing admirably."
+}
+
+text(local) Route117_Text_LydiaPostRematch {
+	"Pok\emon seem to like different kinds\n"
+	"of {POKEBLOCK}s, depending on their nature."
+}
+
+text(local) Route117_Text_DylanIntro {
+	"I'm in the middle of a triathlon, but,\n"
+	"whatever, let's have a battle!"
+}
+
+text(local) Route117_Text_DylanDefeat {
+	"I ran out of energy!"
+}
+
+text(local) Route117_Text_DylanPostBattle {
+	"I may have blown it\.\p"
+	"I might have dropped to last during\n"
+	"that battle\."
+}
+
+text(local) Route117_Text_DylanRegister {
+	"Pok\emon have to be strong, too?\n"
+	"I'd like you to train me!"
+}
+
+text(local) Route117_Text_DylanRematchIntro {
+	"I'm smack in the middle of a triathlon,\n"
+	"but I'm comfortably ahead.\l"
+	"Let's make this a quick battle!"
+}
+
+text(local) Route117_Text_DylanRematchDefeat {
+	"I ran out of energy again!"
+}
+
+text(local) Route117_Text_DylanPostRematch {
+	"I was tops in swimming and cycling,\n"
+	"but I'm not quite that confident with\l"
+	"Pok\emon yet."
+}
+
+text(local) Route117_Text_MariaIntro {
+	"I do my triathlon training with Pok\emon,\n"
+	"so I'm pretty confident about my speed."
+}
+
+text(local) Route117_Text_MariaDefeat {
+	"I need to get more practices in,\n"
+	"I guess."
+}
+
+text(local) Route117_Text_MariaPostBattle {
+	"Training is meaningful only if you\n"
+	"keep it up regularly.\p"
+	"Okay! I'll resume my training!\n"
+	"Tomorrow!"
+}
+
+text(local) Route117_Text_MariaRegister {
+	"You appear to be training properly\.\n"
+	"If you'd like, I'll battle you later!"
+}
+
+text(local) Route117_Text_MariaRematchIntro {
+	"Are you keeping up with your training?\n"
+	"I sure am!\l"
+	"Let me show you the evidence!"
+}
+
+text(local) Route117_Text_MariaRematchDefeat {
+	"I need to get more practices in,\n"
+	"I guess."
+}
+
+text(local) Route117_Text_MariaPostRematch {
+	"I'll resume training tomorrow.\n"
+	"Let's battle again sometime!"
+}
+
+text(local) Route117_Text_DerekIntro {
+	"Once a Bug Catcher!\n"
+	"And now a Bug Maniac!\p"
+	"But my love for Pok\emon remains\n"
+	"unchanged!"
+}
+
+text(local) Route117_Text_DerekDefeat {
+	"My ineptitude also remains\n"
+	"unchanged\."
+}
+
+text(local) Route117_Text_DerekPostBattle {
+	"All I did was follow my heart, and now\n"
+	"they call me a Bug Maniac\.\p"
+	"Still, I am an expert on Bug Pok\emon,\n"
+	"so it's only natural that they call me\l"
+	"a Bug Maniac."
+}
+
+text(local) Route117_Text_AnnaIntro {
+	"Anna: I'm with my pretty junior student\n"
+	"partner. I have to do good!"
+}
+
+text(local) Route117_Text_AnnaDefeat {
+	"Anna: I'm with my pretty junior student\n"
+	"partner! Let me win!"
+}
+
+text(local) Route117_Text_AnnaPostBattle {
+	"Anna: Your Pok\emon have some good\n"
+	"combinations.\p"
+	"I'd say you're second only to us!"
+}
+
+text(local) Route117_Text_AnnaAndMegRegister {
+	"Anna: We can't take this lying down!\n"
+	"You will come back, won't you?"
+}
+
+text(local) Route117_Text_AnnaNotEnoughMons {
+	"Anna: If you want to battle us,\n"
+	"bring two Pok\emon with you."
+}
+
+text(local) Route117_Text_MegIntro {
+	"Meg: I'm going to tag up with my super\n"
+	"senior student partner and beat you!"
+}
+
+text(local) Route117_Text_MegDefeat {
+	"Meg: Oh, no!\n"
+	"I'm sorry, Anna! I let you down\."
+}
+
+text(local) Route117_Text_MegPostBattle {
+	"Meg: I dragged Anna down\.\n"
+	"If I didn't, she would have won!"
+}
+
+text(local) Route117_Text_MegNotEnoughMons {
+	"Meg: Do you only have one Pok\emon?\n"
+	"We can't battle with you, then.\p"
+	"We want to have a 2-on-2 battle."
+}
+
+text(local) Route117_Text_AnnaRematchIntro {
+	"Anna: I can't keep losing in front of\n"
+	"my junior partner, right?"
+}
+
+text(local) Route117_Text_AnnaRematchDefeat {
+	"Anna: I couldn't get into the groove."
+}
+
+text(local) Route117_Text_AnnaPostRematch {
+	"Anna: Your Pok\emon have some good\n"
+	"combinations.\p"
+	"I'd say you're second only to us!"
+}
+
+text(local) Route117_Text_AnnaRematchNotEnoughMons {
+	"Anna: If you want to battle us,\n"
+	"bring two Pok\emon with you."
+}
+
+text(local) Route117_Text_MegRematchIntro {
+	"Meg: I'm going to tag up with my\n"
+	"senior partner and win this time!"
+}
+
+text(local) Route117_Text_MegRematchDefeat {
+	"Meg: Too strong!"
+}
+
+text(local) Route117_Text_MegPostRematch {
+	"Meg: I battled together with my\n"
+	"senior partner, but we lost\.\p"
+	"That's so discouraging\."
+}
+
+text(local) Route117_Text_MegRematchNotEnoughMons {
+	"Meg: Do you only have one Pok\emon?\n"
+	"We can't battle with you, then.\p"
+	"We want to have a 2-on-2 battle."
+}
+
+text(local) Route117_Text_MelinaIntro {
+	"Isn't it nice? To battle while looking\n"
+	"at pretty flowers?"
+}
+
+text(local) Route117_Text_MelinaDefeat {
+	"Oh, that's quite impressive!"
+}
+
+text(local) Route117_Text_MelinaPostBattle {
+	"It feels wonderful to go for a jog\n"
+	"while looking at flowers."
+}
+
+text(local) Route117_Text_BrandiIntro {
+	"Let me demonstrate the power\n"
+	"hidden within a Psychic Pok\emon!"
+}
+
+text(local) Route117_Text_BrandiDefeat {
+	"Astonishing!"
+}
+
+text(local) Route117_Text_BrandiPostBattle {
+	"Psychic Pok\emon are complex.\n"
+	"You should try catching some."
+}
+
+text(local) Route117_Text_AishaIntro {
+	"Concentrate on getting the win.\n"
+	"That's how I battle!"
+}
+
+text(local) Route117_Text_AishaDefeat {
+	"I don't waste any time being angry\n"
+	"over a loss--I would rather train."
+}
+
+text(local) Route117_Text_AishaPostBattle {
+	"I think that if you worry about losing,\n"
+	"you're more likely to lose."
+}
+
+text(local) Route118_Text_RoseIntro {
+	"The aroma of flowers has a magical\n"
+	"power. It cleanses us body and soul."
+}
+
+text(local) Route118_Text_RoseDefeat {
+	"Oh, dear me.\n"
+	"I seem to have lost."
+}
+
+text(local) Route118_Text_RosePostBattle {
+	"Flowers, Pok\emon\.\n"
+	"I love whatever smells nice.\p"
+	"Stinky things\.\n"
+	"I'll pass."
+}
+
+text(local) Route118_Text_RoseRegister {
+	"Sniff\. That odor--it's a Pok\eNav!\n"
+	"We must register each other!"
+}
+
+text(local) Route118_Text_RoseRematchIntro {
+	"Were you drawn here by the sweet\n"
+	"aroma?"
+}
+
+text(local) Route118_Text_RoseRematchDefeat {
+	"The power of aroma\.\n"
+	"It didn't seem to do much."
+}
+
+text(local) Route118_Text_RosePostRematch {
+	"If you use a sweet aroma properly,\n"
+	"Pok\emon will be attracted by it."
+}
+
+text(local) Route118_Text_PerryIntro {
+	"Bird Pok\emon that Fly elegantly in\n"
+	"the sky\. They're the best!"
+}
+
+text(local) Route118_Text_PerryDefeat {
+	"Urgh\.\n"
+	"I crashed\."
+}
+
+text(local) Route118_Text_PerryPostBattle {
+	"You've got great Pok\emon.\n"
+	"I'll have to train mine better."
+}
+
+text(local) Route118_Text_ChesterIntro {
+	"Take flight!\n"
+	"My Bird Pok\emon!"
+}
+
+text(local) Route118_Text_ChesterDefeat {
+	"They did take flight\."
+}
+
+text(local) Route118_Text_ChesterPostBattle {
+	"If they'd get stronger, they'd be able\n"
+	"to fly more freely\."
+}
+
+text(local) Route118_Text_BarnyIntro {
+	"I'm a Fisherman, but also a Trainer.\n"
+	"I'm raising the Pok\emon I caught."
+}
+
+text(local) Route118_Text_BarnyDefeat {
+	"I thought I was doing okay in my\n"
+	"training\."
+}
+
+text(local) Route118_Text_BarnyPostBattle {
+	"I couldn't win by training Pok\emon\n"
+	"while I fished\.\p"
+	"Was I doing things in half measures?"
+}
+
+text(local) Route118_Text_WadeIntro {
+	"For Fishermem, equipment is the key.\p"
+	"But for Trainers, the key ingredients\n"
+	"are Pok\emon and heart, of course!"
+}
+
+text(local) Route118_Text_WadeDefeat {
+	"I was beaten in heart?"
+}
+
+text(local) Route118_Text_WadePostBattle {
+	"Come to think of it, fishing is a battle\n"
+	"between a Fisherman and a Pok\emon."
+}
+
+text(local) Route118_Text_DaltonIntro {
+	"Let my melody rock your soul!"
+}
+
+text(local) Route118_Text_DaltonDefeat {
+	"La-lalala\."
+}
+
+text(local) Route118_Text_DaltonPostBattle {
+	"An electric guitar doesn't always\n"
+	"have to be noisy\.\p"
+	"It can be strummed to squeeze out\n"
+	"this heart-stirring melody\."
+}
+
+text(local) Route118_Text_DaltonRegister {
+	"When I compose better melodies,\n"
+	"you have to come listen, okay?"
+}
+
+text(local) Route118_Text_DaltonRematchIntro {
+	"A melody from my Pok\emon and me\.\n"
+	"Let us deliver it to your soul."
+}
+
+text(local) Route118_Text_DaltonRematchDefeat {
+	"La-lalala\."
+}
+
+text(local) Route118_Text_DaltonPostRematch {
+	"When I play, my emotions should reach\n"
+	"you through my electric guitar\."
+}
+
+text(local) Route118_Text_DeandreIntro {
+	"Go, go, go!\n"
+	"Pok\emon 1, 2, and 3!"
+}
+
+text(local) Route118_Text_DeandreDefeat {
+	"Come in, Pok\emon! Are you okay?\n"
+	"Pok\emon 1, 2, and 3?!"
+}
+
+text(local) Route118_Text_DeandrePostBattle {
+	"Isn't it cool that I have a Pok\emon\n"
+	"battle team?\p"
+	"You can copy me--I don't mind!"
+}
+
+text(local) Route119_Text_BrentIntro {
+	"We're the Mimic Circle!\n"
+	"We Mimic what you do!"
+}
+
+text(local) Route119_Text_BrentDefeat {
+	"Whoopsie!\n"
+	"I lost!"
+}
+
+text(local) Route119_Text_BrentPostBattle {
+	"What's so good about mimicry?\p"
+	"Fufufu\.\n"
+	"You'll never understand\."
+}
+
+text(local) Route119_Text_DonaldIntro {
+	"So, we finally meet!\n"
+	"My Bug Pok\emon will keep you company!"
+}
+
+text(local) Route119_Text_DonaldDefeat {
+	"I wish we'd never met\."
+}
+
+text(local) Route119_Text_DonaldPostBattle {
+	"I want to Mimic you some more.\n"
+	"Can you hurry up and move?"
+}
+
+text(local) Route119_Text_TaylorIntro {
+	"If you step forward, we step forward.\p"
+	"If you turn right, we turn, too\."
+}
+
+text(local) Route119_Text_TaylorDefeat {
+	"But if you win, I lose\."
+}
+
+text(local) Route119_Text_TaylorPostBattle {
+	"I can't Mimic you winning the match.\n"
+	"That's just impossible\.\l"
+	"It's burning me up\."
+}
+
+text(local) Route119_Text_DougIntro {
+	"Yep, you've finally caught me!\n"
+	"Or were you trying to avoid me?"
+}
+
+text(local) Route119_Text_DougDefeat {
+	"Whoop, that was a great match!"
+}
+
+text(local) Route119_Text_DougPostBattle {
+	"We're the Mimic Circle!\n"
+	"I hope you enjoyed our performance."
+}
+
+text(local) Route119_Text_GregIntro {
+	"You don't know who I am, do you?\p"
+	"But, I also don't know you.\n"
+	"So, we'll battle!"
+}
+
+text(local) Route119_Text_GregDefeat {
+	"You're pretty strong!"
+}
+
+text(local) Route119_Text_GregPostBattle {
+	"Until you go away somewhere, we'll\n"
+	"keep on mimicking your every move."
+}
+
+text(local) Route119_Text_KentIntro {
+	"The Mimic Circle was formed by people\n"
+	"who like to Mimic.\p"
+	"A battle starts the instant we meet!"
+}
+
+text(local) Route119_Text_KentDefeat {
+	"I give up!"
+}
+
+text(local) Route119_Text_KentPostBattle {
+	"Won't you join our Mimic Circle?"
+}
+
+text(local) Route119_Text_JacksonIntro {
+	"Who has the knowledge and\n"
+	"the technique for survival?\p"
+	"Pok\emon Rangers, that's who!"
+}
+
+text(local) Route119_Text_JacksonDefeat {
+	"I didn't have enough Pok\emon\n"
+	"know-how\."
+}
+
+text(local) Route119_Text_JacksonPostBattle {
+	"To break away from civilization and\n"
+	"awaken the wild spirit within!\p"
+	"That's our vision."
+}
+
+text(local) Route119_Text_JacksonRegister {
+	"I hope you'll give me a rematch without\n"
+	"mocking my lack of knowledge."
+}
+
+text(local) Route119_Text_JacksonRematchIntro {
+	"I'm going to regain my wild spirit by\n"
+	"being together with Pok\emon."
+}
+
+text(local) Route119_Text_JacksonRematchDefeat {
+	"You've remained strong!"
+}
+
+text(local) Route119_Text_JacksonPostRematch {
+	"Believe in your Pok\emon.\n"
+	"Believe in yourself.\p"
+	"The road will reveal itself to you."
+}
+
+text(local) Route119_Text_CatherineIntro {
+	"Oh? Look at you.\p"
+	"For someone on an adventure,\n"
+	"you're traveling awfully light."
+}
+
+text(local) Route119_Text_CatherineDefeat {
+	"Accidents happen when you're not\n"
+	"prepared!"
+}
+
+text(local) Route119_Text_CatherinePostBattle {
+	"You're traveling light but you have\n"
+	"everything you need.\p"
+	"You're on top of things mentally and\n"
+	"physically, too."
+}
+
+text(local) Route119_Text_CatherineRegister {
+	"Do you have a Pok\eNav?\n"
+	"It's a must-have tool for any Trainer.\p"
+	"Oh, you do have one!\n"
+	"Let's register each other, then!"
+}
+
+text(local) Route119_Text_CatherineRematchIntro {
+	"How's your journey with Pok\emon\n"
+	"going?"
+}
+
+text(local) Route119_Text_CatherineRematchDefeat {
+	"I'm still missing something\."
+}
+
+text(local) Route119_Text_CatherinePostRematch {
+	"In the same way that you, as a Trainer,\n"
+	"rely on your Pok\emon, your Pok\emon\l"
+	"rely on you."
+}
+
+text(local) Route119_Text_HughIntro {
+	"The vast sky holds untold promise!\p"
+	"Nothing can compare to the sheer\n"
+	"exhilaration of flight!"
+}
+
+text(local) Route119_Text_HughDefeat {
+	"Down and out!"
+}
+
+text(local) Route119_Text_HughPostBattle {
+	"My Bird Pok\emon made my dreams of\n"
+	"flying come true!"
+}
+
+text(local) Route119_Text_PhilIntro {
+	"I'll show you the true potential of me\n"
+	"and my Bird Pok\emon!"
+}
+
+text(local) Route119_Text_PhilDefeat {
+	"We lacked potential\."
+}
+
+text(local) Route119_Text_PhilPostBattle {
+	"Ever since I was a little kid, I always\n"
+	"admired Bird Pok\emon\."
+}
+
+text(local) Route119_Text_YasuIntro {
+	"To lurk in shadows, and live in\n"
+	"darkness\. That is my destiny.\p"
+	"I emerge to challenge you!"
+}
+
+text(local) Route119_Text_YasuDefeat {
+	"I admit defeat!"
+}
+
+text(local) Route119_Text_YasuPostBattle {
+	"Those defeated in battle withdraw\n"
+	"quietly back into the shadows.\l"
+	"That, too, is destiny\."
+}
+
+text(local) Route119_Text_TakashiIntro {
+	"If you're not on your guard,\n"
+	"you're in for some pain!"
+}
+
+text(local) Route119_Text_TakashiDefeat {
+	"You're surprisingly good!"
+}
+
+text(local) Route119_Text_TakashiPostBattle {
+	"My surprise attack ended in\n"
+	"failure\."
+}
+
+text(local) Route119_Text_HideoIntro {
+	"To hide a tree, use a forest!"
+}
+
+text(local) Route119_Text_HideoDefeat {
+	"I bow to your superiority."
+}
+
+text(local) Route119_Text_HideoPostBattle {
+	"To hide a tree, use a forest!\n"
+	"To hide a Pok\emon, use a Pok\emon!\p"
+	"There is no deep, hidden meaning\n"
+	"to that."
+}
+
+text(local) Route119_Text_ChrisIntro {
+	"You spoke to me\.\n"
+	"So you want to challenge me!\p"
+	"Sure! I'll try out the Pok\emon I caught\n"
+	"while Surfing!"
+}
+
+text(local) Route119_Text_ChrisDefeat {
+	"I don't have a clue about what it\n"
+	"takes to win."
+}
+
+text(local) Route119_Text_ChrisPostBattle {
+	"Go for a Surf on my Pok\emon\.\p"
+	"Then fish off its back\.\p"
+	"It's an indescribably luxuriant moment!"
+}
+
+text(local) Route119_Text_FabianIntro {
+	"Hit me with a power chord!\n"
+	"Victory is mine!\l"
+	"It's our time to shine, whoa, yeah!"
+}
+
+text(local) Route119_Text_FabianDefeat {
+	"You showed me who's the boss!\n"
+	"We'll have to take the loss, oh, no!"
+}
+
+text(local) Route119_Text_FabianPostBattle {
+	"Hit me with another power chord!\n"
+	"Leave me alone!\l"
+	"Your win you have to atone!"
+}
+
+text(local) Route119_Text_DaytonIntro {
+	"Hohoho!\n"
+	"I like kid Trainers!\l"
+	"Let's have a good one!"
+}
+
+text(local) Route119_Text_DaytonDefeat {
+	"You're pretty amazing!\n"
+	"Hohoho!"
+}
+
+text(local) Route119_Text_DaytonPostBattle {
+	"Hohoho!\n"
+	"I'll try emulating the pep of kid\l"
+	"Trainers like you!"
+}
+
+text(local) Route119_Text_RachelIntro {
+	"Wherever and whenever I may be,\n"
+	"I always have my parasol in hand."
+}
+
+text(local) Route119_Text_RachelDefeat {
+	"Oh, but\.\n"
+	"That's not fair."
+}
+
+text(local) Route119_Text_RachelPostBattle {
+	"You're asking if my parasol is heavy?\n"
+	"Your Bag is filled with more junk than\l"
+	"I ever carry around."
+}
+
+text(local) Route120_Text_ColinIntro {
+	"Do you have any moves that can strike\n"
+	"a flying Pok\emon?"
+}
+
+text(local) Route120_Text_ColinDefeat {
+	"You soared above me!"
+}
+
+text(local) Route120_Text_ColinPostBattle {
+	"The move Fly is convenient,\n"
+	"don't you think?\p"
+	"While the Pok\emon is flying,\n"
+	"almost no moves can strike it."
+}
+
+text(local) Route120_Text_RobertIntro {
+	"My Pok\emon is strong!\n"
+	"How about yours?"
+}
+
+text(local) Route120_Text_RobertDefeat {
+	"Your Pok\emon were stronger\."
+}
+
+text(local) Route120_Text_RobertPostBattle {
+	"A Pok\emon that grows steadily is one\n"
+	"you can count on."
+}
+
+text(local) Route120_Text_RobertRegister {
+	"You can be counted on to get better.\n"
+	"I'd like to register you in my Pok\eNav!"
+}
+
+text(local) Route120_Text_RobertRematchIntro {
+	"A Pok\emon that grows steadily is one\n"
+	"you can count on."
+}
+
+text(local) Route120_Text_RobertRematchDefeat {
+	"Your Pok\emon are seriously strong."
+}
+
+text(local) Route120_Text_RobertPostRematch {
+	"My Pok\emon are growing stronger.\n"
+	"I have to grow stronger, too."
+}
+
+text(local) Route120_Text_LorenzoIntro {
+	"I'll check your Pok\emon and see if\n"
+	"they're fit for the outdoors."
+}
+
+text(local) Route120_Text_LorenzoDefeat {
+	"With Pok\emon that strong, you're in\n"
+	"no danger of needing rescue!"
+}
+
+text(local) Route120_Text_LorenzoPostBattle {
+	"To travel wherever your heart desires\n"
+	"with Pok\emon\.\l"
+	"That's the joy of being a Trainer."
+}
+
+text(local) Route120_Text_JennaIntro {
+	"How's your physical fitness?\n"
+	"If you're not fit, you could have a\l"
+	"rough time in critical situations."
+}
+
+text(local) Route120_Text_JennaDefeat {
+	"I'm totally fit, but\."
+}
+
+text(local) Route120_Text_JennaPostBattle {
+	"Fitness training is in my routine.\n"
+	"I always run with my Pok\emon."
+}
+
+text(local) Route120_Text_JeffreyIntro {
+	"\. \. \. \. \. \.\n"
+	"\. \. \. \. \. \.\l"
+	"Want to battle?"
+}
+
+text(local) Route120_Text_JeffreyDefeat {
+	"Lost it\."
+}
+
+text(local) Route120_Text_JeffreyPostBattle {
+	"\. \. \. \. \. \.\n"
+	"\. \. \. \. \. \.\l"
+	"I'll try harder\."
+}
+
+text(local) Route120_Text_JeffreyRegister {
+	"\. \. \. \. \. \.\n"
+	"\. \. \. \. \. \.\l"
+	"Do you have a Pok\eNav\.?"
+}
+
+text(local) Route120_Text_JeffreyRematchIntro {
+	"\. \. \. \. \. \.\n"
+	"\. \. \. \. \. \.\l"
+	"Want to battle again?"
+}
+
+text(local) Route120_Text_JeffreyRematchDefeat {
+	"\. \. \. \. \. \.\n"
+	"I lost again\."
+}
+
+text(local) Route120_Text_JeffreyPostRematch {
+	"\. \. \. \. \. \.\n"
+	"\. \. \. \. \. \.\l"
+	"I'll try harder\.\l"
+	"For my precious Bug Pok\emon\."
+}
+
+text(local) Route120_Text_JenniferIntro {
+	"Pok\emon have many special abilities.\n"
+	"If you want to become a first-class\l"
+	"Trainer, learn about them."
+}
+
+text(local) Route120_Text_JenniferDefeat {
+	"You're obviously thinking."
+}
+
+text(local) Route120_Text_JenniferPostBattle {
+	"The special abilities of Pok\emon\n"
+	"will make battle styles change."
+}
+
+text(local) Route120_Text_ChipIntro {
+	"Who might you be?\p"
+	"Are you perhaps searching for ancient\n"
+	"ruins that are rumored to possibly\l"
+	"exist according to legend?"
+}
+
+text(local) Route120_Text_ChipDefeat {
+	"What a disgraceful setback\."
+}
+
+text(local) Route120_Text_ChipPostBattle {
+	"That giant rock\. I would like to\n"
+	"believe it may indeed contain ancient\l"
+	"ruins. But I see no entrance."
+}
+
+text(local) Route120_Text_ClarissaIntro {
+	"Why am I carrying this parasol?\p"
+	"I'll tell you if you can win against me."
+}
+
+text(local) Route120_Text_ClarissaDefeat {
+	"A parasol can't ward off Pok\emon\n"
+	"attacks\."
+}
+
+text(local) Route120_Text_ClarissaPostBattle {
+	"I don't think strong sunlight is good\n"
+	"for my Pok\emon.\l"
+	"So I shield them with my parasol."
+}
+
+text(local) Route120_Text_AngelicaIntro {
+	"Me, Pok\emon, and my parasol\.\p"
+	"If any one of them is missing,\n"
+	"the picture of beauty will be ruined."
+}
+
+text(local) Route120_Text_AngelicaDefeat {
+	"You've completely ruined my beauty\."
+}
+
+text(local) Route120_Text_AngelicaPostBattle {
+	"A parasol wouldn't suit you at all.\p"
+	"Why, something like this would only\n"
+	"get in your way."
+}
+
+text(local) Route120_Text_KeigoIntro {
+	"I will adopt the movements of Pok\emon\n"
+	"and create new ninja techniques."
+}
+
+text(local) Route120_Text_KeigoDefeat {
+	"The creation of new ninja techniques\n"
+	"is but a distant dream\."
+}
+
+text(local) Route120_Text_KeigoPostBattle {
+	"Perhaps I ought to apprentice under\n"
+	"a ninja sensei."
+}
+
+text(local) Route120_Text_RileyIntro {
+	"We ninja conceal ourselves under our\n"
+	"camouflage cloaks.\l"
+	"I bet you didn't know where I was!"
+}
+
+text(local) Route120_Text_RileyDefeat {
+	"I lost!\n"
+	"I should camouflage my shame!"
+}
+
+text(local) Route120_Text_RileyPostBattle {
+	"Our camouflage cloaks are all\n"
+	"handmade."
+}
+
+text(local) Route120_Text_CallieIntro {
+	"If you don't pay attention,\n"
+	"you could get hurt!"
+}
+
+text(local) Route120_Text_CallieDefeat {
+	"Ouch!\n"
+	"I was the one to get hurt."
+}
+
+text(local) Route120_Text_CalliePostBattle {
+	"I wonder\. Should I evolve my Pok\emon?\n"
+	"They're cute the way they are, though."
+}
+
+text(local) Route120_Text_LeonelIntro {
+	"Your party Pok\emon\.\n"
+	"Do you have different types?"
+}
+
+text(local) Route120_Text_LeonelDefeat {
+	"I've seen your policy in action!"
+}
+
+text(local) Route120_Text_LeonelPostBattle {
+	"I think it's awesome you're so strong\n"
+	"battling with your favorite Pok\emon."
+}
+
+text(local) Route121_Text_VanessaIntro {
+	"Will you play with my delightfully\n"
+	"pretty Pok\emon?"
+}
+
+text(local) Route121_Text_VanessaDefeat {
+	"This isn't what I meant!"
+}
+
+text(local) Route121_Text_VanessaPostBattle {
+	"I'm going to a Contest in Lilycove.\p"
+	"My Pok\emon should have no problem\n"
+	"sweeping the Master Class."
+}
+
+text(local) Route121_Text_WalterIntro {
+	"With my Pok\emon, I have traveled\n"
+	"to the world's four corners.\p"
+	"You might say I have some confidence\n"
+	"in my abilities."
+}
+
+text(local) Route121_Text_WalterDefeat {
+	"Ah, well played."
+}
+
+text(local) Route121_Text_WalterPostBattle {
+	"I would like to circle the globe once\n"
+	"again with my Pok\emon."
+}
+
+text(local) Route121_Text_WalterRegister {
+	"Your Pok\emon prowess is remarkable.\n"
+	"Allow me to register you as a memento."
+}
+
+text(local) Route121_Text_WalterRematchIntro {
+	"With my Pok\emon, I have traveled\n"
+	"to the world's four corners.\p"
+	"You might say I have some confidence\n"
+	"in my abilities."
+}
+
+text(local) Route121_Text_WalterRematchDefeat {
+	"Ah, well played."
+}
+
+text(local) Route121_Text_WalterPostRematch {
+	"Your Pok\emon and you\.\p"
+	"Your prowess together will be\n"
+	"considered strong, even overseas."
+}
+
+text(local) Route121_Text_TammyIntro {
+	"There are powers beyond our\n"
+	"understanding in the world\."
+}
+
+text(local) Route121_Text_TammyDefeat {
+	"I have lost\."
+}
+
+text(local) Route121_Text_TammyPostBattle {
+	"Mt. Pyre\.\n"
+	"There is a mysterious power\l"
+	"at work there\."
+}
+
+text(local) Route121_Text_KateIntro {
+	"Kate: Together, we're fearless!\n"
+	"We'll demonstrate how tough we are!"
+}
+
+text(local) Route121_Text_KateDefeat {
+	"Kate: I blew it in front of my junior\n"
+	"student partner\."
+}
+
+text(local) Route121_Text_KatePostBattle {
+	"Kate: When someone's relying on me,\n"
+	"I get this urge to look cool in front\l"
+	"of them\."
+}
+
+text(local) Route121_Text_KateNotEnoughMons {
+	"Kate: If you've only got one Pok\emon,\n"
+	"we can't battle with you.\p"
+	"That would be bullying."
+}
+
+text(local) Route121_Text_JoyIntro {
+	"Joy: Together, we're fearless!\n"
+	"We'll demonstrate how tough we are!"
+}
+
+text(local) Route121_Text_JoyDefeat {
+	"Joy: Please forgive me, Kate!"
+}
+
+text(local) Route121_Text_JoyPostBattle {
+	"Joy: Ehehe, I'll have to train with Kate,\n"
+	"my senior student partner, again."
+}
+
+text(local) Route121_Text_JoyNotEnoughMons {
+	"Joy: You need at least two Pok\emon\n"
+	"if you're going to challenge us!"
+}
+
+text(local) Route121_Text_JessicaIntro {
+	"Stop! Have a good look at my precious\n"
+	"Pok\emon!"
+}
+
+text(local) Route121_Text_JessicaDefeat {
+	"Oh, how dare you!\n"
+	"Don't take it so seriously!"
+}
+
+text(local) Route121_Text_JessicaPostBattle {
+	"Maybe I'll go catch more Pok\emon at\n"
+	"the Safari."
+}
+
+text(local) Route121_Text_JessicaRegister {
+	"I took it easy on you this time!\n"
+	"It won't be that way the next time!"
+}
+
+text(local) Route121_Text_JessicaRematchIntro {
+	"My precious Pok\emon grew!\n"
+	"Have a good look!"
+}
+
+text(local) Route121_Text_JessicaRematchDefeat {
+	"Oh, how dare you!\n"
+	"You still won't take it easy!"
+}
+
+text(local) Route121_Text_JessicaPostRematch {
+	"Maybe I'll go catch more Pok\emon at\n"
+	"the Safari."
+}
+
+text(local) Route121_Text_CristinIntro {
+	"I have this routine.\n"
+	"Defeat five Trainers a day.\l"
+	"Guess what? You're number five!"
+}
+
+text(local) Route121_Text_CristinDefeat {
+	"No!\n"
+	"You're horrid!"
+}
+
+text(local) Route121_Text_CristinPostBattle {
+	"I didn't expect to lose this easily\.\n"
+	"I'll win next time!"
+}
+
+text(local) Route121_Text_CristinRegister {
+	"That was total humiliation!\n"
+	"I won't forget you\.\l"
+	"Hand over your Pok\eNav!"
+}
+
+text(local) Route121_Text_CristinRematchIntro {
+	"I have this new routine.\n"
+	"Defeat ten Trainers a day.\l"
+	"Guess what? You're number ten!"
+}
+
+text(local) Route121_Text_CristinRematchDefeat {
+	"Wait! That's nasty!\n"
+	"I demand a rematch!"
+}
+
+text(local) Route121_Text_CristinPostRematch {
+	"An opponent I just can't beat\.\n"
+	"Snivel\.\l"
+	"I can't believe this is happening\."
+}
+
+text(local) Route121_Text_CaleIntro {
+	"Can't you see that I have all this\n"
+	"stuff with me?\p"
+	"Despite that, you still insist that\n"
+	"we battle?"
+}
+
+text(local) Route121_Text_CaleDefeat {
+	"Of course I lost!\n"
+	"I'm holding stuff in both hands!"
+}
+
+text(local) Route121_Text_CalePostBattle {
+	"I bought too much stuff at\n"
+	"the Lilycove Dept. Store.\p"
+	"It's up the road from here.\n"
+	"I wish I had a Bag like yours."
+}
+
+text(local) Route121_Text_MylesIntro {
+	"There's nothing I love more than\n"
+	"checking out other people's Pok\emon!"
+}
+
+text(local) Route121_Text_MylesDefeat {
+	"Super awesome!"
+}
+
+text(local) Route121_Text_MylesPostBattle {
+	"They're great, your Pok\emon!\n"
+	"How do you raise them?"
+}
+
+text(local) Route121_Text_PatIntro {
+	"I want everybody to see the Pok\emon\n"
+	"I've raised!"
+}
+
+text(local) Route121_Text_PatDefeat {
+	"Wow!\n"
+	"Spectacular!"
+}
+
+text(local) Route121_Text_PatPostBattle {
+	"I raise every Pok\emon with the same\n"
+	"love and care--I don't pick favorites."
+}
+
+text(local) Route121_Text_MarcelIntro {
+	"My Pok\emon have never tasted defeat!\n"
+	"On their next win, I'm entering them\l"
+	"in Contests."
+}
+
+text(local) Route121_Text_MarcelDefeat {
+	"Oh, now what happened here?"
+}
+
+text(local) Route121_Text_MarcelPostBattle {
+	"I may have to train my gang some more\n"
+	"before entering any Contest."
+}
+
+text(local) Route123_Text_WendyIntro {
+	"Want to determine how strong you are?\n"
+	"I'll be the test!"
+}
+
+text(local) Route123_Text_WendyDefeat {
+	"You passed with flying colors!"
+}
+
+text(local) Route123_Text_WendyPostBattle {
+	"To best even me\.\n"
+	"Your strength is marvelous!"
+}
+
+text(local) Route123_Text_BraxtonIntro {
+	"You seem to have a big collection\n"
+	"of Gym Badges.\p"
+	"Let me see if you're actually worthy of\n"
+	"those Badges!"
+}
+
+text(local) Route123_Text_BraxtonDefeat {
+	"Oh, you're worthy, all right!"
+}
+
+text(local) Route123_Text_BraxtonPostBattle {
+	"You did your Badges proud in that\n"
+	"match!"
+}
+
+text(local) Route123_Text_VioletIntro {
+	"They say that good times are filled\n"
+	"with good aromas."
+}
+
+text(local) Route123_Text_VioletDefeat {
+	"Oh\.\n"
+	"I smell the bitter scent of misery\."
+}
+
+text(local) Route123_Text_VioletPostBattle {
+	"The BERRY Master's garden is filled\n"
+	"with uplifting fragrances."
+}
+
+text(local) Route123_Text_CameronIntro {
+	"Being a psychic is about willpower.\p"
+	"I've willed myself not to lose to\n"
+	"anyone. That makes me strong!"
+}
+
+text(local) Route123_Text_CameronDefeat {
+	"I feel sad\."
+}
+
+text(local) Route123_Text_CameronPostBattle {
+	"Being a psychic is about willpower.\n"
+	"I thought I wouldn't lose to you\."
+}
+
+text(local) Route123_Text_CameronRegister {
+	"I sense it!\n"
+	"You and I shall battle again!\l"
+	"I can't tell if I'll win, though\.\p"
+	"Let's see your Pok\eNav."
+}
+
+text(local) Route123_Text_CameronRematchIntro {
+	"I've convinced myself that I won't\n"
+	"lose anymore. That makes me strong!"
+}
+
+text(local) Route123_Text_CameronRematchDefeat {
+	"I feel sad\."
+}
+
+text(local) Route123_Text_CameronPostRematch {
+	"I should train at Mt. Pyre\.\n"
+	"I'll never beat you this way\."
+}
+
+text(local) Route123_Text_JackiIntro {
+	"Don't be too happy if your Pok\emon\n"
+	"develop psychic powers.\p"
+	"You need to refine those powers to\n"
+	"make them really useful."
+} 
+
+text(local) Route123_Text_JackiDefeat {
+	"Overwhelmed!"
+}
+
+text(local) Route123_Text_JackiPostBattle {
+	"We all have psychic powers.\n"
+	"We've just forgotten how to use them."
+}
+
+text(local) Route123_Text_JackiRegister {
+	"I would like to face you again.\n"
+	"Is that okay with you?"
+}
+
+text(local) Route123_Text_JackiRematchIntro {
+	"Have you awoken the psychic powers\n"
+	"within you?"
+}
+
+text(local) Route123_Text_JackiRematchDefeat {
+	"Astounding!"
+}
+
+text(local) Route123_Text_JackiPostRematch {
+	"Your power with Pok\emon\.\n"
+	"That could be a psychic power, too."
+}
+
+text(local) Route123_Text_MiuIntro {
+	"Miu: Hello, Trainer. I hope your\n"
+	"Pok\emon won't cry when they lose."
+}
+
+text(local) Route123_Text_MiuDefeat {
+	"Miu: Uh-oh, we lost."
+}
+
+text(local) Route123_Text_MiuPostBattle {
+	"Miu: Trainer, your Pok\emon are\n"
+	"strong because you are friends."
+}
+
+text(local) Route123_Text_MiuNotEnoughMons {
+	"Miu: It's no fun to battle if you\n"
+	"don't have two Pok\emon."
+}
+
+text(local) Route123_Text_YukiIntro {
+	"Yuki: Okay!\n"
+	"We're beating the Trainer's Pok\emon!"
+}
+
+text(local) Route123_Text_YukiDefeat {
+	"Yuki: Uh-oh, we lost."
+}
+
+text(local) Route123_Text_YukiPostBattle {
+	"Yuki: Why are you so strong?\n"
+	"We've never lost before."
+}
+
+text(local) Route123_Text_YukiNotEnoughMons {
+	"Yuki: It's no fun to battle if you\n"
+	"don't have two Pok\emon."
+}
+
+text(local) Route123_Text_KindraIntro {
+	"Mt. Pyre\.\n"
+	"Where the spirits of Pok\emon sleep\.\l"
+	"Will your Pok\emon sleep?"
+}
+
+text(local) Route123_Text_KindraDefeat {
+	"Overflowing with vitality\."
+}
+
+text(local) Route123_Text_KindraPostBattle {
+	"Mt. Pyre\.\n"
+	"Where the spirits of Pok\emon sleep\.\p"
+	"It must overflow with a power that\n"
+	"soothes spirits\."
+}
+
+text(local) Route123_Text_FernandoIntro {
+	"I'll turn your lights out while\n"
+	"I rip through this tune!"
+}
+
+text(local) Route123_Text_FernandoDefeat {
+	"Hey, hold it!\n"
+	"I was still playing the intro!"
+}
+
+text(local) Route123_Text_FernandoPostBattle {
+	"You're rock steady.\n"
+	"I'd like to write a tune about you."
+}
+
+text(local) Route123_Text_FernandoRegister {
+	"The next time, lend your ears to\n"
+	"the full tune, will you?"
+}
+
+text(local) Route123_Text_FernandoRematchIntro {
+	"Today's the day I'm going to do it!\n"
+	"I'll turn out your lights before\l"
+	"I finish singing my song!"
+}
+
+text(local) Route123_Text_FernandoRematchDefeat {
+	"Hey, hold it!\n"
+	"I haven't even hit the chorus!"
+}
+
+text(local) Route123_Text_FernandoPostRematch {
+	"I thought you'd be so enthralled\n"
+	"by my tune, you'd lose."
+}
+
+text(local) Route123_Text_DavisIntro {
+	"This is my awesome Bug Pok\emon!\n"
+	"My big brother got it for me."
+}
+
+text(local) Route123_Text_DavisDefeat {
+	"Waaaah!\n"
+	"You meanie!"
+}
+
+text(local) Route123_Text_DavisPostBattle {
+	"Don't tell my brother I lost.\n"
+	"You have to keep it a secret!"
+}
+
+text(local) Route123_Text_JazmynIntro {
+	"My confidence will get a boost by\n"
+	"beating someone obviously strong!"
+}
+
+text(local) Route123_Text_JazmynDefeat {
+	"There goes my confidence\."
+}
+
+text(local) Route123_Text_JazmynPostBattle {
+	"They say that you can't judge a person\n"
+	"by their appearance.\p"
+	"But often, their looks don't lie\."
+}
+
+text(local) Route123_Text_FrederickIntro {
+	"Hello, child!\n"
+	"Can you spare some time?"
+}
+
+text(local) Route123_Text_FrederickDefeat {
+	"Ah, a mighty capable child!\n"
+	"Let me contribute to your allowance."
+}
+
+text(local) Route123_Text_FrederickPostBattle {
+	"Contribute to your allowance?\n"
+	"Wasn't the prize money enough?"
+}
+
+text(local) Route123_Text_AlbertoIntro {
+	"I have to tell you, Bird Pok\emon\n"
+	"are my obsession!\p"
+	"Birds are cool!\n"
+	"They're the best!"
+}
+
+text(local) Route123_Text_AlbertoDefeat {
+	"Even in defeat, Bird Pok\emon are cool!"
+}
+
+text(local) Route123_Text_AlbertoPostBattle {
+	"I gather Bird Pok\emon feathers that\n"
+	"scatter during battles.\p"
+	"I'm going to make a hat with\n"
+	"Bird Pok\emon feathers."
+}
+
+text(local) Route123_Text_EdIntro {
+	"When there are no Trainers around,\n"
+	"I let my Pok\emon battle each other.\l"
+	"I watch them."
+}
+
+text(local) Route123_Text_EdDefeat {
+	"I kind of like your Pok\emon."
+}
+
+text(local) Route123_Text_EdPostBattle {
+	"Hehe, I'm swiping your battling ideas!\n"
+	"I think they'll make me better."
+}
+
+text(local) Route123_Text_JonasIntro {
+	"I lay in ambush, and a Trainer has\n"
+	"landed in my trap!"
+}
+
+text(local) Route123_Text_JonasDefeat {
+	"If you don't lose, how am I supposed\n"
+	"to have fun playing ninja?"
+}
+
+text(local) Route123_Text_JonasPostBattle {
+	"I'm going to ambush a weaker-looking\n"
+	"Trainer next time."
+}
+
+text(local) Route123_Text_KayleyIntro {
+	"I just bought this parasol.\n"
+	"My cuteness should be up by a third!"
+}
+
+text(local) Route123_Text_KayleyDefeat {
+	"You're better than me by about\n"
+	"five times!"
+}
+
+text(local) Route123_Text_KayleyPostBattle {
+	"Using accessories effectively is\n"
+	"the secret behind fashion appeal."
+}
+
+text(local) Route124_Text_SpencerIntro {
+	"Hey, are you lost at sea?\p"
+	"If you can beat my Pok\emon,\n"
+	"I can serve as your pilot."
+}
+
+text(local) Route124_Text_SpencerDefeat {
+	"I lost my bearings in battle!"
+}
+
+text(local) Route124_Text_SpencerPostBattle {
+	"Many people lose their bearings at sea.\p"
+	"If you're that sort, you should refer\n"
+	"to the Pok\eNav's Map."
+}
+
+text(local) Route124_Text_RolandIntro {
+	"Hm! You're riding a Pok\emon instead\n"
+	"of swimming yourself\.\p"
+	"I am envious!"
+}
+
+text(local) Route124_Text_RolandDefeat {
+	"Oh!\n"
+	"I can't\."
+}
+
+text(local) Route124_Text_RolandPostBattle {
+	"I'm getting chilled\.\n"
+	"I've been in the water too long\.\p"
+	"I wish I could ride a Pok\emon like you\."
+}
+
+text(local) Route124_Text_JennyIntro {
+	"If you just float in the sea like\n"
+	"this, Pok\emon come around to play."
+}
+
+text(local) Route124_Text_JennyDefeat {
+	"Oh, darn.\n"
+	"I've gone and lost."
+}
+
+text(local) Route124_Text_JennyPostBattle {
+	"While swimming, I noticed that some\n"
+	"Pok\emon attack, and some just watch.\p"
+	"I guess Pok\emon have personalities\n"
+	"of their own."
+}
+
+text(local) Route124_Text_JennyRegister {
+	"It's only on a whim, but maybe I'll get\n"
+	"you to register me in your Pok\eNav."
+}
+
+text(local) Route124_Text_JennyRematchIntro {
+	"If you just float in the sea like this,\n"
+	"Trainers challenge you!"
+}
+
+text(local) Route124_Text_JennyRematchDefeat {
+	"That's strange\.\n"
+	"I lost again\."
+}
+
+text(local) Route124_Text_JennyPostRematch {
+	"This has nothing to do with anything,\n"
+	"but maybe I'll visit the Trick House."
+}
+
+text(local) Route124_Text_GraceIntro {
+	"I'm growing bored of swimming\.\n"
+	"How about a battle?"
+}
+
+text(local) Route124_Text_GraceDefeat {
+	"I had no idea that you were\n"
+	"this strong!"
+}
+
+text(local) Route124_Text_GracePostBattle {
+	"All the effort you put in must have\n"
+	"made you this strong."
+}
+
+text(local) Route124_Text_ChadIntro {
+	"Fufufufu\. I dive deep underwater\n"
+	"to go deep under cover.\l"
+	"Plumbing the depths is where I excel!"
+}
+
+text(local) Route124_Text_ChadDefeat {
+	"Glub, glub, glub\.\n"
+	"I'm sinking\."
+}
+
+text(local) Route124_Text_ChadPostBattle {
+	"I have it on good authority that\n"
+	"there's a Dive spot around here.\p"
+	"It gives me the urge to go deep\n"
+	"again\."
+}
+
+text(local) Route124_Text_LilaIntro {
+	"Lila: Sigh\.\p"
+	"Here I am in the sea, but who's with me?\n"
+	"My little brother!\p"
+	"Let's battle so I won't have to dwell\n"
+	"on that!"
+}
+
+text(local) Route124_Text_LilaDefeat {
+	"Lila: Roy! It's your fault we lost!\n"
+	"You're in for it later!"
+}
+
+text(local) Route124_Text_LilaPostBattle {
+	"Lila: Sigh\.\p"
+	"If only it wasn't my little brother\n"
+	"next to me, but a nice boyfriend\."
+}
+
+text(local) Route124_Text_LilaNotEnoughMons {
+	"Lila: You're planning to battle us?\n"
+	"Not unless you have two Pok\emon."
+}
+
+text(local) Route124_Text_RoyIntro {
+	"Roy: My big sister is tough at Pok\emon!\p"
+	"Don't cry when you lose!"
+}
+
+text(local) Route124_Text_RoyDefeat {
+	"Roy: Uh-oh\.\n"
+	"My big sister will chew me out\."
+}
+
+text(local) Route124_Text_RoyPostBattle {
+	"Roy: My big sister is really scary\n"
+	"when she gets angry.\p"
+	"That's why she doesn't have a\n"
+	"boyfriend."
+}
+
+text(local) Route124_Text_LilaRoyRegister {
+	"Roy: Will you battle with us again?\n"
+	"But take it easy next time, okay?"
+}
+
+text(local) Route124_Text_RoyNotEnoughMons {
+	"Roy: Did you want to battle us?\n"
+	"Bring two Pok\emon, then."
+}
+
+text(local) Route124_Text_LilaRematchIntro {
+	"Lila: Sigh\.\p"
+	"Here I am in the sea, but who's with me?\n"
+	"My little brother!\p"
+	"Oh, hi, it's been a while. Let's battle\n"
+	"so I won't have to dwell on things!"
+}
+
+text(local) Route124_Text_LilaRematchDefeat {
+	"Lila: Roy!\n"
+	"It's your fault we lost again!\p"
+	"We're having a training session later!"
+}
+
+text(local) Route124_Text_LilaPostRematch {
+	"Lila: Sigh\.\p"
+	"If I had a nice boyfriend, we'd beat\n"
+	"anyone with lovely combinations\."
+}
+
+text(local) Route124_Text_LilaRematchNotEnoughMons {
+	"Lila: You're planning to battle us?\n"
+	"Not unless you have two Pok\emon."
+}
+
+text(local) Route124_Text_RoyRematchIntro {
+	"Roy: If we lose, I'll catch heck.\n"
+	"I'm going to go totally all out!"
+}
+
+text(local) Route124_Text_RoyRematchDefeat {
+	"Roy: Uh-oh\.\n"
+	"My big sister will chew me out again."
+}
+
+text(local) Route124_Text_RoyPostRematch {
+	"Roy: My big sister is really scary\n"
+	"when she gets angry.\p"
+	"She's going to make me train really\n"
+	"hard with Pok\emon later\."
+}
+
+text(local) Route124_Text_RoyRematchNotEnoughMons {
+	"Roy: Did you want to battle us?\n"
+	"Bring two Pok\emon, then."
+}
+
+text(local) Route124_Text_DeclanIntro {
+	"Here I am swimming by my lonesome\n"
+	"on this wide, beautiful sea.\p"
+	"There's no other word for it.\n"
+	"This is pathetic!"
+}
+
+text(local) Route124_Text_DeclanDefeat {
+	"I'm feeling blue.\n"
+	"Blue as the sky\."
+}
+
+text(local) Route124_Text_DeclanPostBattle {
+	"I should chat up lady Swimmers\n"
+	"and invite them on a long swim."
+}
+
+text(local) Route124_Text_IsabellaIntro {
+	"I'm not going to lose to some\n"
+	"surfer Trainer."
+}
+
+text(local) Route124_Text_IsabellaDefeat {
+	"I've only got sweat in my eyes!\n"
+	"I am not crying!"
+}
+
+text(local) Route124_Text_IsabellaPostBattle {
+	"You can find pretty colored shards\n"
+	"of things around here."
+}
+
+text(local) Route125_Text_NolenIntro {
+	"I heard you approaching, so I hung\n"
+	"around for you!"
+}
+
+text(local) Route125_Text_NolenDefeat {
+	"I surrender!"
+}
+
+text(local) Route125_Text_NolenPostBattle {
+	"Sound travels faster in water than\n"
+	"it does through air."
+}
+
+text(local) Route125_Text_StanIntro {
+	"Hey, there!\n"
+	"Check out my sweet Pok\emon!"
+}
+
+text(local) Route125_Text_StanDefeat {
+	"I floundered\."
+}
+
+text(local) Route125_Text_StanPostBattle {
+	"I was blown away by Horsea's charm,\n"
+	"so I started swimming, too."
+}
+
+text(local) Route125_Text_TanyaIntro {
+	"I'm tired of swimming.\n"
+	"Are you up for a battle with me?"
+}
+
+text(local) Route125_Text_TanyaDefeat {
+	"You're too much!"
+}
+
+text(local) Route125_Text_TanyaPostBattle {
+	"Whew\.\n"
+	"Which way is it to Mossdeep City?"
+}
+
+text(local) Route125_Text_SharonIntro {
+	"How would you like to take on the\n"
+	"Water-type Pok\emon I raised?"
+}
+
+text(local) Route125_Text_SharonDefeat {
+	"Lost it\."
+}
+
+text(local) Route125_Text_SharonPostBattle {
+	"Your power\. You're the real deal.\n"
+	"I'm amazed!"
+}
+
+text(local) Route125_Text_ErnestIntro {
+	"Ahoy! I'm a buff, tough Sailor!\n"
+	"I've braved the world's seas!"
+}
+
+text(local) Route125_Text_ErnestDefeat {
+	"Gwrroooar!\n"
+	"I couldn't win!"
+}
+
+text(local) Route125_Text_ErnestPostBattle {
+	"The tide ebbs and flows inside the\n"
+	"Shoal Cave.\p"
+	"By the way, it's about six hours from\n"
+	"high tide to low tide. Did you know?"
+}
+
+text(local) Route125_Text_ErnestRegister {
+	"Register me in your Pok\eNav,\n"
+	"and I'll tell you something good."
+}
+
+text(local) Route125_Text_ErnestRematchIntro {
+	"It's high time I get my payback\n"
+	"from you! Come on, we're battling!"
+}
+
+text(local) Route125_Text_ErnestRematchDefeat {
+	"I couldn't win!\n"
+	"I flat out couldn't win!"
+}
+
+text(local) Route125_Text_ErnestRematchPostBattle {
+	"The Shoal Cave\.\p"
+	"There are places you can and can't\n"
+	"get to depending on the rise and fall\l"
+	"of the tide.\p"
+	"By the way, it's about six hours from\n"
+	"high tide to low tide. Don't forget!"
+}
+
+text(local) Route125_Text_KimIntro {
+	"Kim: A funny old man lives in the\n"
+	"Shoal Cave. Someone told me.\l"
+	"Are you going to see him, too?"
+}
+
+text(local) Route125_Text_KimDefeat {
+	"Kim: I thought we would win."
+}
+
+text(local) Route125_Text_KimPostBattle {
+	"Kim: A funny old man lives in the\n"
+	"Shoal Cave, doesn't he?\p"
+	"Let's go see him, Iris!"
+}
+
+text(local) Route125_Text_KimNotEnoughMons {
+	"Kim: No, no, no! You need two Pok\emon,\n"
+	"or it's just no good!"
+}
+
+text(local) Route125_Text_IrisIntro {
+	"Iris: Kim, can you tell me what we're\n"
+	"looking for out here?"
+}
+
+text(local) Route125_Text_IrisDefeat {
+	"Iris: Oh, we came sort of close."
+}
+
+text(local) Route125_Text_IrisPostBattle {
+	"Iris: Kim, are we really going into\n"
+	"the Shoal Cave?\l"
+	"We'll get all wet."
+}
+
+text(local) Route125_Text_IrisNotEnoughMons {
+	"Iris: Oh, we could never, ever do\n"
+	"anything like a 2-on-1 battle."
+}
+
+text(local) Route125_Text_PresleyIntro {
+	"Why would a Birdkeeper like me\n"
+	"come out to the sea?"
+}
+
+text(local) Route125_Text_PresleyDefeat {
+	"Okay.\n"
+	"I'll tell you why I'm here."
+}
+
+text(local) Route125_Text_PresleyPostBattle {
+	"I put a message in a bottle and put\n"
+	"it out to sea.\p"
+	"I'm sure that a girl Swimmer will\n"
+	"find it!"
+}
+
+text(local) Route125_Text_AuronIntro {
+	"Hey! Was it you throwing garbage\n"
+	"into the sea?"
+}
+
+text(local) Route125_Text_AuronDefeat {
+	"Oh, you weren't throwing trash into\n"
+	"the sea."
+}
+
+text(local) Route125_Text_AuronPostBattle {
+	"I found an unsightly bottle bobbing\n"
+	"in the waves earlier.\p"
+	"It angers me that someone would\n"
+	"pollute the sea!"
+}
+
+text(local) Route126_Text_BarryIntro {
+	"Swimming is a full-body workout!\n"
+	"You will get fit!"
+}
+
+text(local) Route126_Text_BarryDefeat {
+	"I admit it!\n"
+	"You win!"
+}
+
+text(local) Route126_Text_BarryPostBattle {
+	"Thanks to my daily swimming routine\.\n"
+	"Look! Feast your eyes on this physique!"
+}
+
+text(local) Route126_Text_DeanIntro {
+	"This towering white mountain of rock\n"
+	"is Sootopolis City."
+}
+
+text(local) Route126_Text_DeanDefeat {
+	"I was done in?"
+}
+
+text(local) Route126_Text_DeanPostBattle {
+	"I can't find the entrance to\n"
+	"Sootopolis. Where could it be?"
+}
+
+text(local) Route126_Text_NikkiIntro {
+	"Ufufufufu!\n"
+	"I'm a mermaid!"
+}
+
+text(local) Route126_Text_NikkiDefeat {
+	"My fantasy burst as if it were a bubble!\n"
+	"Blub, blub, blub\."
+}
+
+text(local) Route126_Text_NikkiPostBattle {
+	"You thrashed me\. I want to\n"
+	"disappear in a wave of despair\."
+}
+
+text(local) Route126_Text_BrendaIntro {
+	"Hello, kiddo!\n"
+	"Want a battle with me?"
+}
+
+text(local) Route126_Text_BrendaDefeat {
+	"Oh, noooooh!"
+}
+
+text(local) Route126_Text_BrendaPostBattle {
+	"I love frolicking with Pok\emon in\n"
+	"the sea like this!"
+}
+
+text(local) Route126_Text_PabloIntro {
+	"Check out this sculpted body!\n"
+	"I'm more cut than a Black Belt!"
+}
+
+text(local) Route126_Text_PabloDefeat {
+	"Whoops! Too strong!\n"
+	"Not bad! Not bad at all!"
+}
+
+text(local) Route126_Text_PabloPostBattle {
+	"Losing to you stimulated my senses!\n"
+	"I'll train myself and Pok\emon harder!"
+}
+
+text(local) Route126_Text_PabloRegister {
+	"Yep, you're not bad at all!\n"
+	"I'd like to get to know you more!"
+}
+
+text(local) Route126_Text_PabloRematchIntro {
+	"Check out this beautiful body!\n"
+	"I'm more shapely than a Swimmer!"
+}
+
+text(local) Route126_Text_PabloRematchDefeat {
+	"Whoops! Really too strong!\n"
+	"Not bad! Not bad at all!"
+}
+
+text(local) Route126_Text_PabloPostRematch {
+	"I'm going to train even harder!\n"
+	"You're a great motivator!\l"
+	"You have to come back again!"
+}
+
+text(local) Route126_Text_LeonardoIntro {
+	"I couldn't even swim last year,\n"
+	"but now I'm a decent Swimmer.\p"
+	"I think I'm capable of anything now."
+}
+
+text(local) Route126_Text_LeonardoDefeat {
+	"Sheesh, getting greedy didn't do\n"
+	"a thing for me."
+}
+
+text(local) Route126_Text_LeonardoPostBattle {
+	"If you practice at something,\n"
+	"you will get better at it.\p"
+	"You're young--don't be afraid to\n"
+	"try all sorts of things!"
+}
+
+text(local) Route126_Text_IsobelIntro {
+	"If seawater gets up your nose,\n"
+	"doesn't it feel terrible?"
+}
+
+text(local) Route126_Text_IsobelDefeat {
+	"Ack! Why, you\.\n"
+	"Glub!"
+}
+
+text(local) Route126_Text_IsobelPostBattle {
+	"Ooh, I choked on some water!\n"
+	"It's bitter! It's salty!!"
+}
+
+text(local) Route126_Text_SiennaIntro {
+	"I'm throwing my whole heart\n"
+	"into this!"
+}
+
+text(local) Route126_Text_SiennaDefeat {
+	"You had more heart!"
+}
+
+text(local) Route126_Text_SiennaPostBattle {
+	"I need to cool down now\.\n"
+	"I think I'll go for a dive."
+}
+
+text(local) Route127_Text_CamdenIntro {
+	"I can see it in your face.\n"
+	"You want to challenge me."
+}
+
+text(local) Route127_Text_CamdenDefeat {
+	"Awawawawawa\."
+}
+
+text(local) Route127_Text_CamdenPostBattle {
+	"A well-played match leaves me feeling\n"
+	"refreshed and serene."
+}
+
+text(local) Route127_Text_DonnyIntro {
+	"Do you have a rival whom you just\n"
+	"hate to lose against?"
+}
+
+text(local) Route127_Text_DonnyDefeat {
+	"Arrrgh!\n"
+	"I hate losing!"
+}
+
+text(local) Route127_Text_DonnyPostBattle {
+	"If you have a rival, don't you get the\n"
+	"feeling that you have to keep getting\l"
+	"better?"
+}
+
+text(local) Route127_Text_JonahIntro {
+	"Through fishing, I have attained a\n"
+	"state of becalmed serenity\.\p"
+	"Please, allow me to demonstrate\."
+}
+
+text(local) Route127_Text_JonahDefeat {
+	"Though I have lost, my heart remains\n"
+	"calm\."
+}
+
+text(local) Route127_Text_JonahPostBattle {
+	"It matters not that I catch nothing.\n"
+	"The line remains in the water\."
+}
+
+text(local) Route127_Text_HenryIntro {
+	"Whoops! Don't tell me I snagged\n"
+	"a Surfing Pok\emon?"
+}
+
+text(local) Route127_Text_HenryDefeat {
+	"I can't keep up!"
+}
+
+text(local) Route127_Text_HenryPostBattle {
+	"It'd be a handful if I hooked\n"
+	"your tough Pok\emon!"
+}
+
+text(local) Route127_Text_RogerIntro {
+	"Well, hey! This is a match between\n"
+	"a Pok\emon fan and a fishing buff!"
+}
+
+text(local) Route127_Text_RogerDefeat {
+	"No! My line's all tangled!\n"
+	"The party's over!"
+}
+
+text(local) Route127_Text_RogerPostBattle {
+	"My fishing line's doing a dance!\n"
+	"The tangle tango! Hahaha, snarl!"
+}
+
+text(local) Route127_Text_AidanIntro {
+	"Bird Pok\emon have excellent vision.\n"
+	"They spot prey from great heights."
+}
+
+text(local) Route127_Text_AidanDefeat {
+	"Whew\. I give up."
+}
+
+text(local) Route127_Text_AidanPostBattle {
+	"There're lots of diving spots in\n"
+	"the sea around here.\p"
+	"You can spot them easily from the sky\n"
+	"because of their darker color."
+}
+
+text(local) Route127_Text_KojiIntro {
+	"Run in your bare feet.\n"
+	"That will toughen up your soles!"
+}
+
+text(local) Route127_Text_KojiDefeat {
+	"Yowch!\n"
+	"I got a pebble under a toenail!"
+}
+
+text(local) Route127_Text_KojiPostBattle {
+	"Going barefoot feels great.\n"
+	"But your Running Shoes are cool, too."
+}
+
+text(local) Route127_Text_KojiRegister {
+	"This is what I do to people who beat me!\n"
+	"I hope we can do this again."
+}
+
+text(local) Route127_Text_KojiRematchIntro {
+	"I still run in my bare feet daily.\n"
+	"My soles are tough!"
+}
+
+text(local) Route127_Text_KojiRematchDefeat {
+	"Yowch!\n"
+	"Pebbles dug into my arches!"
+}
+
+text(local) Route127_Text_KojiPostRematch {
+	"Want to go barefoot for a while?\n"
+	"So I can try your Running Shoes?"
+}
+
+text(local) Route127_Text_AthenaIntro {
+	"We should have a slow and methodical\n"
+	"match."
+}
+
+text(local) Route127_Text_AthenaDefeat {
+	"You didn't give me the chance to\n"
+	"do any strategizing."
+}
+
+text(local) Route127_Text_AthenaPostBattle {
+	"When I'm surrounded by the blue sea\n"
+	"and sky, it feels as if time slows down."
+}
+
+text(local) Route128_Text_IsaiahIntro {
+	"Ever Grande City is still a long ways\n"
+	"away\."
+}
+
+text(local) Route128_Text_IsaiahDefeat {
+	"My first victory seems to be far\n"
+	"away, too\."
+}
+
+text(local) Route128_Text_IsaiahPostBattle {
+	"My whole life has been about losing,\n"
+	"but I will never give up!"
+}
+
+text(local) Route128_Text_IsaiahRegister {
+	"I know I'm not good now, but I think\n"
+	"I can win eventually.\p"
+	"Please register me in your Pok\eNav."
+}
+
+text(local) Route128_Text_IsaiahRematchIntro {
+	"I'm still feeling good. I'll keep on\n"
+	"swimming to Ever Grande City."
+}
+
+text(local) Route128_Text_IsaiahRematchDefeat {
+	"I've yet to taste my first victory\."
+}
+
+text(local) Route128_Text_IsaiahPostRematch {
+	"I'll eventually reach Ever Grande City\n"
+	"where I can eventually win\."
+}
+
+text(local) Route128_Text_KatelynIntro {
+	"You have to swim, cycle, and then run\n"
+	"a marathon in a triathlon.\p"
+	"It's a grueling race that consists\n"
+	"of three events."
+}
+
+text(local) Route128_Text_KatelynDefeat {
+	"A Pok\emon battle is grueling, too\."
+}
+
+text(local) Route128_Text_KatelynPostBattle {
+	"I have to ride a Bike next, but\.\n"
+	"I'm about to throw in the towel\."
+}
+
+text(local) Route128_Text_KatelynRegister {
+	"Well, I may as well make the best\n"
+	"of this. I'd like a rematch sometime."
+}
+
+text(local) Route128_Text_KatelynRematchIntro {
+	"A triathlon is long. But I guess the\n"
+	"road to become the Pok\emon Champion\l"
+	"is also a long and grueling one."
+}
+
+text(local) Route128_Text_KatelynRematchDefeat {
+	"A Pok\emon battle really is harsh\n"
+	"and unforgiving\."
+}
+
+text(local) Route128_Text_KatelynPostRematch {
+	"You should give serious thought to\n"
+	"challenges on Victory Road."
+}
+
+text(local) Route128_Text_AlexaIntro {
+	"We've been working so hard to mount\n"
+	"a Pok\emon League challenge\.\p"
+	"We can't afford to lose now!"
+}
+
+text(local) Route128_Text_AlexaDefeat {
+	"Oh!\n"
+	"How could this happen?!"
+}
+
+text(local) Route128_Text_AlexaPostBattle {
+	"After all I've done to get here,\n"
+	"I won't give up after one setback."
+}
+
+text(local) Route128_Text_RubenIntro {
+	"There is no stronger Trainer than I!"
+}
+
+text(local) Route128_Text_RubenDefeat {
+	"This can't be!"
+}
+
+text(local) Route128_Text_RubenPostBattle {
+	"There probably is no stronger Trainer\n"
+	"than you!"
+}
+
+text(local) Route128_Text_WayneIntro {
+	"I want to visit Ever Grande, so I\n"
+	"caught myself a Pok\emon that knows\l"
+	"the move Waterfall to crest the falls."
+}
+
+text(local) Route128_Text_WayneDefeat {
+	"I'm crestfallen!"
+}
+
+text(local) Route128_Text_WaynePostBattle {
+	"Awww, phooey!\p"
+	"My Pok\emon knows Waterfall, but\n"
+	"I don't have the Sootopolis Gym Badge!"
+}
+
+text(local) Route128_Text_HarrisonIntro {
+	"You're looking awfully tough.\n"
+	"I wonder if I can win?"
+}
+
+text(local) Route128_Text_HarrisonDefeat {
+	"Ouch!\n"
+	"I guess it was impossible to win."
+}
+
+text(local) Route128_Text_HarrisonPostBattle {
+	"There are tough Trainers galore\n"
+	"around Ever Grande.\p"
+	"Do you think I may be out\n"
+	"of my league?"
+}
+
+text(local) Route128_Text_CarleeIntro {
+	"The sunlight seems to be more harsh\n"
+	"in this area."
+}
+
+text(local) Route128_Text_CarleeDefeat {
+	"I couldn't see very well because of\n"
+	"the sun's glare."
+}
+
+text(local) Route128_Text_CarleePostBattle {
+	"I should go back soon.\n"
+	"I need to reapply my sunscreen."
+}
+
+text(local) Route129_Text_ChaseIntro {
+	"This is my first triathlon.\n"
+	"I'm all tense and nervous!"
+}
+
+text(local) Route129_Text_ChaseDefeat {
+	"Wroooaaar!\n"
+	"I failed to win!"
+}
+
+text(local) Route129_Text_ChasePostBattle {
+	"If I'm all tensed up, I won't be able to\n"
+	"give it my all."
+}
+
+text(local) Route129_Text_AllisonIntro {
+	"I'm in the middle of a triathlon,\n"
+	"but, sure, why don't we battle?"
+}
+
+text(local) Route129_Text_AllisonDefeat {
+	"I was sure I'd win!"
+}
+
+text(local) Route129_Text_AllisonPostBattle {
+	"Do you know what's the greatest thing\n"
+	"about triathlons?\p"
+	"Testing the limits of your own\n"
+	"strength and endurance against\l"
+	"Mother Nature!"
+}
+
+text(local) Route129_Text_ReedIntro {
+	"Say hey, hey!\n"
+	"Let's get on with it!"
+}
+
+text(local) Route129_Text_ReedDefeat {
+	"Beat, I'm beaten.\n"
+	"That's it, done!"
+}
+
+text(local) Route129_Text_ReedPostBattle {
+	"There's nothing for a loser.\n"
+	"Time for me to beat it home."
+}
+
+text(local) Route129_Text_TishaIntro {
+	"What's the hurry?\n"
+	"Let's take it slow and easy."
+}
+
+text(local) Route129_Text_TishaDefeat {
+	"Oh, my.\n"
+	"I wanted to relax a little more\."
+}
+
+text(local) Route129_Text_TishaPostBattle {
+	"Don't you hate making mistakes when\n"
+	"you're in a rush?\p"
+	"That's why I try to take things\n"
+	"slowly."
+}
+
+text(local) Route129_Text_ClarenceIntro {
+	"Surfing isn't as easy as it seems,\n"
+	"isn't that right?"
+}
+
+text(local) Route129_Text_ClarenceDefeat {
+	"Winning sure isn't easy."
+}
+
+text(local) Route129_Text_ClarencePostBattle {
+	"You have your sights on the Pok\emon\n"
+	"League? Keep at it!"
+}
+
+text(local) Route130_Text_RodneyIntro {
+	"What a surprise! I didn't expect to\n"
+	"see a Trainer out in the sea.\p"
+	"I think we should battle!"
+}
+
+text(local) Route130_Text_RodneyDefeat {
+	"This kid's awfully tough\."
+}
+
+text(local) Route130_Text_RodneyPostBattle {
+	"Your eyes have that look of someone\n"
+	"who's experienced harsh challenges\l"
+	"and won. It suits you well!"
+}
+
+text(local) Route130_Text_KatieIntro {
+	"In the deep blue sea,\n"
+	"my shattered blue heart finds\l"
+	"comfort among waves."
+}
+
+text(local) Route130_Text_KatieDefeat {
+	"Like the vast blue sea,\n"
+	"the world of Pok\emon spans\l"
+	"depths beyond belief."
+}
+
+text(local) Route130_Text_KatiePostBattle {
+	"The world's children dream\n"
+	"of one day becoming\l"
+	"the Pok\emon Champion."
+}
+
+text(local) Route130_Text_SantiagoIntro {
+	"Floating on the open sea like this\.\n"
+	"It's peaceful."
+}
+
+text(local) Route130_Text_SantiagoDefeat {
+	"I needed to be a little less peaceful!"
+}
+
+text(local) Route130_Text_SantiagoPostBattle:
+	"Swimming and battling like this\.\n"
+	"I'm one happy guy\."
+
+text(local) Route131_Text_RichardIntro {
+	"The sea is teeming with Pok\emon.\n"
+	"It's not easy swimming, I tell you."
+}
+
+text(local) Route131_Text_RichardDefeat {
+	"Pok\emon raised by Trainers are\n"
+	"seriously tough\."
+}
+
+text(local) Route131_Text_RichardPostBattle {
+	"Gasp\. Gasp\.\n"
+	"I'm wiped out\.\p"
+	"The going's easy. It's the leaving\n"
+	"that's the hard part.\p"
+	"Will I have any energy left to make\n"
+	"the return trip?"
+}
+
+text(local) Route131_Text_HermanIntro {
+	"The sea\. The sea\. The sea\.\n"
+	"The sea as far as these eyes can see!\l"
+	"I'm sick and tired of the sea!"
+}
+
+text(local) Route131_Text_HermanDefeat {
+	"Bleah!"
+}
+
+text(local) Route131_Text_HermanPostBattle {
+	"Bored I am by the sea, but swim I must.\p"
+	"I'm a born swimmer!\n"
+	"That's what I am."
+}
+
+text(local) Route131_Text_SusieIntro {
+	"Hi, sweetie, wait!\n"
+	"We should battle, you and I!"
+}
+
+text(local) Route131_Text_SusieDefeat {
+	"You're tough in spite of the way\n"
+	"you look!"
+}
+
+text(local) Route131_Text_SusiePostBattle {
+	"Did you see a guy over there who whines\n"
+	"that he's bored of the sea?\p"
+	"That's all talk.\n"
+	"He's hopelessly in love with the sea!"
+}
+
+text(local) Route131_Text_KaraIntro {
+	"Why do men love bathing suits so much?\p"
+	"They all ogle me!"
+}
+
+text(local) Route131_Text_KaraDefeat {
+	"I'm out of my depth!"
+}
+
+text(local) Route131_Text_KaraPostBattle {
+	"Maybe it's not my bathing suit that\n"
+	"makes men look. It must be my beauty!"
+}
+
+text(local) Route131_Text_ReliIntro {
+	"Reli: We'll work together as siblings\n"
+	"to take you on!"
+}
+
+text(local) Route131_Text_ReliDefeat {
+	"Reli: We couldn't win even though we\n"
+	"worked together\."
+}
+
+text(local) Route131_Text_ReliPostBattle {
+	"Reli: The people of Pacifidlog are\n"
+	"together with the sea and Pok\emon from\l"
+	"the time they are born."
+}
+
+text(local) Route131_Text_ReliNotEnoughMons {
+	"Reli: You don't have two Pok\emon?\n"
+	"We can't enjoy a battle, then."
+}
+
+text(local) Route131_Text_IanIntro {
+	"Ian: I'm doing my best together with\n"
+	"my sis!"
+}
+
+text(local) Route131_Text_IanDefeat {
+	"Ian: I did my best with my sis,\n"
+	"but we still couldn't win\."
+}
+
+text(local) Route131_Text_IanPostBattle {
+	"Ian: You know how Pacifidlog is\n"
+	"a floating town?\p"
+	"So, wherever there is the sea,\n"
+	"that's a part of Pacifidlog!"
+}
+
+text(local) Route131_Text_IanNotEnoughMons {
+	"Ian: If you have two Pok\emon,\n"
+	"we'll take you on!"
+}
+
+text(local) Route131_Text_TaliaIntro {
+	"If you can beat me, I'll give you some\n"
+	"great information!"
+}
+
+text(local) Route131_Text_TaliaDefeat {
+	"Oh?\n"
+	"Did I lose?"
+}
+
+text(local) Route131_Text_TaliaPostBattle {
+	"There is an odd place nearby.\n"
+	"There's a huge tower there.\l"
+	"Why don't you go take a look?"
+}
+
+text(local) Route131_Text_KevinIntro {
+	"The people of Pacifidlog are\n"
+	"a peaceful bunch.\p"
+	"They never get angry.\n"
+	"That goes for me, too."
+}
+
+text(local) Route131_Text_KevinDefeat {
+	"Oops!"
+}
+
+text(local) Route131_Text_KevinPostBattle {
+	"Tch! \.Oh, wait.\n"
+	"I'm not angry. Honestly!\p"
+	"But, boy, you're strong!\n"
+	"Hahaha!"
+}
+
+text(local) Route132_Text_GilbertIntro {
+	"I used to catch colds all the time as\n"
+	"a kid, but I became totally fit after\l"
+	"I started swimming."
+}
+
+text(local) Route132_Text_GilbertDefeat {
+	"I crave more power\."
+}
+
+text(local) Route132_Text_GilbertPostBattle {
+	"Trainers travel the fields and\n"
+	"mountains, so they must be fit, too."
+}
+
+text(local) Route132_Text_DanaIntro {
+	"I try not to swim where the currents\n"
+	"are too strong."
+}
+
+text(local) Route132_Text_DanaDefeat {
+	"Oh, please, no!"
+}
+
+text(local) Route132_Text_DanaPostBattle {
+	"If I get swept away, I'll lose all my\n"
+	"sense of place\."
+}
+
+text(local) Route132_Text_RonaldIntro {
+	"Win or lose, you'll never know until\n"
+	"you try!"
+}
+
+text(local) Route132_Text_RonaldDefeat {
+	"Waah!\n"
+	"I sank in defeat!"
+}
+
+text(local) Route132_Text_RonaldPostBattle {
+	"I never battle when I know I'll win.\n"
+	"I like to battle at the razor's edge of\l"
+	"victory and defeat!"
+}
+
+text(local) Route132_Text_KiyoIntro {
+	"I contemplate Pok\emon 24 hours a day.\n"
+	"How could you possibly beat me?"
+}
+
+text(local) Route132_Text_KiyoDefeat {
+	"I lose.\n"
+	"I will concede defeat."
+}
+
+text(local) Route132_Text_KiyoPostBattle {
+	"Urggh\.\n"
+	"You're a Pok\emon fanatic, aren't you?\p"
+	"You must contemplate Pok\emon 24 hours\n"
+	"a day, don't you?"
+}
+
+text(local) Route132_Text_MakaylaIntro {
+	"I'm always with my husband,\n"
+	"but I can win even without him."
+}
+
+text(local) Route132_Text_MakaylaDefeat {
+	"Oh, I guess I wasn't good enough."
+}
+
+text(local) Route132_Text_MakaylaPostBattle {
+	"That young man over there looks just\n"
+	"like my husband when he was young.\p"
+	"He's making me blush!"
+}
+
+text(local) Route132_Text_JonathanIntro {
+	"Someone's been watching me intently.\n"
+	"Was it you?"
+}
+
+text(local) Route132_Text_JonathanDefeat {
+	"Wow!\n"
+	"That's pretty strong, all right!"
+}
+
+text(local) Route132_Text_JonathanPostBattle {
+	"I can't shake this feeling that\n"
+	"someone's watching me.\p"
+	"I can't concentrate!"
+}
+
+text(local) Route132_Text_PaxtonIntro {
+	"Now where could my wife have gone?\n"
+	"I'm always with her.\l"
+	"I wonder if I can win on my own."
+}
+
+text(local) Route132_Text_PaxtonDefeat {
+	"Ah, I see that I couldn't manage\n"
+	"to win on my own after all."
+}
+
+text(local) Route132_Text_PaxtonPostBattle {
+	"My wife must be looking for me.\n"
+	"I'd best go find her right away."
+}
+
+text(local) Route132_Text_DarcyIntro {
+	"I liked training here by myself.\n"
+	"It's awful that all these people came!"
+}
+
+text(local) Route132_Text_DarcyDefeat {
+	"Okay! I won't complain about other\n"
+	"people being here."
+}
+
+text(local) Route132_Text_DarcyPostBattle {
+	"I suppose I can partner up with that\n"
+	"old man and challenge that other team."
+}
+
+text(local) Route133_Text_FranklinIntro {
+	"Did the currents carry you here, too?\n"
+	"This must have been fated.\l"
+	"Let's battle!"
+}
+
+text(local) Route133_Text_FranklinDefeat {
+	"Strong!\n"
+	"Too much so!"
+}
+
+text(local) Route133_Text_FranklinPostBattle {
+	"It's just my luck that a tough Trainer\n"
+	"like you would drift here\.\l"
+	"I must be cursed\."
+}
+
+text(local) Route133_Text_DebraIntro {
+	"I've led a life of woe and misery\.\n"
+	"I've been cast away, and this is where\l"
+	"I've drifted\."
+}
+
+text(local) Route133_Text_DebraDefeat {
+	"Another loss\."
+}
+
+text(local) Route133_Text_DebraPostBattle {
+	"A life adrift\.\n"
+	"I don't want it anymore!"
+}
+
+text(local) Route133_Text_LindaIntro {
+	"Welcome!\n"
+	"I've been expecting you!"
+}
+
+text(local) Route133_Text_LindaDefeat {
+	"No! Please!"
+}
+
+text(local) Route133_Text_LindaPostBattle {
+	"A strong child Trainer\.\n"
+	"That's so annoying!"
+}
+
+text(local) Route133_Text_WarrenIntro {
+	"I want to win like everyone else, but I\n"
+	"won't raise Pok\emon like everyone else."
+}
+
+text(local) Route133_Text_WarrenDefeat {
+	"Darn it!\n"
+	"My way is still too slack!"
+}
+
+text(local) Route133_Text_WarrenPostBattle {
+	"It's way more fun to do things the way\n"
+	"I want than to be like everybody else.\l"
+	"I mean, that's obvious!"
+}
+
+text(local) Route133_Text_BeckIntro {
+	"I came all the way out here with my\n"
+	"Bird Pok\emon."
+}
+
+text(local) Route133_Text_BeckDefeat {
+	"You\.\n"
+	"You're stunningly cool!"
+}
+
+text(local) Route133_Text_BeckPostBattle {
+	"I'd like to go back to Fortree,\n"
+	"but I've grown to like this place, too."
+}
+
+text(local) Route133_Text_MollieIntro {
+	"I must have battled thousands\n"
+	"of times. I've lost count."
+}
+
+text(local) Route133_Text_MollieDefeat {
+	"I may have lost thousands of times,\n"
+	"but a loss still stings."
+}
+
+text(local) Route133_Text_MolliePostBattle {
+	"Keep at this, youngster. So you can\n"
+	"become like my husband and me."
+}
+
+text(local) Route133_Text_ConorIntro {
+	"Young people are too happy to go with\n"
+	"the flow. They're without direction."
+}
+
+text(local) Route133_Text_ConorDefeat {
+	"You have a firm sense of purpose."
+}
+
+text(local) Route133_Text_ConorPostBattle {
+	"Don't let others lead you astray.\n"
+	"Don't lose direction as you grow older."
+}
+
+text(local) Route134_Text_JackIntro {
+	"Even those Pok\emon that can swim are\n"
+	"carried along by the rapid currents."
+}
+
+text(local) Route134_Text_JackDefeat {
+	"Aiyeeeeh!"
+}
+
+text(local) Route134_Text_JackPostBattle {
+	"I think Pok\emon enjoy the fast-running\n"
+	"currents around these parts."
+}
+
+text(local) Route134_Text_LaurelIntro {
+	"My Luvdisc are looking for a fun\n"
+	"match. Will you join us?"
+}
+
+text(local) Route134_Text_LaurelDefeat {
+	"Oopsie!"
+}
+
+text(local) Route134_Text_LaurelPostBattle {
+	"There's a collector who's after\n"
+	"the Scales of Luvdisc."
+}
+
+text(local) Route134_Text_AlexIntro {
+	"Okeydokey! That's enough rest, gang!\n"
+	"It's time for a match!"
+}
+
+text(local) Route134_Text_AlexDefeat {
+	"Tuckered out again\."
+}
+
+text(local) Route134_Text_AlexPostBattle {
+	"My Bird Pok\emon get tired quickly after\n"
+	"a long flight\."
+}
+
+text(local) Route134_Text_HitoshiIntro {
+	"You're a Pok\emon Trainer.\n"
+	"No need for words. We battle now."
+}
+
+text(local) Route134_Text_HitoshiDefeat {
+	"\. \. \. \. \. \.\n"
+	"\. \. \. \. \. \."
+}
+
+text(local) Route134_Text_HitoshiPostBattle {
+	"It was I who challenged you, and yet\n"
+	"I lost. I am deeply shamed\."
+}
+
+text(local) Route134_Text_AaronIntro {
+	"The savage tide in this area serves to\n"
+	"make us stronger than ever."
+}
+
+text(local) Route134_Text_AaronDefeat {
+	"I willingly concede defeat."
+}
+
+text(local) Route134_Text_AaronPostBattle {
+	"We will return for more training at\n"
+	"Meteor Falls.\p"
+	"If you'd like, you should go, too.\n"
+	"It will definitely toughen you up!"
+}
+
+text(local) Route134_Text_KelvinIntro {
+	"O-our boat!\n"
+	"The tide carried it away!"
+}
+
+text(local) Route134_Text_KelvinDefeat {
+	"Awawawawah!\n"
+	"Please, stop! Please!"
+}
+
+text(local) Route134_Text_KelvinPostBattle {
+	"If we can't Surf, how are we supposed\n"
+	"to get home?\p"
+	"Actually, I know a fainted Pok\emon\n"
+	"can still Surf, but it feels wrong."
+}
+
+text(local) Route134_Text_MarleyIntro {
+	"Can your Pok\emon dodge our\n"
+	"lightning-quick attacks?"
+}
+
+text(local) Route134_Text_MarleyDefeat {
+	"I never knew such a technique existed!\n"
+	"You've defeated us thoroughly."
+}
+
+text(local) Route134_Text_MarleyPostBattle {
+	"I haven't lost my passion for speed.\n"
+	"I will try harder."
+}
+
+text(local) Route134_Text_ReynaIntro {
+	"My Pok\emon can't be taken down\n"
+	"easily!"
+}
+
+text(local) Route134_Text_ReynaDefeat {
+	"You're kidding!\n"
+	"Explain how I lost!"
+}
+
+text(local) Route134_Text_ReynaPostBattle {
+	"Haha!\n"
+	"You won, all right!\p"
+	"I'll work my way back up by taking on\n"
+	"Trainers I happen to meet!"
+}
+
+text(local) Route134_Text_HudsonIntro {
+	"Listen, have you seen another Sailor\n"
+	"around here?"
+}
+
+text(local) Route134_Text_HudsonDefeat {
+	"Now, that's something!"
+}
+
+text(local) Route134_Text_HudsonPostBattle {
+	"Our boat drifted out to sea.\p"
+	"My buddy's a timid fellow, so I'm\n"
+	"worried about him."
+}
+
+text VSSeeker_Text_BatteryNotChargedNeedXSteps {
+	"The battery isn't charged enough.\p"
+	"No. of steps required to fully\n"
+	"charge the battery: {STR_VAR_1}{PAUSE_UNTIL_PRESS}"
+}
+
+text VSSeeker_Text_NoTrainersWithinRange {
+	"There are no Trainers within range\n"
+	"who can battle\.\p"
+	"The VS Seeker was turned off.{PAUSE_UNTIL_PRESS}"
+}
+
+text VSSeeker_Text_TrainersNotReady {
+	"The other Trainers don't appear\n"
+	"to be ready for battle.\p"
+	"Let's wait till later.{PAUSE_UNTIL_PRESS}"
+}

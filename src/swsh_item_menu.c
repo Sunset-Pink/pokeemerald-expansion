@@ -7037,7 +7037,7 @@ static void BagMenu_UseRareCandy(u8 taskId)
     sBagItemUseState->savedExitCallback = gBagPosition.exitCallback;
     sBagItemUseState->moveLearnContinue = BagMenu_RareCandyDoLearnMoveStep;
 
-    if (B_RARE_CANDY_CAP && initialLevel >= GetCurrentLevelCap())
+    if (GetCurrentDifficultyLevel() != DIFFICULTY_VANILLA && B_RARE_CANDY_CAP && initialLevel >= GetCurrentLevelCap())
     {
         cannotUse = TRUE;
     }
@@ -8456,7 +8456,7 @@ static s16 BagMenu_ComputeMultiUseMax(u8 taskId)
         u32 holdEffectParam = GetItemHoldEffectParam(item);
         u32 levelCap = B_RARE_CANDY_CAP ? GetCurrentLevelCap() : MAX_LEVEL;
 
-        if (level >= MAX_LEVEL || level >= levelCap)
+        if (level >= MAX_LEVEL || (level >= levelCap && GetCurrentDifficultyLevel() != DIFFICULTY_VANILLA))
             return 0;
 
         if (holdEffectParam == 0) // rare candy

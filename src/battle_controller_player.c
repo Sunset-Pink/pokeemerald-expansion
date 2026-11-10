@@ -12,6 +12,7 @@
 #include "battle_gimmick.h"
 #include "bg.h"
 #include "data.h"
+#include "difficulty.h"
 #include "item.h"
 #include "item_menu.h"
 #include "link.h"
@@ -2007,7 +2008,10 @@ static void PlayerHandleChooseAction(enum BattlerId battler)
 
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
-    BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+    if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GetCurrentDifficultyLevel() > DIFFICULTY_EASY)
+            BattlePutTextOnWindow(gText_BattleMenu2, B_WIN_ACTION_MENU);
+    else 
+        BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
 
     for (i = 0; i < 4; i++)
         ActionSelectionDestroyCursorAt(i);

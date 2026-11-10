@@ -2072,7 +2072,7 @@ bool8 ScrCmd_braillemessage(struct ScriptContext *ctx)
 
     winTemplate = CreateWindowTemplate(0, xWindow, yWindow + 1, width, height, 0xF, 0x1);
     sBrailleWindowId = AddWindow(&winTemplate);
-    LoadUserWindowBorderGfx(sBrailleWindowId, 0x214, BG_PLTT_ID(14));
+    LoadUserWindowBorderGfx(sBrailleWindowId, 0x21A, BG_PLTT_ID(14));
     DrawStdWindowFrame(sBrailleWindowId, FALSE);
     PutWindowTilemap(sBrailleWindowId);
     FillWindowPixelBuffer(sBrailleWindowId, PIXEL_FILL(1));
@@ -3484,12 +3484,12 @@ bool8 ScrCmd_bufferstarterinfo(struct ScriptContext *ctx)
 
     if(FlagGet(FLAG_MONOTYPE_STARTERS))
     {
-        gSpecialVar_0x8006 = monoStarters[VarGet(VAR_STARTER_SELECTION)][starterType];
+        gSpecialVar_0x8006 = monoStarters[VarGet(VAR_TEMP_0)][starterType];
              
     }
     else
     {
-        gSpecialVar_0x8006 = normalStarters[VarGet(VAR_STARTER_SELECTION)][starterType]; 
+        gSpecialVar_0x8006 = normalStarters[VarGet(VAR_TEMP_0)][starterType]; 
     }
 
     StringCopy(GetStringVar(stringVarIndex), GetSpeciesName(gSpecialVar_0x8006));

@@ -12,6 +12,7 @@
 #include "bg.h"
 #include "contest.h"
 #include "data.h"
+#include "difficulty.h"
 #include "decompress.h"
 #include "easy_chat.h"
 #include "event_data.h"
@@ -7136,14 +7137,16 @@ static u16 GetMaxUsableItemCount(struct Pokemon *mon, enum Item item, enum ItemE
 
         if (param == 0) // Rare Candy
         {
-            u32 levelCeiling = B_RARE_CANDY_CAP ? GetCurrentLevelCap() : MAX_LEVEL;
+            u32 levelCeiling = (GetCurrentDifficultyLevel() != DIFFICULTY_VANILLA && B_RARE_CANDY_CAP) ? GetCurrentLevelCap() : MAX_LEVEL;
 
             return min(inBag, levelCeiling - GetMonData(mon, MON_DATA_LEVEL));
         }
         else // EXP Candies
         {
-            u32 levelCeiling = (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD)
-                             ? GetCurrentLevelCap() : MAX_LEVEL;
+            u32 levelCeiling = MAX_LEVEL;
+            if(GetCurrentDifficultyLevel() != DIFFICULTY_VANILLA && (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD)) {
+                levelCeiling = GetCurrentLevelCap();
+            }
             enum Species species = GetMonData(mon, MON_DATA_SPECIES);
             u32 remainingExp = gExperienceTables[gSpeciesInfo[species].growthRate][levelCeiling]
                              - GetMonData(mon, MON_DATA_EXP);
@@ -7656,7 +7659,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     tItemEffect = GetItemEffectType(gSpecialVar_ItemId);
     tItemCount = 1;
 
-    if (B_RARE_CANDY_CAP && gPartyMenu.levelBefore >= GetCurrentLevelCap())
+    if (GetCurrentDifficultyLevel() >= B_RARE_CANDY_CAP && gPartyMenu.levelBefore >= GetCurrentLevelCap())
         cannotUseEffect = TRUE;
     else
         cannotUseEffect = (gPartyMenu.levelBefore >= MAX_LEVEL);

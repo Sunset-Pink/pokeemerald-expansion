@@ -695,13 +695,14 @@ script Script_PlayersHouse_2F_BlockStairsUntilGiftIsAccepted {
 script Script_PlayersHouse_2F_Interact_MomsGift {
 	lockall
 	msgbox(Text_PlayersHouse_2F_MomsGift_Note)
-	giveitem(ITEM_OVAL_CHARM, 1)
-	giveitem(ITEM_CATCHING_CHARM, 1)
-	giveitem(ITEM_SHINY_CHARM, 1)
-	giveitem(ITEM_EXP_CHARM, 1)
-	giveitem(ITEM_GLIMMERING_CHARM, 1)
-	waitmessage
-	closemessage
+	giveitemfast(ITEM_OVAL_CHARM)
+	giveitemfast(ITEM_CATCHING_CHARM)
+	giveitemfast(ITEM_SHINY_CHARM)
+	giveitemfast(ITEM_EXP_CHARM)
+	//giveitemfast(ITEM_GLIMMERING_CHARM)
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(PlayersHouse_2F_ReceivedCharms_Text)
+	waitfanfare
 	setvar(VAR_QUEST_INTRO_STATE, 4)
 	setflag(FLAG_HIDE_PLAYERS_HOUSE_MOMS_GIFT)
 	setflag(FLAG_HIDE_PLAYERS_HOUSE_VIGOROTHS)
@@ -713,6 +714,11 @@ script Script_PlayersHouse_2F_Interact_MomsGift {
 	call(Script_PlayersHouse_2F_Mom_Leaves)
 	releaseall
 	end
+}
+
+text(local) PlayersHouse_2F_ReceivedCharms_Text {
+	"{PLAYER} recieved Oval, Catching,\n"
+	"Shiny, and Exp Charms."
 }
 
 text Text_PlayersHouse_2F_MomsGift_Note {

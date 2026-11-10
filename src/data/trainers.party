@@ -42,7 +42,7 @@ Required fields for Pokemon:
       With narrow font it's increased to 12. Longer strings will be silently shortened.
 
 Optional fields for Pokemon:
-    - Level (Number between 1 and 100, defaults to 100)
+    - Level (Number between 1 and 100, defaults to 100) 0 is Scaled to player, -1, -2, etc. is scaled - 1, 101 is set to cap
     - Ability (Ability Name or ABILITY_ABILITY_NAME)
     - IVs (0 HP / 1 Atk / 2 Def / 3 SpA / 4 SpD / 5 Spe, defaults to all 31)
           (Order does not matter)
@@ -57,7 +57,7 @@ Optional fields for Pokemon:
                  (doesn't do anything to Pokemon without a Gigantamax form, also sets "shouldDynamax" to True)
     - Tera Type (Set to a Type, either Fire or TYPE_FIRE, also sets "shouldTerastal" to True)
 Moves are defined with a - (dash) followed by a single space, then the move name.
-Either "- Tackle" or "- MOVE_TACKLE" works. One move per line.
+Either "- MOVE_TACKLE" or "- MOVE_MOVE_TACKLE" works. One move per line.
 Moves have to be the last lines of a Pokemon.
 If no moves are specified, the Pokemon will use the last 4 moves it learns
 through levelup at its level.
@@ -82,6 +82,948 @@ Pic: Hiker
 Gender: Male
 Music: Male
 Double Battle: No
+
+/* Route 102 */
+=== TRAINER_CALVIN_1 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Poochyena
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+
+=== TRAINER_CALVIN_1 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Normal
+
+Poochyena
+Level: 0
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/* Rustboro Gym */
+
+=== TRAINER_JOSH ===
+Name: Josh
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Geodude
+Level: 10
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_TACKLE
+
+
+=== TRAINER_JOSH ===
+Name: Josh
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Normal
+
+Geodude
+Level: -1
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_TACKLE
+
+=== TRAINER_TOMMY ===
+Name: Tommy
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Geodude
+Level: 8
+IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+
+Geodude
+Level: 8
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+
+=== TRAINER_TOMMY ===
+Name: Tommy
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Normal
+
+Geodude
+Level: -1
+IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+
+Geodude
+Level: -1
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+
+=== TRAINER_MARC ===
+Name: Marc
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Geodude
+Level: -1
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+
+Geodude
+Level: -1
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+
+=== TRAINER_MARC ===
+Name: Marc
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Normal
+
+Geodude
+Level: -1
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+
+Geodude
+Level: -1
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+
+=== TRAINER_ROXANNE_NORMAL ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Potion / Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Geodude
+Level: 12
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_TACKLE
+- Defense Curl
+- Rock Throw
+- Rock Tomb
+
+Geodude
+Level: 12
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_TACKLE
+- Defense Curl
+- Rock Throw
+- Rock Tomb
+
+Nosepass @ Oran Berry
+Level: 15
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Block
+- Harden
+- MOVE_TACKLE
+- Rock Tomb
+
+
+=== TRAINER_ROXANNE_NORMAL ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Normal
+
+Geodude-Alola
+Level: 101
+Ability: ABILITY_GALVANIZE
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_ROCK_CLIMB
+- MOVE_ROCK_TOMB
+- MOVE_AUTOTOMIZE
+
+Anorith @ Berry Juice
+Level: 101
+Ability: Battle Armor
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 236 Atk / 36 Def / 236 Spe
+- MOVE_ROCK_TOMB
+- MOVE_AQUA_JET
+- MOVE_POUNCE
+- MOVE_RAPID_SPIN
+
+Lileep @ Eviolite
+Level: 101
+Ability: Storm Drain
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 68 HP / 220 Def / 108 SpA / 60 SpD / 12 Spe
+Bold Nature
+- MOVE_RECOVER
+- MOVE_GIGA_DRAIN
+- MOVE_STEALTH_ROCK
+- MOVE_ACID
+
+Nosepass @ ITEM_BERRY_JUICE
+Level: 101
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_THUNDER_WAVE
+- MOVE_BULLDOZE
+- MOVE_ROCK_TOMB
+- MOVE_BLOCK
+
+=== TRAINER_ROXANNE_BRONZE ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Golem
+Level: 32
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Protect
+- Rollout
+- Magnitude
+- Explosion
+
+Kabuto @ Sitrus Berry
+Level: 35
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Ice Beam
+- Surf
+- Rock Slide
+
+Onix
+Level: 35
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Tail
+- Explosion
+- Roar
+- Rock Slide
+
+Nosepass @ Sitrus Berry
+Level: 37
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Double Team
+- Explosion
+- Protect
+- Rock Slide
+
+=== TRAINER_ROXANNE_SILVER ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Omanyte
+Level: 37
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Protect
+- Ice Beam
+- Rock Slide
+- Surf
+
+Golem
+Level: 37
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Protect
+- Rollout
+- Magnitude
+- Explosion
+
+Kabutops @ Sitrus Berry
+Level: 40
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Ice Beam
+- Surf
+- Rock Slide
+
+Onix
+Level: 40
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Tail
+- Explosion
+- Roar
+- Rock Slide
+
+Nosepass @ Sitrus Berry
+Level: 42
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Double Team
+- Explosion
+- Protect
+- Rock Slide
+
+=== TRAINER_ROXANNE_GOLD ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Omastar
+Level: 42
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Protect
+- Ice Beam
+- Rock Slide
+- Surf
+
+Golem
+Level: 42
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Protect
+- Rollout
+- Earthquake
+- Explosion
+
+Kabutops @ Sitrus Berry
+Level: 45
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Ice Beam
+- Surf
+- Rock Slide
+
+Onix
+Level: 45
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Tail
+- Explosion
+- Roar
+- Rock Slide
+
+Nosepass @ Sitrus Berry
+Level: 47
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Double Team
+- Explosion
+- Protect
+- Rock Slide
+
+=== TRAINER_ROXANNE_DIAMOND ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Aerodactyl
+Level: 47
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Slide
+- Hyper Beam
+- Supersonic
+- Protect
+
+Golem
+Level: 47
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Focus Punch
+- Rollout
+- Earthquake
+- Explosion
+
+Omastar
+Level: 47
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Protect
+- Ice Beam
+- Rock Slide
+- Surf
+
+Kabutops @ Sitrus Berry
+Level: 50
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Ice Beam
+- Surf
+- Rock Slide
+
+Steelix
+Level: 50
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Iron Tail
+- Explosion
+- Roar
+- Rock Slide
+
+Nosepass @ Sitrus Berry
+Level: 52
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Double Team
+- Explosion
+- Protect
+- Rock Slide
+
+=== TRAINER_ROXANNE_PLATINUM ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regirock
+Level: 5
+
+=== TRAINER_ROXANNE_ULTRA ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regirock
+Level: 5
+
+=== TRAINER_ROXANNE_HYPER ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regirock
+Level: 5
+
+=== TRAINER_ROXANNE_MASTER ===
+Name: Roxanne
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+Party Size: 6
+
+Regirock
+Level: 5
+
+Regice
+Level: 5
+
+Registeel
+Level: 5
+
+abra
+Level: 5
+
+Ho-oh
+Level: 5
+
+SPECIES_BARBARACLE @ ITEM_BARBARACITE
+Level: 101
+Ability: ABILITY_TOUGH_CLAWS
+EVs: 12 HP/ 252 Atk / 252 Spe
+Tags: Ace
+Adamant Nature
+- MOVE_SHELL_SMASH
+- MOVE_CLOSE_COMBAT
+- MOVE_STONE_EDGE
+- MOVE_SHADOW_CLAW
+
+Arceus-Rock @ Stone Plate
+Ability: Multitype
+EVs: 252 HP / 16 Def / 144 SpA / 96 Spe
+IVs: 0 Atk
+Tags: Ace
+Timid Nature
+- Judgment
+- Will-O-Wisp
+- Recover
+- Stealth Rock
+
+/* Petalburg City Gym */
+
+=== TRAINER_MARY ===
+Name: Mary
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Cool
+Items: Hyper Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Delcatty
+Level: 26
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Feint Attack
+- Shock Wave
+
+=== TRAINER_RANDALL ===
+Name: Randall
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Cool
+Items: Hyper Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Swellow
+Level: 26
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Quick Attack
+- Agility
+- Wing Attack
+
+=== TRAINER_GEORGE ===
+Name: George
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Cool
+Items: Hyper Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Slakoth @ Sitrus Berry
+Level: 26
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Slack Off
+- Counter
+- Shadow Ball
+
+=== TRAINER_ALEXIA ===
+Name: Alexia
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Cool
+Items: Hyper Potion
+Double Battle: No
+AI: Basic Trainer
+
+Wigglytuff
+Level: 26
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Defense Curl
+- Double Edge
+- Shadow Ball
+
+=== TRAINER_PARKER ===
+Name: Parker
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Cool
+Items: Hyper Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Spinda
+Level: 26
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Teeter Dance
+- Dizzy Punch
+- Focus Punch
+
+=== TRAINER_BERKE ===
+Name: Berke
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Cool
+Items: Hyper Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Vigoroth
+Level: 26
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Focus Energy
+- Slash
+
+=== TRAINER_JODY ===
+Name: Jody
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Cool
+Items: Hyper Potion
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Force Setup First Turn
+
+Zangoose
+Level: 26
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Slash
+
+=== TRAINER_NORMAN_NORMAL ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Hyper Potion / Hyper Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Spinda
+Level: 27
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Teeter Dance
+- Psybeam
+- Facade
+- Encore
+
+Vigoroth
+Level: 27
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Slash
+- Facade
+- Encore
+- Feint Attack
+
+Linoone
+Level: 29
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Slash
+- Belly Drum
+- Facade
+- Headbutt
+
+Slaking @ Sitrus Berry
+Level: 31
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Counter
+- Yawn
+- Facade
+- Feint Attack
+
+=== TRAINER_NORMAN_BRONZE ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Chansey
+Level: 42
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Light Screen
+- Sing
+- Skill Swap
+- Focus Punch
+
+Slaking @ Sitrus Berry
+Level: 42
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blizzard
+- Shadow Ball
+- Double Edge
+- Fire Blast
+
+Spinda
+Level: 43
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Teeter Dance
+- Skill Swap
+- Facade
+- Hypnosis
+
+Slaking @ Sitrus Berry
+Level: 45
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hyper Beam
+- Flamethrower
+- Thunderbolt
+- Shadow Ball
+
+=== TRAINER_NORMAN_SILVER ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Slaking @ Sitrus Berry
+Level: 47
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blizzard
+- Shadow Ball
+- Double Edge
+- Fire Blast
+
+Chansey
+Level: 47
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Light Screen
+- Sing
+- Skill Swap
+- Focus Punch
+
+Kangaskhan
+Level: 45
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Dizzy Punch
+- Endure
+- Reversal
+
+Spinda
+Level: 48
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Teeter Dance
+- Skill Swap
+- Facade
+- Hypnosis
+
+Slaking @ Sitrus Berry
+Level: 50
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hyper Beam
+- Flamethrower
+- Thunderbolt
+- Shadow Ball
+
+=== TRAINER_NORMAN_GOLD ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Slaking @ Sitrus Berry
+Level: 52
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blizzard
+- Shadow Ball
+- Double Edge
+- Fire Blast
+
+Blissey
+Level: 52
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Light Screen
+- Sing
+- Skill Swap
+- Focus Punch
+
+Kangaskhan
+Level: 50
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Dizzy Punch
+- Endure
+- Reversal
+
+Spinda
+Level: 53
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Teeter Dance
+- Skill Swap
+- Facade
+- Hypnosis
+
+Slaking @ Sitrus Berry
+Level: 55
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hyper Beam
+- Flamethrower
+- Thunderbolt
+- Shadow Ball
+
+=== TRAINER_NORMAN_DIAMOND ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Slaking @ Sitrus Berry
+Level: 57
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blizzard
+- Shadow Ball
+- Double Edge
+- Fire Blast
+
+Blissey
+Level: 57
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Protect
+- Sing
+- Skill Swap
+- Focus Punch
+
+Kangaskhan
+Level: 55
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Dizzy Punch
+- Endure
+- Reversal
+
+Tauros
+Level: 57
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Take Down
+- Protect
+- Fire Blast
+- Earthquake
+
+Spinda
+Level: 58
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Teeter Dance
+- Skill Swap
+- Facade
+- Hypnosis
+
+Slaking @ Sitrus Berry
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hyper Beam
+- Flamethrower
+- Thunderbolt
+- Shadow Ball
+
+
+=== TRAINER_NORMAN_PLATINUM ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+=== TRAINER_NORMAN_ULTRA ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+=== TRAINER_NORMAN_HYPER ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+=== TRAINER_NORMAN_MASTER ===
+Name: Norman
+Class: Leader
+Pic: Leader Norman
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Regigigas
+Level: 5
+
+/* Misc */
 
 === TRAINER_SAWYER_1 ===
 Name: Sawyer
@@ -1329,77 +2271,6 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_RANDALL ===
-Name: Randall
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Swellow
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Quick Attack
-- Agility
-- Wing Attack
-
-=== TRAINER_PARKER ===
-Name: Parker
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Spinda
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
-- Dizzy Punch
-- Focus Punch
-
-=== TRAINER_GEORGE ===
-Name: George
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Slakoth @ Sitrus Berry
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Slack Off
-- Counter
-- Shadow Ball
-
-=== TRAINER_BERKE ===
-Name: Berke
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Vigoroth
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Focus Energy
-- Slash
-
 === TRAINER_BRAXTON ===
 Name: Braxton
 Class: Cooltrainer
@@ -1737,56 +2608,6 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Ludicolo
 Level: 33
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_MARY ===
-Name: Mary
-Class: Cooltrainer
-Pic: Cooltrainer F
-Gender: Female
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Delcatty
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Feint Attack
-- Shock Wave
-
-=== TRAINER_ALEXIA ===
-Name: Alexia
-Class: Cooltrainer
-Pic: Cooltrainer F
-Gender: Female
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-
-Wigglytuff
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Defense Curl
-- Double Edge
-- Shadow Ball
-
-=== TRAINER_JODY ===
-Name: Jody
-Class: Cooltrainer
-Pic: Cooltrainer F
-Gender: Female
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Force Setup First Turn
-
-Zangoose
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Swords Dance
-- Slash
 
 === TRAINER_WENDY ===
 Name: Wendy
@@ -2300,7 +3121,7 @@ Difficulty: Vanilla
 Zigzagoon @ Nugget
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
+- MOVE_TACKLE
 - Tail Whip
 
 === TRAINER_BRIANNA ===
@@ -5035,40 +5856,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 - Crunch
 
-=== TRAINER_ROXANNE_NORMAL ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Potion / Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
 
-Geodude
-Level: 12
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
-- Rock Tomb
-
-Geodude
-Level: 12
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
-- Rock Tomb
-
-Nosepass @ Oran Berry
-Level: 15
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Block
-- Harden
-- Tackle
-- Rock Tomb
 
 === TRAINER_BRAWLY_NORMAL ===
 Name: Brawly
@@ -5179,7 +5967,7 @@ Camerupt
 Level: 26
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Overheat
-- Tackle
+- MOVE_TACKLE
 - Sunny Day
 - Attract
 
@@ -5190,49 +5978,6 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Sunny Day
 - Body Slam
 - Attract
-
-=== TRAINER_NORMAN_NORMAL ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Hyper Potion / Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Spinda
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Teeter Dance
-- Psybeam
-- Facade
-- Encore
-
-Vigoroth
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Facade
-- Encore
-- Feint Attack
-
-Linoone
-Level: 29
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Belly Drum
-- Facade
-- Headbutt
-
-Slaking @ Sitrus Berry
-Level: 31
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Counter
-- Yawn
-- Facade
-- Feint Attack
 
 === TRAINER_WINONA_NORMAL ===
 Name: Winona
@@ -5653,7 +6398,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Makuhita
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
+- MOVE_TACKLE
 - Focus Energy
 - Arm Thrust
 
@@ -5678,7 +6423,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 Makuhita
 Level: 30
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-- Tackle
+- MOVE_TACKLE
 - Focus Energy
 - Arm Thrust
 
@@ -5703,7 +6448,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 Makuhita
 Level: 33
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-- Tackle
+- MOVE_TACKLE
 - Focus Energy
 - Arm Thrust
 
@@ -5728,7 +6473,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 Makuhita
 Level: 36
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Tackle
+- MOVE_TACKLE
 - Focus Energy
 - Arm Thrust
 
@@ -5752,7 +6497,7 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 Hariyama
 Level: 38
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-- Tackle
+- MOVE_TACKLE
 - Focus Energy
 - Arm Thrust
 
@@ -6235,20 +6980,6 @@ Hariyama
 Level: 39
 IVs: 29 HP / 29 Atk / 29 Def / 29 SpA / 29 SpD / 29 Spe
 
-=== TRAINER_CALVIN_1 ===
-Name: Calvin
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Poochyena
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_BILLY ===
 Name: Billy
 Class: Youngster
@@ -6266,39 +6997,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Seedot
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_JOSH ===
-Name: Josh
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Geodude
-Level: 10
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-
-=== TRAINER_TOMMY ===
-Name: Tommy
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Geodude
-Level: 8
-IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
-
-Geodude
-Level: 8
-IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
 === TRAINER_JOEY ===
 Name: Joey
@@ -8045,7 +8743,7 @@ Koffing
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Smog
 - Self Destruct
 
@@ -8053,7 +8751,7 @@ Koffing
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Smog
 - Self Destruct
 
@@ -8061,7 +8759,7 @@ Koffing
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 - Self Destruct
 
@@ -8095,7 +8793,7 @@ Koffing
 Level: 24
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 - Self Destruct
 
@@ -8103,21 +8801,21 @@ Koffing
 Level: 24
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 Koffing
 Level: 24
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 - Self Destruct
 
 Koffing
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 === TRAINER_LAO_3 ===
@@ -8133,7 +8831,7 @@ Koffing
 Level: 27
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 - Self Destruct
 
@@ -8141,7 +8839,7 @@ Koffing
 Level: 27
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 - Self Destruct
 
@@ -8149,13 +8847,13 @@ Koffing
 Level: 27
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 Koffing
 Level: 29
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 === TRAINER_LAO_4 ===
@@ -8171,27 +8869,27 @@ Koffing
 Level: 30
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 Koffing
 Level: 30
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 Koffing
 Level: 30
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 Koffing
 Level: 32
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 === TRAINER_LAO_5 ===
@@ -8207,14 +8905,14 @@ Koffing
 Level: 33
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 Koffing
 Level: 33
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 - Self Destruct
 
@@ -8222,14 +8920,14 @@ Koffing
 Level: 33
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Poison Gas
-- Tackle
+- MOVE_TACKLE
 - Sludge
 - Self Destruct
 
 Weezing @ Smoke Ball
 Level: 35
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-- Tackle
+- MOVE_TACKLE
 - Sludge
 
 === TRAINER_JOCELYN ===
@@ -8392,7 +9090,7 @@ Numel
 Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Ember
-- Tackle
+- MOVE_TACKLE
 - Magnitude
 - Sunny Day
 
@@ -8446,7 +9144,7 @@ Numel
 Level: 29
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Ember
-- Tackle
+- MOVE_TACKLE
 - Magnitude
 - Sunny Day
 
@@ -11097,24 +11795,6 @@ Numel
 Level: 22
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_MARC ===
-Name: Marc
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Geodude
-Level: 8
-IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
-
-Geodude
-Level: 8
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-
 === TRAINER_BRENDEN ===
 Name: Brenden
 Class: Sailor
@@ -12556,7 +13236,7 @@ Difficulty: Vanilla
 Koffing
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
+- MOVE_TACKLE
 - Self Destruct
 - Sludge
 - Smokescreen
@@ -12564,7 +13244,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Koffing
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
+- MOVE_TACKLE
 - Poison Gas
 - Sludge
 - Smokescreen
@@ -12616,7 +13296,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Koffing
 Level: 28
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
+- MOVE_TACKLE
 - Self Destruct
 - Sludge
 - Smokescreen
@@ -14896,266 +15576,6 @@ Mudkip
 Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_ROXANNE_BRONZE ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Golem
-Level: 32
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Protect
-- Rollout
-- Magnitude
-- Explosion
-
-Kabuto @ Sitrus Berry
-Level: 35
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Swords Dance
-- Ice Beam
-- Surf
-- Rock Slide
-
-Onix
-Level: 35
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
-
-Nosepass @ Sitrus Berry
-Level: 37
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
-
-=== TRAINER_ROXANNE_SILVER ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Omanyte
-Level: 37
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Protect
-- Ice Beam
-- Rock Slide
-- Surf
-
-Golem
-Level: 37
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Protect
-- Rollout
-- Magnitude
-- Explosion
-
-Kabutops @ Sitrus Berry
-Level: 40
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Swords Dance
-- Ice Beam
-- Surf
-- Rock Slide
-
-Onix
-Level: 40
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
-
-Nosepass @ Sitrus Berry
-Level: 42
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
-
-=== TRAINER_ROXANNE_GOLD ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Omastar
-Level: 42
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Protect
-- Ice Beam
-- Rock Slide
-- Surf
-
-Golem
-Level: 42
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Protect
-- Rollout
-- Earthquake
-- Explosion
-
-Kabutops @ Sitrus Berry
-Level: 45
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Swords Dance
-- Ice Beam
-- Surf
-- Rock Slide
-
-Onix
-Level: 45
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
-
-Nosepass @ Sitrus Berry
-Level: 47
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
-
-=== TRAINER_ROXANNE_DIAMOND ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Aerodactyl
-Level: 47
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rock Slide
-- Hyper Beam
-- Supersonic
-- Protect
-
-Golem
-Level: 47
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Focus Punch
-- Rollout
-- Earthquake
-- Explosion
-
-Omastar
-Level: 47
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Protect
-- Ice Beam
-- Rock Slide
-- Surf
-
-Kabutops @ Sitrus Berry
-Level: 50
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Swords Dance
-- Ice Beam
-- Surf
-- Rock Slide
-
-Steelix
-Level: 50
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
-
-Nosepass @ Sitrus Berry
-Level: 52
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
-
-=== TRAINER_ROXANNE_PLATINUM ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regirock
-Level: 5
-
-=== TRAINER_ROXANNE_ULTRA ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regirock
-Level: 5
-
-=== TRAINER_ROXANNE_HYPER ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regirock
-Level: 5
-
-=== TRAINER_ROXANNE_MASTER ===
-Name: Roxanne
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regirock
-Level: 5
-
 === TRAINER_BRAWLY_BRONZE ===
 Name: Brawly
 Class: Leader
@@ -15934,267 +16354,6 @@ AI: Basic Trainer
 Difficulty: Vanilla
 
 Moltres
-Level: 5
-
-=== TRAINER_NORMAN_BRONZE ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Chansey
-Level: 42
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Light Screen
-- Sing
-- Skill Swap
-- Focus Punch
-
-Slaking @ Sitrus Berry
-Level: 42
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Blizzard
-- Shadow Ball
-- Double Edge
-- Fire Blast
-
-Spinda
-Level: 43
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
-- Skill Swap
-- Facade
-- Hypnosis
-
-Slaking @ Sitrus Berry
-Level: 45
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
-- Flamethrower
-- Thunderbolt
-- Shadow Ball
-
-=== TRAINER_NORMAN_SILVER ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Slaking @ Sitrus Berry
-Level: 47
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Blizzard
-- Shadow Ball
-- Double Edge
-- Fire Blast
-
-Chansey
-Level: 47
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Light Screen
-- Sing
-- Skill Swap
-- Focus Punch
-
-Kangaskhan
-Level: 45
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Dizzy Punch
-- Endure
-- Reversal
-
-Spinda
-Level: 48
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
-- Skill Swap
-- Facade
-- Hypnosis
-
-Slaking @ Sitrus Berry
-Level: 50
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
-- Flamethrower
-- Thunderbolt
-- Shadow Ball
-
-=== TRAINER_NORMAN_GOLD ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Slaking @ Sitrus Berry
-Level: 52
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Blizzard
-- Shadow Ball
-- Double Edge
-- Fire Blast
-
-Blissey
-Level: 52
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Light Screen
-- Sing
-- Skill Swap
-- Focus Punch
-
-Kangaskhan
-Level: 50
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Dizzy Punch
-- Endure
-- Reversal
-
-Spinda
-Level: 53
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
-- Skill Swap
-- Facade
-- Hypnosis
-
-Slaking @ Sitrus Berry
-Level: 55
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
-- Flamethrower
-- Thunderbolt
-- Shadow Ball
-
-=== TRAINER_NORMAN_DIAMOND ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Slaking @ Sitrus Berry
-Level: 57
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Blizzard
-- Shadow Ball
-- Double Edge
-- Fire Blast
-
-Blissey
-Level: 57
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Protect
-- Sing
-- Skill Swap
-- Focus Punch
-
-Kangaskhan
-Level: 55
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Dizzy Punch
-- Endure
-- Reversal
-
-Tauros
-Level: 57
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Take Down
-- Protect
-- Fire Blast
-- Earthquake
-
-Spinda
-Level: 58
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
-- Skill Swap
-- Facade
-- Hypnosis
-
-Slaking @ Sitrus Berry
-Level: 60
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
-- Flamethrower
-- Thunderbolt
-- Shadow Ball
-
-
-=== TRAINER_NORMAN_PLATINUM ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regigigas
-Level: 5
-
-=== TRAINER_NORMAN_ULTRA ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regigigas
-Level: 5
-
-=== TRAINER_NORMAN_HYPER ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regigigas
-Level: 5
-
-=== TRAINER_NORMAN_MASTER ===
-Name: Norman
-Class: Leader
-Pic: Leader Norman
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Regigigas
 Level: 5
 
 === TRAINER_WINONA_BRONZE ===

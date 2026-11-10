@@ -8,6 +8,23 @@ Std_ObtainItem::
 	call EventScript_ObtainItemMessage
 	return
 
+Std_ObtainItemFast::
+	copyvar VAR_0x8004, ITEMID
+	copyvar VAR_0x8005, AMOUNT
+	additem ITEMID, AMOUNT
+	copyvar VAR_0x8007, VAR_RESULT
+	call_if_eq VAR_0x8007, FALSE, EventScript_TryAddItemToPCObtain
+	return
+
+EventScript_TryAddItemToPCObtain::
+	checkitemtype VAR_0x8004 @ Need to skip key items
+	goto_if_eq VAR_RESULT, POCKET_KEY_ITEMS, EventScript_TryAddItemToPCObtainContinue
+	addpcitem VAR_0x8004, VAR_0x8005
+	goto_if_eq VAR_RESULT, FALSE, EventScript_TryAddItemToPCObtainContinue
+	setvar VAR_0x8007, 2 @ (0 = full, 1 = in pocket, 2 = in PC)
+EventScript_TryAddItemToPCObtainContinue::
+	return
+
 EventScript_ObtainItemMessage::
 	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
 	checkitemtype ITEMID

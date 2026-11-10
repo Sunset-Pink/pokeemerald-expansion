@@ -276,11 +276,11 @@
 // Eg: You may rename FLAG_UNUSED_0x264 to a descriptive name and use it below.
 
 // Badge boost flags
-#define B_FLAG_BADGE_BOOST_ATTACK   FLAG_BADGE01_GET // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Attack of the player's Pokémon.
-#define B_FLAG_BADGE_BOOST_DEFENSE  FLAG_BADGE05_GET // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Defense of the player's Pokémon.
-#define B_FLAG_BADGE_BOOST_SPEED    FLAG_BADGE03_GET // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Speed of the player's Pokémon.
-#define B_FLAG_BADGE_BOOST_SPATK    FLAG_BADGE07_GET // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Sp. Atk of the player's Pokémon.
-#define B_FLAG_BADGE_BOOST_SPDEF    FLAG_BADGE07_GET // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Sp. Def of the player's Pokémon.
+#define B_FLAG_BADGE_BOOST_ATTACK   0 // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Attack of the player's Pokémon.
+#define B_FLAG_BADGE_BOOST_DEFENSE  0 // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Defense of the player's Pokémon.
+#define B_FLAG_BADGE_BOOST_SPEED    0 // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Speed of the player's Pokémon.
+#define B_FLAG_BADGE_BOOST_SPATK    0 // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Sp. Atk of the player's Pokémon.
+#define B_FLAG_BADGE_BOOST_SPDEF    0 // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Sp. Def of the player's Pokémon.
 // Other battle flags
 #define B_FLAG_INVERSE_BATTLE       0     // If this flag is set, the battle's type chart inverted. For example, Fire is super effective against Water.
 #define B_FLAG_AI_VS_AI_BATTLE      0     // If this flag is set, the player's Pokémon will be controlled by the AI in the next battle.

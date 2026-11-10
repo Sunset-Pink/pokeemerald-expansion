@@ -8612,7 +8612,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_ROCK_INCENSE] =
     {
         .name = ITEM_NAME("Rock Incense"),
-        .price = (I_PRICE >= GEN_7) ? 2000 : 9600,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_TYPE_POWER,
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
@@ -11932,7 +11932,7 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("Charti Berry"),
         .pluralName = ITEM_PLURAL_NAME("Charti Berries"),
-        .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
+        .price = 80,
         .holdEffect = HOLD_EFFECT_RESIST_BERRY,
         .holdEffectParam = TYPE_ROCK,
         .description = COMPOUND_STRING(

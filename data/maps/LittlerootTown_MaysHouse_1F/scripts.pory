@@ -1,32 +1,5 @@
 raw`
 
-LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor::
-	lockall
-	playse SE_PIN
-	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_Delay48
-	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_RIVALS_HOUSE_1F_MOM, LittlerootTown_MaysHouse_1F_Movement_RivalMomApproach
-	waitmovement 0
-	special GetRivalSonDaughterString
-	msgbox Text_RivalsHouse_1F_RivalsMom_OhYoureTheNewNeighbor, MSGBOX_DEFAULT
-	setflag FLAG_MET_RIVAL_MOM
-	setvar VAR_RIVAL_HOUSE_STATE, 2
-	releaseall
-	end
-
-LittlerootTown_MaysHouse_1F_Movement_RivalMomApproach:
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-
 LittlerootTown_MaysHouse_1F_EventScript_GoSeeRoom::
 	lockall
 	setvar VAR_0x8004, LOCALID_PLAYERS_HOUSE_1F_MOM
@@ -80,8 +53,6 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetRival::
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	delay 30
-	setvar VAR_LITTLEROOT_RIVAL_STATE, 3
-	setvar VAR_LITTLEROOT_TOWN_STATE, 1
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
@@ -208,7 +179,7 @@ mapscripts LittlerootTown_MaysHouse_1F_MapScripts {
 		VAR_QUEST_INTRO_STATE, 1: Script_LittlerootTown_MaysHouse_1F_Intro_EnterHouse
 		VAR_QUEST_INTRO_STATE, 3: Script_LittlerootTown_MaysHouse_1F_Intro_GoUpstairsForGift
 		VAR_QUEST_INTRO_STATE, 4: Script_LittlerootTown_MaysHouse_1F_PetalburgGymReport
-		//VAR_RIVAL_HOUSE_STATE, 1: LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor
+		VAR_RIVAL_MOM_STATE, 0: LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor
 		//VAR_RIVAL_HOUSE_STATE, 3: PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV
 	]
 }
@@ -283,5 +254,29 @@ script Script_LittlerootTown_MaysHouse_1F_PetalburgGymReport {
 	setvar(VAR_0x8004, FEMALE)
 	setvar(VAR_0x8005, LOCALID_PLAYERS_HOUSE_1F_MOM)
 	goto(Script_PlayersHouse_1F_PetalburgGymReport)
+	end
+}
+
+script LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor {
+	if(checkplayergender == FEMALE) {
+		return
+	}
+	lockall
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_RIVALS_HOUSE_1F_MOM, Common_Movement_Delay48)
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+	applymovement(LOCALID_RIVALS_HOUSE_1F_MOM, moves(
+		walk_down
+		walk_left * 5
+	))
+	waitmovement(0)
+	special(GetRivalSonDaughterString)
+	msgbox(Text_RivalsHouse_1F_RivalsMom_OhYoureTheNewNeighbor)
+	setflag(FLAG_MET_RIVAL_MOM)
+	setvar(VAR_RIVAL_MOM_STATE, 1)
+	releaseall
 	end
 }

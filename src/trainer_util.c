@@ -1,6 +1,9 @@
 #include "global.h"
 #include "main.h"
+#include "caps.h"
 #include "data.h"
+#include "difficulty.h"
+#include "frontier_util.h"
 #include "move.h"
 #include "random.h"
 #include "string_util.h"
@@ -135,7 +138,41 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         errorf("Unkwown trainer mon gender value %d", trainerMon->gender);
     personality |= genderValue;
     ModifyPersonalityForNature(&personality, trainerMon->nature);
-    CreateMon(mon, trainerMon->species, trainerMon->lvl, personality, trainer->otID);
+
+    enum Species finalSpecies = trainerMon->species;
+    u32 finalLevel = 100;
+
+    
+
+    if(trainerMon->lvl == 101) {
+        // Set to cap
+        finalLevel = GetCurrentLevelCap();
+        if(GetCurrentDifficultyLevel() == DIFFICULTY_EASY) {
+            finalLevel -= 2;
+        }
+
+    } else if (trainerMon->lvl <= 0) {
+        // Set to scaled 
+        u32 playerHighest = GetHighestLevelInPlayerParty();
+        // Set back to level cap as highest if somehow player is beyond level cap.
+        if(GetCurrentDifficultyLevel() != DIFFICULTY_VANILLA && playerHighest >= GetCurrentLevelCap()) {
+            playerHighest = GetCurrentLevelCap();
+        }
+        finalLevel = playerHighest + trainerMon->lvl;
+
+        // reduce further by 2 for Easy difficulty.
+        if(GetCurrentDifficultyLevel() == DIFFICULTY_EASY) {
+            finalLevel -= 2;
+        }
+
+        // TODO: Add evolution scaling.
+
+    } else {
+        finalLevel = trainerMon->lvl;
+    }
+
+
+    CreateMon(mon, finalSpecies, finalLevel, personality, trainer->otID);
     if (trainerMon->nickname != NULL)
         SetMonData(mon, MON_DATA_NICKNAME, trainerMon->nickname);
     if (trainerMon->ev) //ev in struct TrainerMon are stored in Showdown order not vanilla Emerald order

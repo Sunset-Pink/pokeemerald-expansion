@@ -179,7 +179,7 @@ script Script_ProfBirch_Interact_Starter_GenBased {
 	dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
 
 	if(var(VAR_RESULT) != MULTI_B_PRESSED) {
-		copyvar(VAR_STARTER_SELECTION, VAR_RESULT)
+		copyvar(VAR_TEMP_0, VAR_RESULT)
 	}
 	call(Script_ProfBirch_Interact_Starter_SayShowing_Gen)
 	return
@@ -206,7 +206,7 @@ script Script_ProfBirch_Interact_Starter_TypeBased {
 	dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
 
 	if(var(VAR_RESULT) != MULTI_B_PRESSED) {
-		copyvar(VAR_STARTER_SELECTION, VAR_RESULT)
+		copyvar(VAR_TEMP_0, VAR_RESULT)
 	}
 	call(Script_ProfBirch_Interact_Starter_SayShowing_Mono)
 	return
@@ -221,7 +221,7 @@ text(local) Text_ProfBirch_Starter_AnyType {
 }
 
 script Script_ProfBirch_Interact_Starter_SayShowing_Gen {
-	switch(var(VAR_STARTER_SELECTION)) {
+	switch(var(VAR_TEMP_0)) {
 		case 0:
 			msgbox(Text_ProfBirch_Starters_Gen_1)
 		case 1:
@@ -283,7 +283,7 @@ text(local) Text_ProfBirch_Starters_Gen_9 {
 }
 
 script Script_ProfBirch_Interact_Starter_SayShowing_Mono {
-	switch(var(VAR_STARTER_SELECTION))
+	switch(var(VAR_TEMP_0))
 	{
 		case 0:
 			msgbox(Text_ProfBirch_Starters_Mono_Fighting)
@@ -398,7 +398,7 @@ text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Torchic {
 text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Mudkip {
 	"A great choice, but also an unlucky one!\n"
 	"{RIVAL} chose a Mudkip as their\l"
-	" starter!"
+	"starter!"
 }
 
 text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeGeneration {

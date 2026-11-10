@@ -1,158 +1,33 @@
-raw`
-LittlerootTown_ProfessorBirchsLab_EventScript_AddRivalObject::
-	addobject LOCALID_BIRCHS_LAB_RIVAL
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
-	release
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex, MSGBOX_DEFAULT
-	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_BIRCHS_LAB_RIVAL, LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer
-	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayGivePokeBalls
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls
-	setvar VAR_BIRCH_LAB_STATE, 5
-	setflag FLAG_ADVENTURE_STARTED
-	setvar VAR_OLDALE_TOWN_STATE, 1
-	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
-	setvar VAR_LITTLEROOT_TOWN_STATE, 3
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_MayGivePokeBalls::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayGotPokedexTooTakeThese, MSGBOX_DEFAULT
-	giveitem ITEM_POKE_BALL, 5
-	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_MayNoRoomForPokeBalls
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CatchCutePokemonWithPokeBalls, MSGBOX_DEFAULT
-	setvar VAR_RESULT, 0
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanGotPokedexTooTakeThese, MSGBOX_DEFAULT
-	giveitem ITEM_POKE_BALL, 5
-	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanNoRoomForPokeBalls
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CatchCoolPokemonWithPokeBalls, MSGBOX_DEFAULT
-	setvar VAR_RESULT, 1
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex::
-	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex
-	waitfanfare
-	setflag FLAG_SYS_POKEDEX_GET
-	special SetUnlockedPokedexFlags
-	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
-	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_MayNoRoomForPokeBalls::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_OhYourBagsFull, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanNoRoomForPokeBalls::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_HeyYourBagsFull, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer:
-	walk_down
-	walk_in_place_faster_left
-	step_end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Rival::
-	lock
-	faceplayer
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhereShouldIGoNext
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanWhereShouldIGoNext
-	release
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_MayWhereShouldIGoNext::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanWhereShouldIGoNext::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanWhereShouldIGoNext, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_RivalFuturePlans::
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextImStayingHere
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanPreferCollectingSlowly
-	release
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextImStayingHere::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanPreferCollectingSlowly:
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier::
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayHaveYouGoneToBattleFrontier
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanHaveYouGoneToBattleFrontier
-	release
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_MayHaveYouGoneToBattleFrontier::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanHaveYouGoneToBattleFrontier::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_RivalTakeBreakFromFieldwork::
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork
-	release
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
-	lockall
-	pokenavcall LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall
-	waitmessage
-	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
-	releaseall
-	end
-`
-
 mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: Script_LittlerootTown_ProfessorBirchsLab_OnTransition
-	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
-		VAR_BIRCH_LAB_STATE, 2: Script_LittlerootTown_ProfessorBirchsLab_SetPlayerPosForReceiveStarter
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_QUEST_INTRO_STATE, 8: Script_BirchLab_PokedexEvent
 	]
 }
 
 script Script_LittlerootTown_ProfessorBirchsLab_OnTransition {
 	call(Common_EventScript_SetupRivalGfxId)
-	setvar(VAR_STARTER_SELECTION, 0)
-	setvar(VAR_STARTER_NAME_CHOICE, 1)
+	if(var(VAR_QUEST_INTRO_STATE) < 7) {
+		setvar(VAR_TEMP_F, 0)
+	}
+
+	if(var(VAR_QUEST_INTRO_STATE) == 8) {
+		setobjectxyperm(LOCALID_BIRCHS_LAB_BIRCH, 6, 4)
+		setobjectmovementtype(LOCALID_BIRCHS_LAB_BIRCH, MOVEMENT_TYPE_FACE_DOWN)
+		addobject(LOCALID_BIRCHS_LAB_RIVAL)
+		clearflag(FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL)
+	}
 }
 
-script Script_LittlerootTown_ProfessorBirchsLab_SetPlayerPosForReceiveStarter {
-	turnobject(LOCALID_PLAYER, DIR_NORTH)
+script LittlerootTown_ProfessorBirchsLab_EventScript_Rival {
+	lock
+	faceplayer
+	if(checkplayergender == MALE) {
+		msgbox(LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext, MSGBOX_NPC)
+	} else {
+		msgbox(LittlerootTown_ProfessorBirchsLab_Text_BrendanWhereShouldIGoNext, MSGBOX_NPC)
+	}
+	release
 	end
 }
 
@@ -328,7 +203,7 @@ script(local) Rival_MoveTo_Rout103 {
 		setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM)
 	}
 	// Set Rival state to route 103 state.
-	setvar(VAR_RIVAL_STATE, 3)
+	setvar(VAR_RIVAL_STATE, 2)
 	return 
 }
 
@@ -375,39 +250,23 @@ text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_FieldWork{
 }
 
 script Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformMono {
-	switch(var(VAR_STARTER_SELECTION)) {
-		case 0: 
-			msgbox(Text_Aide_Mono_Fighting, MSGBOX_NPC)
-		case 1: 
-			msgbox(Text_Aide_Mono_Flying, MSGBOX_NPC)
-		case 2: 
-			msgbox(Text_Aide_Mono_Poison, MSGBOX_NPC)
-		case 3: 
-			msgbox(Text_Aide_Mono_Ground, MSGBOX_NPC)
-		case 4: 
-			msgbox(Text_Aide_Mono_Rock, MSGBOX_NPC)
-		case 5: 
-			msgbox(Text_Aide_Mono_Bug, MSGBOX_NPC)
-		case 6: 
-			msgbox(Text_Aide_Mono_Ghost, MSGBOX_NPC)
-		case 7: 
-			msgbox(Text_Aide_Mono_Steel, MSGBOX_NPC)
-		case 8: 
-			msgbox(Text_Aide_Mono_Electric, MSGBOX_NPC)
-		case 9: 
-			msgbox(Text_Aide_Mono_Psychic, MSGBOX_NPC)
-		case 10: 
-			msgbox(Text_Aide_Mono_Ice, MSGBOX_NPC)
-		case 11: 
-			msgbox(Text_Aide_Mono_Dragon, MSGBOX_NPC)
-		case 12: 
-			msgbox(Text_Aide_Mono_Dark, MSGBOX_NPC)
-		case 13: 
-			msgbox(Text_Aide_Mono_Normal, MSGBOX_NPC)
-		case 14: 
-			msgbox(Text_Aide_Mono_Fairy, MSGBOX_NPC)
-		default:
-			msgbox("WTF did you do to see this message!?", MSGBOX_NPC)
+	switch(var(VAR_TEMP_F)) {
+		case 0:  msgbox(Text_Aide_Mono_Fighting, MSGBOX_NPC)
+		case 1:  msgbox(Text_Aide_Mono_Flying, MSGBOX_NPC)
+		case 2:  msgbox(Text_Aide_Mono_Poison, MSGBOX_NPC)
+		case 3:  msgbox(Text_Aide_Mono_Ground, MSGBOX_NPC)
+		case 4:  msgbox(Text_Aide_Mono_Rock, MSGBOX_NPC)
+		case 5:  msgbox(Text_Aide_Mono_Bug, MSGBOX_NPC)
+		case 6:  msgbox(Text_Aide_Mono_Ghost, MSGBOX_NPC)
+		case 7:  msgbox(Text_Aide_Mono_Steel, MSGBOX_NPC)
+		case 8:  msgbox(Text_Aide_Mono_Electric, MSGBOX_NPC)
+		case 9:  msgbox(Text_Aide_Mono_Psychic, MSGBOX_NPC)
+		case 10: msgbox(Text_Aide_Mono_Ice, MSGBOX_NPC)
+		case 11: msgbox(Text_Aide_Mono_Dragon, MSGBOX_NPC)
+		case 12: msgbox(Text_Aide_Mono_Dark, MSGBOX_NPC)
+		case 13: msgbox(Text_Aide_Mono_Normal, MSGBOX_NPC)
+		case 14: msgbox(Text_Aide_Mono_Fairy, MSGBOX_NPC)
+		default: msgbox("WTF did you do to see this message!?", MSGBOX_NPC)
 	}
 }
 
@@ -523,7 +382,7 @@ text Text_Aide_Mono_Fairy {
 }
 
 script Script_LittlerootTown_ProfessorBirchsLab_Interact_Aide_InformGen {
-	switch(var(VAR_STARTER_SELECTION)) {
+	switch(var(VAR_TEMP_F)) {
 		case 0: 
 			msgbox(Text_Aide_Gen1, MSGBOX_NPC)
 		case 1: 
@@ -623,13 +482,8 @@ text(local) LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex 
 	"for a long time.\p"
 	"{RIVAL} has an extensive history as\n"
 	"a Trainer already.\p"
-	"Here, {PLAYER}{KUN}, I ordered this for my\n"
-	"research, but I think you should have\l"
-	"this Pok\eDex."
-}
-
-text(local) LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex {
-	"{PLAYER} received the Pok\eDex!"
+	"Here, {PLAYER}{KUN}, as promised\n"
+	"here is a Pok\eDex for you."
 }
 
 text(local) LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex {
@@ -712,55 +566,6 @@ text(local) LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational
 	"Here, let me see your Pok\eDex units."
 }
 
-text(local) LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool {
-	"May: Eheheh!\p"
-	"It's so cool that even my Pok\eDex\n"
-	"is getting updated!\p"
-	"It's because you went out and caught\n"
-	"so many Pok\emon, {PLAYER}{KUN}!"
-}
-
-text(local) LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe {
-	"Brendan: I went out all over Hoenn\n"
-	"and checked out Pok\emon.\p"
-	"You can thank me for getting\n"
-	"the National Mode Pok\eDex.\p"
-	"Yep, you're lucky, {PLAYER}!"
-}
-
-text(local) LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone {
-	"Prof. Birch: Okay, all done!"
-}
-
-text(local) LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational {
-	"{PLAYER}'s Pok\eDex was upgraded\n"
-	"to the National Mode!"
-}
-
-text(local) LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2 {
-	"Prof. Birch: But listen.\n"
-	"You've become the Champion,\l"
-	"but your Pok\emon journey isn't over.\p"
-	"There is no end to the road\n"
-	"that is Pok\emon.\p"
-	"Somewhere, there is a grassy patch\n"
-	"that's waiting for you!"
-}
-
-text(local) LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork {
-	"May: I think I'll take a short break\n"
-	"from fieldwork.\p"
-	"I think I'll help the Prof here for\n"
-	"a while."
-}
-
-text(local) LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork {
-	"Brendan: For the time being,\n"
-	"I'm taking a break from fieldwork.\p"
-	"I'll be helping out the Prof here\n"
-	"for a while."
-}
-
 text(local) LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon {
 	"Prof. Birch: Oh, {PLAYER}{KUN}!\n"
 	"Let's have a look at your Pok\eDex.\p"
@@ -794,39 +599,144 @@ text(local) LittlerootTown_ProfessorBirchsLab_Text_BetterLeaveOthersAlone {
 	"Better leave the others alone."
 }
 
-text(local) LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere {
-	"MAY: {PLAYER}{KUN}, after this…\n"
-	"What are you going to do?\p"
-	"Are you going to keep battling\n"
-	"and sharpening your skills?\p"
-	"Or are you going to try filling\n"
-	"the National Pok\eDex?\p"
-	"I'm staying here to help the Prof."
+
+script(local) Script_BirchLab_PokedexEvent {
+	lockall
+	call(BirchLab_PokedexEvent_InitialMovements)
+	call(BirchLab_PokedexEvent_EmphasisBirchBeforeTalking)
+	msgbox(LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex)
+	call(BirchLab_PokedexEvent_GivePokedex)
+	msgbox(LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex)
+	call(BirchLab_PokedexEvent_GiveStarterItems)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+	msgbox(BirchLab_PokedexEvent_GoodLuckOnYourAdventure)
+
+	setvar(VAR_QUEST_INTRO_STATE, 9) // Quest Complete
+	setvar(VAR_RIVAL_STATE, 5) // Rival in house after Pokedex.
+	setflag(FLAG_ADVENTURE_STARTED)
+	setvar(VAR_OLDALE_TOWN_STATE, 1)
+	releaseall
+	end
 }
 
-text(local) LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly {
-	"Brendan: Rather than collecting\n"
-	"Pok\emon, I prefer slowly and \l"
-	"steadily raising the one I chose."
+script(local) BirchLab_PokedexEvent_InitialMovements {
+	applymovement(LOCALID_PLAYER, moves(
+		walk_up * 7
+	))
+	applymovement(LOCALID_BIRCHS_LAB_RIVAL, moves(
+		delay_8 * 5
+		walk_right
+		walk_up * 3
+		walk_right
+	))
+	waitmovement(0)
+	return
 }
 
-text(local) LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier {
-	"May: Oh, hi, {PLAYER}{KUN}!\n"
-	"Have you gone to that place,\l"
-	"the Battle Frontier?"
+script(local) BirchLab_PokedexEvent_EmphasisBirchBeforeTalking {
+	applymovement(LOCALID_BIRCHS_LAB_BIRCH, moves(walk_in_place_faster_down))
+	waitmovement(0)
+	return
 }
 
-text(local) LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier {
-	"Brendan: Hey, {PLAYER}!\n"
-	"Have you gone out to that place,\l"
-	"the Battle Frontier?"
+script(local) BirchLab_PokedexEvent_GivePokedex {
+	
+	// Received PokeDex
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(BirchLab_PokedexEvent_ReceivedPokedex_Text)
+	waitfanfare
+	closemessage
+
+	// Set appropriate flags
+	setflag(FLAG_SYS_POKEDEX_GET) // Unlock Pokedex menu option
+	special(SetUnlockedPokedexFlags)
+	setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+
+	return
+}
+text(local) BirchLab_PokedexEvent_ReceivedPokedex_Text {
+	"{PLAYER} received the Pok\eDex!"
+}
+
+script(local) BirchLab_PokedexEvent_GiveStarterItems {
+	// Give all starter items to the player.
+	giveitemfast(ITEM_POKE_BALL, 99)
+	giveitemfast(ITEM_QUICK_BALL, 99)
+	giveitemfast(ITEM_ORAN_BERRY, 10)
+
+	// Birch gives Poke & Quick balls.
+	msgbox(BirchLab_PokedexEvent_BirchBall_Text, MSGBOX_NPC)
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(BirchLab_PokedexEvent_RecievedBalls_Text)
+	waitfanfare
+	closemessage
+
+	// Face rival for berries
+	applymovement(LOCALID_PLAYER, moves( face_left))
+	waitmovement(0)
+
+	// Rival gives Berries
+	msgbox(BirchLab_PokedexEvent_RivalBerry_BeforeText,MSGBOX_NPC)
+	waitmessage
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(BirchLab_PokedexEvent_RecievedBerries_Text)
+	waitfanfare
+	closemessage
+
+	msgbox(BirchLab_PokedexEvent_RivalBerry_AfterText, MSGBOX_NPC)
+	waitmessage
+
+	return
+}
+
+text(local) BirchLab_PokedexEvent_BirchBall_Text {
+	"Prof. Birch: Oh, also {PLAYER}{KUN},\n"
+	"these will help get you started\l"
+	"on completing the Pok\eDex."
+}
+
+text(local) BirchLab_PokedexEvent_RecievedBalls_Text {
+	"{PLAYER} received 99 Pok\e Balls\n"
+	"and 99 Quick Balls!"
+}
+
+text(local) BirchLab_PokedexEvent_RivalBerry_BeforeText {
+	"{RIVAL}: Take these as a gift from me.\n"
+	"They can be suprisingly helpful\l"
+	"in a battle." 
+}
+text(local) BirchLab_PokedexEvent_RivalBerry_AfterText {
+	"Remember though, while most held\n"
+	"items are returned after battle,\l"
+	"berries are not.\p"
+	"Thankfully though, they are pretty\n"
+	"easy to grow more of!"
+}
+
+text(local) BirchLab_PokedexEvent_RecievedBerries_Text {
+	"{PLAYER} received 10 Oran Berries."
+}
+
+text(local) BirchLab_PokedexEvent_GoodLuckOnYourAdventure {
+	"Prof Birch: Well thats all the gifts\n"
+	"your Mom and I prepared, and then some.\p"
+	"Now, good luck on your Pokémon journey.\n"
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall {
+	lockall
+	pokenavcall(LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall)
+	waitmessage
+	clearflag(FLAG_SCOTT_CALL_BATTLE_FRONTIER)
+	releaseall
+	end
 }
 
 text(local) LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall {
 	"\. \. \. \. \. \.\n"
 	"\. \. \. \. \. Beep!\p"
 	"Scott: Hi, hi, {PLAYER}!\n"
-	"It's me, SCOTT.\p"
+	"It's me, Scott.\p"
 	"I'm aboard the S.S. Tidal now.\n"
 	"It feels great to be on the sea!\p"
 	"By the way…\p"

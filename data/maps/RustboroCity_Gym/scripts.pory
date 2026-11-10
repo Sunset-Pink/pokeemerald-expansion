@@ -1,120 +1,15 @@
 mapscripts RustboroCity_Gym_MapScripts {}
 
-script RustboroCity_Gym_EventScript_Roxanne {
-	trainerbattle_single(
-        TRAINER_ROXANNE_NORMAL, 
-        RustboroCity_Gym_Text_RoxanneIntro, 
-        RustboroCity_Gym_Text_RoxanneDefeat, 
-        RustboroCity_Gym_EventScript_RoxanneDefeated, 
-        NO_MUSIC
-    )
-	specialvar(VAR_RESULT, ShouldTryRematchBattle)
-    if(var(VAR_RESULT) == TRUE) {
-        goto(RustboroCity_Gym_EventScript_RoxanneRematch)
-    }
-    if(flag(FLAG_RECEIVED_TM_ROCK_TOMB) == FALSE) {
-        goto(RustboroCity_Gym_EventScript_GiveRockTomb)
-    }
-	msgbox(RustboroCity_Gym_Text_RoxannePostBattle)
-	release
-	end
-}
-
-script RustboroCity_Gym_EventScript_RegisterRoxanne {
-	lockall
-	pokenavcall(RustboroCity_Gym_Text_RoxanneRegisterCall)
-	waitmessage
-	delay(30)
-	playfanfare(MUS_REGISTER_MATCH_CALL)
-	msgbox(RustboroCity_Gym_Text_RegisteredRoxanne)
-	waitfanfare
-	closemessage
-	delay(30)
-	setflag(FLAG_ENABLE_ROXANNE_MATCH_CALL)
-	clearflag(FLAG_ENABLE_ROXANNE_FIRST_CALL)
-	releaseall
-	end
-}
-
-raw`
-RustboroCity_Gym_EventScript_RoxanneDefeated::
-	message RustboroCity_Gym_Text_ReceivedStoneBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox RustboroCity_Gym_Text_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_RUSTBORO_GYM
-	setflag FLAG_BADGE01_GET
-	setvar VAR_RUSTBORO_CITY_STATE, 1
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	setvar VAR_0x8008, 1
-	call Common_EventScript_SetGymTrainers
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	goto RustboroCity_Gym_EventScript_GiveRockTomb
-	end
-
-RustboroCity_Gym_EventScript_GiveRockTomb::
-	giveitem ITEM_TM_ROCK_TOMB
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_ROCK_TOMB
-	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_Gym_EventScript_RoxanneRematch::
-	@trainerbattle_rematch_double TRAINER_ROXANNE_NORMAL, RustboroCity_Gym_Text_RoxannePreRematch, RustboroCity_Gym_Text_RoxanneRematchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons
-	msgbox RustboroCity_Gym_Text_RoxannePostRematch, MSGBOX_AUTOCLOSE
-	end
-
-RustboroCity_Gym_EventScript_Josh::
-	trainerbattle_single TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
-	msgbox RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-RustboroCity_Gym_EventScript_Tommy::
-	trainerbattle_single TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
-	msgbox RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-RustboroCity_Gym_EventScript_Marc::
-	trainerbattle_single TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat
-	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-RustboroCity_Gym_EventScript_GymGuide::
+script RustboroCity_Gym_EventScript_GymGuide {
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, RustboroCity_Gym_EventScript_GymGuidePostVictory
-	msgbox RustboroCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	switch(var(VAR_STONE_BADGE_LEVEL)) {
+		case 1:msgbox(RustboroCity_Gym_Text_GymGuidePostVictory)
+		defeault: msgbox(RustboroCity_Gym_Text_GymGuideAdvice)
+	}
 	release
 	end
-
-RustboroCity_Gym_EventScript_GymGuidePostVictory::
-	msgbox RustboroCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_Gym_EventScript_LeftGymStatue::
-	lockall
-	goto_if_set FLAG_BADGE01_GET, RustboroCity_Gym_EventScript_GymStatueCertified
-	goto RustboroCity_Gym_EventScript_GymStatue
-	end
-
-RustboroCity_Gym_EventScript_RightGymStatue::
-	lockall
-	goto_if_set FLAG_BADGE01_GET, RustboroCity_Gym_EventScript_GymStatueCertified
-	goto RustboroCity_Gym_EventScript_GymStatue
-	end
-
-RustboroCity_Gym_EventScript_GymStatueCertified::
-	msgbox RustboroCity_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT
-	releaseall
-	end
-
-RustboroCity_Gym_EventScript_GymStatue::
-	msgbox RustboroCity_Gym_Text_GymStatue, MSGBOX_DEFAULT
-	releaseall
-	end
-`
+}
 
 text(local) RustboroCity_Gym_Text_GymGuideAdvice {
 	"Yo, how's it going?\p"
@@ -152,6 +47,12 @@ text(local) RustboroCity_Gym_Text_GymGuidePostVictory {
 	"That's got to feel awesome!"
 }
 
+script RustboroCity_Gym_EventScript_Josh {
+	trainerbattle_single( TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat)
+	msgbox(RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
 text(local) RustboroCity_Gym_Text_JoshIntro {
 	"Don't take us Gym Trainers lightly!\n"
 	"I'll show you why we're better!"
@@ -164,6 +65,12 @@ text(local) RustboroCity_Gym_Text_JoshDefeat {
 text(local) RustboroCity_Gym_Text_JoshPostBattle {
 	"You haven't seen anything of the Rock\n"
 	"type's terrifying power!"
+}
+
+script RustboroCity_Gym_EventScript_Tommy {
+	trainerbattle_single(TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat)
+	msgbox(RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE)
+	end
 }
 
 text(local) RustboroCity_Gym_Text_TommyIntro {
@@ -179,6 +86,12 @@ text(local) RustboroCity_Gym_Text_TommyPostBattle {
 	"Roxanne is stronger than me by\n"
 	"several times.\p"
 	"You'd better be on your guard!"
+}
+
+script RustboroCity_Gym_EventScript_Marc {
+	trainerbattle_single(TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat)
+	msgbox(RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE)
+	end
 }
 
 text(local) RustboroCity_Gym_Text_MarcIntro {
@@ -199,9 +112,25 @@ text(local) RustboroCity_Gym_Text_MarcPostBattle {
 	"pick the Rock type at her young age."
 }
 
+script RustboroCity_Gym_EventScript_Roxanne {
+	if(var(VAR_STONE_BADGE_LEVEL) == 0) {
+		trainerbattle_single(
+			TRAINER_ROXANNE_NORMAL, 
+			RustboroCity_Gym_Text_RoxanneIntro, 
+			RustboroCity_Gym_Text_RoxanneDefeat, 
+			RustboroCity_Gym_EventScript_RoxanneDefeated, 
+			NO_MUSIC
+		)
+	} else {
+		call(Roxanne_Extended_Levels)
+	}
+	release
+	end
+}
+
 text(local) RustboroCity_Gym_Text_RoxanneIntro {
-	"Hello, I am Roxanne, the Rustboro\n"
-	"Pok\emon Gym Leader.\p"
+	"Roxanne: Hello, I am Roxanne, the\n"
+	"Rustboro Pok\emon Gym Leader.\p"
 	"I became a Gym Leader so that I might\n"
 	"apply what I learned at the Pok\emon\l"
 	"Trainer's School in battle.\p"
@@ -210,7 +139,7 @@ text(local) RustboroCity_Gym_Text_RoxanneIntro {
 }
 
 text(local) RustboroCity_Gym_Text_RoxanneDefeat {
-	"So\.\n"
+	"Roxanne: So\.\n"
 	"I lost\.\p"
 	"It seems that I still have much more\n"
 	"to learn\.\p"
@@ -222,26 +151,251 @@ text(local) RustboroCity_Gym_Text_RoxanneDefeat {
 	"League Stone Badge."
 }
 
-text(local) RustboroCity_Gym_Text_ReceivedStoneBadge {
-	"{PLAYER} received the Stone Badge\n"
-	"from Roxanne."
+script Roxanne_Extended_Levels {
+	msgbox("What Gym Rank would you like to battle?")
+	if(var(VAR_STONE_BADGE_LEVEL) >= 8 && flag(FLAG_DEFEATED_CHAMPION)) {
+		dynmultipush("Master", 9)
+	}
+	if(var(VAR_STONE_BADGE_LEVEL) >= 7 && flag(FLAG_BADGE08_GET)) {
+		dynmultipush("Hyper", 8)
+	}
+	if(var(VAR_STONE_BADGE_LEVEL) >= 6 && flag(FLAG_BADGE07_GET)) {
+		dynmultipush("Ultra", 7)
+	}
+	if(var(VAR_STONE_BADGE_LEVEL) >= 5 && flag(FLAG_BADGE06_GET)) {
+		dynmultipush("Platinum", 6)
+	}
+	if(var(VAR_STONE_BADGE_LEVEL) >= 4 && flag(FLAG_BADGE05_GET)) {
+		dynmultipush("Diamond", 5)
+	}
+	if(var(VAR_STONE_BADGE_LEVEL) >= 3 && flag(FLAG_BADGE04_GET)) {
+		dynmultipush("Gold", 4)
+	}
+	if(var(VAR_STONE_BADGE_LEVEL) >= 2 && flag(FLAG_BADGE03_GET)) {
+		dynmultipush("Silver", 3)
+	}
+	if(var(VAR_STONE_BADGE_LEVEL) >= 1 && flag(FLAG_BADGE02_GET)) {
+		dynmultipush("Bronze", 2)
+	}
+	dynmultipush("Normal", 1)
+	dynmultipush("Cancel", MULTI_B_PRESSED)
+	dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
+
+	if(var(VAR_RESULT) == MULTI_B_PRESSED) {
+		msgbox(Roxanne_Challenge_Exit, MSGBOX_NPC)
+		return
+	}
+
+	switch(var(VAR_RESULT)) {
+		case 9: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_MASTER,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Master_Defeated, 
+				NO_MUSIC
+			)
+		case 8: 
+			trainerbattle_double(
+				TRAINER_ROXANNE_ULTRA,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Ultra_Defeated, 
+				NO_MUSIC
+			)
+		case 7: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_HYPER,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Hyper_Defeated, 
+				NO_MUSIC
+			)
+		case 6: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_PLATINUM,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Platinum_Defeated, 
+				NO_MUSIC
+			)
+		case 5: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_DIAMOND,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Diamond_Defeated, 
+				NO_MUSIC
+			)
+		case 4: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_GOLD,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Gold_Defeated, 
+				NO_MUSIC
+			)
+		case 3: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_SILVER,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Silver_Defeated, 
+				NO_MUSIC
+			)
+		case 2: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_BRONZE,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Bronze_Defeated, 
+				NO_MUSIC
+			)
+		case 1: 
+			trainerbattle_single(
+				TRAINER_ROXANNE_NORMAL,
+				RustboroCity_Gym_Text_RoxanneIntro, 
+				RustboroCity_Gym_Text_RoxanneDefeat, 
+				Roxanne_Bronze_Defeated, 
+				NO_MUSIC
+			)
+	}
+}
+
+text(local) Roxanne_Challenge_Exit {
+	"Roxanne: Come back any time if you want\n"
+	"a rematch."
+}
+
+script(local) Roxanne_Normal_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 0) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Bronze_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 1) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Silver_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 2) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Gold_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 3) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Diamond_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 4) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Platinum_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 5) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Ultra_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 6) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Hyper_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 7) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+script(local) Roxanne_Master_Defeated {
+	// Advance level if this the highest fight at the time.
+	if(var(VAR_STONE_BADGE_LEVEL) == 8) {
+		addvar(VAR_STONE_BADGE_LEVEL, 1)
+	}
+	msgbox(Roxanne_Challenge_Exit)
+}
+
+
+script RustboroCity_Gym_EventScript_RegisterRoxanne {
+	lockall
+	pokenavcall(RustboroCity_Gym_Text_RoxanneRegisterCall)
+	waitmessage
+	delay(30)
+	playfanfare(MUS_REGISTER_MATCH_CALL)
+	msgbox(RustboroCity_Gym_Text_RegisteredRoxanne)
+	waitfanfare
+	closemessage
+	delay(30)
+	setflag(FLAG_ENABLE_ROXANNE_MATCH_CALL)
+	clearflag(FLAG_ENABLE_ROXANNE_FIRST_CALL)
+	releaseall
+	end
 }
 
 text(local) RustboroCity_Gym_Text_StoneBadgeInfoTakeThis {
-	"The Stone Badge heightens the Attack\n"
-	"power of your Pok\emon.\p"
-	"It also enables them to use the HM move\n"
-	"Cut outside of battle.\p"
+	"Roxanne: The Stone Badge allow you to\n"
+	"use the HM move Cut outside of battle.\p"
 	"Please take this with you, too."
 }
 
-text(local) RustboroCity_Gym_Text_ExplainRockTomb{
+script RustboroCity_Gym_EventScript_GiveRockTomb {
+	giveitem(ITEM_TM_ROCK_TOMB)
+	if(var(VAR_RESULT) == FALSE) {
+		goto(Common_EventScript_ShowBagIsFull)
+	}
+	if(flag(FLAG_RECEIVED_ANY_TM)) {
+		msgbox(RustboroCity_Gym_Text_ExplainRockTomb)
+	} else {
+		msgbox(RustboroCity_Gym_Text_ExplainRockTomb_WithReminder)
+	}
+	return
+}
+
+text(local) RustboroCity_Gym_Text_ExplainRockTomb {
+    "Roxanne: That Technical Machine, TM39,\n"
+	"contains Rock Tomb.\p"
+	"It not only inflicts damage by dropping\n"
+	"rocks, it also lowers Speed.\p"
+	"If you use a TM, it instantly teaches\n"
+	"the move to a Pok\emon.\p"
+	"You can now buy more copies of the\n"
+	"Rock Tomb TM, at the Rustboro Gym Store."
+}
+text(local) RustboroCity_Gym_Text_ExplainRockTomb_WithReminder {
     "That Technical Machine, TM39,\n"
 	"contains Rock Tomb.\p"
 	"It not only inflicts damage by dropping\n"
 	"rocks, it also lowers Speed.\p"
 	"If you use a TM, it instantly teaches\n"
 	"the move to a Pok\emon.\p"
+	"Remember, a TM can be used only once,\n"
+	"so think before you use it."
+	"You can now buy more copies of the\n"
+	"Rock Tomb TM, at the Rustboro Gym Store."
 }
 
 text(local) RustboroCity_Gym_Text_RoxannePostBattle {
@@ -251,14 +405,94 @@ text(local) RustboroCity_Gym_Text_RoxannePostBattle {
 	"learn many things."
 }
 
-text(local) RustboroCity_Gym_Text_GymStatue {
-	"Rustboro City Pok\emon Gym"
+
+script RustboroCity_Gym_EventScript_RoxanneDefeated {
+	// Badge level before victory
+	switch(var(VAR_STONE_BADGE_LEVEL)) {
+		case 9:call(RoxanneDefeat_Master)
+		case 8: call(RoxanneDefeat_Master)
+		case 7: call(RoxanneDefeat_Ultra)
+		case 6: call(RoxanneDefeat_Hyper)
+		case 5:	call(RoxanneDefeat_Platinum)
+		case 4:	call(RoxanneDefeat_Diamond)
+		case 3:	call(RoxanneDefeat_Gold)
+		case 2: call(RoxanneDefeat_Bronze)
+		case 1:	call(RoxanneDefeat_Silver)
+		case 0: call(RoxanneDefeat_Normal)
+	}
+	release
+	end
 }
 
-text(local) RustboroCity_Gym_Text_GymStatueCertified {
-	"Rustboro City Pok\emon Gym\p"
-	"Roxanne's Certified Trainers:\n"
-	"{PLAYER}"
+script(local) RoxanneDefeat_Normal {
+	message(RustboroCity_Gym_Text_ReceivedStoneBadge_Normal)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(RustboroCity_Gym_Text_StoneBadgeInfoTakeThis)
+
+	// Set Rustboro City Gym Victory Result
+	setflag(FLAG_BADGE01_GET)
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+
+	// Advance Rustboro City state
+	setvar(VAR_RUSTBORO_CITY_STATE, 1)
+	
+	// Mark Trainers as cleared.
+	setvar(VAR_0x8008, 1)
+	call(Common_EventScript_SetGymTrainers)
+
+	// Advance Petalburg Gym State
+	addvar(VAR_PETALBURG_GYM_STATE, 1)
+	if(var(VAR_PETALBURG_GYM_STATE) == 6 ) {
+		call(Common_EventScript_ReadyPetalburgGymForBattle)
+	}
+
+	call(RustboroCity_Gym_EventScript_GiveRockTomb)
+	return
+}
+
+script(local) RoxanneDefeat_Bronze {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_Silver {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_Gold {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_Diamond {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_Platinum {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_Ultra {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_Hyper {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_Master {
+	addvar(VAR_STONE_BADGE_LEVEL, 1)
+	return
+}
+
+script(local) RoxanneDefeat_PostMaster {
+	return
 }
 
 text(local) RustboroCity_Gym_Text_RoxanneRegisterCall {
@@ -316,4 +550,215 @@ text(local) RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons {
 	"You only have one Pok\emon with you?\p"
 	"Please return with at least one more\n"
 	"Pok\emon."
+}
+
+script RustboroCity_Gym_Mart {
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	switch(var(VAR_STONE_BADGE_LEVEL)) {
+		case 9: pokemart(RustboroGym_Master_Mart)
+		case 8: pokemart(RustboroGym_Silver_Mart)
+		case 7: pokemart(RustboroGym_Silver_Mart)
+		case 6: pokemart(RustboroGym_Silver_Mart)
+		case 5: pokemart(RustboroGym_Silver_Mart)
+		case 4: pokemart(RustboroGym_Silver_Mart)
+		case 3: pokemart(RustboroGym_Silver_Mart)
+		case 2: pokemart(RustboroGym_Bronze_Mart)
+		case 1: pokemart(RustboroGym_Normal_Mart)
+		case 0: pokemart(Basic_Gym_Mart)
+		default: pokemart(Basic_Gym_Mart)
+	}
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+// Rock Items
+// - Hard Stone
+// - Rock Gem
+// - Rock Incense
+// - Rock Memory
+// - Stone Plate
+// - Cornerstone Mask
+// - Charti Berry
+// - Rocky Helmet?
+// - King's Rock?
+// - Smooth Rock
+
+mart RustboroGym_Normal_Mart {
+	ITEM_FRESH_WATER
+	ITEM_SODA_POP
+	ITEM_LEMONADE
+	
+	// Normal Rank Additions
+	ITEM_HARD_STONE
+	ITEM_TM_ROCK_TOMB
+}
+
+mart RustboroGym_Bronze_Mart {
+	ITEM_FRESH_WATER
+	ITEM_SODA_POP
+	ITEM_LEMONADE
+	ITEM_HARD_STONE
+	ITEM_TM_ROCK_TOMB
+
+	// Bronze Rank Additions
+	ITEM_ROCK_GEM
+	ITEM_CHARTI_BERRY
+}
+
+mart RustboroGym_Silver_Mart {
+	ITEM_FRESH_WATER
+	ITEM_SODA_POP
+	ITEM_LEMONADE
+	ITEM_HARD_STONE
+	ITEM_TM_ROCK_TOMB
+	ITEM_ROCK_GEM
+	ITEM_CHARTI_BERRY
+
+	// Silver Rank Additions
+	ITEM_COALOSSITE
+}
+
+mart RustboroGym_Master_Mart {
+	ITEM_FRESH_WATER
+	ITEM_SODA_POP
+	ITEM_LEMONADE
+	ITEM_HARD_STONE
+	ITEM_TM_ROCK_TOMB
+	ITEM_ROCK_GEM
+	ITEM_CHARTI_BERRY
+	ITEM_COALOSSITE
+	ITEM_ROCK_INCENSE
+	ITEM_TM_SANDSTORM
+	ITEM_SMOOTH_ROCK
+	ITEM_ROCKY_HELMET
+
+	// Master Rank Additions
+	ITEM_ROCK_MEMORY
+	ITEM_CORNERSTONE_MASK
+	ITEM_STONE_PLATE
+}
+
+script RustboroCity_Gym_EventScript_GymStatue {
+	switch(var(VAR_STONE_BADGE_LEVEL)) {
+		case 0: msgbox(RustboroCity_Gym_Text_GymStatue, MSGBOX_SIGN)
+		case 1: msgbox(RustboroCity_Gym_Text_Certified_Normal, MSGBOX_SIGN)
+		case 2: msgbox(RustboroCity_Gym_Text_Certified_Bronze, MSGBOX_SIGN)
+		case 3: msgbox(RustboroCity_Gym_Text_Certified_Silver, MSGBOX_SIGN)
+		case 4: msgbox(RustboroCity_Gym_Text_Certified_Gold, MSGBOX_SIGN)
+		case 5: msgbox(RustboroCity_Gym_Text_Certified_Diamond, MSGBOX_SIGN)
+		case 6: msgbox(RustboroCity_Gym_Text_Certified_Platinum, MSGBOX_SIGN)
+		case 7: msgbox(RustboroCity_Gym_Text_Certified_Ultra, MSGBOX_SIGN)
+		case 8: msgbox(RustboroCity_Gym_Text_Certified_Hyper, MSGBOX_SIGN)
+		case 9: msgbox(RustboroCity_Gym_Text_Certified_Master, MSGBOX_SIGN)
+	}
+	return
+}
+
+text(local) RustboroCity_Gym_Text_GymStatue {
+	"Rustboro City Pok\emon Gym"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Normal {
+	"Rustboro City Pok\emon Gym\p"
+	"Normal Rank Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Bronze {
+	"Rustboro City Pok\emon Gym\p"
+	"Bronze Rank Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Silver {
+	"Rustboro City Pok\emon Gym\p"
+	"Silver Rank Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Gold {
+	"Rustboro City Pok\emon Gym\p"
+	"Gold Rank Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Diamond {
+	"Rustboro City Pok\emon Gym\p"
+	"Diamond Rank Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Platinum {
+	"Rustboro City Pok\emon Gym\p"
+	"Platinum Rank Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Ultra {
+	"Rustboro City Pok\emon Gym\p"
+	"Ultra Rank Trainers:\n"
+	"{PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Hyper {
+	"Rustboro City Pok\emon Gym\p"
+	"Hyper Rank Trainers:\n"
+	"Juan, {PLAYER}"
+}
+
+text(local) RustboroCity_Gym_Text_Certified_Master {
+	"Rustboro City Pok\emon Gym\p"
+	"Master Rank Trainers:\n"
+	"Steven, Wallace, Red, {PLAYER}"
+}
+
+// Stone Badge Levels
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Normal {
+	"{PLAYER} received the Normal Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Bronze {
+	"{PLAYER} received the Bronze Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Silver {
+	"{PLAYER} received the Silver Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Gold {
+	"{PLAYER} received the Gold Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Diamond {
+	"{PLAYER} received the Diamond Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Platinum {
+	"{PLAYER} received the Platinum Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Ultra {
+	"{PLAYER} received the Ultra Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Hyper {
+	"{PLAYER} received the Hyper Rank\n"
+	"Stone Badge from Roxanne."
+}
+
+text(local) RustboroCity_Gym_Text_ReceivedStoneBadge_Master {
+	"{PLAYER} received the Master Rank\n"
+	"Stone Badge from Roxanne."
 }

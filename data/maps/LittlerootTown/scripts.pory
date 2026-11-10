@@ -34,7 +34,6 @@ mapscripts LittlerootTown_MapScripts {
 //LittlerootTown_OnTransition:
 //	call_if_eq VAR_RIVAL_HOUSE_STATE, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 //  call_if_eq VAR_OLDALE_RIVAL_STATE, 1, LittlerootTown_EventScript_MoveRivalFromOldale
-//	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 //	end
 
 

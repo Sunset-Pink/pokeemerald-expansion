@@ -208,7 +208,7 @@ Script_ProfBirch_Interact_Starter_GenBased_1:
 
 Script_ProfBirch_Interact_Starter_GenBased_2:
 # 182 "data/scripts/prof_birch.pory"
-	copyvar VAR_STARTER_SELECTION, VAR_RESULT
+	copyvar VAR_TEMP_0, VAR_RESULT
 	goto Script_ProfBirch_Interact_Starter_GenBased_1
 
 
@@ -259,13 +259,13 @@ Script_ProfBirch_Interact_Starter_TypeBased_1:
 
 Script_ProfBirch_Interact_Starter_TypeBased_2:
 # 209 "data/scripts/prof_birch.pory"
-	copyvar VAR_STARTER_SELECTION, VAR_RESULT
+	copyvar VAR_TEMP_0, VAR_RESULT
 	goto Script_ProfBirch_Interact_Starter_TypeBased_1
 
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen::
 # 224 "data/scripts/prof_birch.pory"
-	switch VAR_STARTER_SELECTION
+	switch VAR_TEMP_0
 # 225 "data/scripts/prof_birch.pory"
 	case 0, Script_ProfBirch_Interact_Starter_SayShowing_Gen_3
 # 227 "data/scripts/prof_birch.pory"
@@ -337,7 +337,7 @@ Script_ProfBirch_Interact_Starter_SayShowing_Gen_11:
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono::
 # 286 "data/scripts/prof_birch.pory"
-	switch VAR_STARTER_SELECTION
+	switch VAR_TEMP_0
 # 288 "data/scripts/prof_birch.pory"
 	case 0, Script_ProfBirch_Interact_Starter_SayShowing_Mono_3
 # 290 "data/scripts/prof_birch.pory"
@@ -746,7 +746,7 @@ Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Mudkip::
 # 398 "data/scripts/prof_birch.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Mudkip as their\l"
-	.string " starter!$"
+	.string "starter!$"
 
 Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeGeneration::
 # 404 "data/scripts/prof_birch.pory"

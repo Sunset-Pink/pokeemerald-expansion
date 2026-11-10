@@ -1048,9 +1048,10 @@ text(local) Route109_Text_EdmondPostBattle {
 	"I'm a Sailor, but\."
 }
 
-text(local) Route109_Text_RickyIntro:
+text(local) Route109_Text_RickyIntro {
 	"I'm thirsty\. I could go for a Soda Pop\n"
 	"at the Seashore House\."
+}
 
 text(local) Route109_Text_RickyDefeated {
 	"Groan\."
@@ -5407,9 +5408,10 @@ text(local) Route130_Text_SantiagoDefeat {
 	"I needed to be a little less peaceful!"
 }
 
-text(local) Route130_Text_SantiagoPostBattle:
+text(local) Route130_Text_SantiagoPostBattle {
 	"Swimming and battling like this\.\n"
 	"I'm one happy guy\."
+}
 
 text(local) Route131_Text_RichardIntro {
 	"The sea is teeming with Pok\emon.\n"

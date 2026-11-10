@@ -780,7 +780,8 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
 
     // Boost Theme Moves
     // Variants
-    //  - Punching   => Iron Fist.
+    //  - Punching   => Iron Fist
+    //  - Kicking    => Striker
     //  - Slashing   => Sharpness
     //  - Biting     => Strong Jaw
     //  - Sound      => Liquid Voice, Punk Rock
@@ -790,6 +791,13 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Iron Fist"),
         .description = COMPOUND_STRING("Boosts punching moves by 30%."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_STRIKER] =
+    {
+        .name = _("Striker"),
+        .description = COMPOUND_STRING("Boosts kicking moves by 30%."),
         .aiRating = 6,
     },
 

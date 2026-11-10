@@ -98,7 +98,7 @@
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
 #define VAR_UNUSED_0x404E                                0x404E // Unused Var
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
-#define VAR_LITTLEROOT_TOWN_STATE                        0x4050
+#define VAR_UNUSED_0x4050                                0x4050 // Unused Var
 #define VAR_OLDALE_TOWN_STATE                            0x4051
 #define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
@@ -150,7 +150,7 @@
 #define VAR_ROUTE134_STATE                               0x4081 // Unused Var
 #define VAR_RIVAL_HOUSE_STATE                            0x4082
 #define VAR_UNUSED_0x4083                                0x4083 // Unused Var
-#define VAR_BIRCH_LAB_STATE                              0x4084
+#define VAR_UNUSED_0x4084                                0x4084 // Unused Var
 #define VAR_PETALBURG_GYM_STATE                          0x4085 // 0-1: Wally tutorial, 2-6: 0-4 badges, 7: Defeated Norman, 8: Rematch Norman
 #define VAR_CONTEST_HALL_STATE                           0x4086
 #define VAR_CABLE_CLUB_STATE                             0x4087
@@ -158,8 +158,8 @@
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
 #define VAR_UNUSED_0x408B                                0x408B // Unused Var
-#define VAR_UNUSED_0x408C                                0x408C
-#define VAR_LITTLEROOT_RIVAL_STATE                       0x408D
+#define VAR_UNUSED_0x408C                                0x408C // Unused Var
+#define VAR_UNUSED_0x408D                                0x408D // Unused Var
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x408E
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
@@ -258,7 +258,9 @@
 #define VAR_SECRET_BASE_LAST_ITEM_USED                   0x40ED // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_LOW_TV_FLAGS                     0x40EE // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_HIGH_TV_FLAGS                    0x40EF // Used by Secret Base TV programs
-#define VAR_UNUNSED_0x40F0                               0x40F0 // Set to TRUE while in another player's secret base.
+#define VAR_RIVAL_MOM_STATE                              0x40F0
+// 0: Rival Mom @ Rival House, Haven't met
+// 1: Rival Mom @ Rival House, Met
 #define VAR_WALLY_STATE                                  0x40F1
 #define VAR_RIVAL_STATE                                  0x40F2
 // 0: Rival House 2F Pre-Scene
@@ -278,18 +280,19 @@
 // 6: Met professor Birch.
 // 7: Selected starter.
 // 8: Defeated rival.
+// 9: Recieved Gifts/Rewards. Quest Complete
 
 // ==== Badge Levels ====
 // 0: No Badge
-// 1: Normal
-// 2: Bronze
-// 3: Silver
-// 4: Gold
-// 5: Diamond
-// 6: Platinum
-// 7: Ultra (Double Battle)
-// 8: Hyper
-// 9: Master (Post Champion)
+// 1: Normal    (4 Mons, Lvl 16)
+// 2: Bronze    (5 Mons, Lvl 25)
+// 3: Silver    (Start having Megas, Lvl 34)
+// 4: Gold      (Start having Full Team, Lvl 47)
+// 5: Diamond   (Lvl 59)
+// 6: Platinum  (Lvl 68)
+// 7: Ultra     (Lvl 76, Double Battle)
+// 8: Hyper     (Lvl 82)
+// 9: Master    (Lvl 85/100, Post Champion)
 // 36 Points required for Elite 4
 #define VAR_STONE_BADGE_LEVEL                            0x40F4 // Level of Stone Badge (Roxanne)
 #define VAR_KNUCKLE_BADGE_LEVEL                          0x40F5 // Level of Knuckle Badge (Brawly)
@@ -301,8 +304,8 @@
 #define VAR_RAIN_BADGE_LEVEL                             0x40FB // Level of Rain Badge (Juan)
 #define VAR_CHAMPION_REMATCH                             0x40FC // Counter for the Champion Remach
 #define VAR_DIFFICULTY                                   0x40FD // Difficulty
-#define VAR_STARTER_NAME_CHOICE                          0x40FE // Type of which starter is chosen from.
-#define VAR_STARTER_SELECTION                            0x40FF // Gen/Mono starter selection.
+#define VAR_UNUSED_0x40FE                                0x40FE
+#define VAR_UNUSED_0x40FF                                0x40FF
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)

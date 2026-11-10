@@ -30,11 +30,42 @@ enum DifficultyLevel GetBattlePartnerDifficultyLevel(u16 partnerId)
     if (partnerId > TRAINER_PARTNER(PARTNER_NONE))
         partnerId -= TRAINER_PARTNER(PARTNER_NONE);
 
-    if (difficulty == DIFFICULTY_VANILLA)
+    if(difficulty == DIFFICULTY_VANILLA) {
         return DIFFICULTY_VANILLA;
+    }
 
-    if (gBattlePartners[difficulty][partnerId].party == NULL)
-        return DIFFICULTY_VANILLA;
+    bool8 hasHardTeam = gTrainers[DIFFICULTY_HARD][partnerId].party != NULL;
+    bool8 hasNormalTeam = gTrainers[DIFFICULTY_NORMAL][partnerId].party != NULL;
+    bool8 hasEasyTeam = gTrainers[DIFFICULTY_EASY][partnerId].party != NULL;
+
+    switch(difficulty) {
+        case DIFFICULTY_HARD: {
+            if(hasHardTeam) {
+                return DIFFICULTY_HARD;
+            } else if (hasNormalTeam) {
+                return DIFFICULTY_NORMAL;
+            } else {
+                return DIFFICULTY_VANILLA;
+            }
+        }
+        case DIFFICULTY_NORMAL: {
+            if(hasNormalTeam) {
+                return DIFFICULTY_NORMAL;
+            } else {
+                return DIFFICULTY_VANILLA;
+            }
+        }
+        case DIFFICULTY_EASY: {
+            if(hasEasyTeam) {
+                return DIFFICULTY_EASY;
+            } else if (hasNormalTeam) {
+                return DIFFICULTY_NORMAL;
+            } else {
+                return DIFFICULTY_VANILLA;
+            }
+        }
+        default: return DIFFICULTY_VANILLA;  
+    }
 
     return difficulty;
 }
@@ -43,12 +74,43 @@ enum DifficultyLevel GetTrainerDifficultyLevel(u16 trainerId)
 {
     enum DifficultyLevel difficulty = GetCurrentDifficultyLevel();
 
-    if (difficulty == DIFFICULTY_VANILLA)
+    if(difficulty == DIFFICULTY_VANILLA) {
         return DIFFICULTY_VANILLA;
+    }
 
-    if (gTrainers[difficulty][trainerId].party == NULL)
-        return DIFFICULTY_VANILLA;
+    bool8 hasHardTeam = gTrainers[DIFFICULTY_HARD][trainerId].party != NULL;
+    bool8 hasNormalTeam = gTrainers[DIFFICULTY_NORMAL][trainerId].party != NULL;
+    bool8 hasEasyTeam = gTrainers[DIFFICULTY_EASY][trainerId].party != NULL;
 
+    switch(difficulty) {
+        case DIFFICULTY_HARD: {
+            if(hasHardTeam) {
+                return DIFFICULTY_HARD;
+            } else if (hasNormalTeam) {
+                return DIFFICULTY_NORMAL;
+            } else {
+                return DIFFICULTY_VANILLA;
+            }
+        }
+        case DIFFICULTY_NORMAL: {
+            if(hasNormalTeam) {
+                return DIFFICULTY_NORMAL;
+            } else {
+                return DIFFICULTY_VANILLA;
+            }
+        }
+        case DIFFICULTY_EASY: {
+            if(hasEasyTeam) {
+                return DIFFICULTY_EASY;
+            } else if (hasNormalTeam) {
+                return DIFFICULTY_NORMAL;
+            } else {
+                return DIFFICULTY_VANILLA;
+            }
+        }
+        default: return DIFFICULTY_VANILLA;  
+    }
+    
     return difficulty;
 }
 

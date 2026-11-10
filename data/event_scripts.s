@@ -127,6 +127,7 @@ gStdScripts::
 	.4byte Std_MsgboxPokenav           @ MSGBOX_POKENAV
 	.4byte Std_PutItemAway             @ STD_PUT_ITEM_AWAY
 	.4byte Std_ReceivedItem            @ STD_RECEIVED_ITEM
+	.4byte Std_ObtainItemFast		   @ STD_OBTAIN_ITEM_FAST
 gStdScripts_End::
 
 
@@ -1067,8 +1068,8 @@ EventScript_AfterWhiteOutHeal::
 	lockall
 	msgbox gText_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
-	call_if_unset FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsgPreFirstBoss
-	call_if_set FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsg
+	call_if_eq VAR_STONE_BADGE_LEVEL, 0, EventScript_AfterWhiteOutHealMsgPreFirstBoss
+	call_if_ne VAR_STONE_BADGE_LEVEL, 0, EventScript_AfterWhiteOutHealMsg
 	applymovement VAR_LAST_TALKED, Movement_PkmnCenterNurse_Bow
 	waitmovement 0
 	fadedefaultbgm
@@ -1200,7 +1201,7 @@ EventScript_BackupMrBrineyLocation::
 
 	.include "data/scripts/surf.inc"
 	.include "data/scripts/rival_graphics.inc"
-	.include "data/scripts/set_gym_trainers.inc"
+	.include "data/scripts/gym.inc"
 
 EventScript_CancelMessageBox::
 	special UseBlankMessageToCancelPokemonPic
@@ -1441,13 +1442,13 @@ gText_MomExplainHPGetPotions::
 	.string "Pokémon Center.\p"
 	.string "If you're going to travel far away,\n"
 	.string "the smart Trainer stocks up on\l"
-	.string "Potions at the Pokeémon Mart.\p"
+	.string "Potions at the Pokémon Mart.\p"
 	.string "Make me proud, honey!\p"
 	.string "Take care!$"
 
 gText_RegisteredTrainerinPokeNav::
 	.string "Registered {STR_VAR_1} {STR_VAR_2}\n"
-	.string "in the POKéNAV.$"
+	.string "in the PokéNav.$"
 
 gText_ComeBackWithSecretPower::
 	.string "Do you know the TM Secret Power?\p"

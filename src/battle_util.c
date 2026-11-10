@@ -14,6 +14,7 @@
 #include "battle_hold_effects.h"
 #include "battle_stat_change.h"
 #include "config_changes.h"
+#include "difficulty.h"
 #include "party_menu.h"
 #include "pokemon.h"
 #include "international_string_util.h"
@@ -46,6 +47,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/battle_script_commands.h"
 #include "constants/battle_string_ids.h"
+#include "constants/difficulty.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/moves.h"
@@ -11126,16 +11128,15 @@ bool32 IsBattlerInvalidForSpreadMove(enum BattlerId battlerAtk, enum BattlerId b
 
 bool32 IsAllowedToUseBag(void)
 {
-    switch (VarGet(B_VAR_NO_BAG_USE))
-    {
-    case NO_BAG_RESTRICTION:
-        return TRUE;
-    case NO_BAG_AGAINST_TRAINER: //True in wild battle; False in trainer battle
-        return (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER));
-    case NO_BAG_IN_BATTLE:
-        return FALSE;
-    default:
-        return TRUE; // Undefined Behavior
+    switch(GetCurrentDifficultyLevel()) {
+        case DIFFICULTY_VANILLA:
+        case DIFFICULTY_EASY:
+            return TRUE;
+        case DIFFICULTY_NORMAL:
+        case DIFFICULTY_HARD:
+            return (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER));
+        default:
+            return TRUE;
     }
 }
 

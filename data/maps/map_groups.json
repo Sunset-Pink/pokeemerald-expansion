@@ -74,7 +74,8 @@
     "gMapGroup_IndoorFiveIslandRoute_Frlg",
     "gMapGroup_IndoorTwoIslandRoute_Frlg",
     "gMapGroup_IndoorSixIslandRoute_Frlg",
-    "gMapGroup_IndoorSevenIslandRoute_Frlg"
+    "gMapGroup_IndoorSevenIslandRoute_Frlg",
+    "gMapGroup_PTA"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -470,7 +471,8 @@
     "TerraCave_Entrance",
     "TerraCave_End",
     "AlteringCave",
-    "MeteorFalls_StevensCave"
+    "MeteorFalls_StevensCave",
+    "SilphCo_1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
@@ -717,7 +719,6 @@
     "RocketHideout_B3F_Frlg",
     "RocketHideout_B4F_Frlg",
     "RocketHideout_Elevator_Frlg",
-    "SilphCo_1F_Frlg",
     "SilphCo_2F_Frlg",
     "SilphCo_3F_Frlg",
     "SilphCo_4F_Frlg",
@@ -1160,5 +1161,8 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute_Frlg": [
     "SevenIsland_SevaultCanyon_House_Frlg"
+  ],
+  "gMapGroup_PTA": [
+    "PTA_OrientationRoom"
   ]
 }

@@ -655,7 +655,6 @@ gStdScripts_End::
 	.include "data/maps/RocketHideout_B3F_Frlg/scripts.inc"
 	.include "data/maps/RocketHideout_B4F_Frlg/scripts.inc"
 	.include "data/maps/RocketHideout_Elevator_Frlg/scripts.inc"
-	.include "data/maps/SilphCo_1F_Frlg/scripts.inc"
 	.include "data/maps/SilphCo_2F_Frlg/scripts.inc"
 	.include "data/maps/SilphCo_3F_Frlg/scripts.inc"
 	.include "data/maps/SilphCo_4F_Frlg/scripts.inc"
@@ -1738,3 +1737,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/battle_frontier.inc"
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
+
+	.include "data/maps/SilphCo_1F/scripts.inc"
+	.include "data/maps/SilphCo_1F/text.inc"
+
+	.include "data/maps/PTA_OrientationRoom/scripts.inc"
+	.include "data/maps/PTA_OrientationRoom/text.inc"

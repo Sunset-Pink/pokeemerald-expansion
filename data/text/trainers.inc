@@ -4177,7 +4177,7 @@ Route123_Text_VioletDefeat:
 
 Route123_Text_VioletPostBattle:
 # 4179 "data/text/trainers.pory"
-	.string "The BERRY Master's garden is filled\n"
+	.string "The Berry Master's garden is filled\n"
 	.string "with uplifting fragrances.$"
 
 Route123_Text_CameronIntro:

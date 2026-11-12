@@ -4177,7 +4177,7 @@ text(local) Route123_Text_VioletDefeat {
 }
 
 text(local) Route123_Text_VioletPostBattle {
-	"The BERRY Master's garden is filled\n"
+	"The Berry Master's garden is filled\n"
 	"with uplifting fragrances."
 }
 

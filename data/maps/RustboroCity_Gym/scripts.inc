@@ -878,7 +878,7 @@ RustboroCity_Gym_EventScript_GymStatue_12:
 
 Roxanne_Extended_Levels_Text_0:
 # 155 "data/maps/RustboroCity_Gym/scripts.pory"
-	.string "What Gym Rank would you\nlike to battle?$"
+	.string "What Gym Rank would you like to battle?$"
 
 Roxanne_Extended_Levels_Text_1:
 # 157 "data/maps/RustboroCity_Gym/scripts.pory"

@@ -633,7 +633,7 @@ BirchLab_PokedexEvent_GiveStarterItems:
 # 665 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	giveitemfast ITEM_ORAN_BERRY, 10
 # 668 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	msgbox BirchLab_PokedexEvent_BirchBall_Text, MSGBOX_NPC
+	msgbox BirchLab_PokedexEvent_BirchBall_Text
 # 669 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
 # 670 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
@@ -647,7 +647,7 @@ BirchLab_PokedexEvent_GiveStarterItems:
 # 676 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	waitmovement 0
 # 679 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	msgbox BirchLab_PokedexEvent_RivalBerry_BeforeText, MSGBOX_NPC
+	msgbox BirchLab_PokedexEvent_RivalBerry_BeforeText
 # 680 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	waitmessage
 # 681 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
@@ -659,7 +659,7 @@ BirchLab_PokedexEvent_GiveStarterItems:
 # 684 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	closemessage
 # 686 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	msgbox BirchLab_PokedexEvent_RivalBerry_AfterText, MSGBOX_NPC
+	msgbox BirchLab_PokedexEvent_RivalBerry_AfterText
 # 687 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	waitmessage
 	return
@@ -1109,7 +1109,7 @@ BirchLab_PokedexEvent_ReceivedPokedex_Text:
 
 BirchLab_PokedexEvent_BirchBall_Text:
 # 692 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Prof. Birch: Oh, also {PLAYER}{KUN},\n"
+	.string "Oh, also {PLAYER}{KUN},\n"
 	.string "these will help get you started\l"
 	.string "on completing the PokéDex.$"
 

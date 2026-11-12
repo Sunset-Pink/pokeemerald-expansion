@@ -665,32 +665,32 @@ script(local) BirchLab_PokedexEvent_GiveStarterItems {
 	giveitemfast(ITEM_ORAN_BERRY, 10)
 
 	// Birch gives Poke & Quick balls.
-	msgbox(BirchLab_PokedexEvent_BirchBall_Text, MSGBOX_NPC)
+	msgbox(BirchLab_PokedexEvent_BirchBall_Text)
 	playfanfare(MUS_OBTAIN_ITEM)
 	msgbox(BirchLab_PokedexEvent_RecievedBalls_Text)
 	waitfanfare
 	closemessage
 
 	// Face rival for berries
-	applymovement(LOCALID_PLAYER, moves( face_left))
+	applymovement(LOCALID_PLAYER, moves(face_left))
 	waitmovement(0)
 
 	// Rival gives Berries
-	msgbox(BirchLab_PokedexEvent_RivalBerry_BeforeText,MSGBOX_NPC)
+	msgbox(BirchLab_PokedexEvent_RivalBerry_BeforeText)
 	waitmessage
 	playfanfare(MUS_OBTAIN_ITEM)
 	msgbox(BirchLab_PokedexEvent_RecievedBerries_Text)
 	waitfanfare
 	closemessage
 
-	msgbox(BirchLab_PokedexEvent_RivalBerry_AfterText, MSGBOX_NPC)
+	msgbox(BirchLab_PokedexEvent_RivalBerry_AfterText)
 	waitmessage
 
 	return
 }
 
 text(local) BirchLab_PokedexEvent_BirchBall_Text {
-	"Prof. Birch: Oh, also {PLAYER}{KUN},\n"
+	"Oh, also {PLAYER}{KUN},\n"
 	"these will help get you started\l"
 	"on completing the Pok\eDex."
 }

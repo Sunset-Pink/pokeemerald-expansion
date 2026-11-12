@@ -90,7 +90,6 @@ Class: Youngster
 Pic: Youngster
 Gender: Male
 Music: Male
-Double Battle: No
 AI: Check Bad Move
 Difficulty: Vanilla
 
@@ -98,9 +97,167 @@ Poochyena
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-
 === TRAINER_CALVIN_1 ===
 Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Check Bad Move
+Difficulty: Normal
+
+Poochyena
+Level: 0
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_CALVIN_2 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Mightyena
+Level: 27
+
+=== TRAINER_CALVIN_2 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Basic Trainer
+Difficulty: Normal
+
+Mightyena
+Level: 0
+
+Swellow
+Level: 0
+
+=== TRAINER_CALVIN_3 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Swellow
+Level: 28
+
+Mightyena
+Level: 30
+
+=== TRAINER_CALVIN_3 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Basic Trainer
+Difficulty: Normal
+
+Swellow
+Level: 0
+
+Mightyena
+Level: 0
+
+=== TRAINER_CALVIN_4 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Swellow
+Level: 31
+
+Linoone
+Level: 29
+
+Mightyena
+Level: 33
+
+=== TRAINER_CALVIN_5 ===
+Name: Calvin
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Swellow
+Level: 34
+
+Linoone
+Level: 32
+
+Mightyena
+Level: 36
+
+
+=== TRAINER_RICK ===
+Name: Rick
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Wurmple
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Wurmple
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_RICK ===
+Name: Rick
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+AI: Check Bad Move
+Difficulty: Normal
+
+Wurmple
+Level: -2
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Wurmple
+Level: -2
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_ALLEN ===
+Name: Allen
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Zigzagoon
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Taillow
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_ALLEN ===
+Name: Allen
 Class: Youngster
 Pic: Youngster
 Gender: Male
@@ -109,9 +266,409 @@ Double Battle: No
 AI: Check Bad Move
 Difficulty: Normal
 
-Poochyena
-Level: 0
+Zigzagoon
+Level: -1
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Taillow
+Level: -2
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_TIANA ===
+Name: Tiana
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Zigzagoon
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Shroomish
+Level: 4
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/* Route 103 */
+
+=== TRAINER_BRENDAN_ROUTE_103_TREECKO ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Torchic
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BRENDAN_ROUTE_103_TORCHIC ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Mudkip
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BRENDAN_ROUTE_103_MUDKIP ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Treecko
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MAY_ROUTE_103_TREECKO ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Torchic
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MAY_ROUTE_103_TORCHIC ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Mudkip
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MAY_ROUTE_103_MUDKIP ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Treecko
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_PETE ===
+Name: Pete
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Tentacool
+Level: 15
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_ISABELLE ===
+Name: Isabelle
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Music: Swimmer
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Marill
+Level: 15
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_ANDREW ===
+Name: Andrew
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Music: Hiker
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Magikarp
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Tentacool
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Magikarp
+Level: 15
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MIGUEL_1 ===
+Name: Miguel
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Music: Twins
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Skitty @ Oran Berry
+Level: 15
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MIGUEL_2 ===
+Name: Miguel
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Music: Twins
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Skitty @ Oran Berry
+Level: 29
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MIGUEL_3 ===
+Name: Miguel
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Music: Twins
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Skitty @ Oran Berry
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MIGUEL_4 ===
+Name: Miguel
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Music: Twins
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Delcatty @ Oran Berry
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MIGUEL_5 ===
+Name: Miguel
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Music: Twins
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Delcatty @ Sitrus Berry
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_AMY_AND_LIV_1 ===
+Name: Amy & Liv
+Class: Twins
+Pic: Twins
+Gender: Male
+Music: Twins
+Double Battle: Yes
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Plusle
+Level: 15
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Minun
+Level: 15
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_AMY_AND_LIV_2 ===
+Name: Amy & Liv
+Class: Twins
+Pic: Twins
+Gender: Male
+Music: Twins
+Double Battle: Yes
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Plusle
+Level: 27
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+Minun
+Level: 27
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+
+=== TRAINER_AMY_AND_LIV_3 ===
+Name: Amy & Liv
+Class: Twins
+Pic: Twins
+Gender: Male
+Music: Twins
+Double Battle: Yes
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Plusle
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Minun
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_AMY_AND_LIV_4 ===
+Name: Amy & Liv
+Class: Twins
+Pic: Twins
+Gender: Male
+Music: Twins
+Double Battle: Yes
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Plusle
+Level: 30
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+Minun
+Level: 30
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+
+=== TRAINER_AMY_AND_LIV_5 ===
+Name: Amy & Liv
+Class: Twins
+Pic: Twins
+Gender: Male
+Music: Twins
+Double Battle: Yes
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Plusle
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Spark
+- Charge
+- Fake Tears
+- Helping Hand
+
+Minun
+Level: 33
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+- Spark
+- Charge
+- Charm
+- Helping Hand
+
+=== TRAINER_AMY_AND_LIV_6 ===
+Name: Amy & Liv
+Class: Twins
+Pic: Twins
+Gender: Male
+Music: Twins
+Double Battle: Yes
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Plusle
+Level: 36
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Thunder
+- Charge
+- Fake Tears
+- Helping Hand
+
+Minun
+Level: 36
+IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+- Thunder
+- Charge
+- Charm
+- Helping Hand
+
+=== TRAINER_DAISY ===
+Name: Daisy
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Shroomish
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Roselia
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_RHETT ===
+Name: Rhett
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Makuhita
+Level: 15
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_MARCOS ===
+Name: Marcos
+Class: Guitarist
+Pic: Guitarist
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Voltorb
+Level: 15
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+/* Route 104 */
 
 /* Rustboro Gym */
 
@@ -539,7 +1096,6 @@ Class: Leader
 Pic: Leader Roxanne
 Gender: Female
 Music: Female
-Items: Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
@@ -553,31 +1109,57 @@ Class: Leader
 Pic: Leader Roxanne
 Gender: Female
 Music: Female
-Items: Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
 Difficulty: Vanilla
 Party Size: 6
 
-Regirock
-Level: 5
+SPECIES_ARCANINE_HISUI @ ITEM_FOCUS_SASH
+Level: 101
+Ability: ABILITY_ROCK_HEAD
+EVs: 252 Atk / 4 SpD / 252 Spe
+Jolly Nature
+- MOVE_FLARE_BLITZ
+- MOVE_HEAD_SMASH
+- MOVE_WILD_CHARGE
+- MOVE_EXTREME_SPEED
 
-Regice
-Level: 5
+SPECIES_GARGANACL @ ITEM_HEAVY_DUTY_BOOTS
+Level: 101
+Ability: ABILITY_PURIFYING_SALT
+EVs: 252 HP / 252 Def / 4 SpD
+Tags: Support
+Impish Nature
+- MOVE_SALT_CURE
+- MOVE_IRON_DEFENSE
+- MOVE_BODY_PRESS
+- MOVE_RECOVER
 
-Registeel
-Level: 5
+SPECIES_TYRANITAR @ ITEM_SMOOTH_ROCK
+Level: 101
+Ability: ABILITY_SAND_STREAM
+EVs: 248 HP / 216 SpD / 44 Spe
+Tags: Weather Setter
+- MOVE_STEALTH_ROCK
+- MOVE_DRAGON_TAIL
+- MOVE_KNOCK_OFF
+- MOVE_STONE_EDGE
 
-abra
-Level: 5
-
-Ho-oh
-Level: 5
+SPECIES_OGERPON_CORNERSTONE @ ITEM_CORNERSTONE_MASK
+Level:101
+Ability: ABILITY_STURDY
+EVs: 252 Atk / 4 Def / 252 Spe
+Tags: Ace
+Jolly Nature
+- MOVE_SWORDS_DANCE
+- MOVE_IVY_CUDGEL
+- MOVE_HORN_LEECH
+- MOVE_KNOCK_OFF
 
 SPECIES_BARBARACLE @ ITEM_BARBARACITE
 Level: 101
 Ability: ABILITY_TOUGH_CLAWS
-EVs: 12 HP/ 252 Atk / 252 Spe
+EVs: 12 HP / 252 Atk / 252 Spe
 Tags: Ace
 Adamant Nature
 - MOVE_SHELL_SMASH
@@ -589,12 +1171,371 @@ Arceus-Rock @ Stone Plate
 Ability: Multitype
 EVs: 252 HP / 16 Def / 144 SpA / 96 Spe
 IVs: 0 Atk
-Tags: Ace
+Tags: Support
 Timid Nature
 - Judgment
 - Will-O-Wisp
 - Recover
 - Stealth Rock
+
+/* Dewford City Gym */
+
+=== TRAINER_LAURA ===
+Name: Laura
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Meditite
+Level: 13
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_BRENDEN ===
+Name: Brenden
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Machop
+Level: 13
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_LILITH ===
+Name: Lilith
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Meditite
+Level: 13
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_CRISTIAN ===
+Name: Crisitian
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Makuhita
+Level: 13
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+
+=== TRAINER_JOCELYN ===
+Name: Jocelyn
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Meditite
+Level: 13
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+
+=== TRAINER_BRAWLY_NORMAL ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Super Potion / Super Potion
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Machop
+Level: 16
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Karate Chop
+- Low Kick
+- Seismic Toss
+- Bulk Up
+
+Meditite
+Level: 16
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Focus Punch
+- Light Screen
+- Reflect
+- Bulk Up
+
+Makuhita @ Sitrus Berry
+Level: 19
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Arm Thrust
+- Vital Throw
+- Reversal
+- Bulk Up
+
+=== TRAINER_BRAWLY_BRONZE ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Machamp @ Sitrus Berry
+Level: 33
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Karate Chop
+- Rock Slide
+- Focus Punch
+- Bulk Up
+
+Meditite
+Level: 33
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psychic
+- Light Screen
+- Reflect
+- Focus Punch
+
+Hitmontop
+Level: 35
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Pursuit
+- Counter
+- Protect
+- Triple Kick
+
+Hariyama @ Sitrus Berry
+Level: 37
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Focus Punch
+- Belly Drum
+- Earthquake
+
+=== TRAINER_BRAWLY_SILVER ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Machamp @ Sitrus Berry
+Level: 38
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Karate Chop
+- Rock Slide
+- Focus Punch
+- Bulk Up
+
+Medicham
+Level: 38
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psychic
+- Light Screen
+- Reflect
+- Focus Punch
+
+Hitmontop
+Level: 40
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Pursuit
+- Counter
+- Protect
+- Triple Kick
+
+Hariyama @ Sitrus Berry
+Level: 42
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Focus Punch
+- Belly Drum
+- Earthquake
+
+=== TRAINER_BRAWLY_GOLD ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Hitmonchan
+Level: 40
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sky Uppercut
+- Protect
+- Fire Punch
+- Ice Punch
+
+Machamp @ Sitrus Berry
+Level: 43
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Karate Chop
+- Rock Slide
+- Focus Punch
+- Bulk Up
+
+Medicham
+Level: 43
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Focus Punch
+- Light Screen
+- Reflect
+- Psychic
+
+Hitmontop
+Level: 45
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Pursuit
+- Counter
+- Protect
+- Triple Kick
+
+Hariyama @ Sitrus Berry
+Level: 47
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Focus Punch
+- Belly Drum
+- Earthquake
+
+=== TRAINER_BRAWLY_DIAMOND ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Hitmonlee
+Level: 46
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Mega Kick
+- Focus Punch
+- Earthquake
+- Bulk Up
+
+Hitmonchan
+Level: 46
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sky Uppercut
+- Protect
+- Fire Punch
+- Ice Punch
+
+Machamp @ Sitrus Berry
+Level: 48
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Cross Chop
+- Rock Slide
+- Focus Punch
+- Bulk Up
+
+Medicham
+Level: 48
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Focus Punch
+- Light Screen
+- Reflect
+- Psychic
+
+Hitmontop
+Level: 50
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Pursuit
+- Counter
+- Protect
+- Triple Kick
+
+Hariyama @ Sitrus Berry
+Level: 52
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Focus Punch
+- Belly Drum
+- Earthquake
+
+=== TRAINER_BRAWLY_PLATINUM ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
+
+=== TRAINER_BRAWLY_ULTRA ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
+
+=== TRAINER_BRAWLY_HYPER ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
+
+=== TRAINER_BRAWLY_MASTER ===
+Name: Brawly
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Urshifu
+Level: 5
 
 /* Petalburg City Gym */
 
@@ -1022,6 +1963,314 @@ Difficulty: Vanilla
 
 Regigigas
 Level: 5
+
+
+/* Rival */
+
+
+
+=== TRAINER_BRENDAN_ROUTE_110_MUDKIP ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Slugma
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Wingull
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Grovyle
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Slugma
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Pelipper
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Grovyle
+Level: 31
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_BRENDAN_ROUTE_110_TREECKO ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Wingull
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Lombre
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Combusken
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_BRENDAN_ROUTE_119_TREECKO ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Pelipper
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Lombre
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Combusken
+Level: 31
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_BRENDAN_ROUTE_110_TORCHIC ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Lombre
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Slugma
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Marshtomp
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_BRENDAN_ROUTE_119_TORCHIC ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Lombre
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Slugma
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Marshtomp
+Level: 31
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_MAY_ROUTE_110_MUDKIP ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Wingull
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Slugma
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Grovyle
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_MAY_ROUTE_119_MUDKIP ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Slugma
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Lombre
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Grovyle
+Level: 31
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+
+
+=== TRAINER_MAY_ROUTE_110_TREECKO ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Wingull
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Lombre
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Combusken
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_MAY_ROUTE_119_TREECKO ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Pelipper
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Lombre
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Combusken
+Level: 31
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_MAY_ROUTE_110_TORCHIC ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Lombre
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Slugma
+Level: 18
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+Marshtomp
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+=== TRAINER_MAY_ROUTE_119_TORCHIC ===
+Name: May
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+Difficulty: Vanilla
+
+Lombre
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Slugma
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Marshtomp
+Level: 31
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+
+=== TRAINER_BRENDAN_RUSTBORO_TREECKO ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Lotad
+Level: 13
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Torchic
+Level: 15
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_BRENDAN_RUSTBORO_MUDKIP ===
+Name: Brendan
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move
+Difficulty: Vanilla
+
+Wingull
+Level: 13
+IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+Treecko
+Level: 15
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
 
 /* Misc */
 
@@ -1601,24 +2850,6 @@ Difficulty: Vanilla
 
 Spoink
 Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_DAISY ===
-Name: Daisy
-Class: Aroma Lady
-Pic: Aroma Lady
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Shroomish
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Roselia
-Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ROSE_1 ===
@@ -5856,43 +7087,6 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 - Crunch
 
-
-
-=== TRAINER_BRAWLY_NORMAL ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Super Potion / Super Potion
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Machop
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Karate Chop
-- Low Kick
-- Seismic Toss
-- Bulk Up
-
-Meditite
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Focus Punch
-- Light Screen
-- Reflect
-- Bulk Up
-
-Makuhita @ Sitrus Berry
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Arm Thrust
-- Vital Throw
-- Reversal
-- Bulk Up
-
 === TRAINER_WATTSON_NORMAL ===
 Name: Wattson
 Class: Leader
@@ -6519,20 +7713,6 @@ Zigzagoon @ Oran Berry
 Level: 16
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_MIGUEL_1 ===
-Name: Miguel
-Class: Pokefan
-Pic: Pokefan M
-Gender: Male
-Music: Twins
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Skitty @ Oran Berry
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_COLTON ===
 Name: Colton
 Class: Pokefan
@@ -6590,62 +7770,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Charm
 - Feint Attack
 - Heal Bell
-
-=== TRAINER_MIGUEL_2 ===
-Name: Miguel
-Class: Pokefan
-Pic: Pokefan M
-Gender: Male
-Music: Twins
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Skitty @ Oran Berry
-Level: 29
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MIGUEL_3 ===
-Name: Miguel
-Class: Pokefan
-Pic: Pokefan M
-Gender: Male
-Music: Twins
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Skitty @ Oran Berry
-Level: 32
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MIGUEL_4 ===
-Name: Miguel
-Class: Pokefan
-Pic: Pokefan M
-Gender: Male
-Music: Twins
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Delcatty @ Oran Berry
-Level: 35
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MIGUEL_5 ===
-Name: Miguel
-Class: Pokefan
-Pic: Pokefan M
-Gender: Male
-Music: Twins
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Delcatty @ Sitrus Berry
-Level: 38
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_VICTORIA ===
 Name: Victoria
@@ -7120,82 +8244,6 @@ Aron
 Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CALVIN_2 ===
-Name: Calvin
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Mightyena
-Level: 27
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_CALVIN_3 ===
-Name: Calvin
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Swellow
-Level: 28
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Mightyena
-Level: 30
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_CALVIN_4 ===
-Name: Calvin
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Swellow
-Level: 31
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Linoone
-Level: 29
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Mightyena
-Level: 33
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_CALVIN_5 ===
-Name: Calvin
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Swellow
-Level: 34
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Linoone
-Level: 32
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Mightyena
-Level: 36
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
 === TRAINER_EDDIE ===
 Name: Eddie
 Class: Youngster
@@ -7212,24 +8260,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zigzagoon
 Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_ALLEN ===
-Name: Allen
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Zigzagoon
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Taillow
-Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TIMMY ===
@@ -7309,28 +8339,6 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Surf
 - Ice Beam
 - Toxic
-
-=== TRAINER_ANDREW ===
-Name: Andrew
-Class: Fisherman
-Pic: Fisherman
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Magikarp
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Tentacool
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Magikarp
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_IVAN ===
 Name: Ivan
@@ -8930,34 +9938,6 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - MOVE_TACKLE
 - Sludge
 
-=== TRAINER_JOCELYN ===
-Name: Jocelyn
-Class: Battle Girl
-Pic: Battle Girl
-Gender: Female
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Meditite
-Level: 13
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-
-=== TRAINER_LAURA ===
-Name: Laura
-Class: Battle Girl
-Pic: Battle Girl
-Gender: Female
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Meditite
-Level: 13
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
 === TRAINER_CYNDY_1 ===
 Name: Cyndy
 Class: Battle Girl
@@ -9918,42 +10898,6 @@ Altaria
 Level: 40
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_AMY_AND_LIV_1 ===
-Name: Amy & Liv
-Class: Twins
-Pic: Twins
-Gender: Male
-Music: Twins
-Double Battle: Yes
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Plusle
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Minun
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_AMY_AND_LIV_2 ===
-Name: Amy & Liv
-Class: Twins
-Pic: Twins
-Gender: Male
-Music: Twins
-Double Battle: Yes
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Plusle
-Level: 27
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Minun
-Level: 27
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
 === TRAINER_GINA_AND_MIA_1 ===
 Name: Gina & Mia
 Class: Twins
@@ -9989,24 +10933,6 @@ Dustox
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_AMY_AND_LIV_3 ===
-Name: Amy & Liv
-Class: Twins
-Pic: Twins
-Gender: Male
-Music: Twins
-Double Battle: Yes
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Plusle
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Minun
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_GINA_AND_MIA_2 ===
 Name: Gina & Mia
 Class: Twins
@@ -10028,76 +10954,6 @@ Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Absorb
 - Leech Seed
-
-=== TRAINER_AMY_AND_LIV_4 ===
-Name: Amy & Liv
-Class: Twins
-Pic: Twins
-Gender: Male
-Music: Twins
-Double Battle: Yes
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Plusle
-Level: 30
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Minun
-Level: 30
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_AMY_AND_LIV_5 ===
-Name: Amy & Liv
-Class: Twins
-Pic: Twins
-Gender: Male
-Music: Twins
-Double Battle: Yes
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Plusle
-Level: 33
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Spark
-- Charge
-- Fake Tears
-- Helping Hand
-
-Minun
-Level: 33
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Spark
-- Charge
-- Charm
-- Helping Hand
-
-=== TRAINER_AMY_AND_LIV_6 ===
-Name: Amy & Liv
-Class: Twins
-Pic: Twins
-Gender: Male
-Music: Twins
-Double Battle: Yes
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Plusle
-Level: 36
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-- Thunder
-- Charge
-- Fake Tears
-- Helping Hand
-
-Minun
-Level: 36
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-- Thunder
-- Charge
-- Charm
-- Helping Hand
 
 === TRAINER_HUEY ===
 Name: Huey
@@ -10695,353 +11551,6 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Psychic
 - Future Sight
 
-=== TRAINER_BRENDAN_ROUTE_103_MUDKIP ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Treecko
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_BRENDAN_ROUTE_110_MUDKIP ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Grovyle
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_BRENDAN_ROUTE_103_TREECKO ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Force Setup First Turn
-Difficulty: Vanilla
-
-Torchic
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_BRENDAN_ROUTE_110_TREECKO ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Combusken
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_BRENDAN_ROUTE_119_TREECKO ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Combusken
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_BRENDAN_ROUTE_103_TORCHIC ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Mudkip
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_BRENDAN_ROUTE_110_TORCHIC ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_BRENDAN_ROUTE_119_TORCHIC ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Marshtomp
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_MAY_ROUTE_103_MUDKIP ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Treecko
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MAY_ROUTE_110_MUDKIP ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_MAY_ROUTE_119_MUDKIP ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Grovyle
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_MAY_ROUTE_103_TREECKO ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Torchic
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MAY_ROUTE_110_TREECKO ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Combusken
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_MAY_ROUTE_119_TREECKO ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Pelipper
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Combusken
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_MAY_ROUTE_103_TORCHIC ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Mudkip
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MAY_ROUTE_110_TORCHIC ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_MAY_ROUTE_119_TORCHIC ===
-Name: May
-Class: Rival
-Pic: May
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Lombre
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Slugma
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-Marshtomp
-Level: 31
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_ISAAC_1 ===
 Name: Isaac
@@ -11795,48 +12304,6 @@ Numel
 Level: 22
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_BRENDEN ===
-Name: Brenden
-Class: Sailor
-Pic: Sailor
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Machop
-Level: 13
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_LILITH ===
-Name: Lilith
-Class: Battle Girl
-Pic: Battle Girl
-Gender: Female
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Meditite
-Level: 13
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_CRISTIAN ===
-Name: Crisitian
-Class: Black Belt
-Pic: Black Belt
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Makuhita
-Level: 13
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-
 === TRAINER_SYLVIA ===
 Name: Sylvia
 Class: Hex Maniac
@@ -12089,41 +12556,7 @@ Natu
 Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BRENDAN_RUSTBORO_TREECKO ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
 
-Lotad
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Torchic
-Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_BRENDAN_RUSTBORO_MUDKIP ===
-Name: Brendan
-Class: Rival
-Pic: Brendan
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Wingull
-Level: 13
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Treecko
-Level: 15
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_PAXTON ===
 Name: PAXTON
@@ -12301,24 +12734,6 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 Camerupt
 Level: 25
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_TIANA ===
-Name: Tiana
-Class: Lass
-Pic: Lass
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Zigzagoon
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Shroomish
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_HALEY_1 ===
 Name: Haley
@@ -12517,24 +12932,6 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 Wailmer
 Level: 39
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_RICK ===
-Name: Rick
-Class: Bug Catcher
-Pic: Bug Catcher
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Wurmple
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Wurmple
-Level: 4
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LYLE ===
 Name: Lyle
@@ -14411,34 +14808,6 @@ Magnemite
 Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MARCOS ===
-Name: Marcos
-Class: Guitarist
-Pic: Guitarist
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Voltorb
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_RHETT ===
-Name: Rhett
-Class: Black Belt
-Pic: Black Belt
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Makuhita
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
 === TRAINER_TYRON ===
 Name: Tyron
 Class: Camper
@@ -14934,34 +15303,6 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 Camerupt
 Level: 44
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-=== TRAINER_PETE ===
-Name: Pete
-Class: Swimmer M
-Pic: Swimmer M
-Gender: Male
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Tentacool
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_ISABELLE ===
-Name: Isabelle
-Class: Swimmer F
-Pic: Swimmer F
-Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
-Difficulty: Vanilla
-
-Marill
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ANDRES_1 ===
 Name: Adres
@@ -15575,258 +15916,6 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 Mudkip
 Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_BRAWLY_BRONZE ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Machamp @ Sitrus Berry
-Level: 33
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Karate Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
-
-Meditite
-Level: 33
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Psychic
-- Light Screen
-- Reflect
-- Focus Punch
-
-Hitmontop
-Level: 35
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
-
-Hariyama @ Sitrus Berry
-Level: 37
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
-
-=== TRAINER_BRAWLY_SILVER ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Machamp @ Sitrus Berry
-Level: 38
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Karate Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
-
-Medicham
-Level: 38
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Psychic
-- Light Screen
-- Reflect
-- Focus Punch
-
-Hitmontop
-Level: 40
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
-
-Hariyama @ Sitrus Berry
-Level: 42
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
-
-=== TRAINER_BRAWLY_GOLD ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Hitmonchan
-Level: 40
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Sky Uppercut
-- Protect
-- Fire Punch
-- Ice Punch
-
-Machamp @ Sitrus Berry
-Level: 43
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Karate Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
-
-Medicham
-Level: 43
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Focus Punch
-- Light Screen
-- Reflect
-- Psychic
-
-Hitmontop
-Level: 45
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
-
-Hariyama @ Sitrus Berry
-Level: 47
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
-
-=== TRAINER_BRAWLY_DIAMOND ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Hitmonlee
-Level: 46
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Mega Kick
-- Focus Punch
-- Earthquake
-- Bulk Up
-
-Hitmonchan
-Level: 46
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Sky Uppercut
-- Protect
-- Fire Punch
-- Ice Punch
-
-Machamp @ Sitrus Berry
-Level: 48
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Cross Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
-
-Medicham
-Level: 48
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Focus Punch
-- Light Screen
-- Reflect
-- Psychic
-
-Hitmontop
-Level: 50
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
-
-Hariyama @ Sitrus Berry
-Level: 52
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
-
-=== TRAINER_BRAWLY_PLATINUM ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Urshifu
-Level: 5
-
-=== TRAINER_BRAWLY_ULTRA ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Urshifu
-Level: 5
-
-=== TRAINER_BRAWLY_HYPER ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Urshifu
-Level: 5
-
-=== TRAINER_BRAWLY_MASTER ===
-Name: Brawly
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Items: Full Restore / Full Restore / Full Restore
-Double Battle: No
-AI: Basic Trainer
-Difficulty: Vanilla
-
-Urshifu
-Level: 5
 
 === TRAINER_WATTSON_BRONZE ===
 Name: Wattson

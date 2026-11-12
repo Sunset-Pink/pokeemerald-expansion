@@ -9323,6 +9323,39 @@
       "border_height": 2,
       "border_width": 2,
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_FLOATING_SLAB",
+      "name": "FloatingSlab_Layout",
+      "width": 15,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FloatingSlab/border.bin",
+      "blockdata_filepath": "data/layouts/FloatingSlab/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROCKY_SLAB",
+      "name": "RockySlab_Layout",
+      "width": 15,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/RockySlab/border.bin",
+      "blockdata_filepath": "data/layouts/RockySlab/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GRASSY_SLAB",
+      "name": "GrassySlab_Layout",
+      "width": 15,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GrassySlab/border.bin",
+      "blockdata_filepath": "data/layouts/GrassySlab/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

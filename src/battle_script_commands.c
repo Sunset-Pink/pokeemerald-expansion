@@ -13,6 +13,7 @@
 #include "battle_z_move.h"
 #include "battle_stat_change.h"
 #include "battle_move_resolution.h"
+#include "frontier_util.h"
 #include "item.h"
 #include "item_menu.h"
 #include "util.h"
@@ -4034,7 +4035,7 @@ static void Cmd_hitanimation(void)
 
 static u32 GetTrainerMoneyToGive(u16 trainerId)
 {
-    u32 lastMonLevel = 0;
+    s32 lastMonLevel = 1;
     u32 moneyReward;
     u8 trainerMoney = 0;
 
@@ -4048,6 +4049,13 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
         if (party == NULL)
             return 20;
         lastMonLevel = party[GetTrainerPartySizeFromId(trainerId) - 1].lvl;
+
+        if(lastMonLevel <= 0) {
+            lastMonLevel = GetHighestLevelInPlayerParty() + party[GetTrainerPartySizeFromId(trainerId) -1].lvl;
+        } else if (lastMonLevel == 101) {
+            lastMonLevel = GetCurrentLevelCap();
+        }
+
         trainerMoney = gTrainerClasses[GetTrainerClassFromId(trainerId)].money ?: 5;
 
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)

@@ -5,6 +5,7 @@
 #include "event_scripts.h"
 #include "field_control_avatar.h"
 #include "fieldmap.h"
+#include "frontier_util.h"
 #include "item.h"
 #include "item_menu.h"
 #include "main.h"
@@ -2888,7 +2889,7 @@ bool8 ObjectEventInteractionBerryHasPests(void)
     species = GetBerryPestSpecies(gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].berry);
     if (species == SPECIES_NONE)
         return FALSE;
-    CreateScriptedWildMon(species, 14 + Random() % 3, ITEM_NONE);
+    CreateScriptedWildMon(species, (GetHighestLevelInPlayerParty()/2) + Random() % 3, ITEM_NONE);
     gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].pests = FALSE;
     return TRUE;
 }

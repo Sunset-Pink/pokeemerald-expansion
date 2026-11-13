@@ -1,0 +1,555 @@
+script BerryTreeScript {
+	special(ObjectEventInteractionGetBerryTreeData)
+	switch(var(VAR_0x8004)) {
+		case BERRY_STAGE_SPARKLING: call(BerryTree_EventScript_Sparkling)
+		case BERRY_STAGE_NO_BERRY: call(BerryTree_EventScript_CheckSoil)
+		case BERRY_STAGE_PLANTED: call(BerryTree_EventScript_CheckBerryStage1)
+		case BERRY_STAGE_SPROUTED: call(BerryTree_EventScript_CheckBerryStage2)
+		case BERRY_STAGE_TALLER: call(BerryTree_EventScript_CheckBerryStage3)
+		case BERRY_STAGE_TRUNK: call(BerryTree_EventScript_CheckBerryStageTrunk)
+		case BERRY_STAGE_BUDDING: call(BerryTree_EventScript_CheckBerryStageBudding)
+		case BERRY_STAGE_FLOWERING: call(BerryTree_EventScript_CheckBerryStage4)
+		case BERRY_STAGE_BERRIES: call(BerryTree_EventScript_CheckBerryFullyGrown)
+	}
+	releaseall
+	end
+}
+
+script BerryTree_EventScript_Sparkling {
+	lockall
+	message(BerryTree_Text_ExclamationPoint)
+	waitmessage
+	waitbuttonpress
+	return
+}
+
+script BerryTree_EventScript_CheckSoil {
+	lock
+	faceplayer
+	specialvar(VAR_RESULT, PlayerHasBerries)
+	if(var(VAR_RESULT)) {
+		call(BerryTree_EventScript_WantToPlant)
+		return
+	}
+	specialvar(VAR_RESULT, PlayerHasMulch)
+	if(var(VAR_RESULT)) {
+		call(BerryTree_EventScript_WantToMulch)
+		return
+	}
+	message(BerryTree_Text_ItsSoftLoamySoil)
+	waitmessage
+	waitbuttonpress
+	return
+}
+
+script BerryTree_EventScript_WantToPlant {
+	specialvar(VAR_RESULT, PlayerHasMulch)
+	if(var(VAR_RESULT)) {
+		call(BerryTree_EventScript_WantToPlantMulch)
+		return
+	}
+	msgbox(BerryTree_Text_WantToPlant, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(BerryTree_EventScript_ChooseBerryToPlant)
+	}
+	return
+}
+
+script BerryTree_EventScript_WantToMulch {
+	msgbox(BerryTree_Text_WantToMulch, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(BerryTree_EventScript_ChooseMulchToUse)
+	}
+	return
+}
+
+script BerryTree_EventScript_WantToPlantMulch {
+	message(BerryTree_Text_ItsSoftLoamySoil)
+	waitmessage
+	multichoice(0, 0, MULTI_BERRY_PLOT, FALSE)
+	switch(var(VAR_RESULT)) {
+		case 0: call(BerryTree_EventScript_ChooseMulchToUse)
+		case 1: call(BerryTree_EventScript_ChooseBerryToPlant)
+		case 2: return
+		case MULTI_B_PRESSED: return
+	}
+	return
+}
+
+script BerryTree_EventScript_ChooseMulchToUse {
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	special(Bag_ChooseMulch)
+	waitstate
+	if(var(VAR_ITEM_ID) != 0) {
+		removeitem(VAR_ITEM_ID)
+		call(BerryTree_EventScript_UseMulch)
+	}
+	return
+}
+
+script BerryTree_EventScript_ChooseBerryToPlant {
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	special(Bag_ChooseBerry)
+	if(var(VAR_ITEM_ID) != 0) {
+		removeitem(VAR_ITEM_ID)
+		call(BerryTree_EventScript_PlantBerry)
+	}
+	return
+}
+
+script BerryTree_EventScript_CheckBerryStage1 {
+	lockall
+	special(ObjectEventInteractionGetBerryCountString)
+	message(BerryTree_Text_BerryGrowthStage1)
+	waitmessage
+	waitbuttonpress
+	call(BerryTree_EventScript_WantToWater)
+	end
+}
+
+script BerryTree_EventScript_CheckBerryStage2 {
+	lockall
+	special(ObjectEventInteractionGetBerryName)
+	message(BerryTree_Text_BerryGrowthStage2)
+	waitmessage
+	waitbuttonpress
+	call(BerryTree_EventScript_WantToWater)
+	end
+}
+
+script BerryTree_EventScript_CheckBerryStage3 {
+	lockall
+	special(ObjectEventInteractionGetBerryName)
+	message(BerryTree_Text_BerryGrowthStage3)
+	waitmessage
+	waitbuttonpress
+	call(BerryTree_EventScript_WantToWater)
+	end
+}
+
+script BerryTree_EventScript_CheckBerryStageTrunk {
+	lockall
+	special(ObjectEventInteractionGetBerryName)
+	message(BerryTree_Text_BerryGrowthStageTrunk)
+	waitmessage
+	waitbuttonpress
+	call(BerryTree_EventScript_WantToWater)
+	end
+}
+
+script BerryTree_EventScript_CheckBerryStageBudding {
+	lockall
+	special(ObjectEventInteractionGetBerryName)
+	message(BerryTree_Text_BerryGrowthStageBudding)
+	waitmessage
+	waitbuttonpress
+	call(BerryTree_EventScript_WantToWater)
+	end
+}
+
+script BerryTree_EventScript_CheckBerryStage4 {
+	call(BerryTree_EventScript_GetCareAdverb)
+	lockall
+	special(ObjectEventInteractionGetBerryName)
+	message(BerryTree_Text_BerryGrowthStage4)
+	waitmessage
+	waitbuttonpress
+	call(BerryTree_EventScript_WantToWater)
+	end
+}
+
+// VAR_0x8005 here is the number of times watered
+// Buffered by ObjectEventInteractionGetBerryTreeData
+script BerryTree_EventScript_GetCareAdverb {
+	switch(var(VAR_0x8005)) {
+		case 0:  bufferstring(STR_VAR_2, BerryTree_Text_CareAdverbPoor)
+		case 4:  bufferstring(STR_VAR_2, BerryTree_Text_CareAdverbGreat)
+		default: bufferstring(STR_VAR_2, BerryTree_Text_CareAdverbGood)
+	}
+	return
+}
+
+// VAR_0x8006 here is the number of berries
+script BerryTree_EventScript_CheckBerryFullyGrown {
+	buffernumberstring(STR_VAR_2, VAR_0x8006)
+	lock
+	faceplayer
+	special(ObjectEventInteractionGetBerryCountString)
+	if(var(VAR_RESULT) == TRUE) {
+		call(BerryTree_EventScript_CheckBerryFullyGrown_Mutation)
+	}
+	msgbox(BerryTree_Text_WantToPick, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(BerryTree_EventScript_PickBerry)
+	} else {
+		call(BerryTree_EventScript_CancelPickingBerry)
+	}
+	return
+}
+
+raw`
+.set BERRY_NORMAL_BAG_FULL, 0
+.set BERRY_NORMAL_SPACE_IN_BAG, 1
+.set BERRY_MUTATION_BAG_FULL, 2
+.set BERRY_MUTATION_SPACE_IN_BAG, 3
+`
+
+script BerryTree_EventScript_PickBerry {
+	special(ObjectEventInteractionPickBerryTree)
+	if(var(VAR_0x8004) == BERRY_NORMAL_BAG_FULL) {
+		call(BerryTree_EventScript_BerryPocketFull)
+	} elif(var(VAR_0x8004) == BERRY_MUTATION_BAG_FULL) {
+		call(BerryTree_EventScript_BerryPocketFull_Mutation)
+	} elif(var(VAR_0x8004) == BERRY_MUTATION_SPACE_IN_BAG) {
+		call(BerryTree_EventScript_PickBerry_Mutation)
+	} else {
+		special(ObjectEventInteractionRemoveBerryTree)
+		message(BerryTree_Text_PickedTheBerry)
+		delay(10)
+		showberrydescription
+		playfanfare(MUS_OBTAIN_BERRY)
+		waitmessage
+		waitfanfare
+		waitbuttonpress
+		message(BerryTree_Text_PutAwayBerry)
+		waitmessage
+		waitbuttonpress
+		hideitemdescription
+	}
+	release
+	return
+}
+
+script BerryTree_EventScript_BerryPocketFull {
+	message(BerryTree_Text_BerryPocketFull)
+	waitmessage
+	waitbuttonpress
+	return
+}
+
+script BerryTree_EventScript_CancelPickingBerry {
+	message(BerryTree_Text_BerryLeftUnpicked)
+	waitmessage
+	waitbuttonpress
+	return
+}
+
+script BerryTree_EventScript_ItemUsePlantBerry {
+	lockall
+	special(ObjectEventInteractionGetBerryTreeData)
+	call(BerryTree_EventScript_PlantBerry)
+	releaseall
+	end
+}
+
+raw`
+BerryTree_EventScript_WantToWater::
+.if OW_BERRY_PESTS == TRUE
+	call BerryTree_EventScript_CheckForPests
+.endif
+.if OW_BERRY_WEEDS == TRUE
+	call BerryTree_EventScript_CheckForWeed
+.endif
+	checkitem ITEM_WAILMER_PAIL
+	goto_if_eq VAR_RESULT, FALSE, BerryTree_EventScript_DontWater
+	specialvar VAR_RESULT, CanWaterBerryPlot
+	goto_if_eq VAR_RESULT, FALSE, BerryTree_EventScript_DontWater
+	special ObjectEventInteractionGetBerryName
+	msgbox BerryTree_Text_WantToWater, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, BerryTree_EventScript_WaterBerry
+	goto_if_eq VAR_RESULT, NO, BerryTree_EventScript_DontWater
+
+BerryTree_EventScript_DontWater::
+	releaseall
+	end
+`
+
+script BerryTree_EventScript_ItemUseWailmerPail {
+	special(ObjectEventInteractionGetBerryTreeData)
+	lockall
+BerryTree_EventScript_WaterBerry:
+	special(ObjectEventInteractionGetBerryName)
+	message(BerryTree_Text_WateredTheBerry)
+	waitmessage
+	special(ObjectEventInteractionWaterBerryTree)
+	special(DoWateringBerryTreeAnim)
+	message(BerryTree_Text_PlantIsDelighted)
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+}
+
+script BerryTree_EventScript_PlantBerry {
+	special(ObjectEventInteractionPlantBerryTree)
+	incrementgamestat(GAME_STAT_PLANTED_BERRIES)
+	special(IncrementDailyPlantedBerries)
+	special(ObjectEventInteractionGetBerryCountString)
+	message(BerryTree_Text_PlantedOneBerry)
+	waitmessage
+	waitbuttonpress
+	return
+}
+
+text(local) BerryTree_Text_ItsSoftLoamySoil {
+	"It's soft, loamy soil."
+}
+
+text(local) BerryTree_Text_WantToPlant {
+	"It's soft, loamy soil.\n"
+	"Want to plant a Berry?"
+}
+
+text(local) BerryTree_Text_PlantedOneBerry {
+	"{PLAYER} planted one {STR_VAR_1} in\n"
+	"the soft, loamy soil."
+}
+
+raw`
+BerryTree_Text_BerryGrowthStage1:
+.if OW_BERRY_SIX_STAGES == TRUE
+	.string "This is where you planted the\n{STR_VAR_1}!$"
+.else
+	.string "One {STR_VAR_1} was planted here.$"
+.endif
+
+BerryTree_Text_BerryGrowthStage2:
+.if OW_BERRY_SIX_STAGES == TRUE
+	.string "The {STR_VAR_1} is sprouting!$"
+.else
+	.string "{STR_VAR_1} has sprouted.$"
+.endif
+
+BerryTree_Text_BerryGrowthStage3:
+.if OW_BERRY_SIX_STAGES == TRUE
+	.string "The {STR_VAR_1}'s seedling is growing well!$"
+.else
+	.string "This {STR_VAR_1} plant is growing taller.$"
+.endif
+`
+
+text(local) BerryTree_Text_BerryGrowthStageTrunk {
+	"The {STR_VAR_1}'s trunk is getting bigger!"
+}
+
+text(local) BerryTree_Text_BerryGrowthStageBudding {
+	"The {STR_VAR_1} tree has buds!"
+}
+
+raw`
+BerryTree_Text_BerryGrowthStage4:
+.if OW_BERRY_SIX_STAGES == TRUE
+	.string "The {STR_VAR_1} tree is in bloom!$"
+.else
+	.string "These {STR_VAR_1} flowers are blooming\n"
+	.string "{STR_VAR_2}.$"
+.endif
+`
+
+text(local) BerryTree_Text_CareAdverbGreat {
+	"very beautifully"
+}
+
+text(local) BerryTree_Text_CareAdverbPoor {
+	"cutely"
+}
+
+text(local) BerryTree_Text_CareAdverbGood {
+	"prettily"
+}
+
+text(local) BerryTree_Text_WantToPick {
+	"You found {STR_VAR_2} {STR_VAR_1}!\p"
+	"Do you want to pick the\n"
+	"{STR_VAR_1}?"
+}
+
+text(local) BerryTree_Text_PickedTheBerry {
+	"{PLAYER} picked the {STR_VAR_2} {STR_VAR_1}."
+}
+
+text(local) BerryTree_Text_PutAwayBerry {
+	"{PLAYER} put away the {STR_VAR_1}\n"
+	"in the Bag's Berries Pocket.\p"
+	"The soil returned to its soft and\n"
+	"loamy state."
+}
+
+text(local) BerryTree_Text_BerryPocketFull {
+	"The Bag's Berries Pocket is full.\p"
+	"The {STR_VAR_1} couldn't be taken."
+}
+
+text(local) BerryTree_Text_BerryLeftUnpicked {
+	"{PLAYER} left the {STR_VAR_1}\n"
+	"unpicked."
+}
+
+text(local) BerryTree_Text_WantToWater {
+	"Want to water the {STR_VAR_1} with the\n"
+	"Wailmer Pail?"
+}
+
+text(local) BerryTree_Text_WateredTheBerry {
+	"{PLAYER} watered the {STR_VAR_1}."
+}
+
+text(local) BerryTree_Text_PlantIsDelighted {
+	"The plant seems to be delighted."
+}
+
+text(local) BerryTree_Text_ExclamationPoint {
+	"!"
+}
+
+raw`.if OW_BERRY_MUTATIONS == TRUE`
+script(local) BerryTree_EventScript_CheckBerryFullyGrown_Mutation {
+	msgbox(BerryTree_Text_WantToPick_Mutation, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(BerryTree_EventScript_PickBerry)
+	} else {
+		call(BerryTree_EventScript_CancelPickingBerry_Mutation)
+	}
+	return
+}
+
+script BerryTree_EventScript_CancelPickingBerry_Mutation {
+	message(BerryTree_Text_BerryLeftUnpicked_Mutation)
+	waitmessage
+	waitbuttonpress
+	release
+	return
+}
+
+script BerryTree_EventScript_BerryPocketFull_Mutation {
+	message(BerryTree_Text_BerryPocketFull_Mutation)
+	waitmessage
+	waitbuttonpress
+	release
+	return
+}
+
+script BerryTree_EventScript_PickBerry_Mutation {
+	special(IncrementDailyPickedBerries)
+	special(ObjectEventInteractionRemoveBerryTree)
+	message(BerryTree_Text_PickedTheBerry_Mutation)
+	playfanfare(MUS_OBTAIN_BERRY)
+	waitmessage
+	waitfanfare
+	waitbuttonpress
+	message(BerryTree_Text_PutAwayBerry_Mutation)
+	waitmessage
+	waitbuttonpress
+	release
+	return
+}
+
+text(local) BerryTree_Text_WantToPick_Mutation {
+	"You found {STR_VAR_2} {STR_VAR_1}\n"
+	"and 1 {STR_VAR_3}!\p"
+	"Do you want to pick them?"
+}
+
+text(local) BerryTree_Text_BerryLeftUnpicked_Mutation {
+	"{PLAYER} left the {STR_VAR_1}\n"
+	"and the {STR_VAR_3} unpicked."
+}
+
+text(local) BerryTree_Text_BerryPocketFull_Mutation {
+	"The Bag's Berries Pocket is full.\p"
+	"The {STR_VAR_1} and the\n"
+	"{STR_VAR_3} couldn't be taken."
+}
+
+text(local) BerryTree_Text_PickedTheBerry_Mutation {
+	"{PLAYER} picked the {STR_VAR_2} {STR_VAR_1}\n"
+	"and the {STR_VAR_3}."
+}
+
+text(local) BerryTree_Text_PutAwayBerry_Mutation {
+	"{PLAYER} put away the {STR_VAR_1}\n"
+	"and the {STR_VAR_3} in the Bag's\l"
+	"Berries Pocket.\p"
+	"The soil returned to its soft and\n"
+	"loamy state."
+}
+raw`.endif`
+
+raw`.if OW_BERRY_MULCH_USAGE == TRUE`
+script BerryTree_EventScript_UseMulch {
+	special(ObjectEventInteractionApplyMulch)
+	message(BerryTree_Text_ScatteredMulch)
+	waitmessage
+	waitbuttonpress
+	return
+}
+
+text(local) BerryTree_Text_WantToMulch {
+	"It's soft, loamy soil.\n"
+	"Put down some fertilizer?"
+}
+
+text(local) BerryTree_Text_ScatteredMulch {
+	"{PLAYER} scattered the {STR_VAR_1}\n"
+	"on the soft, loamy soil."
+}
+raw`.endif`
+
+raw`.if OW_BERRY_WEEDS == TRUE`
+script BerryTree_EventScript_CheckForWeed {
+	specialvar(VAR_RESULT, ObjectEventInteractionBerryHasWeed)
+	if(var(VAR_RESULT)) {
+		call(BerryTree_EventScript_WeedIsGrowing)
+	}
+	return
+}
+
+script BerryTree_EventScript_WeedIsGrowing {
+	msgbox(BerryTree_Text_WeedIsGrowing, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(BerryTree_EventScript_PullOutWeed)
+	}
+	return
+}
+
+script BerryTree_EventScript_PullOutWeed {
+	special(ObjectEventInteractionPullBerryWeed)
+	message(BerryTree_Text_PulledOutTheWeed)
+	waitmessage
+	waitbuttonpress
+	return
+}
+
+text(local) BerryTree_Text_WeedIsGrowing {
+	"A weed is growing here.\n"
+	"Do you want to pull it out?"
+}
+
+text(local) BerryTree_Text_PulledOutTheWeed {
+	"{PLAYER} pulled out the weed!"
+}
+raw`.endif`
+
+raw`.if OW_BERRY_PESTS == TRUE`
+script BerryTree_EventScript_CheckForPests {
+	specialvar(VAR_RESULT, ObjectEventInteractionBerryHasPests)
+	if(var(VAR_RESULT)) {
+		call(BerryTree_EventScript_EncounterPests)
+	}
+	return
+}
+
+script BerryTree_EventScript_EncounterPests {
+	message(BerryTree_Text_APokemonAppeared)
+	waitmessage
+	waitbuttonpress
+	dowildbattle
+	return
+}
+
+text(local) BerryTree_Text_APokemonAppeared {
+	"A Pokémon appeared!"
+}
+raw`.endif`

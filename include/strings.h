@@ -2115,5 +2115,7 @@ extern const u8 gText_PM[];
 
 extern const u8 gText_RunningShoesOn[];
 extern const u8 gText_RunningShoesOff[];
+extern const u8 gText_InfiniteRepelOn[];
+extern const u8 gText_InfiniteRepelOff[];
 
 #endif // GUARD_STRINGS_H

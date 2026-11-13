@@ -2244,6 +2244,8 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_MaxRepel,
     },
 
+    
+
     [ITEM_LURE] =
     {
         .name = ITEM_NAME("Lure"),
@@ -2301,6 +2303,19 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_MaxLure,
     },
 
+    [ITEM_INFINITE_REPEL] = {
+        .name = ITEM_NAME("Infinite Repel"),
+        .description = COMPOUND_STRING(
+            "Prevents Pokémon from\n"
+            "appearing."
+        ),
+        .pocket = POCKET_FIELD_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRepel,
+        .iconPic = gItemIcon_Lure,
+        .iconPalette = gItemIconPalette_MaxLure,      
+    },
+
     [ITEM_ESCAPE_ROPE] =
     {
         .name = ITEM_NAME("Escape Rope"),
@@ -2311,7 +2326,7 @@ const struct ItemInfo gItemsInfo[] =
     #if I_KEY_ESCAPE_ROPE >= GEN_8
         .price = 0,
         .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_FIELD_ITEMS,
     #else
         .price = (I_PRICE >= GEN_7) ? 1000 : 550,
         .pocket = POCKET_ITEMS,
@@ -13986,7 +14001,7 @@ const struct ItemInfo gItemsInfo[] =
             "allowing them to run quickly."
         ),
         .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_FIELD_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_RunningShoes,
         .iconPic = gItemIcon_HeavyDutyBoots,
@@ -14019,7 +14034,7 @@ const struct ItemInfo gItemsInfo[] =
             "that doubles your\n"
             "speed or better."),
         .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_FIELD_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Bike,
         .secondaryId = MACH_BIKE,
@@ -14036,7 +14051,7 @@ const struct ItemInfo gItemsInfo[] =
             "capable of jumps\n"
             "and wheelies."),
         .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_FIELD_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Bike,
         .secondaryId = ACRO_BIKE,

@@ -452,6 +452,7 @@ static const u8 *const sPocketNamesStringsTable[] =
     [POCKET_TM_HM]                  = COMPOUND_STRING("TMs & HMs"),
     [POCKET_BERRIES]                = COMPOUND_STRING("Berries"),
     [POCKET_KEY_ITEMS]              = COMPOUND_STRING("Key Items"),
+    [POCKET_FIELD_ITEMS]            = COMPOUND_STRING("Field Items"),
 #if SWSH_BAG_BATTLE_POCKETS
     [BATTLE_POCKET_MEDICINE]        = COMPOUND_STRING("Medicine"),
     [BATTLE_POCKET_POKE_BALLS]      = COMPOUND_STRING("Poké Balls"),
@@ -2809,7 +2810,7 @@ static void BagList_PrintRowExtras(u32 itemIndex, u8 y, bool32 isHovered)
     if (gBagPosition.pocket == POCKET_TM_HM && GetItemTMHMIndex(itemSlot.itemId) > NUM_TECHNICAL_MACHINES)
         BlitBitmapToWindow(WIN_ITEM_LIST, sBagMenuHMIcon_Gfx, LIST_ROW_HM_ICON_X, y, 16, 16);
 
-    if (gBagPosition.pocket != POCKET_KEY_ITEMS && GetItemImportance(itemSlot.itemId) == FALSE)
+    if ( (gBagPosition.pocket != POCKET_KEY_ITEMS || gBagPosition.pocket != POCKET_FIELD_ITEMS) && GetItemImportance(itemSlot.itemId) == FALSE)
     {
         // Print item quantity
         s32 offset;
@@ -3564,7 +3565,7 @@ static void OpenContextMenu(u8 taskId)
     default:
         if (MenuHelpers_IsLinkActive() == TRUE || InUnionRoom() == TRUE)
         {
-            if (gBagPosition.pocket == POCKET_KEY_ITEMS || !IsHoldingItemAllowed(gSpecialVar_ItemId))
+            if (gBagPosition.pocket == POCKET_KEY_ITEMS || gBagPosition.pocket == POCKET_FIELD_ITEMS || !IsHoldingItemAllowed(gSpecialVar_ItemId))
             {
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_Cancel;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
@@ -3586,6 +3587,7 @@ static void OpenContextMenu(u8 taskId)
                 if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
                     gBagMenu->contextMenuItemsBuffer[0] = ACTION_CHECK;
                 break;
+            case POCKET_FIELD_ITEMS:
             case POCKET_KEY_ITEMS:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_KeyItemsPocket);
@@ -4007,7 +4009,7 @@ static void Task_ItemContext_GiveToParty(u8 taskId)
         StringExpandPlaceholders(gStringVar4, sText_Var1CantBeHeldHere);
         DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, HandleErrorMessage);
     }
-    else if (gBagPosition.pocket != POCKET_KEY_ITEMS && !GetItemImportance(gSpecialVar_ItemId))
+    else if (gBagPosition.pocket != POCKET_KEY_ITEMS && gBagPosition.pocket != POCKET_FIELD_ITEMS && !GetItemImportance(gSpecialVar_ItemId))
     {
         Task_FadeAndCloseBagMenu(taskId);
     }
@@ -4022,7 +4024,7 @@ static void Task_ItemContext_GiveToPC(u8 taskId)
 {
     if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
         DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
-    else if (gBagPosition.pocket != POCKET_KEY_ITEMS && !GetItemImportance(gSpecialVar_ItemId))
+    else if (gBagPosition.pocket != POCKET_KEY_ITEMS && gBagPosition.pocket != POCKET_FIELD_ITEMS && !GetItemImportance(gSpecialVar_ItemId))
         gTasks[taskId].func = Task_FadeAndCloseBagMenu;
     else
         PrintItemCantBeHeld(taskId);
@@ -4965,6 +4967,7 @@ static void AddBagSortSubMenu(u8 taskId)
 {
     switch (gBagPosition.pocket)
     {
+    case POCKET_FIELD_ITEMS:
     case POCKET_KEY_ITEMS:
         gBagMenu->contextMenuItemsPtr = sBagMenuSortKeyItems;
         memcpy(&gBagMenu->contextMenuItemsBuffer, &sBagMenuSortKeyItems, NELEMS(sBagMenuSortKeyItems));

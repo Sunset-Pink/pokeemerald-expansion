@@ -1106,7 +1106,7 @@ const u8 gText_Berries[] = _("Berries");
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
 ALIGNED(4) const u8 gText_Ghost[] = _("Ghost");
-const u8 gText_Boulderbadge[] = _("Boublder Badge");
+const u8 gText_Boulderbadge[] = _("Boulder Badge");
 const u8 gText_Cascadebadge[] = _("Cascade Badge");
 const u8 gText_Thunderbadge[] = _("Thunder Badge");
 const u8 gText_Rainbowbadge[] = _("Rainbow Badge");
@@ -1119,3 +1119,5 @@ const u8 gText_OakThisIsListOfPokemon[] = _("This is a list of your Pokémon,\n{
 
 const u8 gText_RunningShoesOn[] = _("Auto Run has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_RunningShoesOff[] = _("Auto Run has been turned off.{PAUSE_UNTIL_PRESS}");
+const u8 gText_InfiniteRepelOn[] = _("Infinite Repel has been turned on.{PAUSE_UNTIL_PRESS}");
+const u8 gText_InfiniteRepelOff[] = _("Infinite Repel has been turned off.{PAUSE_UNTIL_PRESS}");

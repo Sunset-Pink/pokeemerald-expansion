@@ -2303,42 +2303,6 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_MaxLure,
     },
 
-    [ITEM_INFINITE_REPEL] = {
-        .name = ITEM_NAME("Infinite Repel"),
-        .description = COMPOUND_STRING(
-            "Prevents Pokémon from\n"
-            "appearing."
-        ),
-        .pocket = POCKET_FIELD_ITEMS,
-        .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRepel,
-        .iconPic = gItemIcon_Lure,
-        .iconPalette = gItemIconPalette_MaxLure,      
-    },
-
-    [ITEM_ESCAPE_ROPE] =
-    {
-        .name = ITEM_NAME("Escape Rope"),
-        .description = COMPOUND_STRING(
-            "Use to escape\n"
-            "instantly from a\n"
-            "cave or a dungeon."),
-    #if I_KEY_ESCAPE_ROPE >= GEN_8
-        .price = 0,
-        .importance = 1,
-        .pocket = POCKET_FIELD_ITEMS,
-    #else
-        .price = (I_PRICE >= GEN_7) ? 1000 : 550,
-        .pocket = POCKET_ITEMS,
-        .sortType = ITEM_TYPE_FIELD_USE,
-    #endif
-        .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_EscapeRope,
-        .flingPower = 30,
-        .iconPic = gItemIcon_EscapeRope,
-        .iconPalette = gItemIconPalette_EscapeRope,
-    },
-
 // X items
 
     [ITEM_X_ATTACK] =
@@ -13992,22 +13956,6 @@ const struct ItemInfo gItemsInfo[] =
 
 // Miscellaneous Key Items
 
-    [ITEM_RUNNING_SHOES] = 
-    {
-        .name = ITEM_NAME("Running Shoes"),
-        .price = 0,
-        .description = COMPOUND_STRING(
-            "They use compressed air to propel the wearer,\n"
-            "allowing them to run quickly."
-        ),
-        .importance = 1,
-        .pocket = POCKET_FIELD_ITEMS,
-        .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_RunningShoes,
-        .iconPic = gItemIcon_HeavyDutyBoots,
-        .iconPalette = gItemIconPalette_HeavyDutyBoots,
-    },
-
     [ITEM_BICYCLE] =
     {   
         .name = ITEM_NAME("Bike"),
@@ -14023,40 +13971,6 @@ const struct ItemInfo gItemsInfo[] =
         .secondaryId = STANDARD_BIKE,
         .iconPic = gItemIcon_Bicycle,
         .iconPalette = gItemIconPalette_Bicycle,
-    },
-
-    [ITEM_MACH_BIKE] =
-    {
-        .name = ITEM_NAME("Mach Bike"),
-        .price = 0,
-        .description = COMPOUND_STRING(
-            "A folding bicycle\n"
-            "that doubles your\n"
-            "speed or better."),
-        .importance = 1,
-        .pocket = POCKET_FIELD_ITEMS,
-        .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_Bike,
-        .secondaryId = MACH_BIKE,
-        .iconPic = gItemIcon_MachBike,
-        .iconPalette = gItemIconPalette_MachBike,
-    },
-
-    [ITEM_ACRO_BIKE] =
-    {
-        .name = ITEM_NAME("Acro Bike"),
-        .price = 0,
-        .description = COMPOUND_STRING(
-            "A folding bicycle\n"
-            "capable of jumps\n"
-            "and wheelies."),
-        .importance = 1,
-        .pocket = POCKET_FIELD_ITEMS,
-        .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_Bike,
-        .secondaryId = ACRO_BIKE,
-        .iconPic = gItemIcon_AcroBike,
-        .iconPalette = gItemIconPalette_AcroBike,
     },
 
     [ITEM_OLD_ROD] =
@@ -16527,6 +16441,105 @@ const struct ItemInfo gItemsInfo[] =
         .flingPower = 80,
         .iconPic = gItemIcon_Sablenite,
         .iconPalette = gItemIconPalette_Sablenite,
+    },
+
+
+    // Field Items
+        [ITEM_RUNNING_SHOES] = 
+    {
+        .name = ITEM_NAME("Running Shoes"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "They use compressed air to propel the wearer,\n"
+            "allowing them to run quickly."
+        ),
+        .importance = 1,
+        .pocket = POCKET_FIELD_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_RunningShoes,
+        .iconPic = gItemIcon_HeavyDutyBoots,
+        .iconPalette = gItemIconPalette_HeavyDutyBoots,
+    },
+
+    [ITEM_FOLLOWERS_BALL] = 
+    {
+        .name = ITEM_NAME("Follower's Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Allows for Pokémon to follow their trainer\n"
+            "through the overworld. Not all species supported."
+        ),
+        .importance = 1,
+        .pocket = POCKET_FIELD_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_FollowersBall,
+        .iconPic = gItemIcon_ParkBall,
+        .iconPalette = gItemIconPalette_ParkBall,
+    },
+
+        [ITEM_INFINITE_REPEL] = {
+        .name = ITEM_NAME("Infinite Repel"),
+        .description = COMPOUND_STRING(
+            "Prevents Pokémon from\n"
+            "appearing."
+        ),
+        .pocket = POCKET_FIELD_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRepel,
+        .iconPic = gItemIcon_Lure,
+        .iconPalette = gItemIconPalette_MaxLure,      
+    },
+
+    [ITEM_ESCAPE_ROPE] =
+    {
+        .name = ITEM_NAME("Escape Rope"),
+        .description = COMPOUND_STRING(
+            "Use to escape\n"
+            "instantly from a\n"
+            "cave or a dungeon."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_FIELD_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_EscapeRope,
+        .flingPower = 30,
+        .iconPic = gItemIcon_EscapeRope,
+        .iconPalette = gItemIconPalette_EscapeRope,
+    },
+
+
+    [ITEM_MACH_BIKE] =
+    {
+        .name = ITEM_NAME("Mach Bike"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A folding bicycle\n"
+            "that doubles your\n"
+            "speed or better."),
+        .importance = 1,
+        .pocket = POCKET_FIELD_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Bike,
+        .secondaryId = MACH_BIKE,
+        .iconPic = gItemIcon_MachBike,
+        .iconPalette = gItemIconPalette_MachBike,
+    },
+
+    [ITEM_ACRO_BIKE] =
+    {
+        .name = ITEM_NAME("Acro Bike"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A folding bicycle\n"
+            "capable of jumps\n"
+            "and wheelies."),
+        .importance = 1,
+        .pocket = POCKET_FIELD_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Bike,
+        .secondaryId = ACRO_BIKE,
+        .iconPic = gItemIcon_AcroBike,
+        .iconPalette = gItemIconPalette_AcroBike,
     },
 };
 

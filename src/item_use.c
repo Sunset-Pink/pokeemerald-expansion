@@ -327,6 +327,24 @@ void ItemUseOutOfBattle_RunningShoes(u8 taskId) {
     gSaveBlock2Ptr->autoRun = !gSaveBlock2Ptr->autoRun;
 }
 
+void ItemUseOutOfBattle_FollowersBall(u8 taskId) {
+    if(FlagGet(B_FLAG_FOLLOWERS_DISABLED)) {
+        FlagToggle(B_FLAG_FOLLOWERS_DISABLED);
+        PlaySE(SE_PIN);
+        if(!gTasks[taskId].data[2])
+            DisplayItemMessageOnField(taskId, gText_FollowersOn, Task_CloseCantUseKeyItemMessage);
+        else    
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_FollowersOn, CloseItemMessage);
+    } else {
+        FlagToggle(B_FLAG_FOLLOWERS_DISABLED);
+        PlaySE(SE_PC_OFF);
+        if(!gTasks[taskId].data[2])
+            DisplayItemMessageOnField(taskId, gText_FollowersOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_FollowersOff, CloseItemMessage);
+    }
+}
+
 static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
     if (GetItemSecondaryId(gSpecialVar_ItemId) == STANDARD_BIKE)

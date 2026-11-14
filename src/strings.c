@@ -1121,3 +1121,5 @@ const u8 gText_RunningShoesOn[] = _("Auto Run has been turned on.{PAUSE_UNTIL_PR
 const u8 gText_RunningShoesOff[] = _("Auto Run has been turned off.{PAUSE_UNTIL_PRESS}");
 const u8 gText_InfiniteRepelOn[] = _("Infinite Repel has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_InfiniteRepelOff[] = _("Infinite Repel has been turned off.{PAUSE_UNTIL_PRESS}");
+const u8 gText_FollowersOn[] = _("Overworld Folllowers has been turned on.{PAUSE_UNTIL_PRESS}");
+const u8 gText_FollowersOff[] = _("Overworld Followers has been turned off.{PAUSE_UNTIL_PRESS}");

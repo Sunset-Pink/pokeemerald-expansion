@@ -2100,12 +2100,6 @@ extern const u8 gText_Girl[];
 extern const u8 gText_MenuPokeVial[];
 extern const u8 gText_MenuPC[];
 extern const u8 gText_TimeChanger[];
-extern const u8 gText_InfiniteRepelOn[];
-extern const u8 gText_InfiniteRepelOff[];
-extern const u8 gText_AutoRunOn[];
-extern const u8 gText_AutoRunOff[];
-extern const u8 gText_FollowersOn[];
-extern const u8 gText_FollowersOff[];
 extern const u8 gText_StatEditor[];
 extern const u8 gText_MenuPokeVialNuzlock[];
 extern const u8 gText_MenuReturnItems[];
@@ -2117,5 +2111,7 @@ extern const u8 gText_RunningShoesOn[];
 extern const u8 gText_RunningShoesOff[];
 extern const u8 gText_InfiniteRepelOn[];
 extern const u8 gText_InfiniteRepelOff[];
+extern const u8 gText_FollowersOn[];
+extern const u8 gText_FollowersOff[];
 
 #endif // GUARD_STRINGS_H

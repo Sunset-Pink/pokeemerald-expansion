@@ -7,61 +7,51 @@ mapscripts PetalburgCity_WallysHouse_MapScripts {
     ]
 }
 
-raw`
-PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther::
-	turnobject LOCALID_PLAYER, DIR_EAST
-	turnobject LOCALID_WALLYS_HOUSE_WALLYS_DAD, DIR_WEST
+script PetalburgCity_WallysHouse_EventScript_PlayerWallysDadFaceEachOther {
+	turnobject(LOCALID_PLAYER, DIR_EAST)
+	turnobject(LOCALID_WALLYS_HOUSE_WALLYS_DAD, DIR_WEST)
 	end
+}
 
-PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
+script PetalburgCity_WallysHouse_EventScript_GiveHMSurf {
 	lockall
-	msgbox PetalburgCity_WallysHouse_Text_PleaseExcuseUs, MSGBOX_DEFAULT
-	giveitem ITEM_HM_SURF
-	setflag FLAG_RECEIVED_HM_SURF
-	msgbox PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces, MSGBOX_DEFAULT
-	setvar VAR_PETALBURG_CITY_STATE, 5
+	msgbox(PetalburgCity_WallysHouse_Text_PleaseExcuseUs)
+	giveitem(ITEM_HM_SURF)
+	setflag(FLAG_RECEIVED_HM_SURF)
+	msgbox(PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces)
+	setvar(VAR_PETALBURG_CITY_STATE, 5)
 	releaseall
 	end
+}
 
-PetalburgCity_WallysHouse_EventScript_WallysDad::
+script PetalburgCity_WallysHouse_EventScript_WallysDad {
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_WALLY_VICTORY_ROAD, PetalburgCity_WallysHouse_EventScript_DefeatedWallyInVictoryRoad
-	goto_if_set FLAG_RECEIVED_HM_SURF, PetalburgCity_WallysHouse_EventScript_ReceievedHMSurf
-	goto_if_set FLAG_THANKED_FOR_PLAYING_WITH_WALLY, PetalburgCity_WallysHouse_EventScript_PlayedWithWally
-	msgbox PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally, MSGBOX_DEFAULT
-	setflag FLAG_THANKED_FOR_PLAYING_WITH_WALLY
+	if(flag(FLAG_DEFEATED_WALLY_VICTORY_ROAD)) {
+		msgbox(PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity)
+	} elif (flag(FLAG_RECEIVED_HM_SURF)) {
+		msgbox(PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon)
+	} elif (flag(FLAG_THANKED_FOR_PLAYING_WITH_WALLY)) {
+		msgbox(PetalburgCity_WallysHouse_Text_WonderHowWallyIsDoing)
+	} else {
+		msgbox(PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally)
+		setflag(FLAG_THANKED_FOR_PLAYING_WITH_WALLY)
+	}
 	release
 	end
+}
 
-PetalburgCity_WallysHouse_EventScript_ReceievedHMSurf::
-	msgbox PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon, MSGBOX_DEFAULT
-	release
-	end
-
-PetalburgCity_WallysHouse_EventScript_DefeatedWallyInVictoryRoad::
-	msgbox PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity, MSGBOX_DEFAULT
-	release
-	end
-
-PetalburgCity_WallysHouse_EventScript_PlayedWithWally::
-	msgbox PetalburgCity_WallysHouse_Text_WonderHowWallyIsDoing, MSGBOX_DEFAULT
-	release
-	end
-
-PetalburgCity_WallysHouse_EventScript_WallysMom::
+script PetalburgCity_WallysHouse_EventScript_WallysMom {
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_HM_SURF, PetalburgCity_WallysHouse_EventScript_ReceivedHMSurf
-	msgbox PetalburgCity_WallysHouse_Text_WallyWasReallyHappy, MSGBOX_DEFAULT
+	if(flag(FLAG_RECEIVED_HM_SURF)) {
+		msgbox(PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling)
+	} else {
+		msgbox(PetalburgCity_WallysHouse_Text_WallyWasReallyHappy)
+	}
 	release
-	end
-
-PetalburgCity_WallysHouse_EventScript_ReceivedHMSurf::
-	msgbox PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling, MSGBOX_DEFAULT
-	release
-	end
-`
+	return
+}
 
 text(local) PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally {
 	"You're\.\n"

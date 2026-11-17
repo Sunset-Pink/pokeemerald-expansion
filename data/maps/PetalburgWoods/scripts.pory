@@ -1,0 +1,424 @@
+mapscripts PetalburgWoods_MapScripts {}
+
+script PetalburgWoods_EventScript_DevonResearcherLeft {
+	lockall
+	setflag(FLAG_TEMP_1)
+	call(PetalburgWoods_EventScript_DevonResearcher)
+	releaseall
+	end
+}
+
+script PetalburgWoods_EventScript_DevonResearcherRight {
+	lockall
+	clearflag(FLAG_TEMP_1)
+	call(PetalburgWoods_EventScript_DevonResearcher)
+	releaseall
+	end
+}
+	
+// FLAG_TEMP_1: Set = Left, Unset = right.
+script PetalburgWoods_EventScript_DevonResearcher {
+	applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherLookAround)
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_NotAOneToBeFound)
+	closemessage
+	if(var(VAR_0x8009) == 0) {
+		applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, moves(
+			delay_16
+			face_player
+			walk_down * 2
+		))
+	} else {
+		applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, moves(
+			delay_16
+			face_player
+			walk_down * 3
+			walk_in_place_faster_right
+		))
+	}
+	waitmovement(0)
+	if(flag(FLAG_TEMP_1)) {
+		applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+		waitmovement(0)
+	}
+	
+	msgbox(PetalburgWoods_Text_HaveYouSeenShroomish)
+	closemessage
+	playbgm(MUS_ENCOUNTER_AQUA, FALSE)
+	applymovement(LOCALID_PETALBURG_WOODS_GRUNT, moves(
+		walk_down * 2
+		delay_16 * 2
+	))
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_IWasGoingToAmbushYou)
+	closemessage
+	if(flag(FLAG_TEMP_1)) {
+		applymovement(LOCALID_PETALBURG_WOODS_GRUNT, moves( walk_fast_down * 2))
+	} else {
+		applymovement(LOCALID_PETALBURG_WOODS_GRUNT, moves( walk_fast_down * 3))
+	}
+	waitmovement(0)
+	applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_HandOverThosePapers)
+	closemessage
+	if(flag(FLAG_TEMP_1)) {
+		applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, moves(
+			walk_fast_right
+			walk_fast_down * 2
+			walk_fast_left
+			walk_in_place_faster_up
+		))
+	} else {
+		applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, moves(
+			walk_fast_down
+			walk_fast_right
+			walk_in_place_faster_up
+		))
+	}
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_YouHaveToHelpMe)
+	if(flag(FLAG_TEMP_1)) {
+		applymovement(LOCALID_PETALBURG_WOODS_GRUNT, moves(walk_down))
+	} else {
+		applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+	}
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_NoOneCrossesTeamAqua)
+	trainerbattle_no_intro(TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_YoureKiddingMe)
+	applymovement(LOCALID_PETALBURG_WOODS_GRUNT, moves(
+		lock_facing_direction
+		walk_up
+		unlock_facing_direction
+	))
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_YouveGotSomeNerve)
+	closemessage
+	applymovement(LOCALID_PETALBURG_WOODS_GRUNT, moves(
+		walk_fast_up * 5
+		delay_16
+	))
+	waitmovement(0)
+	removeobject(LOCALID_PETALBURG_WOODS_GRUNT)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_ThatWasAwfullyClose)
+	giveitem(ITEM_GREAT_BALL)
+	if(var(VAR_RESULT) == FALSE) {
+		msgbox(PetalburgWoods_Text_YoureLoadedWithItems)
+	}
+	msgbox(PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro)
+	applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, moves(
+		walk_in_place_faster_down
+		delay_16 * 5
+		face_up
+	))
+	waitmovement(0)
+	msgbox(PetalburgWoods_Text_ICantBeWastingTime)
+	closemessage
+	applymovement(LOCALID_PLAYER, moves(
+		delay_16 * 2
+		walk_in_place_faster_up
+	))
+	if(flag(FLAG_TEMP_1)) {
+		applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, moves(
+			walk_fast_right
+			walk_fast_up * 7
+		))
+	} else {
+		applymovement(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, moves(
+			walk_fast_left
+			walk_fast_up * 7
+		))
+	}
+	waitmovement(0)
+	removeobject(LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE)
+	setvar(VAR_PETALBURG_WOODS_STATE, 1)
+	return
+}
+
+movement(local) PetalburgWoods_Movement_DevonResearcherLookAround {
+	face_up
+	delay_16
+	delay_4
+	face_right
+	delay_16
+	delay_8
+	face_left
+	delay_16
+	delay_8
+	face_down
+	delay_16
+	face_right
+	delay_16
+	delay_8
+	face_up
+	delay_16
+}
+
+script PetalburgWoods_EventScript_Boy1 {
+	msgbox(PetalburgWoods_Text_StayOutOfTallGrass, MSGBOX_NPC)
+	end
+}
+
+script PetalburgWoods_EventScript_Boy2 {
+	msgbox(PetalburgWoods_Text_HiddenItemsExplanation, MSGBOX_NPC)
+	end
+}
+
+script PetalburgWoods_EventScript_Girl {
+	lock
+	faceplayer
+	if(!flag(FLAG_RECEIVED_MIRACLE_SEED)) {
+		msgbox(PetalburgWoods_Text_TryUsingThisItem)
+		giveitem(ITEM_MIRACLE_SEED)
+		if(var(VAR_RESULT) == FALSE) {
+			goto(Common_EventScript_ShowBagIsFull)
+		}
+		setflag(FLAG_RECEIVED_MIRACLE_SEED)
+	}
+	msgbox(PetalburgWoods_Text_MiracleSeedExplanation)
+	release
+	end
+}
+
+script PetalburgWoods_EventScript_Sign1 {
+	msgbox(PetalburgWoods_Text_TrainerTipsExperience, MSGBOX_SIGN)
+	end
+}
+
+script PetalburgWoods_EventScript_Sign2 {
+	msgbox(PetalburgWoods_Text_TrainerTipsPP, MSGBOX_SIGN)
+	end
+}
+
+script PetalburgWoods_EventScript_Lyle {
+	trainerbattle_single(
+		TRAINER_LYLE, 
+		PetalburgWoods_Text_GoBugPokemonTeam, 
+		PetalburgWoods_Text_ICouldntWin
+	)
+	msgbox(PetalburgWoods_Text_ImOutOfPokeBalls, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PetalburgWoods_EventScript_James {
+	trainerbattle_single(
+		TRAINER_JAMES_1, 
+		PetalburgWoods_Text_InstantlyPopularWithBugPokemon, 
+		PetalburgWoods_Text_CantBePopularIfILose, 
+		PetalburgWoods_EventScript_TryRegisterJames
+	)
+	specialvar(VAR_RESULT, ShouldTryRematchBattle)
+	if(var(VAR_RESULT)) {
+		trainerbattle_rematch(TRAINER_JAMES_1, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose)
+		msgbox(PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE)
+	} else {
+		setvar(VAR_0x8004, TRAINER_JAMES_1)
+		specialvar(VAR_RESULT, IsTrainerRegistered)
+		if(var(VAR_RESULT) == FALSE && flag(FLAG_HAS_MATCH_CALL)) {
+			msgbox(PetalburgWoods_Text_IWantRematch2, MSGBOX_DEFAULT)
+			register_matchcall(TRAINER_JAMES_1)
+		} else {
+			msgbox(PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT)
+		}
+	}
+	release
+	end
+}
+
+script PetalburgWoods_EventScript_TryRegisterJames {
+	special(PlayerFaceTrainerAfterBattle)
+	waitmovement(0)
+	if(flag(FLAG_HAS_MATCH_CALL)) {
+		msgbox(PetalburgWoods_Text_IWantRematch1)
+		register_matchcall(TRAINER_JAMES_1)
+	}
+	return
+}
+
+text(local) PetalburgWoods_Text_NotAOneToBeFound {
+	"Hmmm\.\n"
+	"Not a one to be found\."
+}
+
+text(local) PetalburgWoods_Text_HaveYouSeenShroomish {
+	"Hello, have you seen any Pok\emon\n"
+	"called Shroomish around here?\p"
+	"I really love that Pok\emon."
+}
+
+text(local) PetalburgWoods_Text_IWasGoingToAmbushYou {
+	"I was going to ambush you, but you\n"
+	"had to dawdle in Petalburg Woods\l"
+	"forever, didn't you?\p"
+	"I got sick of waiting, so here I am!"
+}
+
+text(local) PetalburgWoods_Text_HandOverThosePapers {
+	"You! Devon Researcher!\p"
+	"Hand over those papers!"
+}
+
+text(local) PetalburgWoods_Text_YouHaveToHelpMe {
+	"Aiyeeeh!\p"
+	"You're a Pok\emon Trainer, aren't you?\n"
+	"You've got to help me, please!"
+}
+
+text(local) PetalburgWoods_Text_NoOneCrossesTeamAqua {
+	"Hunh? What do you think you're doing?\n"
+	"What, you're going to protect him?\p"
+	"No one who crosses Team Aqua\n"
+	"gets any mercy, not even a kid!\p"
+	"Come on and battle me!"
+}
+
+text(local) PetalburgWoods_Text_YoureKiddingMe {
+	"You're kidding me! You're tough!"
+}
+
+text(local) PetalburgWoods_Text_YouveGotSomeNerve {
+	"Grrr\. You've got some nerve\n"
+	"meddling with Team Aqua!\l"
+	"Come on and battle me again!\p"
+	"I wish I could say that, but I'm out of\n"
+	"Pok\emon\.\p"
+	"And, hey, we of Team Aqua are also\n"
+	"after something in Rustboro.\p"
+	"I'll let you go today!"
+}
+
+text(local) PetalburgWoods_Text_ThatWasAwfullyClose {
+	"Whew\.\n"
+	"That was awfully close!\p"
+	"Thanks to you, he didn't rob me of\n"
+	"these important papers.\p"
+	"I know, I'll give you a Great Ball as\n"
+	"my thanks!"
+}
+
+text(local) PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro {
+	"Didn't that Team Aqua thug say\n"
+	"they were after something in\l"
+	"Rustboro, too?"
+}
+
+text(local) PetalburgWoods_Text_ICantBeWastingTime {
+	"Uh-oh! It's a crisis!\n"
+	"I can't be wasting time!"
+}
+
+text(local) PetalburgWoods_Text_YoureLoadedWithItems {
+	"You're loaded with items.\n"
+	"I can't give you this Great Ball."
+}
+
+text(local) PetalburgWoods_Text_GoBugPokemonTeam {
+	"I caught a whole bunch of Pok\emon!\p"
+	"Go, go, go!\n"
+	"My Bug Pok\emon team!"
+}
+
+text(local) PetalburgWoods_Text_ICouldntWin {
+	"I have all these Pok\emon,\n"
+	"but I couldn't win\."
+}
+
+text(local) PetalburgWoods_Text_ImOutOfPokeBalls {
+	"I caught a bunch of Pok\emon.\n"
+	"Now I'm out of Pok\e Balls."
+}
+
+text(local) PetalburgWoods_Text_InstantlyPopularWithBugPokemon {
+	"If you take Bug Pok\emon to school,\n"
+	"you get to be instantly popular!"
+}
+
+text(local) PetalburgWoods_Text_CantBePopularIfILose {
+	"I can't be popular if I lose."
+}
+
+text(local) PetalburgWoods_Text_PeopleRespectYou {
+	"If you have a big Bug Pok\emon,\n"
+	"people respect you for it."
+}
+
+text(local) PetalburgWoods_Text_IWantRematch1 {
+	"I want a rematch when my Bug\n"
+	"Pok\emon grow up!\p"
+	"I'm registering you in my Pok\eNav!"
+}
+
+text(local) PetalburgWoods_Text_IWantRematch2 {
+	"I want a rematch when my Bug \n"
+	"Pok\emon grow up!\p"
+	"I'm registering you in my Pok\eNav!"
+}
+
+text(local) PetalburgWoods_Text_MyPokemonHaveGrown {
+	"My Bug Pok\emon have grown.\n"
+	"I'll be popular again."
+}
+
+text(local) PetalburgWoods_Text_CantBePopularIfLose {
+	"I can't be popular if I lose."
+}
+
+text(local) PetalburgWoods_Text_IveBeenTrainingHard {
+	"You get to be popular if you have\n"
+	"strong Pok\emon, right?\l"
+	"So, I've been training hard."
+}
+
+text(local) PetalburgWoods_Text_StayOutOfTallGrass {
+	"Yo, there!\n"
+	"Your Pok\emon doing okay?\p"
+	"If your Pok\emon are weak and you want\n"
+	"to avoid battles, you should stay out\l"
+	"of tall grass."
+}
+
+text(local) PetalburgWoods_Text_HiddenItemsExplanation {
+	"Sometimes, there are things on the\n"
+	"ground even if you can't see them.\p"
+	"That's why I always check where I'm\n"
+	"walking."
+}
+
+text(local) PetalburgWoods_Text_TryUsingThisItem {
+	"Oh, neat!\n"
+	"That's the Badge from Rustboro Gym!\p"
+	"You must be a Trainer.\n"
+	"You should try using this item."
+}
+
+text(local) PetalburgWoods_Text_MiracleSeedExplanation {
+	"It's a Miracle Seed.\n"
+	"If a Pok\emon holds that item, its\l"
+	"Grass-type moves become stronger.\p"
+	"Besides Miracle Seed, I think there are\n"
+	"other convenient items for Pok\emon\l"
+	"to hold."
+}
+
+text(local) PetalburgWoods_Text_TrainerTipsExperience {
+	"Trainer Tips\p"
+	"Any Pok\emon that appears even once\n"
+	"in a battle is awarded Exp Points.\p"
+	"To raise a weak Pok\emon, put it at the\n"
+	"left of the team list.\p"
+	"As soon as a battle starts, switch it\n"
+	"out. It will earn Exp Points without\l"
+	"being exposed to any harm."
+}
+
+text(local) PetalburgWoods_Text_TrainerTipsPP {
+	"Trainer Tips\p"
+	"In addition to Hit Points (HP), Pok\emon\n"
+	"have Power Points (PP) that are used to\l"
+	"make moves during battle.\p"
+	"If a Pok\emon runs out of PP, it must be\n"
+	"taken to a Pok\emon Center."
+}
+

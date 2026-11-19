@@ -1,0 +1,51 @@
+mapscripts RustboroCity_CuttersHouse_MapScripts {}
+
+script RustboroCity_CuttersHouse_EventScript_Cutter {
+	lock
+	faceplayer
+    if(!flag(FLAG_RECEIVED_HM_CUT)) {
+        msgbox(RustboroCity_CuttersHouse_Text_YouCanPutThisHMToGoodUse)
+        giveitem(ITEM_HM_CUT)
+        setflag(FLAG_RECEIVED_HM_CUT)
+    }
+    msgbox(RustboroCity_CuttersHouse_Text_ExplainCut)
+	release
+	end
+}
+
+script RustboroCity_CuttersHouse_EventScript_Lass {
+	msgbox(RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees, MSGBOX_NPC)
+	end
+}
+
+text(local) RustboroCity_CuttersHouse_Text_YouCanPutThisHMToGoodUse {
+	"That determined expression\.\n"
+	"That limber way you move\.\l"
+	"And your well-trained Pok\emon\.\p"
+	"You're obviously a skilled Trainer!\p"
+	"No, wait, don't say a word.\n"
+	"I can tell just by looking at you.\p"
+	"I'm sure that you can put this\n"
+	"Hidden Machine to good use.\p"
+	"No need to be modest or shy.\n"
+	"Go on, take it!"
+}
+
+text(local) RustboroCity_CuttersHouse_Text_ExplainCut {
+	"That Hidden Machine, or HM for\n"
+	"short, is Cut.\p"
+	"An HM move is one that can be used\n"
+	"by Pok\emon outside of battle.\p"
+	"Any Pok\emon that's learned Cut can\n"
+	"chop down thin trees if the Trainer\l"
+	"has earned the Stone Badge.\p"
+	"And, unlike a TM, an HM can be used\n"
+	"more than once."
+}
+
+text(local) RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees {
+	"When they were expanding the city of\n"
+	"Rustboro, my dad helped out.\p"
+	"He made his Pok\emon use Cut to clear\n"
+	"the land of trees."
+}

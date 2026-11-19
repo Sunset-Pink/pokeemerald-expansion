@@ -216,6 +216,22 @@
 #define VAR_VICTORY_ROAD_1F_STATE                        0x40C3
 #define VAR_FOSSIL_RESURRECTION_STATE                    0x40C4
 #define VAR_WHICH_FOSSIL_REVIVED                         0x40C5
+// Determine which fossil is being revived.
+// 0: Helix             -> Omanyte
+// 1: Dome              -> Kabuto
+// 2: Old Amber         -> Aerodactyl
+// 3: Root              -> Lileep
+// 4: Claw              -> Anorith
+// 5: Skull             -> Cranidos
+// 6: Armor             -> Shieldon
+// 7: Cover             -> Tirtouga
+// 8: Plume             -> Archen
+// 9: Jaw               -> Tyrunt
+//10: Sail              -> Amaura
+//11: Fossilized Bird   -> Dracozolt
+//12: Fossilized Fish   -> Arctovish
+//13: Fossilized Drake  -> Dracovish
+//14: Fossilized Dino   -> Arctozolt
 #define VAR_STEVENS_HOUSE_STATE                          0x40C6
 #define VAR_OLDALE_RIVAL_STATE                           0x40C7
 #define VAR_JAGGED_PASS_STATE                            0x40C8

@@ -1,0 +1,41 @@
+mapscripts RustboroCity_Flat2_2F_MapScripts {}
+
+script RustboroCity_Flat2_2F_EventScript_OldMan {
+	msgbox(RustboroCity_Flat2_2F_Text_DevonWasTinyInOldDays, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_Flat2_2F_EventScript_NinjaBoy {
+	lock
+	faceplayer
+    if(flag(FLAG_RECEIVED_PREMIER_BALL_RUSTBORO)) {
+        msgbox(RustboroCity_Flat2_2F_Text_GoingToWorkAtDevonToo)
+    } else {
+        msgbox(RustboroCity_Flat2_2F_Text_MyDaddyMadeThisYouCanHaveIt)
+        giveitem(ITEM_PREMIER_BALL)
+        if(var(VAR_RESULT) == FALSE) {
+            goto(Common_EventScript_ShowBagIsFull)
+        }
+        setflag(FLAG_RECEIVED_PREMIER_BALL_RUSTBORO)
+    }
+	release
+	end
+}
+
+text(local) RustboroCity_Flat2_2F_Text_DevonWasTinyInOldDays {
+	"Way back in the old days, Devon was just\n"
+	"a teeny, tiny company."
+}
+
+text(local) RustboroCity_Flat2_2F_Text_MyDaddyMadeThisYouCanHaveIt {
+	"My daddy's working at the Corporation.\p"
+	"My daddy made this!\n"
+	"But I can't use it, so you can have it."
+}
+
+text(local) RustboroCity_Flat2_2F_Text_GoingToWorkAtDevonToo {
+	"My daddy's working at the Corporation.\p"
+	"When I grow up, I'm going to work for\n"
+	"Devon, too."
+}
+

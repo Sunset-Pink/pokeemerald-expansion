@@ -1,0 +1,309 @@
+mapscripts RustboroCity_PokemonSchool_MapScripts {}
+
+script RustboroCity_PokemonSchool_EventScript_Blackboard {
+	lockall
+	msgbox(RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges)
+    do {
+        message(RustboroCity_PokemonSchool_Text_ReadWhichTopic)
+        waitmessage
+        multichoicegrid(8, 1, MULTI_STATUS_INFO, 3, FALSE)
+        switch(var(VAR_RESULT)) {
+            case 0: msgbox(RustboroCity_PokemonSchool_Text_ExplainPoison)
+            case 1: msgbox(RustboroCity_PokemonSchool_Text_ExplainParalysis)
+            case 2: msgbox(RustboroCity_PokemonSchool_Text_ExplainSleep)
+            case 3: msgbox(RustboroCity_PokemonSchool_Text_ExplainBurn)
+            case 4: msgbox(RustboroCity_PokemonSchool_Text_ExplainFreeze)
+        }
+    } while(var(VAR_RESULT) != MULTI_B_PRESSED)
+	releaseall
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_GameboyKid1 {
+	msgbox(RustboroCity_PokemonSchool_Text_TradingRightNow, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_GameboyKid2 {
+	msgbox(RustboroCity_PokemonSchool_Text_AlwaysWantedSeedot, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_RichBoy {
+	msgbox(RustboroCity_PokemonSchool_Text_PokemontCantUseManMadeItems, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_Lass {
+	msgbox(RustboroCity_PokemonSchool_Text_ConfusedPokemonAttacksItself, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_SchoolKidM {
+	msgbox(RustboroCity_PokemonSchool_Text_PokemonHealItselfWithBerry, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_StudentNotebook {
+	msgbox(RustboroCity_PokemonSchool_Text_StudentsNotes, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_Teacher {
+	lock
+	faceplayer
+    if(flag(FLAG_RECEIVED_QUICK_CLAW)) {
+        msgbox(RustboroCity_PokemonSchool_Text_ExplainQuickClaw, MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown)
+        waitmovement(0)
+        release
+        end
+    }
+    if(var(VAR_FACING) == DIR_EAST) {
+        applymovement(VAR_LAST_TALKED, moves(
+            walk_right * 2
+            walk_down * 2
+            walk_left * 2
+            walk_in_place_faster_down
+            delay_16 * 3
+            walk_down
+            walk_in_place_faster_left
+            delay_16 * 2
+            walk_right
+            delay_16 * 2
+            delay_8
+            walk_up
+            walk_right
+            walk_up * 2
+            walk_left * 2
+        ))
+	    waitmovement(0)
+    }
+    if(var(VAR_FACING) == DIR_WEST) {
+        applymovement(VAR_LAST_TALKED, moves(
+            walk_left
+            walk_down * 2
+            walk_right
+            walk_in_place_faster_down
+            delay_16 * 3
+            walk_down
+            walk_in_place_faster_left
+            delay_16 * 2
+            walk_right
+            delay_16 * 2
+            delay_8
+            walk_up
+            walk_left * 2
+            walk_up * 2
+            walk_right
+        ))
+	    waitmovement(0)
+    }
+    msgbox(RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw)
+    giveitem(ITEM_QUICK_CLAW)
+    if(var(VAR_RESULT) == 0) {
+        goto(Common_EventScript_ShowBagIsFull)
+    }
+    closemessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	setflag(FLAG_RECEIVED_QUICK_CLAW)
+	release
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_Scott {
+	lock
+	faceplayer
+    if(flag(FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE)) {
+        msgbox(RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown)
+    } elif(flag(FLAG_MET_SCOTT_RUSTBORO)) {
+        if(flag(FLAG_BADGE01_GET)) {
+            msgbox(RustboroCity_PokemonSchool_Text_ScottStoneBadge)
+	        addvar(VAR_SCOTT_STATE, 1)
+	        setflag(FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE)
+        }
+	    msgbox(RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown)
+    } elif (flag(FLAG_BADGE01_GET)) {
+        msgbox(RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge)
+	    addvar(VAR_SCOTT_STATE, 1)
+        setflag(FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE)
+    } else {
+        msgbox(RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut)
+        addvar(VAR_SCOTT_STATE, 1)
+        setflag(FLAG_MET_SCOTT_RUSTBORO)
+    }
+	release
+	end
+}
+
+text(local) RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges {
+	"The blackboard lists status changes\n"
+	"that may affect Pok\emon in battle."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ReadWhichTopic {
+	"Which topic do you want to read?"
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ExplainPoison {
+	"If a Pok\emon is poisoned, it will\n"
+	"steadily lose HP.\p"
+	"The effects of poison remain after\n"
+	"a battle.\p"
+	"A poisoned Pok\emon's HP will drop\n"
+	"while it is traveling.\p"
+	"Heal a poisoning using an Antidote."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ExplainParalysis {
+	"If a Pok\emon becomes paralyzed,\n"
+	"its Speed drops.\p"
+	"It may also not be able to move while\n"
+	"it is in battle.\p"
+	"Paralysis remains after battle.\n"
+	"Cure it using a Parlyz Heal."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ExplainSleep {
+	"If a Pok\emon falls asleep, it will be\n"
+	"unable to attack.\p"
+	"A Pok\emon may wake up on its own,\n"
+	"but if a battle ends while it is\l"
+	"sleeping, it will stay asleep.\p"
+	"Wake it up using an Awakening."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ExplainBurn {
+	"A burn reduces Attack power, and it\n"
+	"steadily reduces the victim's HP.\p"
+	"A burn lingers after battle.\n"
+	"Cure a burn using a Burn Heal."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ExplainFreeze {
+	"If a Pok\emon is frozen, it becomes\n"
+	"completely helpless.\p"
+	"It will remain frozen after battle.\n"
+	"Thaw it out using an Ice Heal."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw {
+	"Students who don't study get a little\n"
+	"taste of my Quick Claw.\p"
+	"Whether or not you are a good student \n"
+	"will be evident from the way you use\l"
+	"this item."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ExplainQuickClaw {
+	"A Pok\emon holding the Quick Claw will\n"
+	"occasionally speed up and get to move\l"
+	"before its opponent.\p"
+	"There are many other items that are\n"
+	"meant to be held by Pok\emon.\p"
+	"Just those alone will give you many\n"
+	"topics to study!"
+}
+
+text(local) RustboroCity_PokemonSchool_Text_TradingRightNow {
+	"I'm trading Pok\emon with my friend\n"
+	"right now."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_AlwaysWantedSeedot {
+	"I always wanted a Seedot, and\n"
+	"I'm finally getting one!"
+}
+
+text(local) RustboroCity_PokemonSchool_Text_PokemontCantUseManMadeItems {
+	"Pok\emon can hold items, but they\n"
+	"don't know what to do with man-made\l"
+	"items like Potion and Antidote."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ConfusedPokemonAttacksItself {
+	"You know how some Pok\emon moves can\n"
+	"confuse a Pok\emon?\p"
+	"A confused Pok\emon will sometimes\n"
+	"attack itself without meaning to.\p"
+	"But once it leaves battle, it will\n"
+	"return to normal."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_PokemonHealItselfWithBerry {
+	"A Pok\emon holding a Berry will heal\n"
+	"itself\.\p"
+	"There are many kinds of items that\n"
+	"Pok\emon can hold\.\p"
+	"Boy, it sure is hard taking notes\n"
+	"down\."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_StudentsNotes {
+	"It's this student's notebook\.\p"
+	"Pok\emon are to be caught using\n"
+	"Pok\e Balls.\p"
+	"Up to six Pok\emon can accompany\n"
+	"a Trainer.\p"
+	"A Trainer is someone who catches\n"
+	"Pok\emon, raises them, and battles\l"
+	"with them.\p"
+	"A Trainer's mission is to defeat\n"
+	"the strong Trainers who await\l"
+	"challengers in Pok\emon Gyms."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut {
+	"Hello? Didn't we meet before?\n"
+	"I think back in Petalburg City.\p"
+	"Let me introduce myself.\n"
+	"My name's Scott.\p"
+	"I've been traveling everywhere in\n"
+	"search of outstanding Trainers.\p"
+	"More specifically, I'm looking for\n"
+	"Pok\emon battle experts.\p"
+	"So, what brings you to this School?\n"
+	"Are you a Trainer, too?\p"
+	"The first thing you should do is to\n"
+	"have a Pok\emon learn the move Cut.\p"
+	"If I remember correctly, someone in\n"
+	"this town has Cut."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown {
+	"Scott: Hmm\.\p"
+	"The talent levels of the students here\n"
+	"are unknown. The potential's there."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ScottStoneBadge {
+	"Scott: Oh, what's that?\p"
+	"It's a Stone Badge, isn't it?\n"
+	"That's pretty impressive, I'd say.\p"
+	"But, you know, I would've loved to see\n"
+	"you in battle.\p"
+	"It's hard to tell what you're like as\n"
+	"a Trainer from a League Badge."
+}
+
+text(local) RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge {
+	"Hello? Didn't we meet before?\n"
+	"I think back in Petalburg City.\p"
+	"Let me introduce myself.\n"
+	"My name's Scott.\p"
+	"I've been traveling everywhere in\n"
+	"search of outstanding Trainers.\p"
+	"More specifically, I'm looking for\n"
+	"Pok\emon battle experts.\p"
+	"Oh, what's that?\n"
+	"It's a Stone Badge, isn't it?\p"
+	"That's pretty impressive, I'd say, for\n"
+	"a starting Trainer like yourself.\p"
+	"But, you know, I would've loved to see\n"
+	"you in battle.\p"
+	"It's hard to tell what you're like as\n"
+	"a Trainer from a League Badge."
+}
+

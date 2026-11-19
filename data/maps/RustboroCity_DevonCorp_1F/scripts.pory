@@ -1,0 +1,136 @@
+mapscripts RustboroCity_DevonCorp_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: RustboroCity_DevonCorp_1F_OnTransition
+}
+
+script(local) RustboroCity_DevonCorp_1F_OnTransition {
+	if(flag(FLAG_RETURNED_DEVON_GOODS) == FALSE) {
+		setobjectxyperm(LOCALID_DEVON_CORP_STAIR_GUARD, 14, 2)
+		setobjectmovementtype(LOCALID_DEVON_CORP_STAIR_GUARD, MOVEMENT_TYPE_FACE_DOWN)
+	}
+	end
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_Employee {
+	lock
+	faceplayer
+	if(flag(FLAG_RETURNED_DEVON_GOODS)) {
+		msgbox(RustboroCity_DevonCorp_1F_Text_SoundsLikeStolenGoodsRecovered)
+	} elif(flag(FLAG_DEVON_GOODS_STOLEN)) {
+		msgbox(RustboroCity_DevonCorp_1F_Text_RobberWasntVeryBright)
+	} else {
+		msgbox(RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct)
+	}
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_StairGuard {
+	lock
+	faceplayer
+	if(flag(FLAG_RETURNED_DEVON_GOODS)) {
+		msgbox(RustboroCity_DevonCorp_1F_Text_YoureAlwaysWelcomeHere)
+	} elif(flag(FLAG_RECOVERED_DEVON_GOODS) || flag(FLAG_DEVON_GOODS_STOLEN)) {
+		msgbox(RustboroCity_DevonCorp_1F_Text_HowCouldWeGetRobbed)
+	} else {
+		msgbox(RustboroCity_DevonCorp_1F_Text_OnlyAuthorizedPeopleEnter)
+	}
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_Greeter {
+	lock
+	faceplayer
+	if(flag(FLAG_RECOVERED_DEVON_GOODS) || flag(FLAG_DEVON_GOODS_STOLEN)) {
+		msgbox(RustboroCity_DevonCorp_1F_Text_StaffGotRobbed)
+	} else {
+		msgbox(RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp)
+	}
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_RocksMetalDisplay {
+	msgbox(RustboroCity_DevonCorp_1F_Text_RocksMetalDisplay, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_ProductsDisplay {
+	msgbox(RustboroCity_DevonCorp_1F_Text_ProductDisplay, MSGBOX_SIGN)
+	end
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp {
+	"Hello and welcome to the Devon\n"
+	"Corporation.\p"
+	"We're proud producers of items and\n"
+	"medicine that enhance your life."
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_StaffGotRobbed {
+	"One of our research staff stupidly\n"
+	"got robbed of an important parcel."
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct {
+	"Hey, those Running Shoes!\n"
+	"They're one of our products!\p"
+	"It makes me happy when I see someone\n"
+	"using something we made."
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_RobberWasntVeryBright {
+	"That stolen parcel\.\p"
+	"Well, sure it's important, but it's not\n"
+	"anything that anyone can use.\p"
+	"In my estimation, that robber must not\n"
+	"have been very bright."
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_SoundsLikeStolenGoodsRecovered {
+	"It sounds like they've recovered\n"
+	"the ripped-off Devon Goods."
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_OnlyAuthorizedPeopleEnter {
+	"I'm sorry, only authorized people\n"
+	"are allowed to enter here."
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_HowCouldWeGetRobbed {
+	"It's beyond stupid.\n"
+	"How could we get robbed?"
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_YoureAlwaysWelcomeHere {
+	"Hi, there!\n"
+	"You're always welcome here!"
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_RocksMetalDisplay {
+	"Samples of rocks and metal are\n"
+	"displayed in the glass case.\p"
+	"There's a panel with some writing\n"
+	"on it\.\p"
+	"\qoDevon Corporation got its start as\n"
+	"a producer of stones from quarries.\p"
+	"\qoThe company also produced iron from\n"
+	"filings in the sand.\p"
+	"\qoFrom that humble start as a producer\n"
+	"of raw materials, Devon developed.\p"
+	"\qoDevon is now a manufacturer of a wide\n"
+	"range of industrial products.\qc"
+}
+
+text(local) RustboroCity_DevonCorp_1F_Text_ProductDisplay {
+	"Prototypes and test products fill\n"
+	"the glass display case.\p"
+	"There's a panel with a description\.\p"
+	"\qoIn addition to industrial products,\n"
+	"Devon now markets sundries and\l"
+	"pharmaceuticals for better lifestyles.\p"
+	"\qoRecently, Devon has begun marketing\n"
+	"tools for Pok\emon Trainers, including\l"
+	"Pok\e Balls and Pok\eNav systems.\qc"
+}
+

@@ -1,0 +1,991 @@
+mapscripts RustboroCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: RustboroCity_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+	    VAR_RUSTBORO_CITY_STATE, 6: RustboroCity_EventScript_ScientistAddMatchCall
+    ]
+}
+
+script(local) RustboroCity_OnTransition {
+	setflag(FLAG_VISITED_RUSTBORO_CITY)
+	call(Common_EventScript_SetupRivalGfxId)
+    if(var(VAR_RUSTBORO_CITY_STATE) == 6) {
+        setflag(FLAG_HIDE_MAP_NAME_POPUP)
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        call(RustboroCity_EventScript_PositionScientistForExit)
+    }
+    return
+}
+
+script RustboroCity_EventScript_PositionScientistForExit {
+    if(var(VAR_TEMP_0) == 11) {
+        setobjectxyperm(LOCALID_RUSTBORO_SCIENTIST, 11, 15)
+    } else {
+        setobjectxyperm(LOCALID_RUSTBORO_SCIENTIST, 12, 15)
+    }
+	return
+}
+
+script RustboroCity_EventScript_ScientistAddMatchCall {
+	lockall
+	setvar(VAR_ROUTE104_STATE, 1)
+	applymovement(LOCALID_PLAYER, moves(walk_down))
+	waitmovement(0)
+	playse(SE_EXIT)
+	delay(10)
+	addobject(LOCALID_RUSTBORO_SCIENTIST)
+	applymovement(LOCALID_RUSTBORO_SCIENTIST, moves(
+        walk_down
+        delay_16
+    ))
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_RUSTBORO_SCIENTIST, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_RUSTBORO_SCIENTIST, Common_Movement_Delay48)
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	applymovement(LOCALID_RUSTBORO_SCIENTIST, moves(walk_in_place_down))
+	waitmovement(0)
+	msgbox(RustboroCity_Text_DevelopedNewPokenavFeature)
+	closemessage
+	setflag(FLAG_HAS_MATCH_CALL)
+	applymovement(LOCALID_RUSTBORO_SCIENTIST, Common_Movement_WalkInPlaceFasterLeft)
+	waitmovement(0)
+	playse(SE_CLICK)
+	delay(10)
+	playse(SE_CLICK)
+	delay(10)
+	playse(SE_CLICK)
+	delay(10)
+	playse(SE_CLICK)
+	delay(20)
+	applymovement(LOCALID_RUSTBORO_SCIENTIST, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	msgbox(RustboroCity_Text_AddedMatchCallPleaseCallMrStone)
+	closemessage
+	delay(20)
+
+    // matchcall tutorial
+	setflag(FLAG_ADDED_MATCH_CALL_TO_POKENAV)
+	special(ScriptMenu_CreateStartMenuForPokenavTutorial)
+    while(var(VAR_RESULT) != 3) {
+        msgbox(RustboroCity_Text_PleaseSelectPokenav)
+        closemessage
+        delay(10)
+        special(ScriptMenu_CreateStartMenuForPokenavTutorial)
+    }
+	special(OpenPokenavForTutorial)
+	delay(20)
+	msgbox(RustboroCity_Text_IdBetterGetBackToWork)
+	closemessage
+	applymovement(LOCALID_RUSTBORO_SCIENTIST, moves(walk_up))
+	waitmovement(0)
+	playse(SE_EXIT)
+	removeobject(LOCALID_RUSTBORO_SCIENTIST)
+	setflag (FLAG_HIDE_RUSTBORO_CITY_SCIENTIST)
+	setvar(VAR_RUSTBORO_CITY_STATE, 7)
+	clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    releaseall
+    return
+}
+
+script RustboroCity_EventScript_FatMan {
+	lock
+	faceplayer
+    if(flag(FLAG_DEVON_GOODS_STOLEN)) {
+        msgbox(RustboroCity_Text_SneakyLookingManWentAroundCorner)
+    } else {
+        msgbox(RustboroCity_Text_WeShortenItToDevon)
+    }
+	release
+	end
+}
+
+script RustboroCity_EventScript_DevonEmployee2 {
+	lock
+	faceplayer
+	msgbox(RustboroCity_Text_YoureNewAroundHere)
+	release
+	end
+}
+
+script RustboroCity_EventScript_Woman {
+	msgbox(RustboroCity_Text_GymLeaderIsntEasyWithFire, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_Man1 {
+	lock
+	faceplayer
+    if(var(VAR_STONE_BADGE_LEVEL) >= 1) {
+        msgbox(RustboroCity_Text_HeyThatsRustborosGymBadge)
+    } else {
+        msgbox(RustboroCity_Text_HaveYouChallengedGym)
+    }
+	release
+	end
+}
+
+script RustboroCity_EventScript_Boy2 {
+	lock
+	faceplayer
+    if(flag(FLAG_RECEIVED_POKENAV)) {
+        msgbox(RustboroCity_Text_MrBrineyLovesPeeko)
+    } else {
+        msgbox(RustboroCity_Text_MrBrineyWalksInTheTunnel)
+    }
+	release
+	end
+}
+
+script RustboroCity_EventScript_Twin {
+	msgbox(RustboroCity_Text_WowYouHavePokemon, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_EventScript_NinjaBoy {
+	msgbox(RustboroCity_Text_CatchRarePokemonIfIGoToSchool, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_TunnelSign {
+	msgbox(RustboroCity_Text_TunnelNearingCompletion, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_DevonCorpSign {
+	msgbox(RustboroCity_Text_DevonCorpBranchOfficeSign, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_GymSign {
+	msgbox(RustboroCity_Text_GymSign, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_CitySign {
+	msgbox(RustboroCity_Text_CitySign, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_TrainersSchoolSign {
+	msgbox(RustboroCity_Text_TrainersSchoolSign, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_CuttersHouseSign {
+	msgbox(RustboroCity_Text_CuttersHouse, MSGBOX_SIGN)
+	end
+}
+
+script RustboroCity_EventScript_LittleBoy {
+	lock
+	faceplayer
+	msgbox(RustboroCity_Text_PokemonCanChangeLookFromExp)
+	applymovement(LOCALID_RUSTBORO_LITTLE_BOY, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
+script RustboroCity_EventScript_LittleGirl {
+	lock
+	faceplayer
+	msgbox(RustboroCity_Text_PokemonChangeShape)
+	applymovement(LOCALID_RUSTBORO_LITTLE_GIRL, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
+script RustboroCity_EventScript_Man2 {
+	lock
+	faceplayer
+	msgbox(RustboroCity_Text_TradePokemonGrowFast)
+	release
+	end
+}
+
+script RustboroCity_EventScript_StolenGoodsTrigger0 {
+	lockall
+	setvar(VAR_0x8004, 0)
+	call(RustboroCity_EventScript_StolenGoodsScene)
+	end
+}
+
+script RustboroCity_EventScript_StolenGoodsTrigger1 {
+	lockall
+	setvar(VAR_0x8004, 1)
+	call(RustboroCity_EventScript_StolenGoodsScene)
+	end
+}
+
+script RustboroCity_EventScript_StolenGoodsTrigger2 {
+	lockall
+	setvar(VAR_0x8004, 2)
+	call(RustboroCity_EventScript_StolenGoodsScene)
+	end
+}
+
+script RustboroCity_EventScript_StolenGoodsTrigger3 {
+	lockall
+	setvar(VAR_0x8004, 3)
+	call(RustboroCity_EventScript_StolenGoodsScene)
+	end
+}
+
+script RustboroCity_EventScript_StolenGoodsTrigger4 {
+	lockall
+	setvar(VAR_0x8004, 4)
+	call(RustboroCity_EventScript_StolenGoodsScene)
+	end
+}
+
+script RustboroCity_EventScript_StolenGoodsScene {
+    setobjectxyperm(LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21)
+	setobjectmovementtype(LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT)
+	msgbox(RustboroCity_Text_OutOfTheWay)
+	closemessage
+	playbgm(MUS_ENCOUNTER_AQUA, FALSE)
+	addobject(LOCALID_RUSTBORO_GRUNT)
+	addobject(LOCALID_RUSTBORO_DEVON_EMPLOYEE)
+	applymovement(LOCALID_RUSTBORO_GRUNT, moves(
+        walk_faster_right * 2
+        walk_fast_right * 5
+        walk_fast_up * 9
+    ))
+	waitmovement(0)
+	removeobject(LOCALID_RUSTBORO_GRUNT)
+	applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, moves(
+        walk_right * 6
+	    walk_in_place_faster_up
+    ))
+	waitmovement(0)
+	msgbox(RustboroCity_Text_WaitDontTakeMyGoods)
+	closemessage
+	applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, moves(
+        walk_up * 7
+    ))
+	waitmovement(0)
+	fadedefaultbgm
+	removeobject(LOCALID_RUSTBORO_DEVON_EMPLOYEE)
+	setobjectxyperm(LOCALID_RUSTBORO_DEVON_EMPLOYEE, 30, 10)
+	clearflag (FLAG_HIDE_RUSTBORO_CITY_DEVON_EMPLOYEE_1)
+	setflag(FLAG_DEVON_GOODS_STOLEN)
+	setvar(VAR_RUSTBORO_CITY_STATE, 2)
+	setvar(VAR_RUSTURF_TUNNEL_STATE, 2)
+	setvar(VAR_ROUTE116_STATE, 1)
+	clearflag(FLAG_HIDE_ROUTE_116_MR_BRINEY)
+	clearflag(FLAG_HIDE_RUSTURF_TUNNEL_PEEKO)
+	clearflag(FLAG_HIDE_RUSTURF_TUNNEL_AQUA_GRUNT)
+	setflag(FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY)
+	setflag(FLAG_HIDE_BRINEYS_HOUSE_PEEKO)
+	releaseall
+	return
+}
+
+script RustboroCity_EventScript_DevonEmployee1 {
+	lock
+	faceplayer
+    if(flag(FLAG_RECOVERED_DEVON_GOODS)) {
+        waitse
+        setvar(VAR_TEMP_1, 4)
+        goto(RustboroCity_EventScript_ReturnGoods)
+    } else {
+        msgbox(RustboroCity_Text_ShadyCharacterTookOffTowardsTunnel)
+    }
+	release
+	end
+}
+
+script RustboroCity_EventScript_HelpGetGoodsTrigger0 {
+	lockall
+	setvar(VAR_TEMP_1, 0)
+	call(RustboroCity_EventScript_EmployeeAskToGetGoods)
+	end
+}
+
+script RustboroCity_EventScript_HelpGetGoodsTrigger1 {
+	lockall
+	setvar(VAR_TEMP_1, 1)
+	call(RustboroCity_EventScript_EmployeeAskToGetGoods)
+	end
+}
+
+script RustboroCity_EventScript_HelpGetGoodsTrigger2 {
+	lockall
+	setvar(VAR_TEMP_1, 2)
+	call(RustboroCity_EventScript_EmployeeAskToGetGoods)
+	end
+}
+
+script RustboroCity_EventScript_HelpGetGoodsTrigger3 {
+	lockall
+	setvar(VAR_TEMP_1, 3)
+	call(RustboroCity_EventScript_EmployeeAskToGetGoods)
+	end
+}
+
+script RustboroCity_EventScript_EmployeeAskToGetGoods {
+    if(var(VAR_TEMP_1) == 0) {
+        applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterUp)
+    } elif(var(VAR_TEMP_1) == 1) {
+        applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterLeft)
+    } else {
+        applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterDown)
+	
+    }
+    waitmovement(0)
+    playse(SE_PIN)
+	applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_Delay48)
+	waitmovement(0)
+    if(var(VAR_TEMP_1) == 3) {
+        applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, moves(walk_down))
+	    waitmovement(0)
+    }
+    if(var(VAR_TEMP_1) == 0) {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown)
+    } elif(var(VAR_TEMP_1) == 1) {
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
+    } else {
+        applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+    }
+    waitmovement(0)
+
+	setflag(FLAG_INTERACTED_WITH_DEVON_EMPLOYEE_GOODS_STOLEN)
+	setvar(VAR_RUSTBORO_CITY_STATE, 3)
+	copyobjectxytoperm(LOCALID_RUSTBORO_DEVON_EMPLOYEE)
+	msgbox(RustboroCity_Text_HelpMeIWasRobbed)
+	releaseall
+	end
+}
+
+script RustboroCity_EventScript_ReturnGoodsTrigger0 {
+	lockall
+	setvar(VAR_TEMP_1, 0)
+	goto(RustboroCity_EventScript_ReturnGoods)
+	end
+}
+
+script RustboroCity_EventScript_ReturnGoodsTrigger1 {
+	lockall
+	setvar(VAR_TEMP_1, 1)
+	goto(RustboroCity_EventScript_ReturnGoods)
+	end
+}
+
+script RustboroCity_EventScript_ReturnGoodsTrigger2 {
+	lockall
+	setvar(VAR_TEMP_1, 2)
+	goto(RustboroCity_EventScript_ReturnGoods)
+	end
+}
+
+script RustboroCity_EventScript_ReturnGoodsTrigger3 {
+	lockall
+	setvar(VAR_TEMP_1, 3)
+	goto(RustboroCity_EventScript_ReturnGoods)
+	end
+}
+
+script RustboroCity_EventScript_ReturnGoods {
+    if(var(VAR_TEMP_1) == 0) {
+	    applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterUp)
+    } elif (var(VAR_TEMP_1) == 1) {
+	    applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterRight)
+    } elif (var(VAR_TEMP_1) == 2 || var(VAR_TEMP_1) == 3) {
+	    applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterDown)
+    } else {
+        applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterLeft)
+    }
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, Common_Movement_Delay48)
+	waitmovement(0)
+    if(var(VAR_TEMP_1) == 3) {
+        applymovement(LOCALID_RUSTBORO_DEVON_EMPLOYEE, moves(walk_down))
+	    waitmovement(0)
+    }
+    if(var(VAR_TEMP_1) == 0) {
+	    applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown)
+    } elif(var(VAR_TEMP_1) == 1) {
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+    } elif(var(VAR_TEMP_1) == 2 || var(VAR_TEMP_1) == 3) {
+    	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+    }
+    waitmovement(0)
+    msgbox(RustboroCity_Text_YouGotItThankYou)
+	giveitem(ITEM_GREAT_BALL)
+    if(var(VAR_RESULT) == FALSE) {
+        msgbox(RustboroCity_Text_YoureLoadedWithItems)
+    }
+	msgbox(RustboroCity_Text_PleaseComeWithMe)
+	closemessage
+	setflag(FLAG_RETURNED_DEVON_GOODS)
+	setflag(FLAG_HIDE_RUSTBORO_CITY_DEVON_EMPLOYEE_1)
+	setvar(VAR_RUSTBORO_CITY_STATE, 5)
+	delay(30)
+	warp(MAP_RUSTBORO_CITY_DEVON_CORP_3F, 2, 2)
+	waitstate
+	releaseall
+	end
+}
+
+script RustboroCity_EventScript_Rival {
+	lockall
+    if(!flag(FLAG_MET_RIVAL_RUSTBORO)) {
+        call(RustboroCity_EventScript_PlayRivalMusic)
+    }
+    applymovement(LOCALID_RUSTBORO_RIVAL, Common_Movement_FacePlayer)
+    waitmovement(0)
+    goto(RustboroCity_EventScript_RivalEncounter)
+}
+
+script RustboroCity_EventScript_PlayRivalMusic {
+    if(checkplayergender == MALE) {
+        playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    } else {
+        playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    }
+	return
+}
+
+script RustboroCity_EventScript_RivalTrigger0 {
+    setvar(VAR_TEMP_1, 0)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalTrigger {
+    lockall
+    call(RustboroCity_EventScript_PlayRivalMusic)
+    applymovement(LOCALID_RUSTBORO_RIVAL, Common_Movement_WalkInPlaceFasterDown)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_RUSTBORO_RIVAL, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    applymovement(LOCALID_RUSTBORO_RIVAL, Common_Movement_Delay48)
+    waitmovement(0)
+    if(var(VAR_TEMP_1) == 0) {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(
+            walk_down
+            walk_left * 4
+            walk_down
+        ))
+    } elif(var(VAR_TEMP_1) == 1) {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(
+            walk_down
+            walk_left * 3
+            walk_down
+        ))  
+    } elif(var(VAR_TEMP_1) == 2) {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(
+            walk_down
+            walk_left * 2
+            walk_down
+        ))
+    } elif(var(VAR_TEMP_1) == 3) {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(
+            walk_down
+            walk_left
+            walk_down
+        ))
+    } elif(var(VAR_TEMP_1) == 4) {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(walk_down * 2))
+    } elif(var(VAR_TEMP_1) == 5) {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(
+            walk_down
+            walk_right
+            walk_down
+        ))
+    } elif(var(VAR_TEMP_1) == 6) {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(
+            walk_down
+            walk_right * 2
+            walk_down
+        ))
+    } else {
+        applymovement(LOCALID_RUSTBORO_RIVAL, moves(
+            walk_down
+            walk_right * 3
+            walk_down
+        ))
+    }
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+    waitmovement(0)
+    goto(RustboroCity_EventScript_RivalEncounter)
+}
+
+script RustboroCity_EventScript_RivalTrigger1 {
+    setvar(VAR_TEMP_1, 1)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalTrigger2 {
+    setvar(VAR_TEMP_1, 2)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalTrigger3 {
+    setvar(VAR_TEMP_1, 3)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalTrigger4 {
+    setvar(VAR_TEMP_1, 4)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalTrigger5 {
+    setvar(VAR_TEMP_1, 5)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalTrigger6 {
+    setvar(VAR_TEMP_1, 6)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalTrigger7 {
+    setvar(VAR_TEMP_1, 7)
+    call(RustboroCity_EventScript_RivalTrigger)
+}
+
+script RustboroCity_EventScript_RivalEncounter {
+    if(checkplayergender == MALE) {
+        call(RustboroCity_EventScript_MayEncounter)
+    } else {
+        call(RustboroCity_EventScript_BrendanEncounter)
+    }
+	end
+}
+
+script RustboroCity_EventScript_RestoreBgm {
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	return
+}
+
+script RustboroCity_EventScript_MayEncounter {
+    if(flag(FLAG_DEFEATED_RIVAL_RUSTBORO)) {
+        msgbox(RustboroCity_Text_MayMrBrineyHint)
+        if(var(VAR_0x8008) == 0) {
+            call(RustboroCity_EventScript_RestoreBgm)
+        }
+    } elif(flag(FLAG_MET_RIVAL_RUSTBORO)) {
+        msgbox(RustboroCity_Text_MayWantToBattle, MSGBOX_YESNO)
+RustboroMayBattle:
+        if(var(VAR_RESULT) == YES) {
+            msgbox(RustboroCity_Text_MayImNotGoingToLose)
+            switch(var(VAR_STARTER_MON)) {
+                case 0: trainerbattle_no_intro(TRAINER_MAY_RUSTBORO_TREECKO, RustboroCity_Text_MayDefeat)
+                case 1: trainerbattle_no_intro(TRAINER_MAY_RUSTBORO_TORCHIC, RustboroCity_Text_MayDefeat)
+                case 2: trainerbattle_no_intro(TRAINER_MAY_RUSTBORO_MUDKIP, RustboroCity_Text_MayDefeat)
+            }
+            setflag(FLAG_DEFEATED_RIVAL_RUSTBORO)
+            msgbox(RustboroCity_Text_MayMrBrineyHint)
+            if(var(VAR_0x8008) == 0) {
+                call(RustboroCity_EventScript_RestoreBgm)
+            }
+        } else {
+            msgbox(RustboroCity_Text_MayOhHaventRaisedPokemonEnough)
+        }
+    } else {
+        setflag(FLAG_MET_RIVAL_RUSTBORO)
+        msgbox(RustboroCity_Text_MayHiLetsRegister)
+        closemessage
+        delay(30)
+        playfanfare(MUS_REGISTER_MATCH_CALL)
+        msgbox(RustboroCity_Text_RegisteredMay)
+        waitfanfare
+        closemessage
+        delay(30)
+        setflag(FLAG_ENABLE_RIVAL_MATCH_CALL)
+        setvar(VAR_RUSTBORO_CITY_STATE, 8)
+        setvar(VAR_ROUTE104_STATE, 2)
+        msgbox(RustboroCity_Text_MayPassedBrineyWantToBattle, MSGBOX_YESNO)
+        goto(RustboroMayBattle)
+    }
+	releaseall
+	end
+}
+
+
+script RustboroCity_EventScript_BrendanEncounter {
+    if(flag(FLAG_DEFEATED_RIVAL_RUSTBORO)) {
+        msgbox(RustboroCity_Text_BrendanMrBrineyHint)
+        if(var(VAR_0x8008) == 0) {
+            call(RustboroCity_EventScript_RestoreBgm)
+        }
+    } elif(flag(FLAG_MET_RIVAL_RUSTBORO)) {
+        msgbox(RustboroCity_Text_BrendanWantToBattle, MSGBOX_YESNO)
+RustboroBrendanBattle:
+        if(var(VAR_RESULT) == YES) {
+            msgbox(RustboroCity_Text_BrendanIWontGoEasy)
+            switch(var(VAR_STARTER_MON)) {
+                case 0: trainerbattle_no_intro(TRAINER_BRENDAN_RUSTBORO_TREECKO, RustboroCity_Text_BrendanDefeat)
+                case 1: trainerbattle_no_intro(TRAINER_BRENDAN_RUSTBORO_TORCHIC, RustboroCity_Text_BrendanDefeat)
+                case 2: trainerbattle_no_intro(TRAINER_BRENDAN_RUSTBORO_MUDKIP, RustboroCity_Text_BrendanDefeat)
+            }
+            setflag(FLAG_DEFEATED_RIVAL_RUSTBORO)
+            msgbox(RustboroCity_Text_BrendanMrBrineyHint)
+            if(var(VAR_0x8008) == 0) {
+                call(RustboroCity_EventScript_RestoreBgm)
+            }
+        } else {
+            msgbox(RustboroCity_Text_BrendanNoConfidenceInPokemon)
+        }
+    } else {
+        setflag(FLAG_MET_RIVAL_RUSTBORO)
+        msgbox(RustboroCity_Text_BrendanHiLetsRegister)
+        closemessage
+        delay(30)
+        playfanfare(MUS_REGISTER_MATCH_CALL)
+        msgbox(RustboroCity_Text_RegisteredBrendan)
+        waitfanfare
+        closemessage
+        delay(30)
+        setflag(FLAG_ENABLE_RIVAL_MATCH_CALL)
+        setvar(VAR_RUSTBORO_CITY_STATE, 8)
+        setvar(VAR_ROUTE104_STATE, 2)
+        msgbox(RustboroCity_Text_BrendanPassedBrineyWantToBattle, MSGBOX_YESNO)
+        goto(RustboroBrendanBattle)
+    }
+	releaseall
+	end
+}
+
+script RustboroCity_EventScript_Boy1 {
+	msgbox(RustboroCity_Text_YouCanHave2On2Battle, MSGBOX_NPC)
+	end
+}
+
+text(local) RustboroCity_Text_WeShortenItToDevon {
+	"The Devon Corporation\.\n"
+	"We all just shorten it to Devon.\p"
+	"That company makes all sorts of\n"
+	"convenient products."
+}
+
+text(local) RustboroCity_Text_SneakyLookingManWentAroundCorner {
+	"Hm? A sneaky-looking man?\p"
+	"Come to think of it, yes, a shady-\n"
+	"looking guy went around the corner."
+}
+
+text(local) RustboroCity_Text_HaveYouChallengedGym {
+	"Have you taken the Pok\emon Gym\n"
+	"challenge?\p"
+	"When you get that shiny Gym Badge\n"
+	"in hand, I guess Trainers begin to\l"
+	"realize what is required of them."
+}
+
+text(local) RustboroCity_Text_HeyThatsRustborosGymBadge {
+	"Hey, that's Rustboro's Gym Badge!\p"
+	"Out of all the Pok\emon Gym Badges,\n"
+	"Rustboro's is the coolest, I'd say."
+}
+
+text(local) RustboroCity_Text_YoureNewAroundHere {
+	"Oh? Who might you be?\n"
+	"You're a new face around these parts.\p"
+	"Have you just transferred into the\n"
+	"Pok\emon Trainer's School?"
+}
+
+text(local) RustboroCity_Text_GymLeaderIsntEasyWithFire {
+	"I challenged the Gym Leader, but\.\p"
+	"It's not going to be easy winning with\n"
+	"my Fire-type Pok\emon\.\p"
+	"Fire-type Pok\emon don't match up\n"
+	"well against Rock-type Pok\emon\."
+}
+
+text(local) RustboroCity_Text_MrBrineyWalksInTheTunnel {
+	"The old sailor Mr. Briney lives in\n"
+	"a cottage by the sea.\p"
+	"He goes for walks in the tunnel every\n"
+	"so often."
+}
+
+text(local) RustboroCity_Text_MrBrineyLovesPeeko {
+	"The old sailor Mr. Briney lives in\n"
+	"a cottage by the sea.\p"
+	"He said he was going shopping in\n"
+	"Slateport for his pet, Peeko.\p"
+	"That old sea dog, he must really love\n"
+	"that Peeko."
+}
+
+text(local) RustboroCity_Text_WowYouHavePokemon {
+	"Wow, you have Pok\emon with you, too.\p"
+	"When I get bigger, I'm going to go\n"
+	"places with Pok\emon, too."
+}
+
+text(local) RustboroCity_Text_CatchRarePokemonIfIGoToSchool {
+	"Pok\emon Trainer's School!\p"
+	"If I go to this school, will I be able\n"
+	"to catch rare Pok\emon easily?"
+}
+
+text(local) RustboroCity_Text_PokemonCanChangeLookFromExp {
+	"If a Pok\emon gains experience in\n"
+	"battles, it can sometimes change in\l"
+	"the way it looks."
+}
+
+text(local) RustboroCity_Text_PokemonChangeShape {
+	"A Pok\emon changes shape?\n"
+	"If one did that, I would be shocked!"
+}
+
+text(local) RustboroCity_Text_TradePokemonGrowFast {
+	"A Pok\emon you get in a trade from\n"
+	"someone grows fast.\p"
+	"But if you don't have certain Gym\n"
+	"Badges, it may not obey you\."
+}
+
+text(local) RustboroCity_Text_OutOfTheWay {
+	"Get out!\n"
+	"Out of the way!"
+}
+
+text(local) RustboroCity_Text_WaitDontTakeMyGoods {
+	"Wait! Pleeeaaase!\p"
+	"Don't take my Goods!"
+}
+
+text(local) RustboroCity_Text_HelpMeIWasRobbed {
+	"Oh, it's you!\p"
+	"You're that fantastic Trainer who\n"
+	"helped me in Petalburg Woods!\p"
+	"Help me! I was robbed by Team Aqua!\n"
+	"I have to get the Devon Goods back!\p"
+	"If I don't\.\n"
+	"I'm going to be in serious trouble."
+}
+
+text(local) RustboroCity_Text_ShadyCharacterTookOffTowardsTunnel {
+	"That shady character, I think he took\n"
+	"off towards the tunnel over there."
+}
+
+text(local) RustboroCity_Text_YouGotItThankYou {
+	"Oh! How did it go?\n"
+	"The Devon Goods?\p"
+	"You did!\n"
+	"You got them back!\p"
+	"You really are a great Trainer!\p"
+	"I know! As my thanks, I'll give you\n"
+	"another Great Ball!"
+}
+
+text(local) RustboroCity_Text_YoureLoadedWithItems {
+	"You're loaded with items.\n"
+	"I can't give you this Great Ball."
+}
+
+text(local) RustboroCity_Text_PleaseComeWithMe {
+	"Excuse me, please!\n"
+	"Please come with me!"
+}
+
+text(local) RustboroCity_Text_MayHiLetsRegister {
+	"May: Oh, hi, {PLAYER}{KUN}!\p"
+	"You had a Match Call feature put\n"
+	"on your Pok\eNav!\p"
+	"Let's register each other so we can\n"
+	"contact one another anytime!\p"
+	"\. \. \. \. \. \."
+}
+
+text(local) RustboroCity_Text_RegisteredMay {
+	"Registered May\n"
+	"in the Pok\eNav."
+}
+
+text(local) RustboroCity_Text_MayPassedBrineyWantToBattle {
+	"May: Oh, by the way, I passed\n"
+	"Mr. Briney in Petalburg Woods.\p"
+	"I guess he's on his way home to his\n"
+	"cottage by the sea.\p"
+	"How's your Pok\edex coming along,\n"
+	"{PLAYER}{KUN}? Mine's looking pretty decent!\p"
+	"So\.\n"
+	"How about a little battle?"
+}
+
+text(local) RustboroCity_Text_MayOhHaventRaisedPokemonEnough {
+	"May: Oh, what's the matter?\p"
+	"Haven't you caught or raised your\n"
+	"Pok\emon very much?\p"
+	"That's not very good for a Trainer!"
+}
+
+text(local) RustboroCity_Text_MayWantToBattle {
+	"May: So, what do you think?\n"
+	"How about a little battle here?"
+}
+
+text(local) RustboroCity_Text_MayImNotGoingToLose {
+	"May: You just became a Trainer,\n"
+	"{PLAYER}{KUN}. I'm not going to lose!"
+}
+
+text(local) RustboroCity_Text_MayDefeat {
+	"Yikes!\n"
+	"You're better than I expected!"
+}
+
+text(local) RustboroCity_Text_MayMrBrineyHint {
+	"May: Oh, by the way, Mr. Briney, who\n"
+	"I just passed\.\p"
+	"{PLAYER}{KUN}, you just moved here so you\n"
+	"might not know this, but Mr. Briney\l"
+	"was once a revered seafarer."
+}
+
+text(local) RustboroCity_Text_BrendanHiLetsRegister {
+	"Brendan: Oh, hey, {PLAYER}!\p"
+	"You had a Match Call feature put\n"
+	"on your Pok\eNav! Cool!\p"
+	"Let's register each other so we can\n"
+	"get in touch anytime!\p"
+	"\. \. \. \. \. \."
+}
+
+text(local) RustboroCity_Text_RegisteredBrendan {
+	"Registered Brendan\n"
+	"in the Pok\eNav."
+}
+
+text(local) RustboroCity_Text_BrendanPassedBrineyWantToBattle {
+	"Brendan: By the way, {PLAYER}, I walked\n"
+	"by Mr. Briney in Petalburg Woods.\p"
+	"I bet he was on his way home to his\n"
+	"cottage by the sea.\p"
+	"{PLAYER}, how's your Pok\edex?\n"
+	"Have you filled in any pages yet?\p"
+	"Mine rules.\p"
+	"Want to have a battle to test how\n"
+	"far you've progressed?"
+}
+
+text(local) RustboroCity_Text_BrendanNoConfidenceInPokemon {
+	"Brendan: What's the matter? Don't have\n"
+	"any confidence in your Pok\emon?"
+}
+
+text(local) RustboroCity_Text_BrendanWantToBattle {
+	"Brendan: What's up?\n"
+	"Want to have a battle with me?"
+}
+
+text(local) RustboroCity_Text_BrendanIWontGoEasy {
+	"Brendan: I know you just became\n"
+	"a Trainer, but I won't go easy!"
+}
+
+text(local) RustboroCity_Text_BrendanDefeat {
+	"Hmm\.\n"
+	"You're pretty good."
+}
+
+text(local) RustboroCity_Text_BrendanMrBrineyHint {
+	"Brendan: By the way, you know\n"
+	"Mr. Briney? The guy I just passed?\p"
+	"I bet you didn't know this, since you\n"
+	"just moved here, {PLAYER}, but\l"
+	"Mr. Briney was once a great sailor."
+}
+
+text(local) RustboroCity_Text_TunnelNearingCompletion {
+	"\qoTimesaving tunnel nearing\n"
+	"completion!\qc\p"
+	"\.Is what it says on the sign, but\n"
+	"there's also a big \qoX\qc splashed\l"
+	"across it in red paint\."
+}
+
+text(local) ustboroCity_Text_DevonCorpSign {
+	"Devon Corporation\p"
+	"\qoFor all your living needs, we make\n"
+	"it all.\qc"
+}
+
+text(local) RustboroCity_Text_GymSign {
+	"Rustboro City Pok\emon Gym\n"
+	"Leader: Roxanne\p"
+	"\qoThe Rock-loving honors student!\qc"
+}
+
+text(local) RustboroCity_Text_DevonCorpBranchOfficeSign {
+	"Devon Corp. Branch Office\p"
+	"\qoAccess limited to Devon employees\n"
+	"and authorized personnel.\qc"
+}
+
+text(local) RustboroCity_Text_CitySign {
+	"Rustboro City\p"
+	"\qoThe city probing the integration of\n"
+	"nature and science.\qc"
+}
+
+text(local) RustboroCity_Text_TrainersSchoolSign {
+	"Pok\emon Trainer's School\p"
+	"\qoWe'll teach you anything about\n"
+	"Pok\emon!\qc"
+}
+
+text(local) RustboroCity_Text_CuttersHouse {
+	"Cutter's House"
+}
+
+text(local) RustboroCity_Text_DevelopedNewPokenavFeature {
+	"I've been developing an added feature\n"
+	"for the Pok\eNav\.\p"
+	"And it turned out great!\p"
+	"{PLAYER}, may I see that Pok\eNav?\n"
+	"The one our President gave you?"
+}
+
+text(local) RustboroCity_Text_AddedMatchCallPleaseCallMrStone {
+	"There you go, {PLAYER}!\p"
+	"I added a new feature named\n"
+	"Match Call to your Pok\eNav.\p"
+	"Using the Match Call feature,\n"
+	"you can chat with people who have\l"
+	"been registered in your Pok\eNav.\p"
+	"{PLAYER}, our President Stone should\n"
+	"be registered in your Pok\eNav.\p"
+	"Test it out.\n"
+	"Please give our President a call."
+}
+
+text(local) RustboroCity_Text_PleaseSelectPokenav {
+	"Please select the Pok\eNav."
+}
+
+text(local) RustboroCity_Text_IdBetterGetBackToWork {
+	"Okay, I'd better get back to work.\n"
+	"Please take care, {PLAYER}!"
+}
+
+text(local) RustboroCity_Text_YouCanHave2On2Battle {
+	"Did you know this?\p"
+	"You can have a 2-on-2 battle even\n"
+	"if you're not with another Trainer.\p"
+	"If you catch the eyes of two Trainers\n"
+	"when you have two or more Pok\emon,\l"
+	"they'll both challenge you.\p"
+	"Don't you think it'd be cool if you\n"
+	"could beat two Trainers by yourself?"
+}

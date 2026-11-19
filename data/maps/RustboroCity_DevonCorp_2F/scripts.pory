@@ -1,0 +1,900 @@
+mapscripts RustboroCity_DevonCorp_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: RustboroCity_DevonCorp_2F_OnTransition
+}
+
+script(local) RustboroCity_DevonCorp_2F_OnTransition {
+	if(var(VAR_FOSSIL_RESURRECTION_STATE) == 1) {
+		setvar(VAR_FOSSIL_RESURRECTION_STATE, 2)
+	} 
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_TryAdvanceFossileReady {
+	if(var(VAR_FOSSIL_RESURRECTION_STATE) == 1) {
+		setvar(VAR_FOSSIL_RESURRECTION_STATE, 2)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_TalkToPokemonScientist {
+	lock
+	faceplayer
+	call(RustboroCity_DevonCorp_2F_EventScript_TryAdvanceFossileReady)
+	msgbox(RustboroCity_DevonCorp_2F_Text_DeviceForTalkingToPokemon)
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_BallScientist {
+	lock
+	faceplayer
+	call(RustboroCity_DevonCorp_2F_EventScript_TryAdvanceFossileReady)
+	if(flag(FLAG_MET_DEVON_EMPLOYEE)) {
+		msgbox(RustboroCity_DevonCorp_2F_Text_WeFinallyMadeNewBalls)
+	} else {
+		msgbox(RustboroCity_DevonCorp_2F_Text_DevelopingNewBalls)
+	}
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_PokenavScientist {
+	lock
+	faceplayer
+	call(RustboroCity_DevonCorp_2F_EventScript_TryAdvanceFossileReady)
+	if(flag(FLAG_RECEIVED_POKENAV)) {
+		msgbox(RustboroCity_DevonCorp_2F_Text_WowThatsAPokenav)
+	} else {
+		msgbox(RustboroCity_DevonCorp_2F_Text_IMadePokenav)
+	}
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_PokemonDreamsScientist {
+	lock
+	faceplayer
+	call(RustboroCity_DevonCorp_2F_EventScript_TryAdvanceFossileReady)
+	msgbox(RustboroCity_DevonCorp_2F_Text_DeviceToVisualizePokemonDreams)
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_FossilScientist {
+	lock
+	faceplayer
+	if(var(VAR_FOSSIL_RESURRECTION_STATE) == 2) {
+		call(RustboroCity_DevonCorp_2F_EventScript_FossilMonReady)
+	} elif(var(VAR_FOSSIL_RESURRECTION_STATE) == 1) {
+		msgbox(RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime)
+	} else {
+		msgbox(RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils)
+		goto(RustboroCity_DevonCorp_2F_EventScript_CheckForFossils)
+	}
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_CheckForFossils {
+	if(
+		checkitem(ITEM_HELIX_FOSSIL) == TRUE 
+		|| checkitem(ITEM_DOME_FOSSIL) == TRUE
+		|| checkitem(ITEM_OLD_AMBER) == TRUE
+		|| checkitem(ITEM_ROOT_FOSSIL) == TRUE
+		|| checkitem(ITEM_CLAW_FOSSIL) == TRUE
+		|| checkitem(ITEM_SKULL_FOSSIL) == TRUE
+		|| checkitem(ITEM_ARMOR_FOSSIL) == TRUE
+		|| checkitem(ITEM_COVER_FOSSIL) == TRUE
+		|| checkitem(ITEM_PLUME_FOSSIL) == TRUE
+		|| checkitem(ITEM_JAW_FOSSIL) == TRUE
+		|| checkitem(ITEM_SAIL_FOSSIL) == TRUE
+		|| checkitem(ITEM_FOSSILIZED_FISH) == TRUE
+		|| checkitem(ITEM_FOSSILIZED_BIRD) == TRUE
+		|| checkitem(ITEM_FOSSILIZED_DRAKE) == TRUE
+		|| checkitem(ITEM_FOSSILIZED_DINO) == TRUE
+	) {
+		call(RustboroCity_DevonCorp_2F_EventScript_NoticeFossil)
+	}
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_NoticeFossil {
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48)
+	waitmovement(0)
+	msgbox(RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		msgbox(RustboroCity_DevonCorp_2F_Text_OhIsThatSo)
+		return
+	}
+	msgbox(RustboroCity_DevonCorp_2F_Text_WhichFossil)
+	call(RustboroCity_DevonCorp_2F_EventScript_FossilSelector)
+	if(var(VAR_RESULT) == MULTI_B_PRESSED) {
+		msgbox(RustboroCity_DevonCorp_2F_Text_OhIsThatSo)
+		return
+	}
+	call(RustboroCity_DevonCorp_2F_EventScript_ChooseFossil)
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_FossilSelector {
+	if(checkitem(ITEM_HELIX_FOSSIL) == TRUE) {
+		dynmultipush("Helix Fossil", 1)
+	}
+	if(checkitem(ITEM_DOME_FOSSIL) == TRUE) {
+		dynmultipush("Dome Fossil", 2)
+	}
+	if(checkitem(ITEM_OLD_AMBER) == TRUE) {
+		dynmultipush("Old Amber", 3)
+	}
+	if(checkitem(ITEM_ROOT_FOSSIL) == TRUE) {
+		dynmultipush("Root Fossil", 4)
+	}
+	if(checkitem(ITEM_CLAW_FOSSIL) == TRUE) {
+		dynmultipush("Claw Fossil", 5)
+	}
+	if(checkitem(ITEM_SKULL_FOSSIL) == TRUE) {
+		dynmultipush("Skull Fossil", 6)
+	}
+	if(checkitem(ITEM_ARMOR_FOSSIL) == TRUE) {
+		dynmultipush("Armor Fossil", 7)
+	}
+	if(checkitem(ITEM_COVER_FOSSIL) == TRUE) {
+		dynmultipush("Cover Fossil", 8)
+	}
+	if(checkitem(ITEM_PLUME_FOSSIL) == TRUE) {
+		dynmultipush("Plume Fossil", 9)
+	}
+	if(checkitem(ITEM_JAW_FOSSIL) == TRUE) {
+		dynmultipush("Jaw Fossil", 10)
+	}
+	if(checkitem(ITEM_SAIL_FOSSIL) == TRUE) {
+		dynmultipush("Sail Fossil", 11)
+	}
+	if(checkitem(ITEM_FOSSILIZED_FISH) == TRUE) {
+		dynmultipush("Fossilized Fish", 12)
+	}
+	if(checkitem(ITEM_FOSSILIZED_BIRD) == TRUE) {
+		dynmultipush("Fossilized Bird", 13)
+	}
+	if(checkitem(ITEM_FOSSILIZED_DRAKE) == TRUE) {
+		dynmultipush("Fossilized Drake", 14)
+	}
+	if(checkitem(ITEM_FOSSILIZED_DINO) == TRUE) {
+		dynmultipush("Fossilized Dino", 15)
+	}
+	dynmultipush("Cancel", MULTI_B_PRESSED)
+    dynmultistack(0, 0, TRUE, 6, FALSE, 0, NULL)	
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ChooseFossil {
+	if(checkitem(ITEM_HELIX_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_HELIX_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 0)
+		removeitem(ITEM_HELIX_FOSSIL)
+	}
+	if(checkitem(ITEM_DOME_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_DOME_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 1)
+		removeitem(ITEM_DOME_FOSSIL)
+	}
+	if(checkitem(ITEM_OLD_AMBER) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_OLD_AMBER)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 2)
+		removeitem(ITEM_OLD_AMBER)
+	}
+	if(checkitem(ITEM_ROOT_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_ROOT_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 3)
+		removeitem(ITEM_ROOT_FOSSIL)
+	}
+	if(checkitem(ITEM_CLAW_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_CLAW_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 4)
+		removeitem(ITEM_CLAW_FOSSIL)
+	}
+	if(checkitem(ITEM_SKULL_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_SKULL_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 5)
+		removeitem(ITEM_SKULL_FOSSIL)
+	}
+	if(checkitem(ITEM_ARMOR_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_ARMOR_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 6)
+		removeitem(ITEM_ARMOR_FOSSIL)
+	}
+	if(checkitem(ITEM_COVER_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_COVER_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 7)
+		removeitem(ITEM_COVER_FOSSIL)
+	}
+	if(checkitem(ITEM_PLUME_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_PLUME_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 8)
+		removeitem(ITEM_PLUME_FOSSIL)
+	}
+	if(checkitem(ITEM_JAW_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_JAW_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 9)
+		removeitem(ITEM_JAW_FOSSIL)
+	}
+	if(checkitem(ITEM_SAIL_FOSSIL) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_SAIL_FOSSIL)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 10)
+		removeitem(ITEM_SAIL_FOSSIL)
+	}
+	if(checkitem(ITEM_FOSSILIZED_FISH) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_FISH)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 12)
+		removeitem(ITEM_FOSSILIZED_FISH)
+	}
+	if(checkitem(ITEM_FOSSILIZED_BIRD) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_BIRD)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 11)
+		removeitem(ITEM_FOSSILIZED_BIRD)
+	}
+	if(checkitem(ITEM_FOSSILIZED_DRAKE) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_DRAKE)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 13)
+		removeitem(ITEM_FOSSILIZED_DRAKE)
+	}
+	if(checkitem(ITEM_FOSSILIZED_DINO) == TRUE) {
+		bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_DINO)
+		setvar(VAR_WHICH_FOSSIL_REVIVED, 14)
+		removeitem(ITEM_FOSSILIZED_DINO)
+	}
+	setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
+	msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher)
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_FossilMonReady {
+	switch(var(VAR_WHICH_FOSSIL_REVIVED)) {
+		case  0: bufferspeciesname(STR_VAR_2, SPECIES_OMANYTE)
+		case  1: bufferspeciesname(STR_VAR_2, SPECIES_KABUTO)
+		case  2: bufferspeciesname(STR_VAR_2, SPECIES_AERODACTYL)
+		case  3: bufferspeciesname(STR_VAR_2, SPECIES_LILEEP)
+		case  4: bufferspeciesname(STR_VAR_2, SPECIES_ANORITH)
+		case  5: bufferspeciesname(STR_VAR_2, SPECIES_CRANIDOS)
+		case  6: bufferspeciesname(STR_VAR_2, SPECIES_SHIELDON)
+		case  7: bufferspeciesname(STR_VAR_2, SPECIES_TIRTOUGA)
+		case  8: bufferspeciesname(STR_VAR_2, SPECIES_ARCHEN)
+		case  9: bufferspeciesname(STR_VAR_2, SPECIES_TYRUNT)
+		case 10: bufferspeciesname(STR_VAR_2, SPECIES_AMAURA)
+		case 11: bufferspeciesname(STR_VAR_2, SPECIES_DRACOZOLT)
+		case 12: bufferspeciesname(STR_VAR_2, SPECIES_ARCTOVISH)
+		case 13: bufferspeciesname(STR_VAR_2, SPECIES_DRACOVISH)
+		case 14: bufferspeciesname(STR_VAR_2, SPECIES_ARCTOZOLT)
+	}
+	msgbox(RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife)
+	switch(var(VAR_WHICH_FOSSIL_REVIVED)) {
+		case  0: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedOmanyte)
+		case  1: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedKabuto)
+		case  2: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedAerodactyl)
+		case  3: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedLileep)
+		case  4: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedAnorith)
+		case  5: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedCranidos)
+		case  6: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedShieldon)
+		case  7: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedTirtouga)
+		case  8: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedArchen)
+		case  9: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedTyrunt)
+		case 10: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedAmaura)
+		case 11: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedDracozolt)
+		case 12: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedArctovish)
+		case 13: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedDracovish)
+		case 14: call(RustboroCity_DevonCorp_2F_EventScript_ReceivedArctozolt)
+	}
+	setvar(VAR_FOSSIL_RESURRECTION_STATE, 0)
+	setflag(FLAG_RECEIVED_REVIVED_FOSSIL_MON)
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedOmanyte {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_OMANYTE)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedKabuto {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_KABUTO)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedAerodactyl {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_AERODACTYL)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedLileep {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LILEEP)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedAnorith {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ANORITH)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedCranidos {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CRANIDOS)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedShieldon {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SHIELDON)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedTirtouga {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TIRTOUGA)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedArchen {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCHEN)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedTyrunt {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYRUNT)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedAmaura {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_AMAURA)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedDracozolt {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRACOZOLT)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedArctovish {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCTOZOLT)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedDracovish {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRACOVISH)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ReceivedArctozolt {
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCTOZOLT)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	if(var(VAR_RESULT) == MON_CANT_GIVE) {
+		call(Common_EventScript_NoMoreRoomForPokemon)
+		return
+	}
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PARTY)
+	} else {
+		setvar(VAR_TEMP_0, MON_GIVEN_TO_PC)
+	}
+	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PARTY) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	} elif(var(VAR_RESULT) == YES && var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	if(var(VAR_TEMP_0) == MON_GIVEN_TO_PC) {
+		call(Common_EventScript_TransferredToPC)
+	}
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_MatchCallScientist {
+	lock
+	faceplayer
+	call(RustboroCity_DevonCorp_2F_EventScript_TryAdvanceFossileReady)
+	if(var(VAR_RUSTBORO_CITY_STATE) == 6) {
+		msgbox(RustboroCity_DevonCorp_2F_Text_WhatToWorkOnNext)
+	} else {
+		msgbox(RustboroCity_DevonCorp_2F_Text_DevelopNewPokenavFeature)
+	}
+	release
+	end
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_DeviceForTalkingToPokemon {
+	"We're developing a device for talking\n"
+	"with Pok\emon.\p"
+	"But we haven't had much success\."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_DevelopingNewBalls {
+	"I'm developing new kinds of\n"
+	"Pok\e Balls\.\p"
+	"But I haven't made much headway\."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_WeFinallyMadeNewBalls {
+	"We finally made new kinds of\n"
+	"Pok\e Balls!\p"
+	"The Repeat Ball makes it easier to\n"
+	"catch Pok\emon you've caught before.\p"
+	"The Timer Ball gets better at catching\n"
+	"Pok\emon the longer a battle runs.\p"
+	"Both are proudly developed by\n"
+	"the Devon Corporation.\p"
+	"Please give them a try!"
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_IMadePokenav {
+	"I made the Pok\eNav!\p"
+	"As an engineer, I feel blessed to have\n"
+	"made something so great!"
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_WowThatsAPokenav {
+	"Oh, wow!\n"
+	"That's a Pok\eNav!\p"
+	"It came about as a result of our\n"
+	"President's desire to learn about\l"
+	"the feelings of Pok\emon.\p"
+	"Would you like me to describe its\n"
+	"features in detail?\p"
+	"No, no. I think you'll find out just by\n"
+	"trying the Pok\eNav out."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_DeviceToVisualizePokemonDreams {
+	"I'm trying to develop a device that\n"
+	"visually reproduces the dreams of\l"
+	"Pok\emon\.\p"
+	"But it's not going well."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils {
+	"I've been trying to develop a device\n"
+	"that resurrects Pok\emon from fossils\.\p"
+	"And, it's working!"
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife {
+	"Wait! That thing you have there\.\n"
+	"Is that a Pok\emon fossil?\p"
+	"Would you like to bring that Pok\emon\n"
+	"back to life?\p"
+	"I can with my newly developed\n"
+	"Fossil Regenerator."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_OhIsThatSo {
+	"Oh, is that so?\p"
+	"Devon's technological expertise\n"
+	"is outstanding, I tell you."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne {
+	"Oh, now that's a surprise!\n"
+	"You have not one, but two, fossils?\p"
+	"Unfortunately, my machine can only\n"
+	"regenerate one Pok\emon at a time.\p"
+	"Would you like to pick one of your\n"
+	"fossils for regeneration?"
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_WhichFossil {
+	"Which fossil would you like to \n"
+	"regenerate?"
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher {
+	"Excellent!\n"
+	"Let's do this right away.\p"
+	"{PLAYER} handed the {STR_VAR_1} to\n"
+	"the Devon Researcher."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime {
+	"The Fossil Regenerator, which I made,\n"
+	"is incredible.\p"
+	"But it has one drawback--it takes\n"
+	"a long time to work.\p"
+	"So, uh\. How about you go for a stroll\n"
+	"and look around for a while?"
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife {
+	"Thanks for waiting!\p"
+	"Your fossilized Pok\emon has been\n"
+	"brought back to life!\p"
+	"The fossil was an ancient Pok\emon.\n"
+	"{STR_VAR_2}, it was!"
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher {
+	"{PLAYER} received {STR_VAR_2} from\n"
+	"the Devon Researcher."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_DevelopNewPokenavFeature {
+	"I'm trying to develop a new feature\n"
+	"for the Pok\eNav\.\p"
+	"But it's not going well."
+}
+
+text(local) RustboroCity_DevonCorp_2F_Text_WhatToWorkOnNext {
+	"Well, now what shall I work on\n"
+	"developing next?\p"
+	"Our company allows us to make our\n"
+	"inspirations into reality.\p"
+	"One couldn't ask for a better\n"
+	"environment as an engineer."
+}
+

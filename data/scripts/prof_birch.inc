@@ -105,8 +105,10 @@ Script_ProfBirch_Interact::
 # 62 "data/scripts/prof_birch.pory"
 	compare VAR_QUEST_INTRO_STATE, 6
 	goto_if_eq Script_ProfBirch_Interact_4
-Script_ProfBirch_Interact_1:
 # 65 "data/scripts/prof_birch.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome
+Script_ProfBirch_Interact_1:
+# 67 "data/scripts/prof_birch.pory"
 	release
 	end
 
@@ -127,7 +129,7 @@ Script_ProfBirch_Interact_4:
 
 
 Script_ProfBirch_Interact_Early::
-# 70 "data/scripts/prof_birch.pory"
+# 72 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Early
 	return
 
@@ -137,426 +139,426 @@ Script_ProfBirch_Interact_Starter::
 # 0 "data/scripts/prof_birch.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Script_ProfBirch_Interact_Starter_2
-# 90 "data/scripts/prof_birch.pory"
+# 92 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Welcome_Female
 Script_ProfBirch_Interact_Starter_1:
-# 92 "data/scripts/prof_birch.pory"
-	closemessage
-# 93 "data/scripts/prof_birch.pory"
-	setvar VAR_QUEST_INTRO_STATE, 6
 # 94 "data/scripts/prof_birch.pory"
+	closemessage
+# 95 "data/scripts/prof_birch.pory"
+	setvar VAR_QUEST_INTRO_STATE, 6
+# 96 "data/scripts/prof_birch.pory"
 	call Script_ProfBirch_Interact_Starter_ChangeSelection
 	return
 
 Script_ProfBirch_Interact_Starter_2:
-# 88 "data/scripts/prof_birch.pory"
+# 90 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Welcome_Male
 	goto Script_ProfBirch_Interact_Starter_1
 
 
 Script_ProfBirch_Interact_Starter_ChangeSelection::
-# 157 "data/scripts/prof_birch.pory"
+# 159 "data/scripts/prof_birch.pory"
 	goto_if_set FLAG_MONOTYPE_STARTERS, Script_ProfBirch_Interact_Starter_ChangeSelection_1
-# 162 "data/scripts/prof_birch.pory"
-	msgbox Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeGeneration
-# 163 "data/scripts/prof_birch.pory"
-	waitmessage
 # 164 "data/scripts/prof_birch.pory"
+	msgbox Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeGeneration
+# 165 "data/scripts/prof_birch.pory"
+	waitmessage
+# 166 "data/scripts/prof_birch.pory"
 	call Script_ProfBirch_Interact_Starter_GenBased
 	return
 
 Script_ProfBirch_Interact_Starter_ChangeSelection_1:
-# 158 "data/scripts/prof_birch.pory"
-	msgbox Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeMonotype
-# 159 "data/scripts/prof_birch.pory"
-	waitmessage
 # 160 "data/scripts/prof_birch.pory"
+	msgbox Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeMonotype
+# 161 "data/scripts/prof_birch.pory"
+	waitmessage
+# 162 "data/scripts/prof_birch.pory"
 	call Script_ProfBirch_Interact_Starter_TypeBased
 	return
 
 
 Script_ProfBirch_Interact_Starter_GenBased::
-# 169 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_0, 0
-# 170 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_1, 1
 # 171 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_2, 2
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_0, 0
 # 172 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_3, 3
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_1, 1
 # 173 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_4, 4
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_2, 2
 # 174 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_5, 5
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_3, 3
 # 175 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_6, 6
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_4, 4
 # 176 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_7, 7
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_5, 5
 # 177 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_8, 8
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_6, 6
 # 178 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_9, MULTI_B_PRESSED
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_7, 7
 # 179 "data/scripts/prof_birch.pory"
-	dynmultistack 0, 0, FALSE, 6, FALSE, 0, NULL
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_8, 8
+# 180 "data/scripts/prof_birch.pory"
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_9, MULTI_B_PRESSED
 # 181 "data/scripts/prof_birch.pory"
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, NULL
+# 183 "data/scripts/prof_birch.pory"
 	compare VAR_RESULT, MULTI_B_PRESSED
 	goto_if_ne Script_ProfBirch_Interact_Starter_GenBased_2
 Script_ProfBirch_Interact_Starter_GenBased_1:
-# 184 "data/scripts/prof_birch.pory"
+# 186 "data/scripts/prof_birch.pory"
 	call Script_ProfBirch_Interact_Starter_SayShowing_Gen
 	return
 
 Script_ProfBirch_Interact_Starter_GenBased_2:
-# 182 "data/scripts/prof_birch.pory"
+# 184 "data/scripts/prof_birch.pory"
 	copyvar VAR_TEMP_0, VAR_RESULT
 	goto Script_ProfBirch_Interact_Starter_GenBased_1
 
 
 Script_ProfBirch_Interact_Starter_TypeBased::
-# 189 "data/scripts/prof_birch.pory"
-	msgbox Text_ProfBirch_Starter_AnyType
-# 190 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_0, 0
 # 191 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_1, 1
+	msgbox Text_ProfBirch_Starter_AnyType
 # 192 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_2, 2
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_0, 0
 # 193 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_3, 3
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_1, 1
 # 194 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_4, 4
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_2, 2
 # 195 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_5, 5
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_3, 3
 # 196 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_6, 6
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_4, 4
 # 197 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_7, 7
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_5, 5
 # 198 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_8, 8
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_6, 6
 # 199 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_9, 9
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_7, 7
 # 200 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_10, 10
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_8, 8
 # 201 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_11, 11
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_9, 9
 # 202 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_12, 12
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_10, 10
 # 203 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_13, 13
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_11, 11
 # 204 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_14, 14
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_12, 12
 # 205 "data/scripts/prof_birch.pory"
-	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_9, MULTI_B_PRESSED
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_13, 13
 # 206 "data/scripts/prof_birch.pory"
-	dynmultistack 0, 0, FALSE, 6, FALSE, 0, NULL
+	dynmultipush Script_ProfBirch_Interact_Starter_TypeBased_Text_14, 14
+# 207 "data/scripts/prof_birch.pory"
+	dynmultipush Script_ProfBirch_Interact_Starter_GenBased_Text_9, MULTI_B_PRESSED
 # 208 "data/scripts/prof_birch.pory"
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, NULL
+# 210 "data/scripts/prof_birch.pory"
 	compare VAR_RESULT, MULTI_B_PRESSED
 	goto_if_ne Script_ProfBirch_Interact_Starter_TypeBased_2
 Script_ProfBirch_Interact_Starter_TypeBased_1:
-# 211 "data/scripts/prof_birch.pory"
+# 213 "data/scripts/prof_birch.pory"
 	call Script_ProfBirch_Interact_Starter_SayShowing_Mono
 	return
 
 Script_ProfBirch_Interact_Starter_TypeBased_2:
-# 209 "data/scripts/prof_birch.pory"
+# 211 "data/scripts/prof_birch.pory"
 	copyvar VAR_TEMP_0, VAR_RESULT
 	goto Script_ProfBirch_Interact_Starter_TypeBased_1
 
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen::
-# 224 "data/scripts/prof_birch.pory"
+# 226 "data/scripts/prof_birch.pory"
 	switch VAR_TEMP_0
-# 225 "data/scripts/prof_birch.pory"
-	case 0, Script_ProfBirch_Interact_Starter_SayShowing_Gen_3
 # 227 "data/scripts/prof_birch.pory"
-	case 1, Script_ProfBirch_Interact_Starter_SayShowing_Gen_4
+	case 0, Script_ProfBirch_Interact_Starter_SayShowing_Gen_3
 # 229 "data/scripts/prof_birch.pory"
-	case 2, Script_ProfBirch_Interact_Starter_SayShowing_Gen_5
+	case 1, Script_ProfBirch_Interact_Starter_SayShowing_Gen_4
 # 231 "data/scripts/prof_birch.pory"
-	case 3, Script_ProfBirch_Interact_Starter_SayShowing_Gen_6
+	case 2, Script_ProfBirch_Interact_Starter_SayShowing_Gen_5
 # 233 "data/scripts/prof_birch.pory"
-	case 4, Script_ProfBirch_Interact_Starter_SayShowing_Gen_7
+	case 3, Script_ProfBirch_Interact_Starter_SayShowing_Gen_6
 # 235 "data/scripts/prof_birch.pory"
-	case 5, Script_ProfBirch_Interact_Starter_SayShowing_Gen_8
+	case 4, Script_ProfBirch_Interact_Starter_SayShowing_Gen_7
 # 237 "data/scripts/prof_birch.pory"
-	case 6, Script_ProfBirch_Interact_Starter_SayShowing_Gen_9
+	case 5, Script_ProfBirch_Interact_Starter_SayShowing_Gen_8
 # 239 "data/scripts/prof_birch.pory"
-	case 7, Script_ProfBirch_Interact_Starter_SayShowing_Gen_10
+	case 6, Script_ProfBirch_Interact_Starter_SayShowing_Gen_9
 # 241 "data/scripts/prof_birch.pory"
+	case 7, Script_ProfBirch_Interact_Starter_SayShowing_Gen_10
+# 243 "data/scripts/prof_birch.pory"
 	case 8, Script_ProfBirch_Interact_Starter_SayShowing_Gen_11
-# 244 "data/scripts/prof_birch.pory"
+# 246 "data/scripts/prof_birch.pory"
 	msgbox Script_ProfBirch_Interact_Starter_SayShowing_Gen_Text_0
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_1:
 	return
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_3:
-# 226 "data/scripts/prof_birch.pory"
+# 228 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_1
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_4:
-# 228 "data/scripts/prof_birch.pory"
+# 230 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_2
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_5:
-# 230 "data/scripts/prof_birch.pory"
+# 232 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_3
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_6:
-# 232 "data/scripts/prof_birch.pory"
+# 234 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_4
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_7:
-# 234 "data/scripts/prof_birch.pory"
+# 236 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_5
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_8:
-# 236 "data/scripts/prof_birch.pory"
+# 238 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_6
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_9:
-# 238 "data/scripts/prof_birch.pory"
+# 240 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_7
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_10:
-# 240 "data/scripts/prof_birch.pory"
+# 242 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_8
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_11:
-# 242 "data/scripts/prof_birch.pory"
+# 244 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Gen_9
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Gen_1
 
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono::
-# 286 "data/scripts/prof_birch.pory"
-	switch VAR_TEMP_0
 # 288 "data/scripts/prof_birch.pory"
-	case 0, Script_ProfBirch_Interact_Starter_SayShowing_Mono_3
+	switch VAR_TEMP_0
 # 290 "data/scripts/prof_birch.pory"
-	case 1, Script_ProfBirch_Interact_Starter_SayShowing_Mono_4
+	case 0, Script_ProfBirch_Interact_Starter_SayShowing_Mono_3
 # 292 "data/scripts/prof_birch.pory"
-	case 2, Script_ProfBirch_Interact_Starter_SayShowing_Mono_5
+	case 1, Script_ProfBirch_Interact_Starter_SayShowing_Mono_4
 # 294 "data/scripts/prof_birch.pory"
-	case 3, Script_ProfBirch_Interact_Starter_SayShowing_Mono_6
+	case 2, Script_ProfBirch_Interact_Starter_SayShowing_Mono_5
 # 296 "data/scripts/prof_birch.pory"
-	case 4, Script_ProfBirch_Interact_Starter_SayShowing_Mono_7
+	case 3, Script_ProfBirch_Interact_Starter_SayShowing_Mono_6
 # 298 "data/scripts/prof_birch.pory"
-	case 5, Script_ProfBirch_Interact_Starter_SayShowing_Mono_8
+	case 4, Script_ProfBirch_Interact_Starter_SayShowing_Mono_7
 # 300 "data/scripts/prof_birch.pory"
-	case 6, Script_ProfBirch_Interact_Starter_SayShowing_Mono_9
+	case 5, Script_ProfBirch_Interact_Starter_SayShowing_Mono_8
 # 302 "data/scripts/prof_birch.pory"
-	case 7, Script_ProfBirch_Interact_Starter_SayShowing_Mono_10
+	case 6, Script_ProfBirch_Interact_Starter_SayShowing_Mono_9
 # 304 "data/scripts/prof_birch.pory"
-	case 8, Script_ProfBirch_Interact_Starter_SayShowing_Mono_11
+	case 7, Script_ProfBirch_Interact_Starter_SayShowing_Mono_10
 # 306 "data/scripts/prof_birch.pory"
-	case 9, Script_ProfBirch_Interact_Starter_SayShowing_Mono_12
+	case 8, Script_ProfBirch_Interact_Starter_SayShowing_Mono_11
 # 308 "data/scripts/prof_birch.pory"
-	case 10, Script_ProfBirch_Interact_Starter_SayShowing_Mono_13
+	case 9, Script_ProfBirch_Interact_Starter_SayShowing_Mono_12
 # 310 "data/scripts/prof_birch.pory"
-	case 11, Script_ProfBirch_Interact_Starter_SayShowing_Mono_14
+	case 10, Script_ProfBirch_Interact_Starter_SayShowing_Mono_13
 # 312 "data/scripts/prof_birch.pory"
-	case 12, Script_ProfBirch_Interact_Starter_SayShowing_Mono_15
+	case 11, Script_ProfBirch_Interact_Starter_SayShowing_Mono_14
 # 314 "data/scripts/prof_birch.pory"
-	case 13, Script_ProfBirch_Interact_Starter_SayShowing_Mono_16
+	case 12, Script_ProfBirch_Interact_Starter_SayShowing_Mono_15
 # 316 "data/scripts/prof_birch.pory"
+	case 13, Script_ProfBirch_Interact_Starter_SayShowing_Mono_16
+# 318 "data/scripts/prof_birch.pory"
 	case 14, Script_ProfBirch_Interact_Starter_SayShowing_Mono_17
-# 319 "data/scripts/prof_birch.pory"
+# 321 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Normal
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_1:
-# 321 "data/scripts/prof_birch.pory"
+# 323 "data/scripts/prof_birch.pory"
 	release
 	return
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_3:
-# 289 "data/scripts/prof_birch.pory"
+# 291 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Fighting
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_4:
-# 291 "data/scripts/prof_birch.pory"
+# 293 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Flying
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_5:
-# 293 "data/scripts/prof_birch.pory"
+# 295 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Poison
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_6:
-# 295 "data/scripts/prof_birch.pory"
+# 297 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Ground
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_7:
-# 297 "data/scripts/prof_birch.pory"
+# 299 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Rock
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_8:
-# 299 "data/scripts/prof_birch.pory"
+# 301 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Bug
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_9:
-# 301 "data/scripts/prof_birch.pory"
+# 303 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Ghost
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_10:
-# 303 "data/scripts/prof_birch.pory"
+# 305 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Steel
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_11:
-# 305 "data/scripts/prof_birch.pory"
+# 307 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Electric
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_12:
-# 307 "data/scripts/prof_birch.pory"
+# 309 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Psychic
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_13:
-# 309 "data/scripts/prof_birch.pory"
+# 311 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Ice
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_14:
-# 311 "data/scripts/prof_birch.pory"
+# 313 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Dragon
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_15:
-# 313 "data/scripts/prof_birch.pory"
+# 315 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Dark
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_16:
-# 315 "data/scripts/prof_birch.pory"
+# 317 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Normal
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 Script_ProfBirch_Interact_Starter_SayShowing_Mono_17:
-# 317 "data/scripts/prof_birch.pory"
+# 319 "data/scripts/prof_birch.pory"
 	msgbox Text_ProfBirch_Starters_Mono_Fairy
 	goto Script_ProfBirch_Interact_Starter_SayShowing_Mono_1
 
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_0:
-# 169 "data/scripts/prof_birch.pory"
+# 171 "data/scripts/prof_birch.pory"
 	.string "Gen 1$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_1:
-# 170 "data/scripts/prof_birch.pory"
+# 172 "data/scripts/prof_birch.pory"
 	.string "Gen 2$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_2:
-# 171 "data/scripts/prof_birch.pory"
+# 173 "data/scripts/prof_birch.pory"
 	.string "Gen 3$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_3:
-# 172 "data/scripts/prof_birch.pory"
+# 174 "data/scripts/prof_birch.pory"
 	.string "Gen 4$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_4:
-# 173 "data/scripts/prof_birch.pory"
+# 175 "data/scripts/prof_birch.pory"
 	.string "Gen 5$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_5:
-# 174 "data/scripts/prof_birch.pory"
+# 176 "data/scripts/prof_birch.pory"
 	.string "Gen 6$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_6:
-# 175 "data/scripts/prof_birch.pory"
+# 177 "data/scripts/prof_birch.pory"
 	.string "Gen 7$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_7:
-# 176 "data/scripts/prof_birch.pory"
+# 178 "data/scripts/prof_birch.pory"
 	.string "Gen 8$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_8:
-# 177 "data/scripts/prof_birch.pory"
+# 179 "data/scripts/prof_birch.pory"
 	.string "Gen 9$"
 
 Script_ProfBirch_Interact_Starter_GenBased_Text_9:
-# 178 "data/scripts/prof_birch.pory"
+# 180 "data/scripts/prof_birch.pory"
 	.string "Cancel$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_0:
-# 190 "data/scripts/prof_birch.pory"
+# 192 "data/scripts/prof_birch.pory"
 	.string "Fighting$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_1:
-# 191 "data/scripts/prof_birch.pory"
+# 193 "data/scripts/prof_birch.pory"
 	.string "Flying$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_2:
-# 192 "data/scripts/prof_birch.pory"
+# 194 "data/scripts/prof_birch.pory"
 	.string "Poison$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_3:
-# 193 "data/scripts/prof_birch.pory"
+# 195 "data/scripts/prof_birch.pory"
 	.string "Ground$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_4:
-# 194 "data/scripts/prof_birch.pory"
+# 196 "data/scripts/prof_birch.pory"
 	.string "Rock$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_5:
-# 195 "data/scripts/prof_birch.pory"
+# 197 "data/scripts/prof_birch.pory"
 	.string "Bug$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_6:
-# 196 "data/scripts/prof_birch.pory"
+# 198 "data/scripts/prof_birch.pory"
 	.string "Ghost$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_7:
-# 197 "data/scripts/prof_birch.pory"
+# 199 "data/scripts/prof_birch.pory"
 	.string "Steel$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_8:
-# 198 "data/scripts/prof_birch.pory"
+# 200 "data/scripts/prof_birch.pory"
 	.string "Electric$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_9:
-# 199 "data/scripts/prof_birch.pory"
+# 201 "data/scripts/prof_birch.pory"
 	.string "Psychic$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_10:
-# 200 "data/scripts/prof_birch.pory"
+# 202 "data/scripts/prof_birch.pory"
 	.string "Ice$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_11:
-# 201 "data/scripts/prof_birch.pory"
+# 203 "data/scripts/prof_birch.pory"
 	.string "Dragon$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_12:
-# 202 "data/scripts/prof_birch.pory"
+# 204 "data/scripts/prof_birch.pory"
 	.string "Dark$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_13:
-# 203 "data/scripts/prof_birch.pory"
+# 205 "data/scripts/prof_birch.pory"
 	.string "Normal$"
 
 Script_ProfBirch_Interact_Starter_TypeBased_Text_14:
-# 204 "data/scripts/prof_birch.pory"
+# 206 "data/scripts/prof_birch.pory"
 	.string "Fairy$"
 
 Script_ProfBirch_Interact_Starter_SayShowing_Gen_Text_0:
-# 244 "data/scripts/prof_birch.pory"
+# 246 "data/scripts/prof_birch.pory"
 	.string "Now showing starters.$"
 
 Text_ProfBirch_Early:
-# 73 "data/scripts/prof_birch.pory"
+# 75 "data/scripts/prof_birch.pory"
 	.string "Prof. Birch: Oh… Um…\p"
 	.string "Hi there, I am Prof. Birch.\n"
 	.string "its nice to meet you I have heard\l"
@@ -569,7 +571,7 @@ Text_ProfBirch_Early:
 	.string "And say Hi to your Mom for me.$"
 
 Text_ProfBirch_Welcome_Male:
-# 98 "data/scripts/prof_birch.pory"
+# 100 "data/scripts/prof_birch.pory"
 	.string "Prof. Birch: Hello there!\n"
 	.string "I'm Prof. Birch, and you must\l"
 	.string "be {PLAYER}. I have heard alot\l"
@@ -598,7 +600,7 @@ Text_ProfBirch_Welcome_Male:
 	.string "you more about each starter choice.$"
 
 Text_ProfBirch_Welcome_Female:
-# 127 "data/scripts/prof_birch.pory"
+# 129 "data/scripts/prof_birch.pory"
 	.string "Prof. Birch: Hello there!\n"
 	.string "I'm Prof. Birch, and you must\l"
 	.string "be {PLAYER}. I have heard alot\l"
@@ -627,7 +629,7 @@ Text_ProfBirch_Welcome_Female:
 	.string "you more about each starter choice.$"
 
 Text_ProfBirch_Starter_AnyType:
-# 215 "data/scripts/prof_birch.pory"
+# 217 "data/scripts/prof_birch.pory"
 	.string "I can let you choose from any\n"
 	.string "Type of Starter Pokémon, just\l"
 	.string "ask me if you want to change them.\l"
@@ -635,127 +637,136 @@ Text_ProfBirch_Starter_AnyType:
 	.string "you more about each starter choice.$"
 
 Text_ProfBirch_Starters_Gen_1:
-# 249 "data/scripts/prof_birch.pory"
+# 251 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 1.$"
 
 Text_ProfBirch_Starters_Gen_2:
-# 253 "data/scripts/prof_birch.pory"
+# 255 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 2.$"
 
 Text_ProfBirch_Starters_Gen_3:
-# 257 "data/scripts/prof_birch.pory"
+# 259 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 3.$"
 
 Text_ProfBirch_Starters_Gen_4:
-# 261 "data/scripts/prof_birch.pory"
+# 263 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 4.$"
 
 Text_ProfBirch_Starters_Gen_5:
-# 265 "data/scripts/prof_birch.pory"
+# 267 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 5.$"
 
 Text_ProfBirch_Starters_Gen_6:
-# 269 "data/scripts/prof_birch.pory"
+# 271 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 6.$"
 
 Text_ProfBirch_Starters_Gen_7:
-# 273 "data/scripts/prof_birch.pory"
+# 275 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 7.$"
 
 Text_ProfBirch_Starters_Gen_8:
-# 277 "data/scripts/prof_birch.pory"
+# 279 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 8.$"
 
 Text_ProfBirch_Starters_Gen_9:
-# 281 "data/scripts/prof_birch.pory"
+# 283 "data/scripts/prof_birch.pory"
 	.string "Showing starters for Gen 9.$"
 
 Text_ProfBirch_Starters_Mono_Fighting:
-# 325 "data/scripts/prof_birch.pory"
+# 327 "data/scripts/prof_birch.pory"
 	.string "Showing Fighting-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Flying:
-# 329 "data/scripts/prof_birch.pory"
+# 331 "data/scripts/prof_birch.pory"
 	.string "Showing Flying-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Poison:
-# 333 "data/scripts/prof_birch.pory"
+# 335 "data/scripts/prof_birch.pory"
 	.string "Showing Poison-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Ground:
-# 337 "data/scripts/prof_birch.pory"
+# 339 "data/scripts/prof_birch.pory"
 	.string "Showing Ground-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Rock:
-# 341 "data/scripts/prof_birch.pory"
+# 343 "data/scripts/prof_birch.pory"
 	.string "Showing Rock-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Bug:
-# 345 "data/scripts/prof_birch.pory"
+# 347 "data/scripts/prof_birch.pory"
 	.string "Showing Bug-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Ghost:
-# 349 "data/scripts/prof_birch.pory"
+# 351 "data/scripts/prof_birch.pory"
 	.string "Showing Ghost-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Steel:
-# 353 "data/scripts/prof_birch.pory"
+# 355 "data/scripts/prof_birch.pory"
 	.string "Showing Steel-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Electric:
-# 357 "data/scripts/prof_birch.pory"
+# 359 "data/scripts/prof_birch.pory"
 	.string "Showing Electric-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Psychic:
-# 361 "data/scripts/prof_birch.pory"
+# 363 "data/scripts/prof_birch.pory"
 	.string "Showing Psychic-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Ice:
-# 365 "data/scripts/prof_birch.pory"
+# 367 "data/scripts/prof_birch.pory"
 	.string "Showing Ice-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Dragon:
-# 369 "data/scripts/prof_birch.pory"
+# 371 "data/scripts/prof_birch.pory"
 	.string "Showing Dragon-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Dark:
-# 373 "data/scripts/prof_birch.pory"
+# 375 "data/scripts/prof_birch.pory"
 	.string "Showing Dark-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Normal:
-# 377 "data/scripts/prof_birch.pory"
+# 379 "data/scripts/prof_birch.pory"
 	.string "Showing Normal-type starters.$"
 
 Text_ProfBirch_Starters_Mono_Fairy:
-# 381 "data/scripts/prof_birch.pory"
+# 383 "data/scripts/prof_birch.pory"
 	.string "Showing Fairy-type starters.$"
 
 Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Treecko::
-# 386 "data/scripts/prof_birch.pory"
+# 388 "data/scripts/prof_birch.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Treecko as their\l"
 	.string "starter!$"
 
 Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Torchic::
-# 392 "data/scripts/prof_birch.pory"
+# 394 "data/scripts/prof_birch.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Torchic as their\l"
 	.string "starter!$"
 
 Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_RivalsChoice_Mudkip::
-# 398 "data/scripts/prof_birch.pory"
+# 400 "data/scripts/prof_birch.pory"
 	.string "A great choice, but also an unlucky one!\n"
 	.string "{RIVAL} chose a Mudkip as their\l"
 	.string "starter!$"
 
 Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeGeneration::
-# 404 "data/scripts/prof_birch.pory"
+# 406 "data/scripts/prof_birch.pory"
 	.string "Which Generation of Starters would you\n"
 	.string "like to see? You can change\l"
 	.string "Generations as many times as you want.$"
 
 Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeMonotype::
-# 410 "data/scripts/prof_birch.pory"
+# 412 "data/scripts/prof_birch.pory"
 	.string "Which Type of Starters would you\n"
 	.string "like to see? You can change\l"
 	.string "Types as many times as you want.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
+# 419 "data/scripts/prof_birch.pory"
+	.string "{RIVAL}?\n"
+	.string "Gone home, I think.\p"
+	.string "Or maybe that kid's scrabbling around\n"
+	.string "in tall grass again somewhere…\p"
+	.string "If you or your Pokémon get tired,\n"
+	.string "you should get some rest at home.$"

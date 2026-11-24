@@ -61,6 +61,8 @@ script Script_ProfBirch_Interact {
 		call(Script_ProfBirch_Interact_Starter)
 	} elif(var(VAR_QUEST_INTRO_STATE) == 6) {
 		call(Script_ProfBirch_Interact_Starter_ChangeSelection)
+	} else {
+		msgbox(LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome)
 	}
 	release
 	end
@@ -411,4 +413,14 @@ text Text_LittlerootTown_ProfessorBirchsLab_Birch_Starter_ChangeMonotype {
 	"Which Type of Starters would you\n"
 	"like to see? You can change\l"
 	"Types as many times as you want."
+}
+
+
+text(local) LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome {
+	"{RIVAL}?\n"
+	"Gone home, I think.\p"
+	"Or maybe that kid's scrabbling around\n"
+	"in tall grass again somewhere\.\p"
+	"If you or your Pokémon get tired,\n"
+	"you should get some rest at home."
 }

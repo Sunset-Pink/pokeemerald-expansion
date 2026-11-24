@@ -1,0 +1,188 @@
+script ProfileMan_EventScript_Man {
+	lock
+	faceplayer
+	if(flag(FLAG_SYS_CHAT_USED)) {
+		call(ProfileMan_EventScript_GivenProfileBefore)
+	} else {
+		msgbox(ProfileMan_Text_CollectTrainerProfiles)
+		call(ProfileMan_EventScript_AskToSeeProfile)
+	}
+	end
+}
+
+script ProfileMan_EventScript_AskToSeeProfile {
+	msgbox(ProfileMan_Text_MayISeeYourProfile, MSGBOX_DEFAULT)
+	multichoice(17, 6, MULTI_YESNOINFO_2, FALSE)
+	switch(var(VAR_RESULT)) {
+		case 0: call(ProfileMan_EventScript_CreateProfile)
+		case 2: call(ProfileMan_EventScript_Info)
+		default: call(ProfileMan_EventScript_DeclineShowProfile)
+	}
+	end
+}
+
+script ProfileMan_EventScript_Info {
+	msgbox(ProfileMan_Text_EasyChatExplanation)
+	goto(ProfileMan_EventScript_AskToSeeProfile)
+	end
+}
+
+script ProfileMan_EventScript_CreateProfile {
+	msgbox(ProfileMan_Text_LetsSeeItThen)
+	closemessage
+	setvar(VAR_0x8004, EASY_CHAT_TYPE_PROFILE)
+	call(Common_ShowEasyChatScreen)
+	lock
+	faceplayer
+	if(var(VAR_RESULT) == 0) {
+		goto(ProfileMan_EventScript_CancelShowProfile)
+	} else {
+		goto(ProfileMan_EventScript_ShowProfile)
+	}
+	end
+}
+
+script ProfileMan_EventScript_CancelShowProfile {
+	msgbox(ProfileMan_Text_NotIntoItRightNow)
+	release
+	end
+}
+
+script ProfileMan_EventScript_ShowProfile {
+	setvar(VAR_0x8004, 0)
+	special(ShowEasyChatProfile)
+	waitmessage
+	delay(80)
+	msgbox(ProfileMan_Text_FantasticProfile)
+	release
+	end
+}
+
+script ProfileMan_EventScript_DeclineShowProfile {
+	msgbox(ProfileMan_Text_ImagineYouWouldHaveWonderfulProfile)
+	release
+	end
+}
+
+script ProfileMan_EventScript_GivenProfileBefore {
+	msgbox(ProfileMan_Text_YouHaveWonderfulSmile)
+	goto(ProfileMan_EventScript_AskToSeeNewProfile)
+	end
+}
+
+script ProfileMan_EventScript_AskToSeeNewProfile {
+	msgbox(ProfileMan_Text_MayISeeYourNewProfile)
+	multichoice(17, 6, MULTI_YESNOINFO_2, FALSE)
+	switch(var(VAR_RESULT)) {
+		case 0: goto(ProfileMan_EventScript_CreateNewProfile)
+		case 2: goto(ProfileMan_EventScript_InfoNewProfile)
+		default: goto(ProfileMan_EventScript_DeclineNewProfile)
+	}
+	end
+}
+
+script ProfileMan_EventScript_InfoNewProfile {
+	msgbox(ProfileMan_Text_EasyChatExplanation)
+	goto(ProfileMan_EventScript_AskToSeeNewProfile)
+	end
+}
+
+script ProfileMan_EventScript_CreateNewProfile {
+	msgbox(ProfileMan_Text_EvenBetterThanLastProfile)
+	closemessage
+	setvar(VAR_0x8004, EASY_CHAT_TYPE_PROFILE)
+	call(Common_ShowEasyChatScreen)
+	lock
+	faceplayer
+	if(var(VAR_RESULT) == 0) {
+		goto(ProfileMan_EventScript_CancelShowProfile)
+	} else {
+		goto(ProfileMan_EventScript_ShowProfile)
+	}
+
+	end
+}
+
+script ProfileMan_EventScript_DeclineNewProfile {
+	msgbox(ProfileMan_Text_LikeProfileWayItIs)
+	release
+	end
+}
+
+text(local) ProfileMan_Text_CollectTrainerProfiles {
+	"Hello there, Trainer!\n"
+	"You've got a wonderful smile, there.\p"
+	"I have a hobby--collecting the profiles\n"
+	"of Pok\emon Trainers."
+}
+
+text(local) ProfileMan_Text_MayISeeYourProfile {
+	"So, how about it?\n"
+	"May I see your profile?"
+}
+
+text(local) ProfileMan_Text_EasyChatExplanation {
+	"You make your own profile by putting\n"
+	"together four words or phrases.\p"
+	"Here, I'll show you an example of a\n"
+	"profile using four pieces of text.\p"
+	"You can switch those four pieces with\n"
+	"other text pieces any which way you\l"
+	"like to make your own profile.\p"
+	"There are a lot of text pieces that\n"
+	"you can use.\p"
+	"They are arranged in groups like\n"
+	"Pok\emon, lifestyles, and hobbies so\l"
+	"it is easier to look them up.\p"
+	"So, first, choose the group of text\n"
+	"pieces to display a list of choices.\p"
+	"Then, pick the choice you want.\p"
+	"Repeat for the remaining text choices,\n"
+	"and you'll have your very own profile."
+}
+
+text(local) ProfileMan_Text_LetsSeeItThen {
+	"Yes! Thank you!\n"
+	"So, let's see it, then."
+}
+
+text(local) ProfileMan_Text_ImagineYouWouldHaveWonderfulProfile {
+	"Oh, no, really?\p"
+	"I imagine someone like you would have\n"
+	"a wonderful profile\."
+}
+
+text(local) ProfileMan_Text_NotIntoItRightNow {
+	"Oh? You're not into it right now?\p"
+	"Well, anytime is good by me!"
+}
+
+text(local) ProfileMan_Text_YouHaveWonderfulSmile {
+	"Hello there, Trainer!\n"
+	"You've got a wonderful smile."
+}
+
+text(local) ProfileMan_Text_MayISeeYourNewProfile {
+	"May I see your new profile?"
+}
+
+text(local) ProfileMan_Text_EvenBetterThanLastProfile {
+	"Yes! Thank you!\p"
+	"I hope it's even better than the profile\n"
+	"you showed me before."
+}
+
+text(local) ProfileMan_Text_LikeProfileWayItIs {
+	"Oh, you like your profile the way it is.\p"
+	"I don't blame you--it's a wonderful\n"
+	"profile the way it is now."
+}
+
+text(local) ProfileMan_Text_FantasticProfile {
+	"F-fantastic!\p"
+	"Your profile, it's wonderful!\n"
+	"It really says what you're about.\p"
+	"Why, anyone hearing this profile would\n"
+	"be captivated by you!\p"
+	"Thank you!"
+}

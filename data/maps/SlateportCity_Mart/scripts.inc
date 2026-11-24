@@ -59,22 +59,20 @@ SlateportCity_Mart_Pokemart:
 # 30 "data/maps/SlateportCity_Mart/scripts.pory"
 	.2byte ITEM_PARALYZE_HEAL
 # 31 "data/maps/SlateportCity_Mart/scripts.pory"
-	.2byte ITEM_ESCAPE_ROPE
-# 32 "data/maps/SlateportCity_Mart/scripts.pory"
 	.2byte ITEM_REPEL
-# 33 "data/maps/SlateportCity_Mart/scripts.pory"
+# 32 "data/maps/SlateportCity_Mart/scripts.pory"
 	.2byte ITEM_HARBOR_MAIL
 	.2byte ITEM_NONE
 
 SlateportCity_Mart_Text_SomeItemsOnlyAtMart:
-# 36 "data/maps/SlateportCity_Mart/scripts.pory"
+# 35 "data/maps/SlateportCity_Mart/scripts.pory"
 	.string "The Market does have some interesting\n"
 	.string "merchandise.\p"
 	.string "But there are some items you can only\n"
 	.string "get at a Pokémon Mart.$"
 
 SlateportCity_Mart_Text_GreatBallIsBetter:
-# 43 "data/maps/SlateportCity_Mart/scripts.pory"
+# 42 "data/maps/SlateportCity_Mart/scripts.pory"
 	.string "A Great Ball is better than a Poké Ball\n"
 	.string "at catching Pokémon.\p"
 	.string "With this, I should be able to get that\n"

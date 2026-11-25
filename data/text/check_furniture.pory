@@ -1,0 +1,34 @@
+text(local) Text_PictureBookShelf {
+	"There's a set of Pok\emon picture books."
+}
+
+text(local) Text_BookShelf {
+	"It's filled with all sorts of books."
+}
+
+text(local) Text_PokemonCenterBookShelf {
+	"Pok\emon magazines!\n"
+	"Pok\emon Pal\.\p"
+	"Pok\emon Handbook\.\n"
+	"Adorable Pok\emon\."
+}
+
+text(local) Text_Vase {
+	"This vase looks expensive\.\n"
+	"Peered inside\.\p"
+	"But, it was empty."
+}
+
+text(local) Text_EmptyTrashCan {
+	"It's empty."
+}
+
+text(local) Text_ShopShelf {
+	"The shelves brim with all sorts of\n"
+	"Pok\emon merchandise."
+}
+
+text(local) Text_Blueprint {
+	"A blueprint of some sort?\n"
+	"It's too complicated!"
+}

@@ -129,7 +129,7 @@ script PetalburgCity_EventScript_Boy {
 }
 
 script PetalburgCity_EventScript_WallysMom {
-	msgbox(PetalburgCity_Text_WhereIsWally)
+	msgbox(PetalburgCity_Text_WhereIsWally, MSGBOX_NPC)
 	return
 }
 
@@ -501,7 +501,8 @@ text(local) PetalburgCity_Text_FullPartyExplanation {
 	"Let's say you have six Pok\emon.\n"
 	"If you catch another one\.\p"
 	"It is automatically sent to a Storage\n"
-	"Box over a PC connection."
+	"You can choose one Pok\emon to send to\n"
+	"a Storage Box."
 }
 
 text(local) PetalburgCity_Text_GymSign {

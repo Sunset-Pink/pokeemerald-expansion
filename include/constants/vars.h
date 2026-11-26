@@ -262,7 +262,7 @@
 #define VAR_GIFT_UNUSED_4                                0x40E1 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_5                                0x40E2 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_6                                0x40E3 // Var is written to, but never read
-#define VAR_GIFT_UNUSED_7                                0x40E4 // var is written to, but never read
+#define VAR_SECRET_BASE_HIGH_TV_FLAGS                    0x40E4 // Used by Secret Base TV programs
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40E5
 #define VAR_DAILY_SLOTS                                  0x40E6
 #define VAR_DAILY_WILDS                                  0x40E7
@@ -273,11 +273,14 @@
 #define VAR_SECRET_BASE_STEP_COUNTER                     0x40EC // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_LAST_ITEM_USED                   0x40ED // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_LOW_TV_FLAGS                     0x40EE // Used by Secret Base TV programs
-#define VAR_SECRET_BASE_HIGH_TV_FLAGS                    0x40EF // Used by Secret Base TV programs
+#define VAR_DALTON_STATE                                 0x40EF 
+// 0: Dalton @ Route 102 Berries, Haven't Met
+// 1: Dalton @ Route 102 Berries, Met
 #define VAR_RIVAL_MOM_STATE                              0x40F0
 // 0: Rival Mom @ Rival House, Haven't met
 // 1: Rival Mom @ Rival House, Met
 #define VAR_WALLY_STATE                                  0x40F1
+// 0: Wally @ Petalburg Gym to get starter
 #define VAR_RIVAL_STATE                                  0x40F2
 // 0: Rival House 2F Pre-Scene
 // 1: Rival House 2F Post-Scene

@@ -992,24 +992,24 @@ LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex:
 	.string "{RIVAL} has an extensive history as\n"
 	.string "a Trainer already.\p"
 	.string "Here, {PLAYER}{KUN}, as promised\n"
-	.string "here is a PokéDex for you.$"
+	.string "here is a Pokédex for you.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex:
 # 489 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Prof. Birch: The PokéDex is a high-tech\n"
+	.string "Prof. Birch: The Pokédex is a high-tech\n"
 	.string "tool that automatically makes a record\l"
 	.string "of any Pokémon you meet or catch.\p"
 	.string "My kid, {RIVAL}, goes everywhere\n"
 	.string "with it.\p"
 	.string "Whenever my kid catches a rare Pokémon\n"
-	.string "and records its data in the PokéDex,\l"
+	.string "and records its data in the Pokédex,\l"
 	.string "why, {RIVAL} looks for me while I'm out\l"
 	.string "doing fieldwork, and shows me.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayGotPokedexTooTakeThese:
 # 501 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "May: Oh, wow, {PLAYER}{KUN}!\n"
-	.string "You got a PokéDex, too!\p"
+	.string "You got a Pokédex, too!\p"
 	.string "That's great! Just like me!\n"
 	.string "I've got something for you, too!$"
 
@@ -1034,7 +1034,7 @@ LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext:
 LittlerootTown_ProfessorBirchsLab_Text_BrendanGotPokedexTooTakeThese:
 # 526 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Brendan: Huh…\n"
-	.string "So you got a PokéDex, too.\p"
+	.string "So you got a Pokédex, too.\p"
 	.string "Well then, here.\n"
 	.string "I'll give you these.$"
 
@@ -1070,19 +1070,19 @@ LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational:
 	.string "the natural environments of Hoenn\l"
 	.string "happen to be.\p"
 	.string "That's why I think it's necessary for\n"
-	.string "me to upgrade your PokéDex to\l"
+	.string "me to upgrade your Pokédex to\l"
 	.string "the National Mode.\p"
-	.string "Here, let me see your PokéDex units.$"
+	.string "Here, let me see your Pokédex units.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon:
 # 569 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Prof. Birch: Oh, {PLAYER}{KUN}!\n"
-	.string "Let's have a look at your PokéDex.\p"
+	.string "Let's have a look at your Pokédex.\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
 	.string "Yes, there's no doubt about it.\p"
 	.string "You really have completed the Hoenn\n"
-	.string "region's PokéDex.\p"
+	.string "region's Pokédex.\p"
 	.string "That's more than just impressive.\p"
 	.string "I have a gift for you.\p"
 	.string "Consider it my show of appreciation\n"
@@ -1095,7 +1095,7 @@ LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon:
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting:
 # 587 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Prof. Birch: Listen, {PLAYER}{KUN}.\n"
-	.string "You've completed the Hoenn PokéDex,\l"
+	.string "You've completed the Hoenn Pokédex,\l"
 	.string "but your Pokémon journey isn't over.\p"
 	.string "There is no end to the road\n"
 	.string "that is Pokémon.\p"
@@ -1109,13 +1109,13 @@ LittlerootTown_ProfessorBirchsLab_Text_BetterLeaveOthersAlone:
 
 BirchLab_PokedexEvent_ReceivedPokedex_Text:
 # 659 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "{PLAYER} received the PokéDex!$"
+	.string "{PLAYER} received the Pokédex!$"
 
 BirchLab_PokedexEvent_BirchBall_Text:
 # 694 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Oh, also {PLAYER}{KUN},\n"
 	.string "these will help get you started\l"
-	.string "on completing the PokéDex.$"
+	.string "on completing the Pokédex.$"
 
 BirchLab_PokedexEvent_RecievedBalls_Text:
 # 700 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"

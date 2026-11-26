@@ -140,7 +140,7 @@ script RivalsHouse_2F_EventScript_RivalPostLilycove {
 
 text(local) RivalsHouse_2F_Text_MayJustCheckingMyPokedex {
 	"May: {PLAYER}{KUN}!\p"
-	"I was just checking my Pok\eDex.\p"
+	"I was just checking my Pok\edex.\p"
 	"There's still a lot of Pok\emon that\n"
 	"I've seen but haven't caught.\p"
 	"And there are many others that\n"
@@ -158,11 +158,11 @@ text(local) RivalsHouse_2F_Text_MayWhereShouldIGoNext {
 
 text(local) RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex {
 	"Brendan: Hey, it's {PLAYER}.\p"
-	"I was just checking out my Pok\eDex.\p"
+	"I was just checking out my Pok\edex.\p"
 	"There are still many Pok\emon that\n"
 	"I need to catch, I know, but this\l"
 	"is looking pretty good.\p"
-	"Checking this Pok\eDex out gives me\n"
+	"Checking this Pok\edex out gives me\n"
 	"the urge to hit the road again."
 }
 

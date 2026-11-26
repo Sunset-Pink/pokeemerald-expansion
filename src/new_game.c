@@ -245,9 +245,6 @@ void NewGameInitData(void)
     FlagSet(FLAG_RECEIVED_RUNNING_SHOES); //Might be able to remove.
     FlagSet(FLAG_SYS_B_DASH);
     gSaveBlock2Ptr->autoRun = FALSE;
-
-    // Give PokeDex.
-    FlagSet(FLAG_SYS_NATIONAL_DEX);
 }
 
 static void ResetMiniGamesRecords(void)

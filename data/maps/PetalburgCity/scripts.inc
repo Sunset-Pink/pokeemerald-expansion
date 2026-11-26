@@ -182,7 +182,7 @@ PetalburgCity_EventScript_Boy::
 
 PetalburgCity_EventScript_WallysMom::
 # 132 "data/maps/PetalburgCity/scripts.pory"
-	msgbox PetalburgCity_Text_WhereIsWally
+	msgbox PetalburgCity_Text_WhereIsWally, MSGBOX_NPC
 	return
 
 
@@ -1269,31 +1269,32 @@ PetalburgCity_Text_FullPartyExplanation:
 	.string "Let's say you have six Pokémon.\n"
 	.string "If you catch another one…\p"
 	.string "It is automatically sent to a Storage\n"
-	.string "Box over a PC connection.$"
+	.string "You can choose one Pokémon to send to\n"
+	.string "a Storage Box.$"
 
 PetalburgCity_Text_GymSign:
-# 507 "data/maps/PetalburgCity/scripts.pory"
+# 508 "data/maps/PetalburgCity/scripts.pory"
 	.string "Petalburg City Pokémon Gym\n"
 	.string "Leader: Norman\l"
 	.string "“A man in pursuit of power!”$"
 
 PetalburgCity_Text_CitySign:
-# 513 "data/maps/PetalburgCity/scripts.pory"
+# 514 "data/maps/PetalburgCity/scripts.pory"
 	.string "Petalburg City\n"
 	.string "“Where people mingle with nature.”$"
 
 PetalburgCity_Text_WallyHouseSign:
-# 518 "data/maps/PetalburgCity/scripts.pory"
+# 519 "data/maps/PetalburgCity/scripts.pory"
 	.string "Wally's House$"
 
 PetalburgCity_Text_AreYouATrainer:
-# 522 "data/maps/PetalburgCity/scripts.pory"
+# 523 "data/maps/PetalburgCity/scripts.pory"
 	.string "Excuse me!\p"
 	.string "Let me guess, from the way you're\n"
 	.string "dressed, are you a Pokémon Trainer?$"
 
 PetalburgCity_Text_WellMaybeNot:
-# 528 "data/maps/PetalburgCity/scripts.pory"
+# 529 "data/maps/PetalburgCity/scripts.pory"
 	.string "… … … … … …\p"
 	.string "Well, maybe not.\n"
 	.string "Your clothes aren't all that dirty.\p"
@@ -1301,7 +1302,7 @@ PetalburgCity_Text_WellMaybeNot:
 	.string "or maybe you're just an ordinary kid.$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers:
-# 536 "data/maps/PetalburgCity/scripts.pory"
+# 537 "data/maps/PetalburgCity/scripts.pory"
 	.string "I'm roaming the land in search of\n"
 	.string "talented Trainers.\p"
 	.string "I'm sorry to have taken your time.$"

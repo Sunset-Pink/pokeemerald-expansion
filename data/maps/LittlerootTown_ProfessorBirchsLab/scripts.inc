@@ -619,62 +619,66 @@ BirchLab_PokedexEvent_GivePokedex:
 # 651 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	setflag FLAG_SYS_POKEDEX_GET
 # 652 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	special SetUnlockedPokedexFlags
+	setflag FLAG_SYS_NATIONAL_DEX
 # 653 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	special SetUnlockedPokedexFlags
+# 654 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	special EnableNationalPokedex
+# 655 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	return
 
 
 BirchLab_PokedexEvent_GiveStarterItems:
-# 663 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	giveitemfast ITEM_POKE_BALL, 99
-# 664 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	giveitemfast ITEM_QUICK_BALL, 99
 # 665 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	giveitemfast ITEM_POKE_BALL, 99
+# 666 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	giveitemfast ITEM_QUICK_BALL, 99
+# 667 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	giveitemfast ITEM_ORAN_BERRY, 10
-# 668 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	msgbox BirchLab_PokedexEvent_BirchBall_Text
-# 669 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
 # 670 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	msgbox BirchLab_PokedexEvent_RecievedBalls_Text
+	msgbox BirchLab_PokedexEvent_BirchBall_Text
 # 671 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	waitfanfare
-# 672 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	closemessage
-# 675 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	applymovement LOCALID_PLAYER, BirchLab_PokedexEvent_GiveStarterItems_Movement_0
-# 676 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	waitmovement 0
-# 679 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	msgbox BirchLab_PokedexEvent_RivalBerry_BeforeText
-# 680 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	waitmessage
-# 681 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 682 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	msgbox BirchLab_PokedexEvent_RecievedBerries_Text
-# 683 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 672 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox BirchLab_PokedexEvent_RecievedBalls_Text
+# 673 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	waitfanfare
-# 684 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 674 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	closemessage
+# 677 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	applymovement LOCALID_PLAYER, BirchLab_PokedexEvent_GiveStarterItems_Movement_0
+# 678 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	waitmovement 0
+# 681 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox BirchLab_PokedexEvent_RivalBerry_BeforeText
+# 682 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	waitmessage
+# 683 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 684 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	msgbox BirchLab_PokedexEvent_RecievedBerries_Text
+# 685 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	waitfanfare
 # 686 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	closemessage
+# 688 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	msgbox BirchLab_PokedexEvent_RivalBerry_AfterText
-# 687 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 689 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	waitmessage
 	return
 
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
-# 727 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	lockall
-# 728 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	pokenavcall LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall
 # 729 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	waitmessage
+	lockall
 # 730 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+	pokenavcall LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall
 # 731 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	waitmessage
+# 732 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+# 733 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	releaseall
 	end
 
@@ -727,9 +731,9 @@ BirchLab_PokedexEvent_EmphasisBirchBeforeTalking_Movement_0:
 	walk_in_place_faster_down
 	step_end
 
-# 675 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 677 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 BirchLab_PokedexEvent_GiveStarterItems_Movement_0:
-# 675 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 677 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	face_left
 	step_end
 
@@ -1104,28 +1108,28 @@ LittlerootTown_ProfessorBirchsLab_Text_BetterLeaveOthersAlone:
 	.string "Better leave the others alone.$"
 
 BirchLab_PokedexEvent_ReceivedPokedex_Text:
-# 657 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 659 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "{PLAYER} received the PokéDex!$"
 
 BirchLab_PokedexEvent_BirchBall_Text:
-# 692 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 694 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Oh, also {PLAYER}{KUN},\n"
 	.string "these will help get you started\l"
 	.string "on completing the PokéDex.$"
 
 BirchLab_PokedexEvent_RecievedBalls_Text:
-# 698 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 700 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "{PLAYER} received 99 Poké Balls\n"
 	.string "and 99 Quick Balls!$"
 
 BirchLab_PokedexEvent_RivalBerry_BeforeText:
-# 703 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 705 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "{RIVAL}: Take these as a gift from me.\n"
 	.string "They can be suprisingly helpful\l"
 	.string "in a battle.$"
 
 BirchLab_PokedexEvent_RivalBerry_AfterText:
-# 708 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 710 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Remember though, while most held\n"
 	.string "items are returned after battle,\l"
 	.string "berries are not.\p"
@@ -1133,17 +1137,17 @@ BirchLab_PokedexEvent_RivalBerry_AfterText:
 	.string "easy to grow more of!$"
 
 BirchLab_PokedexEvent_RecievedBerries_Text:
-# 716 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 718 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "{PLAYER} received 10 Oran Berries.$"
 
 BirchLab_PokedexEvent_GoodLuckOnYourAdventure:
-# 720 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 722 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Prof Birch: Well thats all the gifts\n"
 	.string "your Mom and I prepared, and then some.\p"
 	.string "Now, good luck on your Pokémon journey.\n$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
-# 735 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+# 737 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "… … … … … …\n"
 	.string "… … … … … Beep!\p"
 	.string "Scott: Hi, hi, {PLAYER}!\n"

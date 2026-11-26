@@ -483,24 +483,24 @@ text(local) LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex 
 	"{RIVAL} has an extensive history as\n"
 	"a Trainer already.\p"
 	"Here, {PLAYER}{KUN}, as promised\n"
-	"here is a Pok\eDex for you."
+	"here is a Pok\edex for you."
 }
 
 text(local) LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex {
-	"Prof. Birch: The Pok\eDex is a high-tech\n"
+	"Prof. Birch: The Pok\edex is a high-tech\n"
 	"tool that automatically makes a record\l"
 	"of any Pok\emon you meet or catch.\p"
 	"My kid, {RIVAL}, goes everywhere\n"
 	"with it.\p"
 	"Whenever my kid catches a rare Pok\emon\n"
-	"and records its data in the Pok\eDex,\l"
+	"and records its data in the Pok\edex,\l"
 	"why, {RIVAL} looks for me while I'm out\l"
 	"doing fieldwork, and shows me."
 }
 
 text(local) LittlerootTown_ProfessorBirchsLab_Text_MayGotPokedexTooTakeThese {
 	"May: Oh, wow, {PLAYER}{KUN}!\n"
-	"You got a Pok\eDex, too!\p"
+	"You got a Pok\edex, too!\p"
 	"That's great! Just like me!\n"
 	"I've got something for you, too!"
 }
@@ -525,7 +525,7 @@ text(local) LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext {
 
 text(local) LittlerootTown_ProfessorBirchsLab_Text_BrendanGotPokedexTooTakeThese {
 	"Brendan: Huh\.\n"
-	"So you got a Pok\eDex, too.\p"
+	"So you got a Pok\edex, too.\p"
 	"Well then, here.\n"
 	"I'll give you these."
 }
@@ -561,19 +561,19 @@ text(local) LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational
 	"the natural environments of Hoenn\l"
 	"happen to be.\p"
 	"That's why I think it's necessary for\n"
-	"me to upgrade your Pok\eDex to\l"
+	"me to upgrade your Pok\edex to\l"
 	"the National Mode.\p"
-	"Here, let me see your Pok\eDex units."
+	"Here, let me see your Pok\edex units."
 }
 
 text(local) LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon {
 	"Prof. Birch: Oh, {PLAYER}{KUN}!\n"
-	"Let's have a look at your Pok\eDex.\p"
+	"Let's have a look at your Pok\edex.\p"
 	"\. \. \. \. \. \.\n"
 	"\. \. \. \. \. \.\p"
 	"Yes, there's no doubt about it.\p"
 	"You really have completed the Hoenn\n"
-	"region's Pok\eDex.\p"
+	"region's Pok\edex.\p"
 	"That's more than just impressive.\p"
 	"I have a gift for you.\p"
 	"Consider it my show of appreciation\n"
@@ -586,7 +586,7 @@ text(local) LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon {
 
 text(local) LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting {
 	"Prof. Birch: Listen, {PLAYER}{KUN}.\n"
-	"You've completed the Hoenn Pok\eDex,\l"
+	"You've completed the Hoenn Pok\edex,\l"
 	"but your Pok\emon journey isn't over.\p"
 	"There is no end to the road\n"
 	"that is Pok\emon.\p"
@@ -649,13 +649,15 @@ script(local) BirchLab_PokedexEvent_GivePokedex {
 
 	// Set appropriate flags
 	setflag(FLAG_SYS_POKEDEX_GET) // Unlock Pokedex menu option
+	setflag(FLAG_SYS_NATIONAL_DEX)
 	special(SetUnlockedPokedexFlags)
+	special(EnableNationalPokedex)
 	setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
 
 	return
 }
 text(local) BirchLab_PokedexEvent_ReceivedPokedex_Text {
-	"{PLAYER} received the Pok\eDex!"
+	"{PLAYER} received the Pok\edex!"
 }
 
 script(local) BirchLab_PokedexEvent_GiveStarterItems {
@@ -692,7 +694,7 @@ script(local) BirchLab_PokedexEvent_GiveStarterItems {
 text(local) BirchLab_PokedexEvent_BirchBall_Text {
 	"Oh, also {PLAYER}{KUN},\n"
 	"these will help get you started\l"
-	"on completing the Pok\eDex."
+	"on completing the Pok\edex."
 }
 
 text(local) BirchLab_PokedexEvent_RecievedBalls_Text {

@@ -142,8 +142,6 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
     enum Species finalSpecies = trainerMon->species;
     u32 finalLevel = 100;
 
-    
-
     if(trainerMon->lvl == 101) {
         // Set to cap
         finalLevel = GetCurrentLevelCap();
@@ -164,9 +162,28 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         if(GetCurrentDifficultyLevel() == DIFFICULTY_EASY) {
             finalLevel -= 2;
         }
-
         // TODO: Add evolution scaling.
+        bool8 canEvolve = TRUE;
+        do {
+            enum Species currentSpecies = finalSpecies;
+            const struct Evolution *evolutions = GetSpeciesEvolutions(finalSpecies);
+            if(evolutions == NULL) {
+                break;
+            }
+            for(int i = 0; evolutions[i].method != EVOLUTIONS_END; i++) {
+                if(SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE) {
+                    continue;
+                }
+                if(evolutions[i].method == EVO_LEVEL && evolutions[i].param <= finalLevel) {
+                    finalSpecies = evolutions[i].targetSpecies;
+                }
+            }
+            if(currentSpecies == finalSpecies) {
+                break;
+            }
+        } while(canEvolve);
 
+        
     } else {
         finalLevel = trainerMon->lvl;
     }
